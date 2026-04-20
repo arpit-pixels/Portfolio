@@ -1,10 +1,10 @@
 /* ─── DATA FOR WSUP.AI CASE STUDY — based on live product analysis ───── */
 
 export const STATS = [
-  { n: "1M+", label: "Monthly visits" },
-  { n: "500K+", label: "Android downloads" },
-  { n: "3.9★", label: "App Store rating" },
-  { n: "20+", label: "Content categories" },
+  { n: "1M+", label: "Monthly visits", src: "Semrush · Mar 2026" },
+  { n: "17 min", label: "Avg session", src: "Semrush · Mar 2026" },
+  { n: "3.9★", label: "App Store rating", src: "App Store" },
+  { n: "20+", label: "Content categories", src: "Live product" },
 ];
 
 export const PROBLEMS = [

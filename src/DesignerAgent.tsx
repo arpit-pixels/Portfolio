@@ -123,7 +123,7 @@ export default function DesignerAgent() {
           <div className="cs-role-item"><span className="cs-role-label">My role</span>Built, trained, and maintain the agent end to end — architecture, knowledge schema, prompt engineering, and ongoing corrections.</div>
           <div className="cs-role-item"><span className="cs-role-label">Stack</span>Claude Code · Figma MCP · Next.js · Tailwind · Custom knowledge files (.md)</div>
           <div className="cs-role-item"><span className="cs-role-label">Timeline</span>Built Jan–Apr 2026 · 9 sessions · Actively running in production</div>
-          <div className="cs-role-item"><span className="cs-role-label">Product</span><a href="https://wsup.ai" target="_blank" rel="noopener noreferrer" style={{ color: "var(--blue)" }}>wsup.ai</a> — AI chat platform (like Character.ai), 500K+ users</div>
+          <div className="cs-role-item"><span className="cs-role-label">Product</span><a href="https://wsup.ai" target="_blank" rel="noopener noreferrer" style={{ color: "var(--blue)" }}>wsup.ai</a> — AI chat platform (like Character.ai), 1M+ monthly visits</div>
         </div>
         <div className="cs-meta-row">
           <div className="cs-meta"><span className="cs-mn">62</span><span className="cs-ml">Components</span></div>

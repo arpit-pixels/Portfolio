@@ -59,9 +59,9 @@ export default function NowggCaseStudy() {
           <div className="cs-role-item"><span className="cs-role-label">Scale</span>100M+ users · ~10M monthly visits · 1,000+ games · Multi-device (PC, Mac, Chromebook, tablet)</div>
         </div>
         <div className="cs-meta-row">
-          <div className="cs-meta"><span className="cs-mn">100M+</span><span className="cs-ml">Cloud gaming users</span></div>
-          <div className="cs-meta"><span className="cs-mn">~10M</span><span className="cs-ml">Monthly visits</span></div>
-          <div className="cs-meta"><span className="cs-mn">1,000+</span><span className="cs-ml">Games in library</span></div>
+          <div className="cs-meta"><span className="cs-mn">100M+</span><span className="cs-ml">Cloud gaming users</span><span className="cs-src">via PR Newswire · Mar 2024</span></div>
+          <div className="cs-meta"><span className="cs-mn">~10M</span><span className="cs-ml">Monthly visits</span><span className="cs-src">via company data</span></div>
+          <div className="cs-meta"><span className="cs-mn">1,000+</span><span className="cs-ml">Games in library</span><span className="cs-src">via now.gg catalog</span></div>
           <div className="cs-meta"><span className="cs-mn">0 installs</span><span className="cs-ml">Play instantly in browser</span></div>
         </div>
       </header>
@@ -165,9 +165,9 @@ export default function NowggCaseStudy() {
         <div className="cs-sec-head"><span className="stag">06 / IMPACT</span></div>
         <h2 className="cs-h2">Making cloud gaming<br />feel <em>instant</em></h2>
         <div className="cs-result-grid">
-          <div className="cs-result"><div className="cs-result-n">100M+</div><div className="cs-result-l">Cloud gaming users — platform scaled while UX stayed consistent</div></div>
-          <div className="cs-result"><div className="cs-result-n">~10M</div><div className="cs-result-l">Monthly visits — discovery-first design drives repeat usage</div></div>
-          <div className="cs-result"><div className="cs-result-n">1,000+</div><div className="cs-result-l">Games browsable through a structured three-layer system</div></div>
+          <div className="cs-result"><div className="cs-result-n">100M+</div><div className="cs-result-l">Cloud gaming users — platform scaled while UX stayed consistent</div><div className="cs-src">via PR Newswire · Mar 2024</div></div>
+          <div className="cs-result"><div className="cs-result-n">~10M</div><div className="cs-result-l">Monthly visits — discovery-first design drives repeat usage</div><div className="cs-src">via company data</div></div>
+          <div className="cs-result"><div className="cs-result-n">1,000+</div><div className="cs-result-l">Games browsable through a structured three-layer system</div><div className="cs-src">via now.gg catalog</div></div>
           <div className="cs-result"><div className="cs-result-n">0 installs</div><div className="cs-result-l">Click-to-play UX — instant in browser on any device</div></div>
         </div>
         <div className="wsup-quotes" style={{ marginTop: 24 }}>

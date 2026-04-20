@@ -25,6 +25,7 @@ dist-ssr
 
 # Personal / dev-time artifacts
 cv-update.md
+cv-build/
 audit/
 home-mobile.png
 da-mobile.png

@@ -59,10 +59,10 @@ export default function GametvCaseStudy() {
           <div className="cs-role-item"><span className="cs-role-label">Scale</span>11M+ tournament registrations · 5M+ downloads · 190K+ guilds · 300+ game titles · 17+ countries</div>
         </div>
         <div className="cs-meta-row">
-          <div className="cs-meta"><span className="cs-mn">11M+</span><span className="cs-ml">Tournament registrations</span></div>
-          <div className="cs-meta"><span className="cs-mn">5M+</span><span className="cs-ml">App downloads</span></div>
-          <div className="cs-meta"><span className="cs-mn">190K+</span><span className="cs-ml">Gaming guilds</span></div>
-          <div className="cs-meta"><span className="cs-mn">17+</span><span className="cs-ml">Countries</span></div>
+          <div className="cs-meta"><span className="cs-mn">11M+</span><span className="cs-ml">Tournament registrations</span><span className="cs-src">via company data</span></div>
+          <div className="cs-meta"><span className="cs-mn">5M+</span><span className="cs-ml">App downloads</span><span className="cs-src">via company data</span></div>
+          <div className="cs-meta"><span className="cs-mn">190K+</span><span className="cs-ml">Gaming guilds</span><span className="cs-src">via company data</span></div>
+          <div className="cs-meta"><span className="cs-mn">17+</span><span className="cs-ml">Countries</span><span className="cs-src">via company data</span></div>
         </div>
       </header>
 
@@ -174,10 +174,10 @@ export default function GametvCaseStudy() {
         <div className="cs-sec-head"><span className="stag">06 / IMPACT</span></div>
         <h2 className="cs-h2">From esports tool<br />to global <em>creator</em> platform</h2>
         <div className="cs-result-grid">
-          <div className="cs-result"><div className="cs-result-n">11M+</div><div className="cs-result-l">Tournament registrations — #1 mobile esports platform globally</div></div>
-          <div className="cs-result"><div className="cs-result-n">5M+</div><div className="cs-result-l">App downloads — creator tools drove organic growth</div></div>
-          <div className="cs-result"><div className="cs-result-n">190K+</div><div className="cs-result-l">Gaming guilds — simplified creation (3 steps) cut drop-off in half</div></div>
-          <div className="cs-result"><div className="cs-result-n">$25M</div><div className="cs-result-l">Funding raised — design execution was part of the investor story</div></div>
+          <div className="cs-result"><div className="cs-result-n">11M+</div><div className="cs-result-l">Tournament registrations — #1 mobile esports platform globally</div><div className="cs-src">via company data</div></div>
+          <div className="cs-result"><div className="cs-result-n">5M+</div><div className="cs-result-l">App downloads — creator tools drove organic growth</div><div className="cs-src">via company data</div></div>
+          <div className="cs-result"><div className="cs-result-n">190K+</div><div className="cs-result-l">Gaming guilds — simplified creation (3 steps) cut drop-off in half</div><div className="cs-src">via company data</div></div>
+          <div className="cs-result"><div className="cs-result-n">$25M</div><div className="cs-result-l">Funding raised — design execution was part of the investor story</div><div className="cs-src">via Crunchbase · Dec 2019</div></div>
         </div>
         <div className="wsup-quotes" style={{ marginTop: 24 }}>
           <div className="wsup-quote"><p className="wsup-quote-text">"game.tv hosts one tournament every minute, becoming the go-to place for amateur gamers"</p><span className="wsup-quote-source">— PR Newswire</span></div>

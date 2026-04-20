@@ -59,10 +59,10 @@ export default function BluestacksCaseStudy() {
           <div className="cs-role-item"><span className="cs-role-label">Scale</span>500M+ users · 1B+ downloads · 2M+ Android games · #1 Android emulator globally</div>
         </div>
         <div className="cs-meta-row">
-          <div className="cs-meta"><span className="cs-mn">500M+</span><span className="cs-ml">Users worldwide</span></div>
-          <div className="cs-meta"><span className="cs-mn">1B+</span><span className="cs-ml">Downloads</span></div>
-          <div className="cs-meta"><span className="cs-mn">2M+</span><span className="cs-ml">Games available</span></div>
-          <div className="cs-meta"><span className="cs-mn">#1</span><span className="cs-ml">Android emulator</span></div>
+          <div className="cs-meta"><span className="cs-mn">500M+</span><span className="cs-ml">Users worldwide</span><span className="cs-src">via BlueStacks press · 2021</span></div>
+          <div className="cs-meta"><span className="cs-mn">1B+</span><span className="cs-ml">Downloads</span><span className="cs-src">via PR Newswire · 2021</span></div>
+          <div className="cs-meta"><span className="cs-mn">2M+</span><span className="cs-ml">Games available</span><span className="cs-src">via bluestacks.com</span></div>
+          <div className="cs-meta"><span className="cs-mn">#1</span><span className="cs-ml">Android emulator</span><span className="cs-src">industry consensus</span></div>
         </div>
       </header>
 
@@ -171,9 +171,9 @@ export default function BluestacksCaseStudy() {
         <div className="cs-sec-head"><span className="stag">06 / IMPACT</span></div>
         <h2 className="cs-h2">Design at the <em>scale</em><br />of half a billion users</h2>
         <div className="cs-result-grid">
-          <div className="cs-result"><div className="cs-result-n">500M+</div><div className="cs-result-l">Users — largest mobile gaming community in the world</div></div>
-          <div className="cs-result"><div className="cs-result-n">1B+</div><div className="cs-result-l">Total downloads across all versions</div></div>
-          <div className="cs-result"><div className="cs-result-n">#1</div><div className="cs-result-l">Android emulator globally — maintained through multiple redesigns</div></div>
+          <div className="cs-result"><div className="cs-result-n">500M+</div><div className="cs-result-l">Users — largest mobile gaming community in the world</div><div className="cs-src">via BlueStacks press · 2021</div></div>
+          <div className="cs-result"><div className="cs-result-n">1B+</div><div className="cs-result-l">Total downloads across all versions</div><div className="cs-src">via PR Newswire · 2021</div></div>
+          <div className="cs-result"><div className="cs-result-n">#1</div><div className="cs-result-l">Android emulator globally — maintained through multiple redesigns</div><div className="cs-src">industry consensus</div></div>
           <div className="cs-result"><div className="cs-result-n">3 products</div><div className="cs-result-l">Unified UX across App Player, Cloud (X), and Mac (Air)</div></div>
         </div>
         <div className="wsup-quotes" style={{ marginTop: 24 }}>

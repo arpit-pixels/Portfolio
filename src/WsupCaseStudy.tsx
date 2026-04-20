@@ -46,7 +46,7 @@ export default function WsupCaseStudy() {
           <div className="cs-role-item"><span className="cs-role-label">Team</span>PM (Ashish Pathak) · APM (Arastu Kumar) · Engineering team</div>
         </div>
         <div className="cs-meta-row">
-          {STATS.map((s, i) => <div key={i} className="cs-meta"><span className="cs-mn">{s.n}</span><span className="cs-ml">{s.label}</span></div>)}
+          {STATS.map((s, i) => <div key={i} className="cs-meta"><span className="cs-mn">{s.n}</span><span className="cs-ml">{s.label}</span><span className="cs-src">via {s.src}</span></div>)}
         </div>
       </header>
 
@@ -62,7 +62,7 @@ export default function WsupCaseStudy() {
         <h2 className="cs-h2">A product growing faster<br />than its <em>design</em></h2>
         <div className="cs-two-col">
           <div>
-            <p className="cs-p">wsup.ai was gaining traction — 500K+ downloads, users in the US and Japan. But the experience had gaps. New users landed on a content-heavy dark page with no guidance. 20+ character categories were flat. The credit system interrupted chat. Desktop had dead space.</p>
+            <p className="cs-p">wsup.ai was gaining traction — 1M+ monthly visits, users across the US, Czechia, and UK. But the experience had gaps. New users landed on a content-heavy dark page with no guidance. 20+ character categories were flat. The credit system interrupted chat. Desktop had dead space.</p>
             <p className="cs-p">The product had features. It didn't have a design language.</p>
           </div>
           <div className="cs-problem-list">
@@ -202,10 +202,10 @@ export default function WsupCaseStudy() {
         <div className="cs-sec-head"><span className="stag">06 / IMPACT</span></div>
         <h2 className="cs-h2">From fragmented product<br />to <em>coherent</em> experience</h2>
         <div className="cs-result-grid">
-          <div className="cs-result"><div className="cs-result-n">1M+</div><div className="cs-result-l">Monthly visits — design stayed consistent as product scaled</div></div>
-          <div className="cs-result"><div className="cs-result-n">500K+</div><div className="cs-result-l">Downloads — system supports web, iOS, and Android</div></div>
-          <div className="cs-result"><div className="cs-result-n">3.9★</div><div className="cs-result-l">App Store rating</div></div>
-          <div className="cs-result"><div className="cs-result-n">&lt;30s</div><div className="cs-result-l">First visit to first chat</div></div>
+          <div className="cs-result"><div className="cs-result-n">1M+</div><div className="cs-result-l">Monthly visits — design stayed consistent as product scaled</div><div className="cs-src">via Semrush · Mar 2026</div></div>
+          <div className="cs-result"><div className="cs-result-n">17 min</div><div className="cs-result-l">Avg session — engagement metric across web + mobile</div><div className="cs-src">via Semrush · Mar 2026</div></div>
+          <div className="cs-result"><div className="cs-result-n">3.9★</div><div className="cs-result-l">App Store rating</div><div className="cs-src">via App Store</div></div>
+          <div className="cs-result"><div className="cs-result-n">&lt;30s</div><div className="cs-result-l">First visit to first chat</div><div className="cs-src">via live flow</div></div>
         </div>
         {/* User quotes */}
         <div className="wsup-quotes">

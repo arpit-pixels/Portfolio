@@ -249,6 +249,9 @@ nav { position:fixed; top:0; left:0; right:0; height:58px; padding:0 40px; displ
 .cs-meta { display:flex; flex-direction:column; gap:4px; }
 .cs-mn { font-family:'Fraunces',serif; font-size:var(--fs-xl); font-weight:700; color:var(--ink); }
 .cs-ml { font-size:var(--fs-xs); color:var(--muted); }
+.cs-src { font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); letter-spacing:.02em; margin-top:4px; opacity:.6; display:block; }
+.cs-result .cs-src { margin-top:10px; }
+.cs-sec-dark .cs-src { color:rgba(255,255,255,.45); }
 
 .cs-sec { max-width:800px; margin:0 auto; padding:60px 40px; border-top:1px solid var(--border); opacity:0; transform:translateY(16px); transition:all .6s ease; }
 .cs-sec.vis { opacity:1; transform:translateY(0); }
