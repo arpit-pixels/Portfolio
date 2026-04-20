@@ -54,7 +54,7 @@ export default function GametvCaseStudy() {
         <p className="cs-sub">game.tv powers a tournament every 60 seconds across 17 countries. I designed the creator experience — from tournament hosting to content monetization to community building.</p>
         <div className="cs-role-row">
           <div className="cs-role-item"><span className="cs-role-label">My role</span>Product Designer — creator onboarding, tournament UX, content creation tools, community features, NFT marketplace</div>
-          <div className="cs-role-item"><span className="cs-role-label">Product</span><a href="https://game.tv" target="_blank" rel="noopener noreferrer" style={{ color: "var(--blue)" }}>game.tv</a> — mobile esports + creator platform · $25M funded · 17 countries</div>
+          <div className="cs-role-item"><span className="cs-role-label">Product</span><a href="https://game.tv" target="_blank" rel="noopener noreferrer" style={{ color: "var(--blue)" }}>game.tv</a> — mobile esports + creator platform · <a href="https://www.crunchbase.com/funding_round/game-tv-series-a--b764e298" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", borderBottom: "1px dotted currentColor" }}>$25M raised (Series A, Dec 2019)</a> · 17 countries</div>
           <div className="cs-role-item"><span className="cs-role-label">Timeline</span>2019–2022 · From esports platform to creator economy</div>
           <div className="cs-role-item"><span className="cs-role-label">Scale</span>11M+ tournament registrations · 5M+ downloads · 190K+ guilds · 300+ game titles · 17+ countries</div>
         </div>

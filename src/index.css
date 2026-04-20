@@ -245,9 +245,9 @@ nav { position:fixed; top:0; left:0; right:0; height:58px; padding:0 40px; displ
 .cs-role-item { font-size:var(--fs-sm); line-height:var(--lh-body); color:var(--muted); }
 .cs-role-label { display:block; font-family:'DM Mono',monospace; font-size:11px; font-weight:600; color:var(--ink); text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px; }
 .cs-lab-note { font-size:var(--fs-xs); color:var(--muted); font-style:italic; margin-bottom:16px; opacity:.7; }
-.cs-meta-row { display:flex; gap:32px; margin-top:40px; flex-wrap:wrap; }
+.cs-meta-row { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; margin-top:40px; align-items:start; }
 .cs-meta { display:flex; flex-direction:column; gap:4px; }
-.cs-mn { font-family:'Fraunces',serif; font-size:var(--fs-xl); font-weight:700; color:var(--ink); }
+.cs-mn { font-family:'Fraunces',serif; font-size:var(--fs-xl); font-weight:700; color:var(--ink); line-height:1.1; }
 .cs-ml { font-size:var(--fs-xs); color:var(--muted); }
 .cs-src { font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); letter-spacing:.02em; margin-top:4px; opacity:.6; display:block; }
 .cs-result .cs-src { margin-top:10px; }
