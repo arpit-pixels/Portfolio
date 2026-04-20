@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { STATS, PROBLEMS, COMPETITORS, JOURNEYS, SCREEN_DECISIONS, TOKENS, TEXT_HIERARCHY, USER_QUOTES, PROCESS, WHAT_FAILED, LEARNINGS } from "./wsup-case-study-data";
+import { STATS, PROBLEMS, COMPETITORS, JOURNEYS, TOKENS, TEXT_HIERARCHY, USER_QUOTES, PROCESS, WHAT_FAILED, LEARNINGS } from "./wsup-case-study-data";
 
 function useR(d = 0) {
   const r = useRef<HTMLDivElement>(null);
