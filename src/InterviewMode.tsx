@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, useRef, ReactNode, Fragment } from "react";
+import { createContext, useContext, useState, useEffect, useRef, Fragment, type ReactNode } from "react";
 
 export type PillFollowup = { q: string; a: string };
 export type PillSpec = { after: string; q: string; a: string; followups?: PillFollowup[] };
