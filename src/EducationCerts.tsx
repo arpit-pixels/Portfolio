@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createPortal } from "react-dom";
 
 const EDU = [
   {
@@ -16,32 +17,32 @@ const EDU = [
 const CERTS = [
   {
     img: "/cs/certs/iitd-design-thinking.png",
-    inst: "Indian Institute of Technology Delhi",
+    label: "IIT Delhi · 2021",
     course: "Design Thinking and Innovation",
-    year: "2021",
-    meta: "Continuing Education Programme · Centre for Rural Development & Technology",
-    verify: null,
+    meta: "Design thinking applied to social-impact problems",
   },
   {
     img: "/cs/certs/ixdf-design-thinking.png",
-    inst: "Interaction Design Foundation",
+    label: "IxDF · 2019",
     course: "Design Thinking: The Beginner's Guide",
-    year: "2019",
     meta: "Distinction — Top 10% in class",
-    verify: "https://www.ixdf.org/members/arpit-yadav",
   },
   {
     img: "/cs/certs/ixdf-mobile-ux.png",
-    inst: "Interaction Design Foundation",
+    label: "IxDF · 2017",
     course: "Mobile User Experience (UX) Design",
-    year: "2017",
-    meta: "Early UX foundations — picked up alongside iOS work at Altran",
-    verify: "https://www.ixdf.org/members/arpit-yadav",
+    meta: "Where the iOS-to-UX pivot started",
   },
 ];
 
 export default function EducationCerts() {
-  const [zoom, setZoom] = useState<string | null>(null);
+  const [zoom, setZoom] = useState<number | null>(null);
+
+  const close = () => setZoom(null);
+  const prev = () =>
+    setZoom((z) => (z === null ? null : (z - 1 + CERTS.length) % CERTS.length));
+  const next = () =>
+    setZoom((z) => (z === null ? null : (z + 1) % CERTS.length));
 
   return (
     <section id="education" className="sec">
@@ -69,43 +70,61 @@ export default function EducationCerts() {
             <button
               type="button"
               className="cert-thumb"
-              onClick={() => setZoom(c.img)}
+              onClick={() => setZoom(i)}
               aria-label={`Open ${c.course} certificate`}
             >
               <img src={c.img} alt={`${c.course} certificate`} />
             </button>
             <div className="cert-body">
-              <div className="cert-inst">{c.inst}</div>
+              <div className="cert-label">{c.label}</div>
               <div className="cert-course">{c.course}</div>
-              <div className="cert-year">{c.year}</div>
               <div className="cert-meta">{c.meta}</div>
-              {c.verify && (
-                <a
-                  href={c.verify}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="cert-verify"
-                >
-                  Verify →
-                </a>
-              )}
             </div>
           </div>
         ))}
       </div>
 
-      {zoom && (
-        <div className="cert-lightbox" onClick={() => setZoom(null)}>
+      {zoom !== null && createPortal(
+        <div className="cert-lightbox" onClick={close}>
           <button
             type="button"
             className="cert-lightbox-close"
-            onClick={() => setZoom(null)}
+            onClick={close}
             aria-label="Close"
           >
             ×
           </button>
-          <img src={zoom} alt="Certificate" onClick={(e) => e.stopPropagation()} />
-        </div>
+          <button
+            type="button"
+            className="cert-lightbox-nav cert-lightbox-prev"
+            onClick={(e) => {
+              e.stopPropagation();
+              prev();
+            }}
+            aria-label="Previous certificate"
+          >
+            ‹
+          </button>
+          <button
+            type="button"
+            className="cert-lightbox-nav cert-lightbox-next"
+            onClick={(e) => {
+              e.stopPropagation();
+              next();
+            }}
+            aria-label="Next certificate"
+          >
+            ›
+          </button>
+          <div className="cert-lightbox-inner" onClick={(e) => e.stopPropagation()}>
+            <img src={CERTS[zoom].img} alt={CERTS[zoom].course} />
+            <div className="cert-lightbox-caption">
+              <div className="cert-lightbox-label">{CERTS[zoom].label}</div>
+              <div className="cert-lightbox-course">{CERTS[zoom].course}</div>
+            </div>
+          </div>
+        </div>,
+        document.body
       )}
     </section>
   );
