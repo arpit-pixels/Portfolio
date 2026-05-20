@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import EducationCerts from "./EducationCerts";
 
 /* ─── GRAIN TEXTURE ───────────────────────────────────────────────────── */
 
@@ -255,10 +256,12 @@ export default function Portfolio() {
           </div>
         </section>
 
+        <EducationCerts />
+
         <section id="stack" className="sec">
           <div className="shead">
             <h2 className="sh2" ref={sh2s}>Tools & <em>stack</em></h2>
-            <span className="stag">04 / STACK</span>
+            <span className="stag">05 / STACK</span>
           </div>
           <div className="skgrid">
             {STACK.map(([ic, nm, desc], i) => (
