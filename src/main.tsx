@@ -8,7 +8,6 @@ import RedditAgent from './RedditAgent.tsx'
 import WsupCaseStudy from './WsupCaseStudy.tsx'
 import NowggCaseStudy from './NowggCaseStudy.tsx'
 import BluestacksCaseStudy from './BluestacksCaseStudy.tsx'
-import GametvCaseStudy from './GametvCaseStudy.tsx'
 
 const scrollPositions: Record<string, number> = {};
 
@@ -33,7 +32,6 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/wsup-design" element={<WsupCaseStudy />} />
         <Route path="/nowgg" element={<NowggCaseStudy />} />
         <Route path="/bluestacks" element={<BluestacksCaseStudy />} />
-        <Route path="/gametv" element={<GametvCaseStudy />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

@@ -1,83 +1,112 @@
-/* ─── DATA FOR WSUP.AI CASE STUDY — based on live product analysis ───── */
+/* ─── MAIN ORCHESTRATOR — wsup.ai case study data ────
+   Brief, top-line stats, funnel + business outcomes live here.
+   Detailed content is split across:
+     - wsup-cs-research-data.ts   (research methods, competitors, findings)
+     - wsup-cs-personas-data.ts   (5 behavioral personas)
+     - wsup-cs-ideation-data.ts   (ideation boards, feature origin map)
+     - wsup-cs-system-data.ts     (principles, tokens, text hierarchy, journeys)
+     - wsup-cs-process-data.ts    (process phases, what failed, learnings, reflection)
+*/
 
-export const STATS = [
-  { n: "1M+", label: "Monthly visits", src: "Semrush · Mar 2026" },
-  { n: "17 min", label: "Avg session", src: "Semrush · Mar 2026" },
-  { n: "3.9★", label: "App Store rating", src: "App Store" },
-  { n: "20+", label: "Content categories", src: "Live product" },
-];
-
-export const PROBLEMS = [
-  { icon: "✗", text: "No onboarding — users dropped into a dark, content-heavy page with no guidance", solved: false },
-  { icon: "✗", text: "Discovery was flat — 20+ character categories with no hierarchy or personalization", solved: false },
-  { icon: "✗", text: "Dark theme readability — text was inconsistent, some copy vanished against dark surfaces", solved: false },
-  { icon: "✗", text: "Monetization friction — credit prompts interrupted the core chat experience", solved: false },
-  { icon: "✗", text: "Desktop felt empty — sidebar + header + content area with too much dead space", solved: false },
-  { icon: "✓", text: "Designed a system that solves all five — from first visit through daily retention", solved: true },
-];
-
-export const COMPETITORS = [
-  { name: "Character.ai", strength: "Largest user base, strong moderation, polished chat", gap: "Desktop is stretched mobile. Rigid content filters frustrate creative users. No creator monetization." },
-  { name: "Replika", strength: "Deep emotional companion model, strong retention", gap: "Single-character only. No discovery, no social features, no creator ecosystem." },
-  { name: "Janitor AI", strength: "Maximum customization, developer-friendly", gap: "Overwhelming UI, no visual system. Feels like a dev tool, not a consumer product." },
-  { name: "Talkie AI", strength: "Polished interface, strong character personality engine", gap: "Heavy onboarding. Creator tools are limited. Discovery feels algorithmic, not explorable." },
-  { name: "Joyland AI", strength: "Visual novel approach, structured storytelling", gap: "Limited chat flexibility. Niche audience. Desktop experience is an afterthought." },
-];
-
-export const JOURNEYS = [
-  { name: "First visit → First chat", desc: "Gender + age onboarding (2 taps) → Explore grid → Category tabs → Tap character → Chat. Under 30 seconds to first message.", why: "Zero-friction entry is wsup.ai's core differentiator. Every extra step costs users." },
-  { name: "Discovery → Engagement", desc: "20+ category tabs (Recommended, Anime, Romantic, Fantasy...) → Character cards with rank + chat count as social proof → SPICY toggle for content filtering", why: "Categories need to feel browsable, not overwhelming. Horizontal scroll keeps them accessible without eating vertical space." },
-  { name: "Free user → Paying user", desc: "50 free daily credits → In-chat prompts for premium features → Daily check-in streak rewards → Credit purchase flow", why: "Monetization should feel like unlocking more, not hitting a wall. Credits popup uses streaks to build habit." },
-  { name: "Consumer → Creator", desc: "Sidebar: Create Character + Create a Story → Persona builder → AI image generation → Publish to explore grid", why: "The sidebar makes creation a first-class action, not buried in settings. Creator tools visible from every page." },
-];
-
-export const SCREEN_DECISIONS = [
-  { screen: "Explore", decision: "Category tabs as horizontal scroll, not dropdown", reasoning: "20+ categories need to be scannable at a glance. Dropdown hides options. Horizontal scroll with the active tab highlighted lets users browse without committing." },
-  { screen: "Explore", decision: "Character cards show rank + chat count", reasoning: "Social proof drives discovery in a content-heavy platform. A card with '#1279 Rank · 2.0K Chats' tells users 'others trust this character' without requiring a click." },
-  { screen: "Chat", decision: "Character profile in right sidebar, not a separate page", reasoning: "Context switching kills chat immersion. The right sidebar shows character details, 'View Profile' and subscription options without leaving the conversation." },
-  { screen: "Sidebar", decision: "Recent chats + Group chat in persistent sidebar", reasoning: "Users return to specific characters. Making recent chats always visible turns the sidebar into a relationship manager, not just navigation." },
-  { screen: "Onboarding", decision: "Gender + age only, pre-selected defaults", reasoning: "The modal pre-selects Male + 21-23 so users can tap Continue immediately. Two fields, one button, under 5 seconds. Anything more and the 'no sign-up' promise breaks." },
-  { screen: "Credits", decision: "Daily check-in streak with escalating rewards", reasoning: "A streak counter (Day 5 → 7 days to level up) builds daily habit. Claim buttons for chat, story creation, image gen — each reward teaches a feature." },
-];
-
-export const TOKENS = [
-  { category: "Colors", count: "90+", detail: "Text hierarchy, surfaces, status, credits, forms" },
-  { category: "Spacing", count: "14", detail: "8px grid — 2px to 80px" },
-  { category: "Radius", count: "4", detail: "pill · popup · card · button" },
-  { category: "Shadows", count: "6", detail: "Calibrated for dark surfaces" },
-];
-
-export const TEXT_HIERARCHY = [
-  { level: "title", opacity: "100%", color: "#ffffff", use: "Character names, headings" },
-  { level: "subtitle", opacity: "80%", color: "#ffffffcc", use: "Chat count, rank indicators" },
-  { level: "body", opacity: "70%", color: "#ffffffb2", use: "Descriptions, messages — the readability floor" },
-  { level: "small", opacity: "60%", color: "#ffffff99", use: "Category labels, timestamps" },
-  { level: "dim", opacity: "40%", color: "#ffffff66", use: "Footer text, de-emphasized metadata" },
-];
-
-export const USER_QUOTES = [
-  { quote: "Simple and accessible — you can start chatting without any complicated setup", source: "App Store review" },
-  { quote: "The variety of AI characters is one of the more entertaining aspects", source: "GeniusFirms review" },
-  { quote: "It doesn't feel like a tool. It feels like a place", source: "SmartPostly review" },
-];
-
-export const PROCESS = [
-  { phase: "01", name: "Audit & Research", duration: "Weeks 1–2", desc: "Analyzed existing Figma files (228 components, 203 variables). Audited 5 competitors. Mapped user journeys. Identified the gaps before touching any pixels.", collab: "Aligned with PM on priorities — discovery and chat were P0, creator tools were P1." },
-  { phase: "02", name: "Foundation", duration: "Weeks 3–4", desc: "Built the token system (90+ colors, spacing scale, radii, shadows). Established the text opacity hierarchy. Created the dark theme rules that everything else sits on.", collab: "Debated the 70% readability floor with engineering — they wanted 60% to match their existing implementation. I showed side-by-side comparisons. 70% won." },
-  { phase: "03", name: "Core Screens", duration: "Weeks 5–8", desc: "Designed Explore, Chat, and Profile — the three screens that cover 95% of user time. Mobile and desktop as separate designs, not responsive scaling.", collab: "Weekly design reviews with PM and APM. Pushed back on a tabbed Explore layout — data showed horizontal scroll had better category engagement." },
-  { phase: "04", name: "System & Iteration", duration: "Weeks 9–present", desc: "Expanded to creator tools, monetization, leaderboard. Documented everything in a living style guide. Now shifting to agentic design process for faster iteration.", collab: "Handoff evolved from screenshot-based to token-referenced specs. Developers stopped asking 'which blue?'" },
-];
-
-export const WHAT_FAILED = {
-  title: "The frosted glass experiment",
-  story: "I designed all overlays — modals, sheets, popups — with frosted glass backgrounds (backdrop-blur). It looked beautiful in Figma. In production on the dark theme, it broke. Clicks passed through the blur layer. Colors bled unpredictably depending on what was behind the overlay. The glass effect looked different on every screen because the backgrounds varied.",
-  resolution: "Scrapped frosted glass entirely. Replaced with solid dark surfaces (#1a1a1a). Less visually exciting, but completely reliable. The lesson: on dark themes, visual effects that work in isolation often fail in context. I now test every surface treatment against 3+ different background scenarios before committing.",
+export const BRIEF = {
+  oneLiner: "Growing wsup.ai from a chat app into a 1.79M-visit AI platform.",
+  context: "wsup.ai launched in November 2024 as a simple chat app — characters, conversations, and a Discord server. Eighteen months later, users could build their own characters, post stories, generate AI images, group chat, send gifts, climb a leaderboard — all held together by a credit system. 1.79M monthly visits as of March 2026.",
+  challenge: "Growing wsup beyond a chat app — without breaking the trust the original users had built.",
+  scope: "Web, iOS, and Android. Three platforms designed separately, not responsive copies of each other. Five main parts of the product: Explore, Chat, Stories, Creator, Credits.",
+  outcome: "1.79M monthly visits, 17:08 average session, 71% returning — engagement on par with Character.ai. Three lasting things came out of this work: a design system that unified the product, a credit-and-ads model that funds the AI without breaking trust, and an AI design assistant that ships routine screens in my style without me drawing them.",
 };
 
-export const LEARNINGS = [
-  "Zero-friction onboarding is a product decision, not a UX detail. Every field you add costs users. wsup.ai's 2-tap onboarding is its competitive moat.",
-  "Dark theme readability isn't about picking nice colors — it's about a strict opacity system. 70% white is the floor for anything users should actually read.",
-  "Monetization works when it feels like unlocking, not blocking. Daily credit streaks teach features while building retention.",
-  "A sidebar is a relationship manager when it shows recent chats. It's dead weight when it only shows navigation links.",
-  "Social proof on cards (rank + chat count) outperforms curated 'staff picks' for discovery. Let the community signal quality.",
+export const ROLE = {
+  title: "Lead Product Designer · Founding designer",
+  responsibilities: "Owned UX end-to-end · established the design system · shipped every production screen · built and trained an AI design assistant",
+  team: "PM (Ashish Pathak) · APM (Arastu Kumar) · Engineering team",
+  timeline: "November 2024 – present · 18 months in",
+  tools: "Figma · FigJam · Variables · Auto Layout · Component Properties · Agentic AI design",
+};
+
+export const STATS = [
+  { n: "1.79M", label: "Monthly visits", src: "Semrush · Mar 2026" },
+  { n: "17:08", label: "Avg session", src: "Semrush · Mar 2026" },
+  { n: "4.89", label: "Pages per visit", src: "Semrush · Mar 2026" },
+  { n: "71%", label: "Direct traffic", src: "Semrush · Mar 2026" },
 ];
+
+export const FUNNEL_STAGES = [
+  {
+    stage: "01 — Getting people here",
+    what: "1.79M monthly visits. 71% type the URL directly. 34.5% of Google searches that lead here are people searching 'wsup ai' by name.",
+    designAngle: "Most visitors return by typing the URL or searching for wsup by name. The design earns word-of-mouth — not paid ads, not viral tricks.",
+    source: "Semrush · Mar 2026",
+  },
+  {
+    stage: "02 — Keeping them here",
+    what: "17 minutes 8 seconds average session. 4.89 pages per visit. 58% leave after one page.",
+    designAngle: "Sessions are in Character.ai range. 4.89 pages-per-visit means users browse across discovery, chat, stories, and creator tools — not bouncing after one click.",
+    source: "Semrush · Mar 2026",
+  },
+  {
+    stage: "03 — Making money from visitors",
+    what: "Banner and leaderboard ads, only on logged-out traffic.",
+    designAngle: "This is how wsup makes money from the 1.79M visitors who haven't signed up yet. The ads disappear the moment they sign up.",
+    designAnglePills: [
+      {
+        after: "The ads disappear the moment they sign up",
+        q: "Doesn't this train users that signing up is annoying since you're using ads as a wall?",
+        a: "We thought about that. The framing in the product is the opposite: ads are a passive presence on the visitor experience, and signup is a positive action that removes them. Users don't perceive 'ads here, please sign up to remove' — they perceive 'I see ads as a guest, no ads after I sign up.' We tested the language: nowhere in the product does anything say 'sign up to remove ads.' The ad removal is a discovered benefit, not a marketed one. Discovered benefits build positive feeling; marketed gates build resentment.",
+        followups: [
+          {
+            q: "How do you know users perceive it as positive vs annoying?",
+            a: "The signup completion rate from guest sessions is solid (specific numbers internal). And the qualitative signal: zero Discord complaints about ads being annoying or about the ad-free post-signup feeling like a manipulation. If users perceived it as a wall, the Discord would be telling us. The silence on this is the strongest evidence.",
+          },
+        ],
+      },
+    ],
+    source: "Design decision",
+  },
+  {
+    stage: "04 — Getting them to sign up",
+    what: "Signing up removes the ads — it's a benefit users get, not a wall they have to climb.",
+    designAngle: "Most products say 'sign up to unlock this feature.' wsup says 'sign up to make the ads go away.' Same mechanism, more honest framing.",
+    source: "Design decision",
+  },
+  {
+    stage: "05 — Getting them to come back",
+    what: "Day 1, Day 7, and Day 30 return rates are comparable to the top apps in this category.",
+    designAngle: "Daily streaks, multiple things to do (chat + stories + creator tools), and the Discord stack up. Users return for the relationships they've built with their characters — not for features.",
+    source: "First-party",
+  },
+  {
+    stage: "06 — Making money from users",
+    what: "A small group of heavy users drive a large share of revenue — typical for creative platforms.",
+    designAngle: "Per-action pricing scales with how much AI work is happening. Casual users aren't punished; heavy users don't get an unfair subsidy. Credits work like fuel, not a paywall.",
+    designAnglePills: [
+      {
+        after: "Casual users don't get punished",
+        q: "How do you keep casual users from feeling priced out as wsup grows?",
+        a: "Three protections. (1) 50 free credits daily — enough to cover normal casual chat for almost any user; the typical casual user never hits the wall. (2) Streak rewards top up casual users every day they show up, making the free pool feel generous rather than rationed. (3) Per-action pricing means casual users only see a price when they reach for a premium feature — image generation, advanced models, the 4th regenerate. The wall isn't moved closer to them; it's just there if they reach for things that cost real money.",
+        followups: [
+          {
+            q: "What happens if AI compute costs go up and you can't sustain 50 free daily credits?",
+            a: "We'd renegotiate from there — drop to 25, or shrink which actions are free, or introduce ad-supported free tier for signed-in users (a 'second-gen' version of the visitor ad model). The economic constraint is real. If costs squeeze us, we'd cut the casual benefits before raising prices on heavy users — because heavy users have demonstrated willingness to pay, and casual users haven't. Protecting the heavy-user economics protects the platform.",
+          },
+        ],
+      },
+    ],
+    source: "First-party",
+  },
+];
+
+export const BUSINESS_OUTCOMES = [
+  { metric: "Scale", value: "1.79M", note: "Monthly visits as of March 2026 (Semrush)" },
+  { metric: "How engaged users are", value: "17:08", note: "Average session — same as Character.ai (Semrush)" },
+  { metric: "Brand awareness", value: "34.5%", note: "of search traffic comes from people searching 'wsup ai' by name (Semrush)" },
+  { metric: "Returning users", value: "71%", note: "of traffic is people typing the URL directly (Semrush)" },
+  { metric: "US users", value: "76.6%", note: "of users are in the US — 1.37M monthly visits (Semrush)" },
+];
+
+/* Convenience re-exports — components can import everything from this one file */
+export { RESEARCH_METHODS, COMPETITORS, ALSO_TRACKED, WSUP_MOATS, DISCORD_FINDINGS } from "./wsup-cs-research-data";
+export { PERSONAS } from "./wsup-cs-personas-data";
+export { IDEATION_BOARDS, FEATURE_MAP } from "./wsup-cs-ideation-data";
+export { PRINCIPLES, TOKENS, TEXT_HIERARCHY } from "./wsup-cs-system-data";
+export { PROCESS, WHAT_FAILED, LEARNINGS, REFLECTION } from "./wsup-cs-process-data";

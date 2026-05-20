@@ -8,7 +8,7 @@ function useR(d = 0) {
     const el = r.current; if (!el) return;
     const ob = new IntersectionObserver(([e]) => {
       if (e.isIntersecting) { setTimeout(() => el.classList.add("vis"), d); ob.unobserve(el); }
-    }, { threshold: 0.2 });
+    }, { threshold: 0 });
     ob.observe(el);
     return () => ob.disconnect();
   }, [d]);
@@ -146,7 +146,7 @@ export default function RedditAgent() {
         <h1 className="cs-h1">An AI agent that grew<br /><em>1 → 1,100 karma</em> in 4 days</h1>
         <p className="cs-sub">Not spam. Not bots. Genuinely useful comments on high-value threads — researched, context-aware, and safety-controlled. Agentic thinking applied beyond design.</p>
         <div className="cs-role-row">
-          <div className="cs-role-item"><span className="cs-role-label">My role</span>Designed the agentic loop, safety architecture, and self-learning pipeline end to end.</div>
+          <div className="cs-role-item"><span className="cs-role-label">My role</span>Architected and shipped the agent — the agentic loop, safety system, and self-learning pipeline.</div>
           <div className="cs-role-item"><span className="cs-role-label">Stack</span>Claude Code · Python · ADB (Android Debug Bridge) · PRAW research → discarded</div>
           <div className="cs-role-item"><span className="cs-role-label">Timeline</span>Built Apr 2026 · 4-day active run · System paused, learnings documented</div>
           <div className="cs-role-item"><span className="cs-role-label">Why Reddit</span>Tested whether agentic architecture (research → act → learn → improve) transfers beyond design into community engagement.</div>

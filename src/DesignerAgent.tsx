@@ -9,7 +9,7 @@ function useR(d = 0) {
     const el = r.current; if (!el) return;
     const ob = new IntersectionObserver(([e]) => {
       if (e.isIntersecting) { setTimeout(() => el.classList.add("vis"), d); ob.unobserve(el); }
-    }, { threshold: 0.2 });
+    }, { threshold: 0 });
     ob.observe(el);
     return () => ob.disconnect();
   }, [d]);
@@ -118,17 +118,17 @@ export default function DesignerAgent() {
       <header className="cs-hero" ref={heroR}>
         <div className="cs-badge abb">CASE STUDY · AGENT_01</div>
         <h1 className="cs-h1">An AI agent that<br />designs from <em>my taste</em></h1>
-        <p className="cs-sub">Not from screenshots. Not from prompts. From 134 accumulated design decisions and 100+ taste corrections — a living system that learns how I think about UI and applies it autonomously.</p>
+        <p className="cs-sub">Not from screenshots. Not from prompts. From 250+ accumulated design decisions and 60+ codified taste rules — a living system that learns how I think about UI and applies it autonomously.</p>
         <div className="cs-role-row">
           <div className="cs-role-item"><span className="cs-role-label">My role</span>Built, trained, and maintain the agent end to end — architecture, knowledge schema, prompt engineering, and ongoing corrections.</div>
           <div className="cs-role-item"><span className="cs-role-label">Stack</span>Claude Code · Figma MCP · Next.js · Tailwind · Custom knowledge files (.md)</div>
-          <div className="cs-role-item"><span className="cs-role-label">Timeline</span>Built Jan–Apr 2026 · 9 sessions · Actively running in production</div>
+          <div className="cs-role-item"><span className="cs-role-label">Timeline</span>Built Jan–Apr 2026 · 22+ sessions · Actively running in production</div>
           <div className="cs-role-item"><span className="cs-role-label">Product</span><a href="https://wsup.ai" target="_blank" rel="noopener noreferrer" style={{ color: "var(--blue)" }}>wsup.ai</a> — AI chat platform (like Character.ai), 1M+ monthly visits</div>
         </div>
         <div className="cs-meta-row">
-          <div className="cs-meta"><span className="cs-mn">62</span><span className="cs-ml">Components</span></div>
-          <div className="cs-meta"><span className="cs-mn">142</span><span className="cs-ml">Tokens</span></div>
-          <div className="cs-meta"><span className="cs-mn">134</span><span className="cs-ml">Decisions</span></div>
+          <div className="cs-meta"><span className="cs-mn">90+</span><span className="cs-ml">Components</span></div>
+          <div className="cs-meta"><span className="cs-mn">80+</span><span className="cs-ml">Tokens</span></div>
+          <div className="cs-meta"><span className="cs-mn">250+</span><span className="cs-ml">Decisions</span></div>
           <div className="cs-meta"><span className="cs-mn">12x</span><span className="cs-ml">Faster output</span></div>
         </div>
       </header>
@@ -160,7 +160,7 @@ export default function DesignerAgent() {
           <div className="cs-step">
             <div className="cs-step-n">01</div>
             <h3 className="cs-step-h">Load knowledge</h3>
-            <p className="cs-step-p">Agent reads 9 knowledge files — taste, decisions, project rules, its own growth timeline. 134 decisions + 100 taste corrections inform every choice.</p>
+            <p className="cs-step-p">Agent reads 8 knowledge files — taste, decisions, project rules, its own growth timeline. 250+ decisions and 60+ taste rules inform every choice.</p>
             <div className="cs-step-files">
               {["taste.md", "decisions.md", "reasonings.md", "knowledge-base.md", "project-insights.md", "evolution.md", "workflow.md", "session-logs.md"].map(f => (
                 <span key={f} className="cs-step-file">{f}</span>
@@ -297,7 +297,7 @@ export default function DesignerAgent() {
         <h2 className="cs-h2">The agent isn't replacing me.<br />It's <em>scaling</em> me.</h2>
         <div className="cs-result-grid">
           <div className="cs-result"><div className="cs-result-n">4h → 20m</div><div className="cs-result-l">Screen design time reduced 12x — timed on equivalent complexity screens, same token set</div></div>
-          <div className="cs-result"><div className="cs-result-n">134</div><div className="cs-result-l">Design decisions internalized and applied autonomously</div></div>
+          <div className="cs-result"><div className="cs-result-n">250+</div><div className="cs-result-l">Design decisions internalized and applied autonomously</div></div>
           <div className="cs-result"><div className="cs-result-n">0</div><div className="cs-result-l">Hardcoded hex values — token discipline enforced by agent</div></div>
           <div className="cs-result"><div className="cs-result-n">Self-improving</div><div className="cs-result-l">Detects its own knowledge gaps, researches fixes, tracks growth</div></div>
         </div>

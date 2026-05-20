@@ -65,7 +65,7 @@ function useR(d = 0) {
     const el = r.current; if (!el) return;
     const ob = new IntersectionObserver(([e]) => {
       if (e.isIntersecting) { setTimeout(() => el.classList.add("vis"), d); ob.unobserve(el); }
-    }, { threshold: 0.2 });
+    }, { threshold: 0 });
     ob.observe(el);
     return () => ob.disconnect();
   }, [d]);
@@ -89,7 +89,6 @@ const STACK = [
 const WORKS = [
   { n: "now.gg", a: "n", yr: "2019–24", role: "Lead Product Designer", p: "Cloud gaming platform — 100M+ users, ~10M monthly visits. Led UX across game discovery, detail pages, and instant browser play.", url: "https://now.gg", cs: "/nowgg", img: "/cs/nowgg-home.png" },
   { n: "BlueStacks", a: "B", yr: "2019–24", role: "Lead Product Designer", p: "World's #1 Android emulator — 500M+ users, 1B+ downloads. Led UX across desktop app, web platform, and cloud gaming.", url: "https://bluestacks.com", cs: "/bluestacks", img: "/cs/bluestacks-home.png" },
-  { n: "game.tv", a: "g", yr: "2019–22", role: "Product Designer", p: "#1 mobile esports platform — 11M+ registrations, 5M+ downloads, 190K+ guilds across 17+ countries. Designed creator tools and monetization.", url: "https://game.tv", cs: "/gametv", img: "/cs/gametv-home.png" },
 ];
 
 /* ─── PORTFOLIO ───────────────────────────────────────────────────────── */
@@ -99,7 +98,7 @@ export default function Portfolio() {
   const s1 = useR(0), s2 = useR(120), s3 = useR(240), s4 = useR(360);
   const sh2a = useR(), ag1 = useR(0), ag2 = useR(130);
   const sh2w = useR(), wh = useR();
-  const wk1 = useR(0), wk2 = useR(110), wk3 = useR(220);
+  const wk1 = useR(0), wk2 = useR(110);
   const sh2s = useR();
   const skR = Array.from({ length: 10 }, (_, i) => useR(i * 40));
   const ctR = useR();
@@ -124,7 +123,7 @@ export default function Portfolio() {
         <div>
           <div className="hname">Arpit Yadav</div>
           <h1 className="hh1"><strong>Product designer</strong><br />who builds <em>agents,</em><br />not just screens</h1>
-          <p className="hsub">8+ years designing products at scale — BlueStacks, now.gg, wsup.ai. I build the design system and the AI agent that runs it. Currently shipping a live designer agent inside wsup using Claude Code, Figma MCP, and a full token system.</p>
+          <p className="hsub">9 years shipping consumer products at scale — BlueStacks, now.gg, wsup.ai. Today I design the system AND the AI agent that ships from it. The Designer Agent is live inside wsup.ai right now, built with Claude Code + Figma MCP.</p>
           <div className="hbtns">
             <button className="bdk" onClick={() => go("agents")}>See the agents →</button>
             <button className="bgh" onClick={() => go("work")}>View work</button>
@@ -133,7 +132,7 @@ export default function Portfolio() {
           <a href="/arpit-yadav-resume.pdf" target="_blank" rel="noopener noreferrer" className="hresume-link">Download resume ↓</a>
           <div className="hprev">
             <span className="plbl">Built for</span>
-            <div className="plogos">{[["wsup.ai","https://wsup.ai"],["BlueStacks","https://bluestacks.com"],["now.gg","https://now.gg"],["game.tv","https://game.tv"]].map(([l,u]) => <a key={l} href={u} target="_blank" rel="noopener noreferrer" className="plogo">{l}</a>)}</div>
+            <div className="plogos">{[["wsup.ai","https://wsup.ai"],["BlueStacks","https://bluestacks.com"],["now.gg","https://now.gg"]].map(([l,u]) => <a key={l} href={u} target="_blank" rel="noopener noreferrer" className="plogo">{l}</a>)}</div>
           </div>
         </div>
         <div className="hero-terminal"><Terminal /></div>
@@ -156,10 +155,10 @@ export default function Portfolio() {
       <div className="content">
         <div className="srow">
           {[
-            [s1, "8", "+", "Years designing\nAI & consumer products"],
+            [s1, "9", "", "Years shipping\nat consumer scale"],
             [s2, "500", "M+", "Users across\nBlueStacks products"],
-            [s3, "5", "", "Products shipped\nat scale"],
-            [s4, "AI", "+UX", "Design systems meet\nautonomous agents"],
+            [s3, "3", "", "Products at scale —\nwsup, BlueStacks, now.gg"],
+            [s4, "Live", "agent", "Ships production screens\nautonomously"],
           ].map(([r, n, u, l], i) => (
             <div key={i} ref={r as React.RefObject<HTMLDivElement>} className="sc" style={{ transitionDelay: `${i * 80}ms` }}>
               <div className="sn">{n as string}<span>{u as string}</span></div>
@@ -178,8 +177,8 @@ export default function Portfolio() {
               <div className="ag-preview"><img src="/cs/wsup-d-anime.png" alt="Screen designed by the agent" /></div>
               <div className="abadge abb">AGENT_01 · DESIGN</div>
               <h3 className="ah3">Designer Agent</h3>
-              <p className="ap">Takes a product brief, reads the wsup.ai design system — 142 tokens and 62 components — and generates on-brand screens autonomously. Lives inside the production project and self-improves with every session.</p>
-              <div className="chips">{["Autonomous Design", "Design System", "Brand Consistency", "Self-Improving", "Zero Manual Work"].map(c => <span key={c} className="chip">{c}</span>)}</div>
+              <p className="ap">Takes a product brief, reads the wsup.ai design system — 80+ tokens, 90+ components — and ships on-brand screens autonomously. Lives in the production codebase and writes corrections back to its own knowledge after every session.</p>
+              <div className="chips">{["Autonomous Design", "Design System", "Brand Consistency", "Production-Live", "Knowledge-Compounding"].map(c => <span key={c} className="chip">{c}</span>)}</div>
               <div className="amet"><div className="mn">4h → 20m</div><div className="ml">Screen design time — manual vs. agent</div></div>
               <Link to="/designer-agent" className="alink">View case study →</Link>
             </div>
@@ -187,7 +186,7 @@ export default function Portfolio() {
               <div className="ag-preview"><img src="/cs/reddit-top.png" alt="Reddit comments with high karma" /></div>
               <div className="abadge abg">AGENT_02 · GROWTH</div>
               <h3 className="ah3">Reddit Growth Agent</h3>
-              <p className="ap">Autonomously finds high-value threads, researches context, and posts genuinely useful comments to build organic community presence. Agentic thinking applied beyond design.</p>
+              <p className="ap">Finds high-value threads, researches context, and posts genuinely useful comments. Same agentic loop as the Designer Agent — proves the architecture is domain-agnostic, not a design trick.</p>
               <div className="chips">{["Autonomous Posting", "Context Research", "Organic Growth", "Safety Controls"].map(c => <span key={c} className="chip">{c}</span>)}</div>
               <div className="amet"><div className="mn">1 → 1.1K</div><div className="ml">Organic karma — value-first commenting</div></div>
               <Link to="/reddit-agent" className="alink">View case study →</Link>
@@ -204,7 +203,7 @@ export default function Portfolio() {
             <div className="whl">
               <div className="whey">CURRENT · 2024–PRESENT</div>
               <h3 className="whh3">wsup.ai</h3>
-              <p className="whp">AI character platform with 1M+ monthly visits. Built the complete design system (90+ tokens, 62 components), designed all screens across mobile and desktop, and established the dark-theme design language from scratch.</p>
+              <p className="whp">AI character platform with 1M+ monthly visits. I codified the design language (80+ tokens, 90+ components), shipped every screen across mobile and desktop, and now ship faster through the Designer Agent that reads from this system.</p>
               <div className="chips"><span className="chip">Lead Designer</span><span className="chip">Design System</span><span className="chip">Dark Theme</span><span className="chip">AI Chat UX</span></div>
               <Link to="/wsup-design" className="wk-visit">View case study →</Link>
             </div>
@@ -217,7 +216,7 @@ export default function Portfolio() {
           <div style={{ height: 12 }} />
           <div className="wgrid">
             {WORKS.map((w, i) => (
-              <div key={i} className="wk" ref={[wk1, wk2, wk3][i]} style={{ transitionDelay: `${i * 110}ms` }}>
+              <div key={i} className="wk" ref={[wk1, wk2][i]} style={{ transitionDelay: `${i * 110}ms` }}>
                 <div className="ag-preview"><img src={w.img} alt={w.n} /></div>
                 <div className="wktop"><div className="wkyr">{w.yr}</div><a href={w.url} target="_blank" rel="noopener noreferrer" className="wk-site" onClick={e => e.stopPropagation()}>Visit site →</a></div>
                 <div className="wkname">{w.n}</div>
@@ -280,7 +279,7 @@ export default function Portfolio() {
               </div>
               <div className="cbox-top-right">
                 <h2 className="ch2">Let's build something <em>real</em></h2>
-                <p className="cp">8+ years in product design. Looking for AI-native design roles, design system architecture, or agentic workflow consulting.</p>
+                <p className="cp">9 years in product design. Looking for AI-native design roles, design system architecture, or agentic workflow consulting.</p>
                 <p className="cp cloc">Open to US, Canada, Dubai and global remote.</p>
               </div>
             </div>

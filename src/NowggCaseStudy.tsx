@@ -7,7 +7,7 @@ function useR(d = 0) {
     const el = r.current; if (!el) return;
     const ob = new IntersectionObserver(([e]) => {
       if (e.isIntersecting) { setTimeout(() => el.classList.add("vis"), d); ob.unobserve(el); }
-    }, { threshold: 0.2 });
+    }, { threshold: 0 });
     ob.observe(el);
     return () => ob.disconnect();
   }, [d]);
@@ -77,8 +77,8 @@ export default function NowggCaseStudy() {
         <h2 className="cs-h2">How do you make 1,000 games<br />feel <em>discoverable?</em></h2>
         <div className="cs-two-col">
           <div>
-            <p className="cs-p">Cloud gaming removes the install barrier — but creates a new one: choice overload. With 1,000+ games available instantly, users need to find the right game in seconds, not minutes. The UX challenge isn't technical — it's curatorial.</p>
-            <p className="cs-p">Additionally, the platform serves wildly different users: casual mobile gamers on Chromebooks, hardcore players on desktop PCs, and kids on tablets. One interface, many contexts.</p>
+            <p className="cs-p">Cloud gaming removes the install barrier and creates a new one: choice overload. With 1,000+ games available instantly, the UX challenge isn't technical — it's curatorial.</p>
+            <p className="cs-p">The platform serves wildly different users — casual mobile gamers on Chromebooks, hardcore PC players, kids on tablets. One interface, many contexts.</p>
           </div>
           <div className="cs-problem-list">
             <div className="cs-problem-item"><span className="cs-problem-x">✗</span> 1,000+ games with no clear navigation hierarchy</div>
@@ -97,9 +97,9 @@ export default function NowggCaseStudy() {
         <p className="cs-p">I structured game discovery in three layers — each serving a different user intent:</p>
         <div className="cs-steps">
           <div className="cs-step"><div className="cs-step-n">01</div><h3 className="cs-step-h">Hot Games carousel</h3><p className="cs-step-p">Trending games as avatar circles at the top — visual, immediate, no reading required. Users who know what's popular tap and play in seconds.</p></div>
-          <div className="cs-step"><div className="cs-step-n">02</div><h3 className="cs-step-h">Curated sections</h3><p className="cs-step-p">Top Games, Popular Games, More Games — progressive disclosure. Each section surfaces different games, reducing the "same 10 games" problem.</p></div>
-          <div className="cs-step"><div className="cs-step-n">03</div><h3 className="cs-step-h">Category browsing</h3><p className="cs-step-p">Explore by Categories at the bottom for intent-driven users. Simulation, RPG, Action, Strategy — when users know what genre they want.</p></div>
-          <div className="cs-step"><div className="cs-step-n">04</div><h3 className="cs-step-h">Search</h3><p className="cs-step-p">Persistent search bar at the top for users who know the exact game. Instant, always available, keyboard-first.</p></div>
+          <div className="cs-step"><div className="cs-step-n">02</div><h3 className="cs-step-h">Curated sections</h3><p className="cs-step-p">Top Games, Popular Games, More Games — each surfaces different titles. Solves the "same 10 games" problem.</p></div>
+          <div className="cs-step"><div className="cs-step-n">03</div><h3 className="cs-step-h">Category browsing</h3><p className="cs-step-p">Explore by Categories at the bottom. Simulation, RPG, Action, Strategy — for users who know what genre they want.</p></div>
+          <div className="cs-step"><div className="cs-step-n">04</div><h3 className="cs-step-h">Search</h3><p className="cs-step-p">Persistent search bar at the top. For users who know the exact game — instant, keyboard-first.</p></div>
         </div>
       </section>
 
@@ -137,14 +137,14 @@ export default function NowggCaseStudy() {
         <div className="cs-sec-head"><span className="stag">04 / PROCESS</span></div>
         <h2 className="cs-h2">How I <em>approached</em> this</h2>
         <div className="wsup-process">
-          <div className="wsup-phase"><div className="wsup-phase-left"><div className="wsup-phase-n">01</div><div className="wsup-phase-dur">Month 1</div></div><div className="wsup-phase-right"><h3 className="wsup-phase-name">Competitive audit</h3><p className="wsup-phase-desc">Analyzed GeForce NOW, Xbox Cloud, Luna, and Steam Link. Key finding: all prioritized technical performance over discovery. None had a compelling browsing experience — they assumed users already knew what to play.</p><p className="wsup-phase-collab"><strong>Collaboration:</strong> Worked with PM to define "time to first game" as the north-star metric. Under 30 seconds was the target.</p></div></div>
-          <div className="wsup-phase"><div className="wsup-phase-left"><div className="wsup-phase-n">02</div><div className="wsup-phase-dur">Month 2–3</div></div><div className="wsup-phase-right"><h3 className="wsup-phase-name">Discovery architecture</h3><p className="wsup-phase-desc">Designed the three-layer system: trending (avatars), curated (card sections), categories (genre tabs). Tested card sizes — larger cards with game art converted better than dense lists.</p><p className="wsup-phase-collab"><strong>Collaboration:</strong> Pushed back on a "search-first" design that PM initially wanted. Data showed 70% of users browse, only 30% search. Discovery-first won.</p></div></div>
-          <div className="wsup-phase"><div className="wsup-phase-left"><div className="wsup-phase-n">03</div><div className="wsup-phase-dur">Month 4+</div></div><div className="wsup-phase-right"><h3 className="wsup-phase-name">Game detail & iteration</h3><p className="wsup-phase-desc">Designed game detail pages with "Play in browser" as the single primary CTA. Iterated on the sidebar — tried game info panels, social features, and eventually landed on wsup.ai character chat for cross-product engagement.</p><p className="wsup-phase-collab"><strong>Collaboration:</strong> Integrated wsup.ai team's API to embed character chat. Required close coordination on loading states and fallback UX.</p></div></div>
+          <div className="wsup-phase"><div className="wsup-phase-left"><div className="wsup-phase-n">01</div><div className="wsup-phase-dur">Month 1</div></div><div className="wsup-phase-right"><h3 className="wsup-phase-name">Competitive audit</h3><p className="wsup-phase-desc">Analyzed GeForce NOW, Xbox Cloud, Luna, and Steam Link. All prioritized technical performance over discovery. None had a compelling browsing experience — they assumed users already knew what to play.</p><p className="wsup-phase-collab"><strong>Collaboration:</strong> Worked with PM to define "time to first game" as the primary metric. Under 30 seconds was the target.</p></div></div>
+          <div className="wsup-phase"><div className="wsup-phase-left"><div className="wsup-phase-n">02</div><div className="wsup-phase-dur">Month 2–3</div></div><div className="wsup-phase-right"><h3 className="wsup-phase-name">Discovery architecture</h3><p className="wsup-phase-desc">Three-layer system: trending (avatars), curated (cards), categories (tabs). Larger cards with game art converted better than dense lists.</p><p className="wsup-phase-collab"><strong>Collaboration:</strong> Pushed back on a "search-first" design the PM initially wanted. Data showed 70% of users browse, 30% search. Discovery-first won.</p></div></div>
+          <div className="wsup-phase"><div className="wsup-phase-left"><div className="wsup-phase-n">03</div><div className="wsup-phase-dur">Month 4+</div></div><div className="wsup-phase-right"><h3 className="wsup-phase-name">Game detail & iteration</h3><p className="wsup-phase-desc">Game detail pages with one CTA: "Play in browser." Sidebar went through game info panels and social features before landing on wsup.ai character chat — cross-product engagement while games load.</p><p className="wsup-phase-collab"><strong>Collaboration:</strong> Integrated wsup.ai team's API. Required close coordination on loading states and fallback UX.</p></div></div>
         </div>
         <div className="wsup-failure">
           <h3 className="wsup-failure-h">What didn't work</h3>
           <h4 className="wsup-failure-title">The search-first homepage</h4>
-          <p className="cs-p">First iteration put search front and center — like a Google for games. Looked clean, tested poorly. Users who don't know what to play (the majority) stared at an empty search bar. Switching to a browsing-first layout with trending games at the top increased game starts by showing users what's popular before they have to decide.</p>
+          <p className="cs-p">First iteration put search front and center — like a Google for games. Looked clean, tested poorly. Users who don't know what to play (the majority) stared at an empty search bar. Switched to browsing-first with trending games up top. Game starts went up — users saw what was popular before they had to decide.</p>
         </div>
       </section>
 
@@ -170,13 +170,9 @@ export default function NowggCaseStudy() {
           <div className="cs-result"><div className="cs-result-n">1,000+</div><div className="cs-result-l">Games browsable through a structured three-layer system</div><div className="cs-src">via now.gg catalog</div></div>
           <div className="cs-result"><div className="cs-result-n">0 installs</div><div className="cs-result-l">Click-to-play UX — instant in browser on any device</div></div>
         </div>
-        <div className="wsup-quotes" style={{ marginTop: 24 }}>
-          <div className="wsup-quote"><p className="wsup-quote-text">"You can run apps or start playing games online in your browser — no downloads needed"</p><span className="wsup-quote-source">— AboutChromebooks review</span></div>
-          <div className="wsup-quote"><p className="wsup-quote-text">"Start a game on their PC and pick it up again on their mobile phone without losing progress"</p><span className="wsup-quote-source">— DifferenceInsights review</span></div>
-        </div>
         <div className="cs-reflection">
           <h3 className="cs-reflection-h">What I learned</h3>
-          <p className="cs-p">Cloud gaming UX isn't about the cloud — it's about making the cloud invisible. The moment users think about latency, servers, or streaming quality, the design has failed. I also learned that discovery beats search for gaming platforms — 70% of users browse, only 30% search. Lead with what's popular, not an empty input field.</p>
+          <p className="cs-p">Cloud gaming UX isn't about the cloud — it's about making the cloud invisible. The moment users think about latency, servers, or streaming quality, the design has failed. Second lesson: discovery beats search for gaming platforms. 70% of users browse, 30% search. Lead with what's popular, not an empty input field.</p>
         </div>
       </section>
 
