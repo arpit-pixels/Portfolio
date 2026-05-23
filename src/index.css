@@ -398,6 +398,8 @@ nav { position:fixed; top:0; left:0; right:0; height:58px; padding:0 40px; displ
 .cs-step-n { font-family:'DM Mono',monospace; font-size:var(--fs-xs); color:var(--blue); letter-spacing:.1em; margin-bottom:14px; }
 .cs-step-h { font-family:'Fraunces',serif; font-size:var(--fs-lg); font-weight:600; color:var(--ink); margin-bottom:8px; }
 .cs-step-p { font-size:var(--fs-sm); line-height:var(--lh-body); color:var(--muted); }
+.cs-step-rej { font-size:var(--fs-sm); line-height:var(--lh-body); color:var(--muted); margin-top:12px; padding-top:12px; border-top:1px dashed var(--border); }
+.cs-rej-label { font-family:'DM Mono',monospace; font-size:10px; color:var(--ink); letter-spacing:.05em; margin-right:6px; opacity:.6; }
 
 /* TOKEN GRID */
 .cs-token-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:32px; }
