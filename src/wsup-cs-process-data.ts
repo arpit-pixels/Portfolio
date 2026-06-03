@@ -19,13 +19,13 @@ export const PROCESS = [
         ],
       },
     ],
-    collab: "Founding-team speed. Ashish (PM) and I made the first 8 months of decisions in standups, not specs. Discord was set up early — most of the next year's feedback came from there.",
+    collab: "Ashish (PM) and I decided in standups, not specs; Discord was the feedback firehose from early on.",
   },
   {
     phase: "02",
     name: "Growth pressure — features faster than the system could keep up",
     duration: "Mid 2025 – late 2025",
-    desc: "Discord blew up with feature requests every day. Image gen and creator tools became table stakes. Stories got added because users were already posting characters in Discord. Then group chat. Then a chat-LLM picker. Then gifts. Credits became the payment system. Every feature shipped in weeks — each with its own visual style. By month 12 the Figma file had 228 components and 203 variables, mostly undocumented. The product no longer felt unified.",
+    desc: "Discord blew up with feature requests every day. Image gen and creator tools became table stakes. Stories got added because users were already posting characters in Discord. Then group chat. Then a chat-LLM picker. Then gifts. Credits became the payment system. Every feature shipped in weeks — each with its own visual style. By month 12 the Figma file had grown large and inconsistent, mostly undocumented. The product no longer felt unified.",
     descPills: [
       {
         after: "The cost of moving fast was showing up as a product that no longer felt unified",
@@ -34,12 +34,12 @@ export const PROCESS = [
         followups: [
           {
             q: "What would 'unbearable debt' have looked like?",
-            a: "A point where every new feature took 2-3x as long to ship because of design rework, where engineers refused to commit to a sprint until a design system existed, or where users started complaining publicly about visual inconsistency. We were starting to see signs of #1 by month 12 — that's what triggered the cleanup decision. Two more months of drift and we'd have been at #2.",
+            a: "A point where every new feature took far longer to ship because of design rework, where engineers refused to commit to a sprint until a design system existed, or where users started complaining publicly about visual inconsistency. We were starting to see signs of #1 by month 12 — that's what triggered the cleanup decision. Two more months of drift and we'd have been at #2.",
           },
         ],
       },
     ],
-    collab: "Ashish (PM) and Arastu (APM) ran what got built. I owned every visual decision but ran out of time to keep things consistent — every feature shipped with its own look.",
+    collab: "Ashish (PM) and Arastu (APM) ran what got built; I owned visuals but couldn't keep pace — each feature shipped with its own look.",
     collabPills: [
       {
         after: "every new feature came in with its own look",
@@ -53,16 +53,21 @@ export const PROCESS = [
     name: "The cleanup — putting names on what we'd already shipped",
     duration: "Late 2025 – early 2026",
     desc: "Stepped back to define what the product had actually become. Built the design system after the fact — colors, sizes, spacing, shadows named and applied to every screen. Settled the brightness fight (engineering wanted lighter, I wanted brighter for readability; a side-by-side with real chat messages won). Replaced the see-through 'glass' panels — beautiful in Figma, broken in production — with solid backgrounds.",
-    collab: "Hardest sell of the project. Engineering wanted to keep shipping features on the existing mess. I made the case that the cleanup would pay back inside 6 weeks — every new feature would ship faster on a named system than on patchwork. Six weeks later we were shipping twice as fast.",
+    collab: "The hardest sell. Engineering wanted to keep shipping on the mess; I made the case that a named system pays back fast. It did — we were soon shipping noticeably faster.",
     collabPills: [
       {
-        after: "I made the case that the cleanup would pay back inside 6 weeks",
-        q: "How specifically did you make the math work to justify the 6-week payback?",
-        a: "I built a small tracking sheet — for each shipped feature in the previous quarter, I logged engineer-hours spent on visual fixes, alignment debates, and rework. The total was significant. I projected what that same time would have been on a system-based shipping process (no debates about which blue, no rework because tokens were already named). The math showed payback well under 6 weeks. Engineering didn't need to be convinced of the design value; they needed to be convinced of the time math. Once they saw it, the conversation changed.",
+        after: "shipping noticeably faster",
+        q: "You say 'noticeably faster' and 'paid for itself quickly' but give no hard number. As a hiring manager I read vague metrics as 'I don't actually have the data.' Do you?",
+        a: "I have the directional data, not a clean controlled number, and I'd rather say that than fake precision. I tracked engineer-hours spent on visual rework before and after the system — it dropped enough that engineering stopped raising it in sprint reviews, which is the real signal. I don't claim '2× faster' because I can't isolate it from the team also getting more senior and the surface area changing at the same time. A precise number here would be a number I made up. The defensible claim is the direction and the mechanism: named tokens killed the 'which blue' debates and the rework they caused.",
+      },
+      {
+        after: "I made the case that a named system pays back fast",
+        q: "How specifically did you make the math work to justify the payback?",
+        a: "I built a small tracking sheet — for each shipped feature in the previous quarter, I logged engineer-hours spent on visual fixes, alignment debates, and rework. The total was significant. I projected what that same time would have been on a system-based shipping process (no debates about which blue, no rework because tokens were already named). The math showed the cleanup would pay for itself fast. Engineering didn't need to be convinced of the design value; they needed to be convinced of the time math. Once they saw it, the conversation changed.",
         followups: [
           {
             q: "Did the actual payback match your projection?",
-            a: "It came in faster than projected — closer to 4 weeks than 6. The math was conservative because I didn't fully account for compounding: the more screens used the system, the faster new ones could ship because patterns were established. The first system-based screen took 70% of normal time; by the third, it was 50%. The original projection only modeled linear gains; reality was super-linear.",
+            a: "It came in faster than projected. The math was conservative because I didn't fully account for compounding: the more screens used the system, the faster new ones could ship because patterns were established. Each new screen shipped faster than the last as patterns settled. The original projection only modeled linear gains; reality was super-linear.",
           },
         ],
       },
@@ -81,26 +86,26 @@ export const PROCESS = [
         followups: [
           {
             q: "How do you trust VDA's output without reviewing every pixel?",
-            a: "VDA only produces components on routine work — variants of patterns the system already has. Anything new (a new surface, a new pattern, anything that touches the chat surface) is gated for human review. The trust is bounded to the well-defined. VDA writes its own confidence score on each output; below a threshold, it flags for review. Above the threshold, it ships. The threshold was tuned empirically: we tracked how often I would've changed something VDA shipped, and pushed the threshold up until that rate dropped below 5%.",
+            a: "VDA only produces components on routine work — variants of patterns the system already has. Anything new (a new surface, a new pattern, anything that touches the chat surface) is gated for human review. The trust is bounded to the well-defined. Routine work ships; anything new is gated for my review. I tuned it until I rarely needed to change what it shipped.",
           },
           {
             q: "What happens if VDA's taste drifts from yours over time?",
-            a: "Quarterly recalibration. I review a sample of VDA's recent output every 3 months, flag anything I'd have changed, and feed those changes back as new rules. The system has 60+ rules now; it had 40 a year ago. VDA grows by absorbing my evolving taste, not by generating its own. The day VDA starts making decisions I'd disagree with at scale is the day the recalibration cadence needs to be tighter.",
+            a: "I recalibrate it periodically. I review a sample of VDA's recent output, flag anything I'd have changed, and feed those changes back as new rules. The rule set keeps growing as my taste evolves. VDA grows by absorbing my evolving taste, not by generating its own. The day VDA starts making decisions I'd disagree with at scale is the day the recalibration cadence needs to be tighter.",
           },
         ],
       },
     ],
-    collab: "How I gave designs to engineers changed completely. From screenshots in Slack to code that uses the design system directly. Engineers stopped asking 'which blue?' Then started getting whole screens built by VDA.",
+    collab: "Handoff to engineers evolved: Figma prototypes early, then builds straight from named tokens, now whole screens from the Designer Agent — all on the same system.",
   },
 ];
 
 export const WHAT_FAILED = [
   {
     title: "The see-through glass mistake",
-    story: "Every popup, modal, and sheet used a see-through 'glass' background — iOS-style frosted blur with color tints. Beautiful in Figma. Broken in production. Clicks passed through the blur. Colors mixed unpredictably with whatever was behind them. The same modal looked different on every page.",
+    story: "Every popup, modal, and sheet used a see-through 'glass' background — iOS-style frosted blur with color tints. Beautiful in Figma. Broken in production. The tint mixed unpredictably with whatever was behind it — a chat, a character card, an ad — so the same modal looked like a different component on every page, and text that passed contrast on one surface failed on the next.",
     storyPills: [
       {
-        after: "It looked beautiful in Figma. In the live product on the dark theme, it broke",
+        after: "Broken in production",
         q: "Why didn't you test in production before committing the design?",
         a: "Honest answer: I didn't think it would matter. Frosted glass is a well-established iOS pattern; I assumed it would translate. The problem was specific to wsup's dark theme — the underlying surfaces in our app vary much more than iOS's typical light environment, and the blur amplified those variations. I should've prototyped with real backgrounds at multiple zoom levels before committing the system. Lesson learned the hard way.",
         followups: [
@@ -125,9 +130,9 @@ export const WHAT_FAILED = [
     story: "The first Explore used a dropdown for the 20+ categories — the 'clean' choice. Tested with users. Niche categories like Fantasy, Sci-Fi, Slice of Life collapsed to almost zero usage. Users only opened the top 3 the dropdown showed.",
     storyPills: [
       {
-        after: "Users only opened the top 3 categories the dropdown showed first",
+        after: "Users only opened the top 3 the dropdown showed",
         q: "What % of users does that represent — was it a real loss or a small subset?",
-        a: "The top-3 concentration was across the entire test group — every user we observed opened almost exclusively from the top 3, almost regardless of which categories were ranked top 3 that week. So niche category engagement collapsed to roughly 5-10% of what it had been with horizontal scroll, and that was across the user base, not a subset. Fantasy, Sci-Fi, Slice of Life users effectively churned.",
+        a: "The top-3 concentration was across the entire test group — every user we observed opened almost exclusively from the top 3, almost regardless of which categories were ranked top 3 that week. So niche category engagement collapsed to a fraction of what it had been with horizontal scroll, and that was across the user base, not a subset. Fantasy, Sci-Fi, Slice of Life users effectively churned.",
         followups: [
           {
             q: "Did you see the same pattern with horizontal scroll, just less severe?",
@@ -145,6 +150,44 @@ export const WHAT_FAILED = [
       },
     ],
   },
+  {
+    title: "The game-pass that fought the brand",
+    story: "wsup's credits needed a rewards surface, so I designed a full game-pass — daily streaks, tiers, 2× reward days, gems to claim. It was polished, and I was proud of it. The PM pushed back: it looked like a mobile game, not an AI companion. We shipped a lean credits sidebar instead.",
+    storyPills: [
+      {
+        after: "it looked like a mobile game, not an AI companion",
+        q: "Your design was good and it still got cut. Didn't the PM just have different taste?",
+        a: "I thought exactly that at the time — I argued it was good enough. He was right and I was wrong, and it took me a while to see why. The design was good — that was the trap. I was answering 'is this a good rewards screen' when the real question was 'is this us.' A game-pass tells the user they're in a game to grind. wsup is a companion you build a relationship with. The mechanic borrowed the wrong category's mental model, and no amount of polish fixes a design that's pulling against what the product is.",
+      },
+    ],
+    resolution: "The lean credits sidebar shipped — smaller, quieter, on-brand for a companion instead of a gacha game. Lesson: a reward system isn't just a mechanic, it's a signal of what kind of product you're in. I now check my work against 'what are we' before 'is this good' — because good in the wrong category is still wrong.",
+    resolutionPills: [
+      {
+        after: "good in the wrong category is still wrong",
+        q: "How do you catch the 'wrong category' mistake earlier next time, before a PM has to?",
+        a: "I started gut-checking new surfaces against a one-line identity test: 'what does this make the user feel they're in?' For wsup the answer has to be 'a relationship,' not 'a game' or 'a store.' If a borrowed pattern answers it wrong — streaks and tiers say 'game,' aggressive upsells say 'store' — it's suspect no matter how clean it looks. Same discipline as the token system: name what you are, then check the work against it.",
+      },
+    ],
+  },
+  {
+    title: "Handing the agent too much",
+    story: "As I leaned on VDA — my design assistant — for more, I started handing it whole screens at once. It drifted: fed too much context, it pulled in the wrong details, stopped holding to the token system, and on new surfaces it broke down once it ran past the patterns it knew. Keeping a single screen on-system turned into a 20–30 minute babysitting loop. At that point the agent was costing me time, not saving it.",
+    storyPills: [
+      {
+        after: "the agent was costing me time, not saving it",
+        q: "Isn't 'the AI cost me time' an argument against the whole agentic workflow you're selling?",
+        a: "The opposite — it's the argument for using it right. The failure wasn't VDA, it was me handing it the wrong size of task. An agent's reliability is inverse to how much you give it at once: a bounded tweak inside the system it nails; a whole novel screen with a paragraph of context, it drifts. I'd started treating it like a junior I could brief once and walk away from. The lesson isn't 'agents don't work' — it's 'agents work at a specific scope, and my job is to keep them there.'",
+      },
+    ],
+    resolution: "I shrank the unit of work. Instead of asking for a finished screen and then spending half an hour reconciling it, I give VDA small bounded passes inside the tokens and own the final changes myself. No task should need 20–30 minutes of supervision — if it does, it's too big a bite for the agent. Faster first draft from the agent; final judgment stays with me.",
+    resolutionPills: [
+      {
+        after: "final judgment stays with me",
+        q: "So where's the line — what does VDA do, and what do you keep?",
+        a: "I split it by unit of work, not by feature. VDA gets the bounded first pass — generate the variant, lay it out on the tokens, take the mechanical first swing. I take the last pass, always: the taste call on whether it's actually right, plus anything on a surface new enough that the patterns don't exist yet. The trick that fixed the time problem was making its passes small enough that a drift is cheap to catch — a wrong tweak I fix in seconds, a wrong whole screen I'd have spent 20 minutes untangling.",
+      },
+    ],
+  },
 ];
 
 export const LEARNINGS = [
@@ -154,7 +197,7 @@ export const LEARNINGS = [
       {
         after: "had to be paid back",
         q: "What's the right rhythm of cleanup vs shipping for a product still finding fit?",
-        a: "Roughly every 3-4 quarters of feature-heavy shipping, you owe yourself a focused cleanup quarter. The exact ratio depends on team size and complexity, but a rule of thumb: when more than 30% of engineering time is going to 'bug fixes from last quarter's shipping,' it's time to stop and reset. The danger is letting it go past 50%, at which point cleanup becomes a multi-quarter effort.",
+        a: "Roughly every 3-4 quarters of feature-heavy shipping, you owe yourself a focused cleanup quarter. The exact ratio depends on team size and complexity, but a rule of thumb: when a rising share of engineering time was going to visual fixes and rework from last quarter's shipping, it's time to stop and reset. The danger is letting it keep climbing, at which point cleanup becomes a multi-quarter effort.",
       },
     ],
   },
@@ -175,6 +218,11 @@ export const LEARNINGS = [
         after: "without me reviewing every pixel",
         q: "What's the actual limit of what an AI design assistant can do well?",
         a: "VDA does well on bounded extension — variants of established patterns, layout adjustments within tokens, color/spacing tweaks. It does poorly on novel surfaces (anything needing a new pattern), strategic tradeoffs (when and where the design actually breaks user trust), and anything requiring negotiation with engineering or product. The boundary is roughly: if I could explain the task to a brand-new junior designer using the design system docs alone, VDA can do it. If I'd need to explain context, history, or tradeoffs, VDA can't.",
+      },
+      {
+        after: "they get more done with it",
+        q: "An interviewer's read: 'AI design assistant' is résumé inflation for a few good Figma plugins. What did VDA actually do that a plugin can't?",
+        a: "Fair challenge. A plugin executes a command; VDA carries my taste across sessions. It holds 250+ logged design decisions and 60+ aesthetic rules, so when I say 'build the variant for X,' it already knows my spacing defaults, which blue, how I handle empty states, and what I'd reject — without me re-specifying. The honest boundary: it's reliable only on bounded extension of patterns the system already has. Anything net-new I still design myself. So it's not 'AI designs the product' — it's 'AI removes the 80% of my work that was mechanical repetition of decisions I'd already made.'",
       },
     ],
   },

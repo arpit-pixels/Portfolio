@@ -35,7 +35,10 @@ export default function WsupCSOutcomes() {
       <section className="cs-sec" ref={funnelR}>
         <div className="cs-sec-head"><span className="stag">08 / HOW WSUP MAKES MONEY</span></div>
         <h2 className="cs-h2">Two ways of making money,<br />designed as <em>one system</em></h2>
-        <p className="cs-p">wsup makes money two ways at once. Banner ads on guests who haven't signed up; credits for premium AI work once they have. Signing up removes the ads — turning it into a benefit users want, not a wall to climb.</p>
+        <p className="cs-p">wsup makes money two ways at once. Banner ads on guests who haven't signed up; credits for premium AI work once they have. Signing up removes the ads — turning it into a benefit users want, not a wall to climb.<Pill
+          q="Why credits-plus-ads instead of a flat subscription, which is simpler and more predictable revenue?"
+          a="A subscription forces every user to predict their own usage before they've felt the product — and most can't, so they don't subscribe. Credits-as-fuel means you only pay in proportion to the AI work you actually trigger; the casual user runs on the free daily pool and never sees a wall, while the heavy user pays for the compute they're genuinely consuming. Ads cover the logged-out majority who'll never pay anything. It's two engines for two populations: ads monetize attention, credits monetize intensity. A flat sub would over-charge the casual user and under-charge the whale at the same time."
+        /></p>
 
         <div className="wsup-funnel">
           {FUNNEL_STAGES.map((s, i) => {
@@ -68,8 +71,8 @@ export default function WsupCSOutcomes() {
       {/* 09 — WHAT FAILED */}
       <section className="cs-sec" ref={failR}>
         <div className="cs-sec-head"><span className="stag">09 / WHAT FAILED</span></div>
-        <h2 className="cs-h2">Two decisions<br />I had to <em>undo</em></h2>
-        <p className="cs-p">A senior case study without failures is a bad senior case study. These are the two I learned the most from.</p>
+        <h2 className="cs-h2">Four calls<br />I'd <em>remake</em></h2>
+        <p className="cs-p">A senior case study without failures is a bad senior case study. These are the four I learned the most from.</p>
 
         <div className="wsup-failures">
           {WHAT_FAILED.map((f, i) => {

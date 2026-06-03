@@ -65,7 +65,7 @@ export const PERSONAS = [
         followups: [
           {
             q: "Doesn't that mean Sam herself is sacrificed for a future Sam who hasn't churned yet?",
-            a: "Not entirely. We do reach out to Sam directly when we identify her — through Discord support response and apology messaging. But the structural fix benefits the next 100 Sams more than re-engaging the one who's already burnt. Triage at scale: invest in the systemic fix that prevents the pattern, while doing best-effort recovery on the individual already in the pattern. The recovery rate on actively-frustrated users is low (~15%); the prevention rate on users who would've become frustrated is much higher.",
+            a: "Not entirely. We do reach out to Sam directly when we identify her — through Discord support response and apology messaging. But the structural fix benefits the next 100 Sams more than re-engaging the one who's already burnt. Triage at scale: invest in the systemic fix that prevents the pattern, while doing best-effort recovery on the individual already in the pattern. Few of the actively-frustrated users come back; the prevention rate on users who would've become frustrated is much higher.",
           },
         ],
       },

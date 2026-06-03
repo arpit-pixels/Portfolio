@@ -25,7 +25,7 @@ export default function WsupCSStory() {
             q="What does 'loud' mean — how did you measure that?"
             a="Three signals: (1) Volume — the same complaint or request showing up multiple times in different channels in a single week. (2) Energy — frustration vocabulary in messages (CAPS, multiple exclamation points, escalation patterns). (3) Cross-pollination — different users explicitly agreeing with each other on a topic. When all three lined up, the Discord was 'loud' on that issue and it became a flag for the PM."
             followups={[
-              { q: "Couldn't a vocal minority make Discord seem 'loud' on issues that didn't matter to most users?", a: "Yes, and it happened. Reference-image removal flagged loud, but our usage data showed only ~5% of users used the feature. We underweighted the volume because of low usage — and we were wrong, because the 5% were our highest-value creators. Lesson: 'loud' weighting needs to factor in WHO is loud, not just how many. Power users carry more signal weight than casual users for creator-facing decisions." },
+              { q: "Couldn't a vocal minority make Discord seem 'loud' on issues that didn't matter to most users?", a: "Yes, and it happened. Reference-image removal flagged loud, but our usage data showed only a small share of users used the feature. We underweighted the volume because of low usage — and we were wrong, because that small share were our highest-value creators. Lesson: 'loud' weighting needs to factor in WHO is loud, not just how many. Power users carry more signal weight than casual users for creator-facing decisions." },
             ]}
           />
           {' '}Users wanted more memory. They wanted to tune their characters deeper. They wanted to share what they made. They wanted premium chat LLMs we didn't have yet.
@@ -34,9 +34,9 @@ export default function WsupCSStory() {
           By the end of 2025, every shipped feature traced back to something specific
           <Pill
             q="Did you ever get this wrong? Did anything ship that turned out to be the wrong feature?"
-            a="Yes. The category dropdown is the clearest example (Section 09 covers it). Beyond that, we shipped a 'reactions' feature on chat early on — users could thumbs-up or thumbs-down AI messages. The hypothesis was that this would help us tune model quality. In practice, users barely used it, and when they did, the data was too sparse and noisy to actually train against. We sunset it after 4 months."
+            a="Yes. The category dropdown is the clearest example (Section 09 covers it). Beyond that, we shipped a 'reactions' feature on chat early on — users could thumbs-up or thumbs-down AI messages. The hypothesis was that this would help us tune model quality. In practice, almost no one used it, and when they did, the data was too sparse and noisy to actually train against. So we sunset it."
             followups={[
-              { q: "How did you decide to sunset rather than improve?", a: "Usage data plus a small Discord poll. Less than 2% of users were ever using it, and the ones who did had a wide range of interpretations of what 'thumbs up' meant. We tried iterating on placement and copy for a month, no movement. At that point sunsetting was cheaper than continuing — every UX surface costs maintenance, and dead surfaces slow everything else down." },
+              { q: "How did you decide to sunset rather than improve?", a: "Usage data plus a small Discord poll. Almost no one was ever using it, and the ones who did had a wide range of interpretations of what 'thumbs up' meant. We tried iterating on placement and copy, no movement. At that point sunsetting was cheaper than continuing — every UX surface costs maintenance, and dead surfaces slow everything else down." },
             ]}
           />
           {' '}— a Discord ask, a competitor pattern, or a behavior we'd watched users invent on their own.
@@ -45,7 +45,7 @@ export default function WsupCSStory() {
           But moving fast had a cost. Within a year, the visual system had drifted
           <Pill
             q="Why didn't you build a design system from day 1?"
-            a="Founding-team velocity. With a small team shipping V1 in a few months, building a robust token system would've slowed us by 30-40%. The bet was: ship something real first, then formalize the system once we knew what the product wanted to be. That's a defensible early-stage trade — design systems built before product-market fit usually encode the wrong abstractions and have to be redone. The cost was the cleanup later, but the cleanup was cheaper than slow product validation."
+            a="Founding-team velocity. With a small team shipping V1 in a few months, building a robust token system would've slowed us down materially. The bet was: ship something real first, then formalize the system once we knew what the product wanted to be. That's a defensible early-stage trade — design systems built before product-market fit usually encode the wrong abstractions and have to be redone. The cost was the cleanup later, but the cleanup was cheaper than slow product validation."
             followups={[
               { q: "How do you know the design system you built later wasn't itself encoding the wrong abstractions?", a: "Because it was built from real shipped surfaces, not hypothetical ones. The token names match what users actually saw — chat-bubble-bg, credit-streak-active, story-card-radius. If we'd built tokens before shipping, we'd have generic primitives like surface-1, surface-2 — honest abstractions but useless for the team to use. The post-shipping system has names that match what the team thinks about, which is what makes it sticky." },
             ]}

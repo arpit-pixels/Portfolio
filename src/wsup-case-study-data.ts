@@ -56,7 +56,7 @@ export const FUNNEL_STAGES = [
         followups: [
           {
             q: "How do you know users perceive it as positive vs annoying?",
-            a: "The signup completion rate from guest sessions is solid (specific numbers internal). And the qualitative signal: zero Discord complaints about ads being annoying or about the ad-free post-signup feeling like a manipulation. If users perceived it as a wall, the Discord would be telling us. The silence on this is the strongest evidence.",
+            a: "Guest sessions convert to signups well. And the qualitative signal: zero Discord complaints about ads being annoying or about the ad-free post-signup feeling like a manipulation. If users perceived it as a wall, the Discord would be telling us. The silence on this is the strongest evidence.",
           },
         ],
       },

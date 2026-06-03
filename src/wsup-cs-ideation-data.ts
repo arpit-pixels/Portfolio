@@ -10,6 +10,8 @@ export const IDEATION_BOARDS = [
   {
     n: "01",
     surface: "Browsing characters (Explore page)",
+    img: "/cs/wsup-screens/explore-desktop.png",
+    imgCaption: "Shipped: sideways-scrolling category tabs, cards leading with rank + chat count.",
     problem: "20+ categories. Hundreds of characters per category. Power users know what they want; casuals don't. How do you let people browse all of it without overwhelming first-time visitors?",
     chosen: "Sideways-scrolling category tabs + character cards showing rank and chat count as the main info. SPICY toggle for filtering content.",
     chosenWhy: "Every category stays visible without eating vertical space. Cards lead with community signals — '#1279 Rank · 2.0K Chats' — which work faster than staff picks. Confirmed live: niche categories like Fantasy and Sci-Fi held their usage.",
@@ -17,7 +19,7 @@ export const IDEATION_BOARDS = [
       {
         after: "niche categories like Fantasy and Sci-Fi keep their usage instead of dropping off",
         q: "How did you prove this in production?",
-        a: "We had category-level usage data before and after the layout change. With the dropdown, the top 3 categories captured ~85% of clicks; niche categories hovered near zero. Switched to horizontal scroll — within a week, niche category usage rose to a baseline proportional to character availability. The data was unambiguous; we kept horizontal scroll.",
+        a: "We had category-level usage data before and after the layout change. With the dropdown, the top few categories soaked up almost all the clicks; niche categories hovered near zero. Switched to horizontal scroll, and niche categories recovered once browsing them no longer took an extra click. The data was unambiguous; we kept horizontal scroll.",
         followups: [
           {
             q: "Why test in production rather than prototype?",
@@ -37,6 +39,8 @@ export const IDEATION_BOARDS = [
   {
     n: "02",
     surface: "Stories",
+    img: "/cs/wsup-screens/stories-desktop.png",
+    imgCaption: "Shipped: Stories as a peer tab — a browseable, multi-format feed.",
     problem: "Users were posting their AI content in Discord — characters, funny outputs, comic strips. Discord was acting like a stories feed they didn't know they wanted. Should we build a stories tab? How deep?",
     chosen: "Stories as a tab equal to Chat. Multiple formats (interactive 'TapTale,' Image, Video, Comic). Sorting filters. TikTok-style browsing for scrolling through.",
     chosenWhy: "Discord behavior was the signal — users wanted a place to share what they made. Multiple formats because creators don't all express the same way. TikTok-style browse for low-commitment scrolling. Stories ships as a peer to Chat, not a sub-page.",
@@ -75,47 +79,6 @@ export const IDEATION_BOARDS = [
   },
   {
     n: "03",
-    surface: "How wsup makes money",
-    problem: "Premium AI actions cost real money — image gen, regenerating chat replies more than 3 times, gifts, premium chat LLMs. Users covering those costs keeps wsup free to start. The problem: make money without breaking chat or making users feel punished.",
-    chosen: "Credits charged per premium action + 50 free daily + daily streak rewards + banner and leaderboard ads on visitors only. Ads removed when you sign up.",
-    chosenWhy: "Per-action charging makes the trade clear. Streaks build a daily habit and teach features. Ads on guests turn signup into a benefit ('no more ads') instead of a wall. Two revenue paths, designed together.",
-    chosenWhyPills: [
-      {
-        after: "Charging per action makes the trade clear — users see exactly what they're paying for",
-        q: "Why per-action credits over flat subscription tiers?",
-        a: "Two reasons. First, AI compute costs scale with action volume — a heavy creator costs 100x what a casual user costs. Flat tiers would either subsidize the whales (which kills margins) or price out the casual user (kills acquisition). Per-action means cost scales with usage. Second, per-action is honest — users see what each thing costs and choose. Subscriptions hide that, which feels good in marketing but creates resentment when users realize they're paying for things they don't use.",
-        followups: [
-          {
-            q: "Doesn't per-action create decision fatigue — every action becomes a financial choice?",
-            a: "Yes, which is why we made the first 50 daily actions free. Casual users never hit the wall. Heavy users hit it but understand it because they're aware of how much AI work they're doing. Decision fatigue is real but bounded to the 5% of users actively spending — and those users self-identify as creators who want control over their spend. Flat subscriptions would solve decision fatigue but break the economics. The trade was worth it.",
-          },
-          {
-            q: "How did you keep credits from feeling punitive when users hit the wall?",
-            a: "Three things. (1) The wall always shows the action's cost upfront, never as a surprise mid-action. (2) Streak rewards consistently top up the user's balance, so casual users keep getting topped up. (3) The wall is a popup, not a redirect — users stay in context and can keep using free features. The goal was to make the credit moment feel like 'do you want to do this premium thing?' not 'pay or leave.'",
-          },
-        ],
-      },
-    ],
-    alternatives: [
-      {
-        path: "Flat subscription tiers (Free / Pro / Premium)",
-        why: "Familiar SaaS model. Predictable revenue.",
-        rejected: "Doesn't fit how AI costs work. A heavy creator burns 100x more compute than a casual user. Flat tiers either lose money on heavy users or price out casual ones. Credits scale with what's actually used.",
-      },
-      {
-        path: "All-free + ads everywhere",
-        why: "Lowest barrier to entry. Largest possible audience.",
-        rejected: "Banner ads can't cover AI compute at consumer-app rates. The math doesn't work. And ads inside chat would destroy the feeling that keeps users.",
-      },
-      {
-        path: "Pay-per-character",
-        why: "Charge creators a small fee to publish; revenue scales with how many creators there are.",
-        rejected: "Punishes the creators who make the platform grow. The worldbuilder segment (20% of users) would shrink to 5%. Kills the community network we'd been building.",
-      },
-    ],
-  },
-  {
-    n: "04",
     surface: "Signup",
     problem: "wsup's edge is 'no signup wall.' But Explore needs gender and age to make the first recommendation non-random. How do you collect the minimum without breaking the promise?",
     chosen: "Two pre-filled fields (gender + age) on one screen. One Continue button. Under 30 seconds to first AI response.",
@@ -141,7 +104,7 @@ export const IDEATION_BOARDS = [
       {
         path: "Full preferences quiz (interests, NSFW, language, etc.)",
         why: "Better personalization on the first visit.",
-        rejected: "Every quiz screen drops 30%+ of users. Better recommendations on screen 1 are worthless if 70% never reach screen 2.",
+        rejected: "Every extra signup field costs you users. Better recommendations on screen 1 are worthless if most people never reach screen 2.",
       },
       {
         path: "Zero signup — straight to Explore",

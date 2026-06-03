@@ -3,8 +3,21 @@ import { Link } from "react-router-dom";
 import { BRIEF, ROLE, STATS } from "./wsup-case-study-data";
 import WsupCSStory from "./WsupCSStory";
 import WsupCSDesign from "./WsupCSDesign";
+import WsupCSScreens from "./WsupCSScreens";
 import WsupCSOutcomes from "./WsupCSOutcomes";
 import { InterviewModeProvider, Pill } from "./InterviewMode";
+import ProcessFlow, { type FlowData } from "./ProcessFlow";
+
+const WSUP_FLOW: FlowData = {
+  stages: [
+    { icon: "users", label: "Listen", sub: "Discord + real usage" },
+    { icon: "target", label: "Prioritize", sub: "signals, not guesses" },
+    { icon: "bulb", label: "Design", sub: "2–3 options per surface" },
+    { icon: "ship", label: "Ship", sub: "fast, additive, safe" },
+    { icon: "layout", label: "Systematize", sub: "name the design system" },
+    { icon: "bolt", label: "Automate", sub: "the agent ships from it" },
+  ],
+};
 
 export function useR(d = 0) {
   const r = useRef<HTMLDivElement>(null);
@@ -54,6 +67,12 @@ export default function WsupCaseStudy() {
         </div>
       </header>
 
+      {/* Product screenshot */}
+      <div className="cs-screenshots-single" style={{ maxWidth: 900, margin: '0 auto', padding: '0 20px 20px' }}>
+        <img src="/cs/wsup-home-loggedin.png" alt="wsup.ai homepage with character grid, sidebar of recent chats, and category tabs" className="cs-screenshot" />
+        <span className="cs-screen-label" style={{ textAlign: 'center', display: 'block', marginTop: 8 }}><a href="https://wsup.ai" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--blue)' }}>wsup.ai</a> — Home page · Web, iOS, Android · 1.79M monthly visits</span>
+      </div>
+
       {/* THE CHALLENGE — full-bleed block */}
       <section className="wsup-challenge-block">
         <div className="wsup-challenge-inner">
@@ -72,14 +91,11 @@ export default function WsupCaseStudy() {
         </div>
       </section>
 
-      {/* Product screenshot */}
-      <div className="cs-screenshots-single" style={{ maxWidth: 900, margin: '0 auto', padding: '0 20px 20px' }}>
-        <img src="/cs/wsup-home-loggedin.png" alt="wsup.ai homepage with character grid, sidebar of recent chats, and category tabs" className="cs-screenshot" />
-        <span className="cs-screen-label" style={{ textAlign: 'center', display: 'block', marginTop: 8 }}><a href="https://wsup.ai" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--blue)' }}>wsup.ai</a> — Home page · Web, iOS, Android · 1.79M monthly visits</span>
-      </div>
+      <ProcessFlow data={WSUP_FLOW} />
 
       <WsupCSStory />
       <WsupCSDesign />
+      <WsupCSScreens />
       <WsupCSOutcomes />
 
       <div className="cs-cta">

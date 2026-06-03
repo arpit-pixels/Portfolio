@@ -1,5 +1,18 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import BeforeAfterSlider from "./BeforeAfterSlider";
+import ProcessFlow, { type FlowData } from "./ProcessFlow";
+import { InterviewModeProvider, Pill } from "./InterviewMode";
+
+const BS_FLOW: FlowData = {
+  stages: [
+    { icon: "search", label: "Audit", sub: "the BS4 site + who visits" },
+    { icon: "target", label: "Define", sub: "modernize, keep rankings" },
+    { icon: "bulb", label: "Design", sub: "game-forward, not specs" },
+    { icon: "layout", label: "Systematize", sub: "one system, every surface" },
+    { icon: "ship", label: "Ship", sub: "at scale, rankings intact" },
+  ],
+};
 
 function useR(d = 0) {
   const r = useRef<HTMLDivElement>(null);
@@ -45,185 +58,191 @@ export default function BluestacksCaseStudy() {
   const heroR = useR(), probR = useR(), mktR = useR(), resR = useR(), screenR = useR(), processR = useR(), decR = useR(), resultR = useR();
 
   return (
+    <InterviewModeProvider>
     <div className="cs">
       <NAV />
 
       <header className="cs-hero" ref={heroR}>
-        <div className="cs-badge abb">CASE STUDY · PRODUCT DESIGN</div>
-        <h1 className="cs-h1">Designing for the world's<br />largest Android emulator — <em>500M+ users</em></h1>
-        <p className="cs-sub">BlueStacks lets users play Android games on PC and Mac. 1 billion downloads. I led UX across the desktop app, web platform, game discovery, and cloud gaming experience.</p>
+        <div className="cs-badge abb">CASE STUDY · WEBSITE REDESIGN</div>
+        <h1 className="cs-h1">Bringing the world's #1 Android<br />emulator out of the <em>BlueStacks 4</em> era</h1>
+        <p className="cs-sub">BlueStacks lets people play Android games on PC. When I joined in 2019 the product was already #1 — but the website hadn't kept up. The homepage sold specs instead of games, and the game pages were built around dated sections. I owned the redesign of the surfaces that carried nearly all the traffic: the homepage and the game landing pages.</p>
         <div className="cs-role-row">
-          <div className="cs-role-item"><span className="cs-role-label">My role</span>Lead Product Designer — desktop app UX, web platform, game discovery, category system, download flows</div>
-          <div className="cs-role-item"><span className="cs-role-label">Product</span><a href="https://www.bluestacks.com" target="_blank" rel="noopener noreferrer" style={{ color: "var(--blue)" }}>bluestacks.com</a> — Android emulator + cloud gaming · Backed by Intel, AMD, Samsung, Qualcomm</div>
-          <div className="cs-role-item"><span className="cs-role-label">Timeline</span>2019–2024 · Led UX across BlueStacks 5, BlueStacks X, and BlueStacks Air</div>
-          <div className="cs-role-item"><span className="cs-role-label">Scale</span>500M+ users · 1B+ downloads · 2M+ Android games · #1 Android emulator globally</div>
+          <div className="cs-role-item"><span className="cs-role-label">My role</span>Product Designer — owned the bluestacks.com redesign: homepage + game landing-page template</div>
+          <div className="cs-role-item"><span className="cs-role-label">Product</span><a href="https://www.bluestacks.com" target="_blank" rel="noopener noreferrer" style={{ color: "var(--blue)" }}>bluestacks.com</a> — Android emulator · Backed by Intel, AMD, Samsung, Qualcomm</div>
+          <div className="cs-role-item"><span className="cs-role-label">Timeline</span>Joined 2019 · redesign shipped 2020–2021</div>
+          <div className="cs-role-item"><span className="cs-role-label">Scope</span>The bluestacks.com marketing site — homepage, game landing pages (one template, thousands of search pages), and feature pages</div>
         </div>
         <div className="cs-meta-row">
-          <div className="cs-meta"><span className="cs-mn">500M+</span><span className="cs-ml">Users worldwide</span><span className="cs-src">via BlueStacks press · 2021</span></div>
-          <div className="cs-meta"><span className="cs-mn">1B+</span><span className="cs-ml">Downloads</span><span className="cs-src">via PR Newswire · 2021</span></div>
-          <div className="cs-meta"><span className="cs-mn">2M+</span><span className="cs-ml">Games available</span><span className="cs-src">via bluestacks.com</span></div>
+          <div className="cs-meta"><span className="cs-mn">300M+</span><span className="cs-ml">Users worldwide</span><span className="cs-src">BlueStacks platform · via bluestacks.com · 2019</span></div>
+          <div className="cs-meta"><span className="cs-mn">212</span><span className="cs-ml">Countries & territories</span><span className="cs-src">via bluestacks.com · 2019</span></div>
           <div className="cs-meta"><span className="cs-mn">#1</span><span className="cs-ml">Android emulator</span><span className="cs-src">industry consensus</span></div>
+          <div className="cs-meta"><span className="cs-mn">3</span><span className="cs-ml">Surface types redesigned</span><span className="cs-src">homepage · game pages · feature pages</span></div>
         </div>
       </header>
 
       <div className="cs-screenshots-single" style={{ maxWidth: 900, margin: '0 auto', padding: '0 20px 20px' }}>
-        <img src="/cs/bluestacks-home.png" alt="BlueStacks homepage" className="cs-screenshot" />
-        <span className="cs-screen-label" style={{ textAlign: 'center', display: 'block', marginTop: 8 }}>BlueStacks — Play Android games on PC, Mac, or cloud</span>
+        <img src="/cs/bluestacks-home.png" alt="Redesigned BlueStacks homepage — game-forward hero, feature cards, trust bar" className="cs-screenshot" />
+        <span className="cs-screen-label" style={{ textAlign: 'center', display: 'block', marginTop: 8 }}>BlueStacks homepage — the redesign, live today</span>
       </div>
 
-      {/* 01 — CHALLENGE */}
-      <section className="cs-sec" ref={probR}>
-        <div className="cs-sec-head"><span className="stag">01 / THE CHALLENGE</span></div>
-        <h2 className="cs-h2">Serving 500M users<br />across <em>three</em> platforms</h2>
-        <div className="cs-two-col">
-          <div>
-            <p className="cs-p"><strong>500M users adopted BlueStacks because it was the simple way to play Android games on a bigger screen.</strong> Then we added cloud gaming (BlueStacks X) and Mac support (BlueStacks Air). Three products, one user intent — but with fundamentally different technical surfaces.</p>
-            <p className="cs-p">The tension: how do we layer cloud + Mac onto the platform without losing the simplicity that got us to 500M in the first place? Every new product is a chance to confuse the user who just came to play a game.</p>
-          </div>
-          <div className="cs-problem-list">
-            <div className="cs-problem-item"><span className="cs-problem-x">✗</span> Three products (App, Cloud, Air) with overlapping use cases</div>
-            <div className="cs-problem-item"><span className="cs-problem-x">✗</span> 2M+ game library made discovery overwhelming</div>
-            <div className="cs-problem-item"><span className="cs-problem-x">✗</span> Users ranged from tech-savvy gamers to first-time emulator users</div>
-            <div className="cs-problem-item"><span className="cs-problem-x">✗</span> Download flow had to compete with cloud instant-play</div>
-            <div className="cs-problem-item cs-problem-solved"><span className="cs-problem-check">✓</span> Unified homepage that adapts: download for power users, cloud for instant play</div>
-          </div>
+      {/* THE CHALLENGE — full-bleed dark band */}
+      <section className="wsup-challenge-block">
+        <div className="wsup-challenge-inner">
+          <span className="wsup-challenge-label">THE CHALLENGE</span>
+          <p className="wsup-challenge-body">Modernizing the website behind the world's #1 Android emulator — a homepage that read like a spec sheet, and thousands of dated game pages — <em>without losing the search rankings or the trust 300M+ users had already built.</em></p>
         </div>
+      </section>
 
-        <h3 className="wsup-also-h">Who actually used BlueStacks</h3>
+      <ProcessFlow data={BS_FLOW} />
+
+      <section className="cs-sec" ref={probR}>
+        <p className="cs-p"><strong>BlueStacks was the #1 Android emulator with 300M+ users — but the website didn't show it.</strong> The homepage led with a screenshot of the app window and a benchmark line ("6× faster than a Galaxy S9+"). The game pages — which pulled most of the search traffic — were walls of text under dated "Powerups" and "How to Play and Stream" sections.</p>
+        <p className="cs-p">And this wasn't a blank-canvas rebrand. Millions of users and thousands of search-ranked game pages ran on these templates. I had to modernize the experience without losing those rankings, or the trust people already had in the brand.</p>
+
+        <h3 className="wsup-also-h">Who actually hit these pages</h3>
         <div className="wsup-moats">
-          <div className="wsup-moat"><div className="wsup-moat-n">01</div><div className="wsup-moat-name">Mobile gamers without flagship phones</div><p className="wsup-moat-what">Came to play AAA Android titles their device couldn't run smoothly. Largest segment.</p></div>
-          <div className="wsup-moat"><div className="wsup-moat-n">02</div><div className="wsup-moat-name">Streamers + content creators</div><p className="wsup-moat-what">Wanted larger screens, recording tools, multiple game instances. Drove demand for advanced features.</p></div>
-          <div className="wsup-moat"><div className="wsup-moat-n">03</div><div className="wsup-moat-name">Power users + game farmers</div><p className="wsup-moat-what">Multi-instance, macros, key-mapping — the technical features that kept BlueStacks differentiated.</p></div>
-          <div className="wsup-moat"><div className="wsup-moat-n">04</div><div className="wsup-moat-name">Game-intent visitors</div><p className="wsup-moat-what">Found BlueStacks via a specific game's "play on PC" search. Cared about that one game, not the emulator.</p></div>
+          <div className="wsup-moat"><div className="wsup-moat-n">01</div><div className="wsup-moat-name">Game-intent searchers</div><p className="wsup-moat-what">Searched "[game] on PC", landed on a game page. Wanted to play that one title fast — not read a spec sheet. The largest, most valuable traffic.</p></div>
+          <div className="wsup-moat"><div className="wsup-moat-n">02</div><div className="wsup-moat-name">Gamers without flagship phones</div><p className="wsup-moat-what">Came to the homepage to run AAA Android titles their device couldn't handle. The core homepage segment.</p></div>
+          <div className="wsup-moat"><div className="wsup-moat-n">03</div><div className="wsup-moat-name">Streamers & content creators</div><p className="wsup-moat-what">Wanted bigger screens, recording, multiple instances. The audience the feature/Powerups content actually spoke to.</p></div>
+          <div className="wsup-moat"><div className="wsup-moat-n">04</div><div className="wsup-moat-name">Power users & game farmers</div><p className="wsup-moat-what">Multi-instance, macros, key-mapping — the technical features that kept BlueStacks differentiated. They scroll for specs; everyone else doesn't.</p></div>
         </div>
       </section>
 
       {/* MARKET CONTEXT */}
       <section className="cs-sec" ref={mktR} style={{ paddingTop: 32, paddingBottom: 32 }}>
         <div className="cs-sec-head"><span className="stag">MARKET CONTEXT</span></div>
-        <h2 className="cs-h2" style={{ fontSize: 'clamp(28px, 4vw, 36px)' }}>Where BlueStacks <em>sits</em></h2>
-        <p className="cs-p" style={{ marginBottom: 20 }}>The Android-emulator market is crowded. BlueStacks held #1 by leaning into trust (enterprise backers) and dual UX (Download + Cloud), where most competitors competed primarily on performance and price.</p>
+        <h2 className="cs-h2" style={{ fontSize: 'clamp(28px, 4vw, 36px)' }}>Where BlueStacks <em>sat</em></h2>
+        <p className="cs-p" style={{ marginBottom: 20 }}>The Android-emulator market was crowded, and most rivals competed on performance and price. BlueStacks led on trust — its enterprise backers — and on reach, with a huge game library spread across thousands of search pages. The redesign had to protect both while modernizing the look.</p>
         <div className="wsup-also-tracked">
-          <div className="wsup-also-card">
-            <div className="wsup-also-body">
-              <div className="wsup-also-name">NoxPlayer</div>
-              <p className="wsup-also-takeaway">Lightweight emulator popular in Asia. Cleaner setup, but limited macro/multi-instance — missed the power-user segment.</p>
-            </div>
-          </div>
-          <div className="wsup-also-card">
-            <div className="wsup-also-body">
-              <div className="wsup-also-name">LDPlayer</div>
-              <p className="wsup-also-takeaway">Aggressive marketing, near-identical feature set to BlueStacks. Less polished onboarding; competed on price and perf benchmarks.</p>
-            </div>
-          </div>
-          <div className="wsup-also-card">
-            <div className="wsup-also-body">
-              <div className="wsup-also-name">MEmu</div>
-              <p className="wsup-also-takeaway">Gaming-first, Asia-focused. Strong performance on older PCs, weaker brand and trust signaling than BlueStacks.</p>
-            </div>
-          </div>
-          <div className="wsup-also-card">
-            <div className="wsup-also-body">
-              <div className="wsup-also-name">GameLoop (Tencent)</div>
-              <p className="wsup-also-takeaway">Heavily promoted by Tencent for PUBG Mobile and CoD Mobile. Single-publisher orientation limited cross-game discovery.</p>
-            </div>
-          </div>
+          <div className="wsup-also-card"><div className="wsup-also-body"><div className="wsup-also-name">NoxPlayer</div><p className="wsup-also-takeaway">Lightweight emulator popular in Asia. Cleaner setup, but limited macro/multi-instance — missed the power-user segment.</p></div></div>
+          <div className="wsup-also-card"><div className="wsup-also-body"><div className="wsup-also-name">LDPlayer</div><p className="wsup-also-takeaway">Aggressive marketing, near-identical feature set. Less polished onboarding; competed on price and benchmark numbers.</p></div></div>
+          <div className="wsup-also-card"><div className="wsup-also-body"><div className="wsup-also-name">MEmu</div><p className="wsup-also-takeaway">Gaming-first, Asia-focused. Strong on older PCs, but weaker brand and trust signaling than BlueStacks.</p></div></div>
+          <div className="wsup-also-card"><div className="wsup-also-body"><div className="wsup-also-name">GameLoop (Tencent)</div><p className="wsup-also-takeaway">Pushed hard for PUBG Mobile and CoD Mobile. Single-publisher orientation limited cross-game discovery.</p></div></div>
         </div>
       </section>
 
       {/* 02 — APPROACH */}
       <section className="cs-sec" ref={resR}>
-        <div className="cs-sec-head"><span className="stag">02 / APPROACH</span></div>
-        <h2 className="cs-h2">One entry point,<br /><em>multiple</em> paths</h2>
-        <p className="cs-p"><strong>Users arrive with different intents.</strong> Some come to download a stable emulator. Some come for one specific game. Some come from a Mac. Asking them to pick a product first asks the wrong question. The page has to read intent before it asks anything.</p>
+        <div className="cs-sec-head"><span className="stag">01 / APPROACH</span></div>
+        <h2 className="cs-h2">Lead with the game,<br />not the <em>emulator</em></h2>
+        <p className="cs-p"><strong>Every audience came for a game</strong> — a specific title, or just "play Android games on a big screen." The old site asked them to care about the emulator first. The redesign flips that: games lead, and the technology earns trust underneath.</p>
         <div className="cs-steps">
-          <div className="cs-step"><div className="cs-step-n">01</div><h3 className="cs-step-h">Hero with dual CTA</h3><p className="cs-step-p">"Download BlueStacks" for power users who want the full emulator. A featured game "Play on PC" CTA for users who came for a specific title. Two intents, one hero.</p><p className="cs-step-rej"><span className="cs-rej-label">Rejected:</span> a single "Download" CTA. Many visitors arrived with a specific game in mind — for them, "Download BlueStacks" was an extra step before the thing they actually wanted.</p></div>
-          <div className="cs-step"><div className="cs-step-n">02</div><h3 className="cs-step-h">Trust bar</h3><p className="cs-step-p">Enterprise-grade backer logos (Intel, AMD, Samsung, Qualcomm) visible immediately below the fold. For an emulator product, trust is everything.</p><p className="cs-step-rej"><span className="cs-rej-label">Rejected:</span> moving trust signals to a separate /security page. Doubt forms in the first 5 seconds — by the time users click through, it's too late.</p></div>
-          <div className="cs-step"><div className="cs-step-n">03</div><h3 className="cs-step-h">Category browsing</h3><p className="cs-step-p">Horizontal tab nav for 2M+ games — Top Games, Exclusive, RPG, Strategy, Action, Gamepad. Each category curated, not exhaustive.</p><p className="cs-step-rej"><span className="cs-rej-label">Rejected:</span> exposing the full library via search. Search-first surfaces only help users who already know what they want — most visitors don't.</p></div>
-          <div className="cs-step"><div className="cs-step-n">04</div><h3 className="cs-step-h">Product feature cards</h3><p className="cs-step-p">BlueStacks Air (Mac), BlueStacks Store (rewards), Performance, 2M+ Games — each card answers a different user question without requiring navigation.</p><p className="cs-step-rej"><span className="cs-rej-label">Rejected:</span> a Products dropdown in the main nav. Required a click to discover Mac or Cloud existed — most users never made that click.</p></div>
+          <div className="cs-step"><div className="cs-step-n">01</div><h3 className="cs-step-h">Game-forward hero</h3><p className="cs-step-p">Replaced the tilted app-window screenshot with 3D game characters flanking one clear "Download BlueStacks" CTA plus a featured game. The hero now reads "gaming platform," not "utility."<Pill
+            q="Replacing a product screenshot with game art is a big swing on a utility brand. How'd you de-risk it?"
+            a="I didn't kill the product proof, I demoted it — the screenshot moved below the fold where the power users who care about emulator specs actually look. The hero's job is the first-second message: 'this is where games live,' not 'this is software.' The bet was that the install-intent visitor decides on vibe before specs, and the spec-hunters scroll. Both audiences keep what they need."
+          /></p><p className="cs-step-rej"><span className="cs-rej-label">Rejected:</span> keeping the product screenshot. It sold the container, not the games inside it.</p></div>
+          <div className="cs-step"><div className="cs-step-n">02</div><h3 className="cs-step-h">Outcome copy over spec copy</h3><p className="cs-step-p">"Play Android games on PC" replaced "6× faster than a Galaxy S9+." Specs moved below the fold, where the power users who care actually look for them.<Pill
+            q="You dropped '6× faster than a Galaxy S9+.' That's a concrete, true benchmark — why throw away a hard number?"
+            a="Because it answered a question the visitor wasn't asking yet. A benchmark only lands once someone's decided they care about performance; at the top of the funnel they're deciding whether this is even for them. 'Play Android games on PC' converts the undecided; the benchmark reassures the already-convinced. I kept the number — just moved it to where the doubt it answers actually forms."
+          /></p><p className="cs-step-rej"><span className="cs-rej-label">Rejected:</span> leading with benchmark numbers. Accurate, but it fell flat — and meant nothing to most visitors.</p></div>
+          <div className="cs-step"><div className="cs-step-n">03</div><h3 className="cs-step-h">A structured game-page template</h3><p className="cs-step-p">The highest-traffic surface. Rebuilt a wall of text into scannable blocks: rating + category up top, a single "Play on PC" CTA, then About, Tips, Features, a clean How-to, and system requirements. One template, thousands of game pages.</p><p className="cs-step-rej"><span className="cs-rej-label">Rejected:</span> a different layout per game. You can't hand-build thousands of search-ranked pages.</p></div>
+          <div className="cs-step"><div className="cs-step-n">04</div><h3 className="cs-step-h">Trust where doubt forms</h3><p className="cs-step-p">Enterprise backer logos (Intel, AMD, Samsung, Qualcomm) placed on the homepage near the CTA. Emulator anxiety peaks right at the download decision.<Pill
+            q="Backer logos by the CTA — is 'it reduces download anxiety' something you measured, or an assumption?"
+            a="A reasoned bet, not an A/B-proven number, and I'd say so in the room. Emulator downloads carry a 'is this malware' anxiety that peaks right at the button — so the credibility signal belongs there, not on a separate security page three clicks deep. The logos were real backers the company already cited publicly; I moved them to where the doubt forms. With a test budget I'd have validated the lift, but putting the strongest trust signal at the decision point is the defensible default."
+          /></p><p className="cs-step-rej"><span className="cs-rej-label">Rejected:</span> a separate security page. Doubt forms in the first seconds, not three clicks deep.</p></div>
         </div>
       </section>
 
       {/* 03 — KEY SCREENS */}
       <section className="cs-sec cs-sec-dark" ref={screenR}>
-        <div className="cs-sec-head"><span className="stag" style={{ color: "rgba(255,255,255,.4)" }}>03 / KEY SCREENS</span></div>
-        <h2 className="cs-h2" style={{ color: "white" }}>Gaming-grade visual <em>design</em></h2>
+        <div className="cs-sec-head"><span className="stag" style={{ color: "rgba(255,255,255,.4)" }}>02 / KEY SCREENS</span></div>
+        <h2 className="cs-h2" style={{ color: "white" }}>Before and after,<br />across the <em>whole site</em></h2>
 
-        <h3 className="cs-h3" style={{ color: 'white', marginTop: 32 }}>Hero — Character-driven, game-forward</h3>
-        <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}><strong style={{ color: 'rgba(255,255,255,.85)' }}>Problem: software download pages feel cold and technical.</strong> BlueStacks needed to feel like a game launcher, not a utility. So 3D game characters flank the hero CTA, and the gradient shifts green to blue to read as a gaming surface from the first frame.</p>
-        <div className="wsup-screen-pair">
-          <div className="cs-screen-item">
-            <img src="/cs/bluestacks-sub1.png" alt="BlueStacks features page showing emulator capabilities" className="cs-screenshot" />
-            <span className="cs-screen-label">Features — emulator capabilities, game showcase, download CTA</span>
-          </div>
-          <div className="cs-screen-item">
-            <img src="/cs/bluestacks-scroll.png" alt="BlueStacks category browsing with game cards" className="cs-screenshot" />
-            <span className="cs-screen-label">Browse — category tabs, curated game grid</span>
-          </div>
-        </div>
+        <h3 className="cs-h3" style={{ color: 'white', marginTop: 32 }}>Homepage — from spec sheet to gaming platform</h3>
+        <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}><strong style={{ color: 'rgba(255,255,255,.85)' }}>The old homepage opened on a screenshot of the app and a benchmark line.</strong> The redesign opens on game characters and a single clear action, with the emulator's strengths reframed as feature cards below.</p>
+        <BeforeAfterSlider
+          beforeSrc="/cs/bs-home-before.png"
+          afterSrc="/cs/bs-home-after.png"
+          beforeAlt="BlueStacks 4 homepage, 2019 — app-window hero, '6x faster' spec copy, Games-of-the-Week carousel, long single-column scroll"
+          afterAlt="Redesigned BlueStacks homepage — 3D character hero, browse-by-category grid, feature cards, trust bar"
+          beforeLabel="Old · 2019"
+          afterLabel="New"
+        />
+        <span className="cs-screen-label" style={{ display: 'block', textAlign: 'center', marginTop: 14 }}>⟷ Drag to compare · ↕ scroll for the full page — BlueStacks homepage, 2019 → today</span>
+        <p className="cs-p" style={{ color: "rgba(255,255,255,.45)", fontSize: 13, marginTop: 14 }}>Note: the live homepage today also surfaces cloud play and a Mac app — both added by the team <em>after</em> my redesign. The game-forward hero, feature-card structure, and trust bar are the redesign I led.<Pill
+            q="You joined in 2019 and shipped over 2020–21. Were you the only designer, and what's genuinely your design vs. the team's or what's changed since?"
+            a="I owned the homepage and the game-page template — the two surfaces carrying nearly all the traffic — end to end: structure, hierarchy, the game-forward direction. Marketing on hero copy, engineering on the build; I wasn't hand-coding it. What I don't claim: cloud play and the Mac app on the live site came after me, from the team, and I flag that right here. 'Mine' is the structural redesign you're looking at in the before/afters, not every pixel on bluestacks.com today."
+          /></p>
 
-        <h3 className="cs-h3" style={{ color: 'white', marginTop: 40 }}>Rewards & store</h3>
-        <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}><strong style={{ color: 'rgba(255,255,255,.85)' }}>Problem: most monetization surfaces feel like extraction.</strong> We needed the opposite — a place users come to *get* something. So the store leads with cashback and discounts, lives one click from the main nav, and never blocks the play path.</p>
-        <div className="cs-screenshots-single" style={{ marginTop: 16 }}>
-          <img src="/cs/bluestacks-scroll2.png" alt="BlueStacks store and rewards" className="cs-screenshot" />
-          <span className="cs-screen-label">Store integration — rewards, game discovery, latest releases</span>
-        </div>
+        <h3 className="cs-h3" style={{ color: 'white', marginTop: 44 }}>Game landing page — the SEO workhorse</h3>
+        <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}><strong style={{ color: 'rgba(255,255,255,.85)' }}>This template was replicated across thousands of game pages and drove the majority of search traffic.</strong> The old version buried a long description under dated "Powerups" and "How to Play and Stream" sections. The redesign leads with the game's identity — art, rating, category — and a single CTA, then structures the rest into scannable, search-friendly blocks.</p>
+        <BeforeAfterSlider
+          beforeSrc="/cs/bs-app-before.png"
+          afterSrc="/cs/bs-app-after.png"
+          beforeAlt="BlueStacks 4 game page — Rise of Kingdoms, 2019: stacked CTAs, wall of text, Powerups, How to Play and Stream"
+          afterAlt="Redesigned BlueStacks game page: art, star rating, category, single Play on PC CTA, structured About / Tips / Features / How-to blocks"
+          beforeLabel="Old · 2019"
+          afterLabel="New"
+        />
+        <span className="cs-screen-label" style={{ display: 'block', textAlign: 'center', marginTop: 14 }}>⟷ Drag to compare · ↕ scroll inside the window for the full page — BlueStacks game-page template, 2019 → today</span>
 
-        <h3 className="cs-h3" style={{ color: 'white', marginTop: 40 }}>Mobile — Download-first experience</h3>
-        <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}><strong style={{ color: 'rgba(255,255,255,.85)' }}>Problem: mobile visitors aren't here to play on mobile.</strong> They came to download for their PC or Mac later. The mobile page can't replicate the desktop browse experience — it has to capture intent fast, send a download link, and let trust signals carry the doubt.</p>
-        <div className="wsup-mobile-row">
-          <div className="cs-screen-item" style={{ maxWidth: 220 }}>
-            <img src="/cs/bluestacks-m-home.png" alt="BlueStacks mobile with hero CTA and categories" className="cs-screenshot" />
-            <span className="cs-screen-label">Mobile — hero CTA, category browsing, trust logos</span>
-          </div>
-        </div>
+        <h3 className="cs-h3" style={{ color: 'white', marginTop: 44 }}>Feature pages — explaining the product with clarity</h3>
+        <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}><strong style={{ color: 'rgba(255,255,255,.85)' }}>BlueStacks' power features — Multi-instance, key-mapping, performance — were its real differentiators, but the pages explaining them read like manuals.</strong> Multi-instance is the clearest example: the old page was a thin "what is it / how to set it up" explainer. The redesign turns it into a visual story — what you can actually do (run multiple games, multiple accounts, 64- and 32-bit side by side), why it matters, and how to start — so a first-timer understands the feature, not just its steps.</p>
+        <BeforeAfterSlider
+          beforeSrc="/cs/bs-feature-before.png"
+          afterSrc="/cs/bs-feature-after.png"
+          beforeAlt="BlueStacks 4 Multi-instance feature page, 2019 — a thin 'what is it / how to set up' explainer"
+          afterAlt="Redesigned Multi-instance feature page — a visual story of use cases, benefits, and a clear how-to"
+          beforeLabel="Old · 2019"
+          afterLabel="New"
+        />
+        <span className="cs-screen-label" style={{ display: 'block', textAlign: 'center', marginTop: 14 }}>⟷ Drag to compare · ↕ scroll for the full page — Multi-instance feature page, 2019 → today</span>
       </section>
 
       {/* 04 — PROCESS */}
       <section className="cs-sec" ref={processR}>
-        <div className="cs-sec-head"><span className="stag">04 / PROCESS</span></div>
-        <h2 className="cs-h2">Designing at scale<br />means designing <em>carefully</em></h2>
+        <div className="cs-sec-head"><span className="stag">03 / PROCESS</span></div>
+        <h2 className="cs-h2">Modernizing without<br />breaking what <em>worked</em></h2>
         <div className="wsup-process">
-          <div className="wsup-phase"><div className="wsup-phase-left"><div className="wsup-phase-n">01</div><div className="wsup-phase-dur">2019–20</div></div><div className="wsup-phase-right"><h3 className="wsup-phase-name">Desktop app UX (BlueStacks 5)</h3><p className="wsup-phase-desc"><strong>Problem:</strong> the existing app overwhelmed first-time users with macros, multi-instance, key-mapping — features power users loved but newcomers couldn't parse. <strong>Approach:</strong> strip the surface without removing the power. Game library leads, advanced controls move one click deeper.</p><p className="wsup-phase-collab"><strong>Collaboration:</strong> Worked with engineering on how loads feel — progressive loading states and game art previews made 10-second cold-starts feel acceptable.</p></div></div>
-          <div className="wsup-phase"><div className="wsup-phase-left"><div className="wsup-phase-n">02</div><div className="wsup-phase-dur">2021–22</div></div><div className="wsup-phase-right"><h3 className="wsup-phase-name">Cloud gaming (BlueStacks X)</h3><p className="wsup-phase-desc"><strong>Problem:</strong> a decade of emulator UX assumed "install, then play." Cloud changes that to "click, then play." Many of our flows didn't carry over. <strong>Approach:</strong> rebuild the player UX from zero — session start, latency feedback, exit handling — treating cloud as a new product, not a port.</p><p className="wsup-phase-collab"><strong>Collaboration:</strong> Aligned the cloud player UX with the now.gg team (same parent company) so users moving between products didn't relearn the controls.</p></div></div>
-          <div className="wsup-phase"><div className="wsup-phase-left"><div className="wsup-phase-n">03</div><div className="wsup-phase-dur">2023–24</div></div><div className="wsup-phase-right"><h3 className="wsup-phase-name">Web platform & store</h3><p className="wsup-phase-desc"><strong>Problem:</strong> bluestacks.com read like a feature spec. Visitors with game-intent — most of our traffic — bounced before they found anything playable. <strong>Approach:</strong> rebuild the site as a unified entry point with dual CTA (download vs. instant play), category browsing, and trust signals above the fold.</p><p className="wsup-phase-collab"><strong>Collaboration:</strong> A/B tested hero CTAs with marketing. "Download" alone left double-digit share of game-intent users on the table. Dual CTA captured both audiences.</p></div></div>
+          <div className="wsup-phase"><div className="wsup-phase-left"><div className="wsup-phase-n">01</div><div className="wsup-phase-dur">2019</div></div><div className="wsup-phase-right"><h3 className="wsup-phase-name">Audit the BlueStacks 4 site</h3><p className="wsup-phase-desc"><strong>Problem:</strong> the site marketed an emulator with a spec sheet, but the product had become game-first. <strong>Approach:</strong> inventoried the homepage, game-page, and feature-page templates against the product as it actually was — mapping which sections earned their scroll and which were legacy weight ("How to Play and Stream," affiliate pitches, endorsement strips).</p></div></div>
+          <div className="wsup-phase"><div className="wsup-phase-left"><div className="wsup-phase-n">02</div><div className="wsup-phase-dur">2020</div></div><div className="wsup-phase-right"><h3 className="wsup-phase-name">Redesign the homepage</h3><p className="wsup-phase-desc"><strong>Problem:</strong> the hero sold the container, not the games. <strong>Approach:</strong> reframed it around games and one clear action, restructured the long scroll into feature cards, and pulled trust signals up near the CTA.</p><p className="wsup-phase-collab"><strong>Collaboration:</strong> marketing on hero copy and CTA; engineering on a layout that held across the site's many languages.</p></div></div>
+          <div className="wsup-phase"><div className="wsup-phase-left"><div className="wsup-phase-n">03</div><div className="wsup-phase-dur">2020–21</div></div><div className="wsup-phase-right"><h3 className="wsup-phase-name">Roll out the game-page template</h3><p className="wsup-phase-desc"><strong>Problem:</strong> the harder one — a single template lived across thousands of search-ranked game pages. A redesign couldn't cost those rankings. <strong>Approach:</strong> designed a structure that reads well for people and for search, then partnered with engineering to roll it across the catalog without losing traffic.<Pill
+            q="Redesigning thousands of search-ranked pages without losing rankings is the hardest claim here. As the designer, what did you actually do to protect SEO — and did rankings dip?"
+            a="I owned the design side, not the crawl analytics — so I'll be precise about my part. The redesign kept what search depends on: the URL structure, the per-game title and H1, the indexed body copy, and the heading hierarchy all survived. I changed how that content was presented, not what existed. The real risk is stripping text to make a page prettier, so the template kept dedicated slots for the descriptive copy that earned the rankings — just made it scannable. I partnered with engineering and the SEO side on the rollout so a layout change never quietly dropped indexed content; the traffic monitoring lived with them."
+          /></p></div></div>
         </div>
         <div className="wsup-failure">
           <h3 className="wsup-failure-h">What didn't work</h3>
           <h4 className="wsup-failure-title">The feature-first homepage</h4>
-          <p className="cs-p">Early versions led with emulator features — multi-instance, macro recording, key mapping. Technically accurate, emotionally dead. Users buy outcomes, not features. Rewriting the hero from "Advanced Features" to "Play Android games on PC, Mac or try instantly from our cloud" — and adding game characters around the CTA — moved download rates noticeably.</p>
-          <h4 className="wsup-failure-title" style={{ marginTop: 18 }}>Treating Cloud and Download as the same UX</h4>
-          <p className="cs-p">When BlueStacks X launched, we tried to mirror the desktop app's flows — same library, same controls, same nav. But the mental model is different: "click and play" doesn't tolerate a settings screen between intent and action. Once we accepted Cloud as its own product with its own player UX (faster session start, no install-time defaults), retention on the cloud product climbed.</p>
+          <p className="cs-p">Early drafts still led with emulator capabilities — multi-instance, macros, key-mapping. Technically impressive, but it fell flat. Visitors buy the outcome — playing the game — not the engine. Moving features below an outcome-led hero ("Play Android games on PC," with characters around the CTA) was the unlock.</p>
+          <h4 className="wsup-failure-title" style={{ marginTop: 18 }}>One-size copy across every game page</h4>
+          <p className="cs-p">A first pass reused near-identical copy across game pages to save effort. It read generic and undercut the per-game search relevance the template existed to serve. The fix: keep the <em>structure</em> shared, keep the <em>content</em> slots game-specific.<Pill
+            q="One template across thousands of games — how does a blockbuster with rich content survive sitting next to an obscure title with almost none?"
+            a="That's exactly where my first pass failed — near-identical copy read generic and undercut per-game relevance. The fix was a template that degrades gracefully: shared structure, game-specific slots, and sections that collapse when a game has nothing for them rather than rendering a hollow header. An indie title shows art, rating, CTA, and a short About; a major title fills Tips, Features, and How-to. The skeleton's fixed; the body flexes."
+          /></p>
         </div>
       </section>
 
       {/* 05 — DECISIONS */}
       <section className="cs-sec" ref={decR}>
-        <div className="cs-sec-head"><span className="stag">05 / DECISIONS</span></div>
-        <h2 className="cs-h2">Design choices at<br /><em>500M</em> user scale</h2>
+        <div className="cs-sec-head"><span className="stag">04 / DECISIONS</span></div>
+        <h2 className="cs-h2">The calls that shaped<br />the <em>redesign</em></h2>
         <div className="cs-corr-grid">
-          <div className="cs-corr"><div className="cs-corr-tag">Character art over product screenshots</div><div className="cs-corr-row"><div className="cs-corr-before"><span className="cs-corr-label">Alternative</span>Show the emulator UI in the hero</div><div className="cs-corr-arrow">→</div><div className="cs-corr-after"><span className="cs-corr-label">Decision</span>3D game characters as hero visuals</div></div><p className="cs-corr-why">Users don't come for the emulator — they come for the games. Leading with game characters frames BlueStacks as a gaming platform, not a technical tool.</p></div>
-          <div className="cs-corr"><div className="cs-corr-tag">Trust logos above the fold</div><div className="cs-corr-row"><div className="cs-corr-before"><span className="cs-corr-label">Alternative</span>Trust signals on a separate page</div><div className="cs-corr-arrow">→</div><div className="cs-corr-after"><span className="cs-corr-label">Decision</span>Intel, AMD, Samsung, Qualcomm logos visible immediately</div></div><p className="cs-corr-why">Emulators carry "is this safe?" anxiety. Enterprise-grade backers visible within 2 scrolls dissolves trust objections before they form.</p></div>
-          <div className="cs-corr"><div className="cs-corr-tag">Dual CTA strategy</div><div className="cs-corr-row"><div className="cs-corr-before"><span className="cs-corr-label">Alternative</span>Single "Download" CTA</div><div className="cs-corr-arrow">→</div><div className="cs-corr-after"><span className="cs-corr-label">Decision</span>Download + Featured game side-by-side</div></div><p className="cs-corr-why">Not all users want the full emulator. Some came for one specific game. The featured game CTA captures intent-driven users who would bounce from a generic download page.</p></div>
-          <div className="cs-corr"><div className="cs-corr-tag">Gradient over flat dark</div><div className="cs-corr-row"><div className="cs-corr-before"><span className="cs-corr-label">Alternative</span>Flat dark background like now.gg</div><div className="cs-corr-arrow">→</div><div className="cs-corr-after"><span className="cs-corr-label">Decision</span>Green-to-blue gradient with depth</div></div><p className="cs-corr-why">BlueStacks is a premium product, not a utility. The gradient adds dimensionality and separates it visually from browser-based competitors. It feels like game packaging.</p></div>
+          <div className="cs-corr"><div className="cs-corr-tag">Hero visual</div><div className="cs-corr-row"><div className="cs-corr-before"><span className="cs-corr-label">Alternative</span>App-window screenshot</div><div className="cs-corr-arrow">→</div><div className="cs-corr-after"><span className="cs-corr-label">Decision</span>3D game characters</div></div><p className="cs-corr-why">Visitors come for games, not the emulator shell. Characters frame BlueStacks as a gaming platform from the first frame.</p></div>
+          <div className="cs-corr"><div className="cs-corr-tag">Hero copy</div><div className="cs-corr-row"><div className="cs-corr-before"><span className="cs-corr-label">Alternative</span>"6× faster than a Galaxy S9+"</div><div className="cs-corr-arrow">→</div><div className="cs-corr-after"><span className="cs-corr-label">Decision</span>"Play Android games on PC"</div></div><p className="cs-corr-why">A benchmark means nothing to someone who just wants to play. Lead with the outcome. Keep the specs for the power users who scroll for them.</p></div>
+          <div className="cs-corr"><div className="cs-corr-tag">Game pages</div><div className="cs-corr-row"><div className="cs-corr-before"><span className="cs-corr-label">Alternative</span>Bespoke layout per game</div><div className="cs-corr-arrow">→</div><div className="cs-corr-after"><span className="cs-corr-label">Decision</span>One shared template, game-specific slots</div></div><p className="cs-corr-why">Thousands of SEO pages can't each be hand-designed. A strong shared structure scales and protects rankings.</p></div>
+          <div className="cs-corr"><div className="cs-corr-tag">Trust signals</div><div className="cs-corr-row"><div className="cs-corr-before"><span className="cs-corr-label">Alternative</span>A separate security page</div><div className="cs-corr-arrow">→</div><div className="cs-corr-after"><span className="cs-corr-label">Decision</span>Backer logos beside the CTA</div></div><p className="cs-corr-why">Emulator anxiety peaks at the download decision. Intel/AMD/Samsung/Qualcomm next to the button answers "is this safe?" before it's asked.</p></div>
         </div>
       </section>
 
-      {/* 05 — IMPACT */}
+      {/* 06 — IMPACT */}
       <section className="cs-sec" ref={resultR}>
-        <div className="cs-sec-head"><span className="stag">06 / IMPACT</span></div>
-        <h2 className="cs-h2">Design at the <em>scale</em><br />of half a billion users</h2>
+        <div className="cs-sec-head"><span className="stag">05 / IMPACT</span></div>
+        <h2 className="cs-h2">A site that finally<br />matched the <em>product</em></h2>
         <div className="cs-result-grid">
-          <div className="cs-result"><div className="cs-result-n">500M+</div><div className="cs-result-l">Users — largest mobile gaming community in the world</div><div className="cs-src">via BlueStacks press · 2021</div></div>
-          <div className="cs-result"><div className="cs-result-n">1B+</div><div className="cs-result-l">Total downloads across all versions</div><div className="cs-src">via PR Newswire · 2021</div></div>
-          <div className="cs-result"><div className="cs-result-n">#1</div><div className="cs-result-l">Android emulator globally — maintained through multiple redesigns</div><div className="cs-src">industry consensus</div></div>
-          <div className="cs-result"><div className="cs-result-n">3 products</div><div className="cs-result-l">Unified UX across App Player, Cloud (X), and Mac (Air)</div></div>
+          <div className="cs-result"><div className="cs-result-n">3</div><div className="cs-result-l">Surface types redesigned — homepage, game landing pages, and feature pages</div></div>
+          <div className="cs-result"><div className="cs-result-n">1000s</div><div className="cs-result-l">Game pages running the one redesigned template</div></div>
+          <div className="cs-result"><div className="cs-result-n">300M+</div><div className="cs-result-l">BlueStacks users the new site served</div><div className="cs-src">platform · 2019</div></div>
+          <div className="cs-result"><div className="cs-result-n">#1</div><div className="cs-result-l">Android emulator — position held through the redesign</div><div className="cs-src">industry consensus</div></div>
         </div>
         <div className="cs-reflection">
           <h3 className="cs-reflection-h">What I learned</h3>
-          <p className="cs-p"><strong>Trust signals aren't optional for download products.</strong> They're as important as the download button itself. Visitors come pre-loaded with doubt about emulators; the backer logos above the fold did more for conversion than any copy change.</p>
-          <p className="cs-p"><strong>Read intent before asking for it.</strong> Users don't pick a product first — they pick a game first. The page has to recognize that and offer both download and instant play at the same surface.</p>
-          <p className="cs-p"><strong>Same parent product doesn't mean same UX.</strong> When Cloud launched, we tried to mirror the desktop emulator's flows. They didn't carry over. Cloud is a "click and play" product; Download is an "install and configure" product. Same brand, different mental models.</p>
+          <p className="cs-p"><strong>Sell the outcome, not the engine.</strong> The biggest lever wasn't visual polish — it was moving from "6× faster than a phone" to "play your games on PC." People buy the result, not the spec.</p>
+          <p className="cs-p"><strong>A template is a product.</strong> The game page wasn't one screen; it was thousands of live, indexed pages. Designing that structure once, well, mattered more than perfecting any single layout.</p>
+          <p className="cs-p"><strong>Modernize without starting over.</strong> What made it hard — millions of users, thousands of ranked pages — was also the point. The win was a modern experience that kept the trust and the traffic intact.<Pill
+            q="Your impact section is platform counts — 300M users, #1, thousands of pages. None of that is attributable to your redesign. Did conversion or bounce actually move?"
+            a="Fair, and I won't dress platform numbers up as my outcome. I owned the surfaces, not the company's growth — so I report what's mine: the redesign shipped across every game page and the homepage and held the rankings and trust the business ran on, which was the bar. I don't have a clean before/after conversion delta I can isolate from five years of other changes, so I won't claim one. The defensible win is that the site stopped contradicting the product."
+          /></p>
         </div>
       </section>
 
@@ -233,5 +252,6 @@ export default function BluestacksCaseStudy() {
       </div>
       <FOOTER />
     </div>
+    </InterviewModeProvider>
   );
 }

@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Arpit Yadav — CV</title>
+<link href="fonts/fonts-local.css" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F7F5; --white:#FFFFFF; --ink:#0C0C0C; --body:#2A2A2A; --muted:#595959;
+    --faint:#EDEDEA; --faint2:#F2F2EF; --border:#E2E2DC;
+    --blue:#1D4ED8;
+    --serif:'Fraunces',Georgia,serif;
+    --sans:'Plus Jakarta Sans',system-ui,sans-serif;
+    --mono:'DM Mono',ui-monospace,monospace;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#D9D9D5;color:var(--body);font-family:var(--sans);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-print-color-adjust:exact;print-color-adjust:exact;font-synthesis:none;}
+
+  /* ── PAGE ────────────────────────────────────────── */
+  .page{
+    width:210mm; min-height:297mm;
+    margin:24px auto; padding:20mm 22mm 18mm;
+    background:var(--bg);
+    box-shadow:0 10px 40px rgba(0,0,0,.14);
+    position:relative;
+    font-size:10pt; line-height:1.6; color:var(--body);
+  }
+  .page + .page{ margin-top:20px; }
+
+  /* ── HEADER ──────────────────────────────────────── */
+  .header{ padding-bottom:16px; border-bottom:1px solid var(--border); }
+  .name{ font-family:var(--serif); font-weight:400; font-size:32pt; letter-spacing:-.035em; line-height:1; color:var(--ink); }
+  .role{ font-family:var(--sans); font-weight:500; font-size:11pt; color:var(--body); margin-top:8px; letter-spacing:-.005em; }
+  .contact{ font-family:var(--mono); font-size:9pt; color:var(--muted); margin-top:10px; letter-spacing:.005em; }
+  .contact a{ color:var(--blue); text-decoration:none; border-bottom:1px solid rgba(29,78,216,.3); transition:color .15s; }
+  .contact a:hover{ color:var(--ink); border-bottom-color:var(--ink); }
+
+  /* ── SUMMARY ─────────────────────────────────────── */
+  .summary{ margin-top:24px; font-size:11pt; line-height:1.6; color:var(--body); max-width:78ch; }
+  .summary strong{ color:var(--ink); font-weight:600; }
+
+  /* ── SECTION ─────────────────────────────────────── */
+  section{ margin-top:32px; page-break-inside:auto; break-inside:auto; }
+  section + section{ margin-top:32px; padding-top:0; border-top:none; }
+  .shead{ display:flex; align-items:baseline; gap:16px; margin-bottom:18px; padding-bottom:8px; border-bottom:1px solid var(--ink); }
+  .shead .snum{ font-family:var(--mono); font-size:9pt; font-weight:500; color:var(--blue); letter-spacing:.05em; min-width:22px; }
+  .shead h2{ font-family:var(--mono); font-size:11pt; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:var(--ink); }
+  .shead .scont{ font-family:var(--mono); font-size:8.5pt; color:var(--muted); margin-left:auto; letter-spacing:.05em; font-weight:400; }
+
+  /* ── ROLE ────────────────────────────────────────── */
+  .role-block{ margin-bottom:22px; page-break-inside:avoid; break-inside:avoid; }
+  .role-block:last-child{ margin-bottom:0; }
+  .role-block + .role-block{ padding-top:22px; border-top:1px solid var(--border); }
+  .rtop{ display:flex; flex-direction:column; gap:5px; margin-bottom:12px; }
+  .rtitle{ font-family:var(--sans); font-weight:400; font-size:12.5pt; color:var(--body); letter-spacing:-.01em; }
+  .rcompany{ font-family:var(--sans); font-weight:600; font-size:12.5pt; color:var(--ink); letter-spacing:-.01em; }
+  .rsep{ font-family:var(--sans); font-weight:400; font-size:12.5pt; color:var(--muted); margin:0 4px; }
+  .rmeta{ font-family:var(--mono); font-size:9pt; color:var(--muted); text-transform:uppercase; letter-spacing:.1em; }
+
+  .rlead{ font-size:10pt; line-height:1.6; color:var(--body); margin-bottom:8px; }
+  .rlead strong{ color:var(--ink); font-weight:600; }
+
+  .bullets{ list-style:none; padding-left:0; margin:0; }
+  .bullets li{ position:relative; padding-left:14px; font-size:10pt; line-height:1.6; color:var(--body); margin-bottom:6px; }
+  .bullets li:last-child{ margin-bottom:0; }
+  .bullets li::before{ content:'•'; position:absolute; left:0; top:0; color:var(--muted); font-weight:700; }
+  .bullets li strong{ color:var(--ink); font-weight:600; }
+  .bullets li .metric{ color:inherit; font-weight:inherit; }
+
+  .tools{ font-family:var(--mono); font-size:9pt; color:var(--muted); margin-top:10px; letter-spacing:.02em; }
+  .tools::before{ content:'Tools — '; color:var(--ink); font-weight:500; }
+
+  /* ── PROJECTS ────────────────────────────────────── */
+  .proj{ margin-bottom:22px; page-break-inside:avoid; break-inside:avoid; }
+  .proj:last-child{ margin-bottom:0; }
+  .proj + .proj{ padding-top:22px; border-top:1px solid var(--border); }
+  .role-block + .proj{ padding-top:22px; margin-top:22px; border-top:1px solid var(--border); }
+  .proj-top{ margin-bottom:6px; }
+  .proj-name{ font-family:var(--sans); font-weight:600; font-size:12.5pt; color:var(--ink); }
+  .proj-top em{ font-family:var(--mono); font-style:normal; font-weight:400; font-size:9pt; color:var(--muted); letter-spacing:.02em; }
+  .proj-desc{ font-size:10pt; line-height:1.6; color:var(--body); margin-bottom:8px; }
+  .proj-meta{ font-family:var(--mono); font-size:9pt; color:var(--muted); margin-top:4px; letter-spacing:.02em; }
+  .proj-meta .k{ color:var(--ink); font-weight:500; }
+  .proj-meta .n{ color:inherit; font-weight:inherit; }
+
+  /* ── SKILLS ──────────────────────────────────────── */
+  .skills{ display:grid; grid-template-columns:1fr; gap:14px; }
+  .sk-row{ display:grid; grid-template-columns:130px 1fr; gap:20px; align-items:baseline; font-size:10pt; line-height:1.6; }
+  .sk-label{ font-family:var(--mono); font-size:8pt; font-weight:400; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); padding-top:3px; }
+  .sk-val{ color:var(--body); }
+
+  /* ── EDUCATION ───────────────────────────────────── */
+  .edu-row{ display:flex; flex-direction:column; gap:5px; margin-bottom:16px; }
+  .edu-row:last-child{ margin-bottom:0; }
+  .edu-row + .edu-row{ padding-top:16px; border-top:1px solid var(--border); }
+  .edu-title{ font-family:var(--sans); font-weight:500; font-size:10pt; color:var(--ink); }
+  .edu-title em{ font-family:var(--mono); font-style:normal; color:var(--muted); font-weight:400; font-size:9pt; letter-spacing:.02em; }
+  .edu-desc{ font-size:10pt; line-height:1.6; color:var(--body); max-width:68ch; }
+
+  /* ── CERTIFICATIONS ──────────────────────────────── */
+  .cert-list{ display:flex; flex-direction:column; gap:8px; margin-bottom:18px; }
+  .cert-row{ display:grid; grid-template-columns:1fr auto; gap:14px; align-items:baseline; font-size:10pt; line-height:1.55; padding-bottom:7px; border-bottom:1px dotted var(--border); }
+  .cert-row:last-child{ border-bottom:none; padding-bottom:0; }
+  .cert-l{ color:var(--body); }
+  .cert-l .ci{ color:var(--ink); font-weight:500; }
+  .cert-l .cm{ color:var(--muted); font-size:9pt; }
+  .cert-y{ font-family:var(--mono); font-size:9pt; color:var(--muted); letter-spacing:.02em; white-space:nowrap; }
+
+  /* ── CASE STUDIES ────────────────────────────────── */
+  .port-intro{ font-size:10pt; line-height:1.6; color:var(--body); margin-bottom:14px; }
+  .port-intro a{ color:var(--blue); text-decoration:none; border-bottom:1px solid rgba(29,78,216,.3); }
+  .case-list{ display:flex; flex-direction:column; gap:10px; }
+  .case-item{ display:grid; grid-template-columns:150px 1fr auto; gap:18px; align-items:baseline; font-size:10pt; line-height:1.6; }
+  .case-name{ font-family:var(--mono); font-weight:400; font-size:9pt; color:var(--muted); letter-spacing:.02em; padding-top:2px; }
+  .case-desc{ color:var(--body); }
+  .case-link{ font-family:var(--mono); font-size:9pt; color:var(--blue); text-decoration:none; white-space:nowrap; letter-spacing:.01em; }
+
+  /* ── FOOTER ──────────────────────────────────────── */
+  .page-note{ position:absolute; bottom:10mm; right:22mm; font-family:var(--mono); font-size:8pt; color:var(--muted); letter-spacing:.05em; opacity:.85; }
+
+  /* ── PRINT ───────────────────────────────────────── */
+  @page{ size:A4; margin:0; }
+  @media print{
+    html,body{ background:var(--bg); }
+    .page{ margin:0; box-shadow:none; }
+    .page:last-child{ page-break-after:auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ PAGE 1 ═══════════ -->
+<article class="page">
+
+  <header class="header">
+    <h1 class="name">Arpit Yadav</h1>
+    <div class="role">Product Designer · Builds AI Agents · Gurugram, India</div>
+    <div class="contact">
+      <a href="mailto:arpit.uxdesign@gmail.com">arpit.uxdesign@gmail.com</a> · <a href="https://arpit-ai.pages.dev">Portfolio</a> · <a href="https://linkedin.com/in/arpit-yadav-1185ba135">in/arpit</a> · <span style="white-space:nowrap;">+91&nbsp;99996&nbsp;98486</span> · WhatsApp only
+    </div>
+  </header>
+
+  <p class="summary">
+    Product Designer with 9 years shipping at consumer scale. Lead UX at <strong>wsup.ai</strong> — an AI character platform with 1M+ monthly visits — where I codified the design language and architected the AI agent that ships production screens 12× faster. Previously at <strong>BlueStacks</strong> and <strong>now.gg</strong>.
+  </p>
+
+  <section>
+    <div class="shead"><span class="snum">01</span><h2>Current</h2></div>
+
+    <div class="role-block">
+      <div class="rtop">
+        <div><span class="rcompany">wsup.ai</span><span class="rsep">/</span><span class="rtitle">Lead Product Designer</span></div>
+        <div class="rmeta">2024 – Present | Remote</div>
+      </div>
+      <p class="rlead">Leading UX end-to-end — own the design system, core flows, and interaction model.</p>
+      <ul class="bullets">
+        <li>Designed the surfaces driving <span class="metric">1M+</span> monthly visits and <span class="metric">17-minute</span> avg sessions across web and mobile.</li>
+        <li>Own Explore, Chat, Profile, and Credits — surfaces covering <span class="metric">~95%</span> of user time.</li>
+        <li>Codified the design language across web and mobile — <span class="metric">90+</span> tokens, <span class="metric">14</span> spacing values, <span class="metric">62</span> components — the substrate the Designer Agent reads from.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="shead"><span class="snum">02</span><h2>Projects</h2></div>
+
+    <div class="proj">
+      <div class="proj-top">
+        <span class="proj-name">Designer Agent</span> <em>/ wsup.ai production</em>
+      </div>
+      <p class="proj-desc">Ships on-brand production screens from my accumulated design taste. Reads 9 knowledge files (134 corrections, 142 tokens, 62 components), self-audits for token discipline, syncs the style guide, and writes every correction back to its own knowledge.</p>
+      <p class="proj-meta"><span class="k">Stack —</span> Claude Code · Figma MCP · Markdown knowledge files · Next.js</p>
+      <p class="proj-meta"><span class="k">Result —</span> <span class="n">4h → 20m</span> per screen · <span class="n">12×</span> faster · <span class="n">100%</span> token compliance</p>
+    </div>
+
+    <div class="proj">
+      <div class="proj-top">
+        <span class="proj-name">Reddit Growth Agent</span> <em>/ Lab project</em>
+      </div>
+      <p class="proj-desc">Researches threads, drafts context-aware comments, and posts via ADB on a real Android phone. Safety is the architecture — compliance checks, posting-cadence controls, and a 90/10 value-to-promotion rule.</p>
+      <p class="proj-meta"><span class="k">Stack —</span> Claude Code · Python · ADB</p>
+      <p class="proj-meta"><span class="k">Result —</span> <span class="n">1 → 1,100</span> karma in 4 days · <span class="n">45</span> comments · <span class="n">0</span> bans</p>
+    </div>
+  </section>
+
+  <div class="page-note">1 / 3</div>
+</article>
+
+
+<!-- ═══════════ PAGE 2 ═══════════ -->
+<article class="page">
+
+  <section style="margin-top:0;">
+    <div class="shead"><span class="snum">03</span><h2>Experience</h2></div>
+
+    <div class="role-block">
+      <div class="rtop">
+        <div><span class="rcompany">BlueStacks and now.gg</span><span class="rsep">/</span><span class="rtitle">Lead Product Designer</span></div>
+        <div class="rmeta">2019 – 2024 | Gurugram | Remote</div>
+      </div>
+      <ul class="bullets">
+        <li><strong>BlueStacks</strong> — <span class="metric">500M+</span> users, <span class="metric">1B+</span> downloads. Unified the web platform around a dual-CTA strategy (download + instant play) and a 2M+ game discovery system. Owned UX for BlueStacks 5 (desktop), X (cloud), and Air (Mac) — three products, one design language.</li>
+        <li><strong>now.gg</strong> — <span class="metric">100M+</span> users, <span class="metric">~10M</span> monthly visits. Designed a three-layer discovery architecture and one-click in-browser play across 1,000+ games.</li>
+      </ul>
+    </div>
+
+    <div class="role-block">
+      <div class="rtop">
+        <div><span class="rcompany">EnterPi Software Solutions</span><span class="rsep">/</span><span class="rtitle">UX Designer</span></div>
+        <div class="rmeta">2018 – 2019 | Hyderabad</div>
+      </div>
+      <p class="rlead">Shipped SaaS and web products across client engagements under design lead Tejas Shah.</p>
+    </div>
+
+    <div class="role-block">
+      <div class="rtop">
+        <div><span class="rcompany">Fluidsoft & Altran</span><span class="rsep">/</span><span class="rtitle">UX Designer, iOS Trainee</span></div>
+        <div class="rmeta">2017 – 2018 | Gurugram</div>
+      </div>
+      <p class="rlead">Delivered desktop and mobile applications. Switched into UX from iOS development at Altran (Aricent) after discovering design on the IKEA project — self-taught via Interaction Design Foundation.</p>
+    </div>
+  </section>
+
+  <div class="page-note">2 / 3</div>
+</article>
+
+
+<!-- ═══════════ PAGE 3 ═══════════ -->
+<article class="page">
+
+  <section style="margin-top:0;">
+    <div class="shead"><span class="snum">04</span><h2>Skills</h2></div>
+    <div class="skills">
+      <div class="sk-row"><span class="sk-label">Design</span><span class="sk-val">Design Systems · Design Tokens · Interaction Design · Information Architecture · Visual Design · Prototyping · Dark Theme · Accessibility · Figma</span></div>
+      <div class="sk-row"><span class="sk-label">AI &amp; Agents</span><span class="sk-val">AI Agent Architecture · Human–AI Interaction · Knowledge File Architecture · Self-Auditing Agents · Prompt Engineering</span></div>
+      <div class="sk-row"><span class="sk-label">Research</span><span class="sk-val">Interviews · Usability Testing · Competitive Analysis · Heuristics · User Journeys · A/B Testing</span></div>
+      <div class="sk-row"><span class="sk-label">AI Development</span><span class="sk-val">Claude Code · Figma MCP · AI-Assisted Development · Knowledge Base Engineering — ships production code in Next.js, React, Tailwind, TypeScript</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="shead"><span class="snum">05</span><h2>Certifications</h2></div>
+    <div class="cert-list">
+      <div class="cert-row">
+        <div class="cert-l"><span class="ci">IIT Delhi</span> · Design Thinking and Innovation <span class="cm">— design thinking applied to social-impact problems</span></div>
+        <div class="cert-y">2021</div>
+      </div>
+      <div class="cert-row">
+        <div class="cert-l"><span class="ci">IxDF</span> · Design Thinking: The Beginner's Guide <span class="cm">— Distinction, Top 10% in class</span></div>
+        <div class="cert-y">2019</div>
+      </div>
+      <div class="cert-row">
+        <div class="cert-l"><span class="ci">IxDF</span> · Mobile User Experience (UX) Design <span class="cm">— where the iOS-to-UX pivot started</span></div>
+        <div class="cert-y">2017</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="shead"><span class="snum">06</span><h2>Education</h2></div>
+    <div class="edu-row">
+      <div class="edu-title">Master of Computer Application <em>· BITs, Noida</em></div>
+      <p class="edu-desc">Computer science foundation — shapes how I collaborate with engineering and architect design systems.</p>
+    </div>
+    <div class="edu-row">
+      <div class="edu-title">Bachelor of Science, Computer Science <em>· SGGS, University of Delhi</em></div>
+      <p class="edu-desc">Co-founded Invictus, a creative society that won filmmaking awards at IIT Delhi and elsewhere — early experience in storytelling and visual craft.</p>
+    </div>
+  </section>
+
+  <div class="page-note">3 / 3</div>
+</article>
+
+</body>
+</html>

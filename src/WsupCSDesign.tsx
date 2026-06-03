@@ -11,11 +11,11 @@ export default function WsupCSDesign() {
       <section className="cs-sec" ref={ideationR}>
         <div className="cs-sec-head"><span className="stag">04 / IDEATION</span></div>
         <h2 className="cs-h2">Every shipped decision<br />had a <em>rejected path</em></h2>
-        <p className="cs-p">Ashish (PM) handed me tasks — "design the credit popup," "redesign Explore," "figure out signup." I'd make 2–3 options each. We'd A/B test or pick based on established UX patterns. The four boards below show what shipped, what got rejected, and why.</p>
+        <p className="cs-p">Ashish (PM) handed me tasks — "design the credit popup," "redesign Explore," "figure out signup." I'd make 2–3 options each. We'd A/B test or pick based on established UX patterns. The boards below show what shipped, what got rejected, and why.</p>
 
         <div className="wsup-ideation-list">
           {IDEATION_BOARDS.map((b, i) => {
-            const bx = b as { chosenWhyPills?: PillSpec[] };
+            const bx = b as { chosenWhyPills?: PillSpec[]; img?: string; imgCaption?: string };
             return (
               <div key={i} className="wsup-ideation-board">
                 <div className="wsup-ideation-head">
@@ -28,6 +28,12 @@ export default function WsupCSDesign() {
                   <p className="wsup-ideation-chosen-what">{b.chosen}</p>
                   <p className="wsup-ideation-chosen-why"><TextWithPills text={b.chosenWhy} pills={bx.chosenWhyPills} /></p>
                 </div>
+                {bx.img && (
+                  <div className="cs-screen-item" style={{ maxWidth: 720, margin: "18px auto 22px" }}>
+                    <img src={bx.img} alt={b.surface} className="cs-screenshot" />
+                    {bx.imgCaption && <span className="cs-screen-label" style={{ textAlign: "center", display: "block" }}>{bx.imgCaption}</span>}
+                  </div>
+                )}
                 <div className="wsup-ideation-alts">
                   <div className="wsup-ideation-alts-h">Considered and rejected</div>
                   {b.alternatives.map((a, j) => {
@@ -67,23 +73,7 @@ export default function WsupCSDesign() {
         <div className="cs-sec-head"><span className="stag" style={{ color: "rgba(255,255,255,.4)" }}>05 / IMPLEMENTATION</span></div>
         <h2 className="cs-h2" style={{ color: "white" }}>Every screen solves<br />a <em>specific</em> problem</h2>
 
-        <h3 className="cs-h3" style={{ color: 'white', marginTop: 32 }}>Explore — discovery at scale</h3>
-        <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}>
-          Where users land. Mistakes here lose users before they ever reach chat.
-          <Pill
-            q="Why is Explore the hardest screen to get right?"
-            a="It's the first interactive surface a new user hits, and discovery products live or die on first impressions. If a user sees 'their' character on Explore in the first 5 seconds, they're hooked. If they see only generic-looking ones, they bounce. The variables you can tune — categories, ranking, card design, filter chips — all stack on top of recommendation accuracy. Get any of them wrong and you compound the loss."
-            followups={[
-              { q: "How did you know your version was getting it right?", a: "Time-to-first-chat as the primary metric. If users land on Explore and click into a character within 30 seconds, the discovery surface is doing its job. We tracked that across UI variants and the current layout (horizontal scroll + ranked cards) had the best time-to-first-chat numbers we'd seen." },
-            ]}
-          />
-        </p>
-        <div className="cs-screenshots-single" style={{ marginTop: 16 }}>
-          <img src="/cs/wsup-d-anime.png" alt="Anime category filtered view" className="cs-screenshot" />
-          <span className="cs-screen-label">Explore — category tabs, character grid with rank + chat count, sidebar navigation</span>
-        </div>
-
-        <h3 className="cs-h3" style={{ color: 'white', marginTop: 40 }}>Chat — where users live</h3>
+        <h3 className="cs-h3" style={{ color: 'white', marginTop: 32 }}>Chat — where users live</h3>
         <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}>
           90% of session time happens here. Every other screen in the product either feeds it or supports it.
           <Pill
@@ -95,29 +85,13 @@ export default function WsupCSDesign() {
           />
         </p>
         <div className="cs-screenshots-single" style={{ marginTop: 16 }}>
-          <img src="/cs/wsup-chat-desktop.png" alt="Chat desktop" className="cs-screenshot" />
-          <span className="cs-screen-label">Three-column layout — recent chats, conversation, character profile</span>
-        </div>
-
-        <h3 className="cs-h3" style={{ color: 'white', marginTop: 40 }}>Stories — wsup's lean-back surface</h3>
-        <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}>
-          Where users come back when they're not chatting.
-          <Pill
-            q="How do you design something users come to when they're NOT in a goal-driven mode?"
-            a="Treat it like Reddit, not like Gmail. No checklist mentality, no 'tasks to complete.' Just an endless feed of short pieces that vary enough to keep scrolling interesting. The four formats (interactive TapTale, Image, Video, Comic) provide that variation; the TikTok-style swipe means there's always a next thing without friction. The danger is making it feel like work — too many filters, too much organization, too much 'what would you like to see today.' We resisted that."
-            followups={[
-              { q: "How do you decide if a story should be promoted vs let the algorithm rank?", a: "We don't promote. Ranking is purely community-driven — engagement, length-of-view, reactions. No editorial promotion at all. The bet is that users trust an unedited community feed more than a 'staff picks' or 'trending' surface. Algorithmic recommendation is layered on top for personalization, but the underlying ranking is the community's call." },
-            ]}
-          />
-        </p>
-        <div className="cs-screenshots-single" style={{ marginTop: 16 }}>
-          <img src="/cs/wsup-d-stories.png" alt="Stories surface" className="cs-screenshot" />
-          <span className="cs-screen-label">Stories — multi-format posts (TapTale, Image, Video, Comic), sorting tabs, reel-like browse</span>
+          <img src="/cs/wsup-screens/chat-desktop.png" alt="Chat desktop — three-column layout" className="cs-screenshot" />
+          <span className="cs-cap">Chat — three columns</span>
         </div>
 
         <h3 className="cs-h3" style={{ color: 'white', marginTop: 40 }}>Mobile — designed separately, not stretched</h3>
         <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}>
-          Sidebar becomes bottom nav, grid compresses to 2 columns. Opposite directions from desktop, both intentional.
+          Sidebar becomes bottom nav, the grid compresses, conversations go full-bleed. Opposite directions from desktop, both intentional.
           <Pill
             q="Why design separately for mobile and desktop instead of using responsive design?"
             a="Because the use cases are genuinely different. Desktop users are often in lean-in mode — multitasking, full keyboard, longer sessions. They want lots of screen real estate used (three-column chat). Mobile users are often in lean-back mode — shorter sessions, thumb interactions, single-task focus. They want one thing on screen at a time. Responsive design forces a compromise — one of the two contexts always feels stretched or compressed. Designing separately means each context gets the layout it deserves."
@@ -126,14 +100,22 @@ export default function WsupCSDesign() {
             ]}
           />
         </p>
-        <div className="wsup-mobile-gallery">
-          <div className="cs-screen-item" style={{ maxWidth: 220 }}>
-            <img src="/cs/wsup-m-home-clean.png" alt="Mobile explore" className="cs-screenshot" />
-            <span className="cs-screen-label">Explore — categories, character grid, bottom nav</span>
+        <div className="wsup-mobile-gallery" style={{ flexWrap: "wrap" }}>
+          <div className="cs-screen-item" style={{ maxWidth: 178 }}>
+            <img src="/cs/wsup-screens/m-explore.png" alt="Mobile explore — ranked grid, bottom nav" className="cs-screenshot" />
+            <span className="cs-cap">Explore</span>
           </div>
-          <div className="cs-screen-item" style={{ maxWidth: 220 }}>
-            <img src="/cs/wsup-m-chat-clean.png" alt="Mobile chat" className="cs-screenshot" />
-            <span className="cs-screen-label">Chat — full-screen conversation, character art</span>
+          <div className="cs-screen-item" style={{ maxWidth: 178 }}>
+            <img src="/cs/wsup-screens/m-stories.png" alt="Mobile stories — full-bleed feed" className="cs-screenshot" />
+            <span className="cs-cap">Stories</span>
+          </div>
+          <div className="cs-screen-item" style={{ maxWidth: 178 }}>
+            <img src="/cs/wsup-screens/m-chat.png" alt="Mobile chat — full-screen over art" className="cs-screenshot" />
+            <span className="cs-cap">Chat</span>
+          </div>
+          <div className="cs-screen-item" style={{ maxWidth: 178 }}>
+            <img src="/cs/wsup-screens/m-chats.png" alt="Mobile chats list — recent conversations" className="cs-screenshot" />
+            <span className="cs-cap">Chats list</span>
           </div>
         </div>
       </section>
@@ -146,7 +128,7 @@ export default function WsupCSDesign() {
           Dark themes amplify every inconsistency. After a year of patchwork shipping, I named every value and rebuilt every screen on the named system. Engineers stopped relitigating which blue. Features started landing on the system, not on the mess.
           <Pill
             q="Why so many color tokens — couldn't you use fewer?"
-            a="84 sounds like a lot until you list the categories. Text hierarchy alone is 8 tokens (different opacities for different weights). Surface tokens cover chat, popups, cards, modals, ads, errors, success — each needing a distinct value because they appear in different contexts. Status colors (credits, errors, warnings, success) for both backgrounds and text are another set. Then accents: blue for actions, orange for premium AI, green for free actions. Add specific tokens for the SPICY toggle, the streak counter, etc., and 84 is actually lean for a product this surface-rich. Unused tokens get pruned at every quarterly review."
+            a="It looks like a lot until you list the categories. Text hierarchy alone needs several opacity steps. Surface tokens cover chat, popups, cards, modals, ads, errors, success — each a distinct value because they appear in different contexts. Status colors (credits, errors, warnings, success) for both fills and text are another set. Then accents: blue for actions, orange for premium AI, green for free actions, plus specifics like the SPICY toggle and streak counter. For a product this surface-rich, the set is lean, not bloated. Unused tokens get pruned at every quarterly review."
             followups={[
               { q: "How do you stop the token system from sprawling further?", a: "The rule is: a new token only gets added if it has a justification that an existing token doesn't already cover. Every PR that introduces a token gets a one-line answer to 'why not <existing-token>?' — and if no answer, the existing token wins. It's not a hard cap on count; it's a hard requirement on additions. Token sprawl happens when teams add without that gate." },
             ]}
@@ -181,27 +163,34 @@ export default function WsupCSDesign() {
           ))}
         </div>
 
+        <h3 className="cs-h3" style={{ marginTop: 40 }}>Type scale, benchmarked against the field</h3>
+        <p className="cs-p">I set the chat type scale by putting real messages side by side with c.ai, Chai, and Talkie — landing on sizes that stay readable without the oversized look some competitors ship.</p>
+        <div className="cs-screenshots-single" style={{ marginTop: 16 }}>
+          <img src="/cs/wsup-screens/comp-font-size.png" alt="Chat font size compared to c.ai, Chai, and Talkie" className="cs-screenshot" />
+          <span className="cs-cap">Type scale vs. competitors</span>
+        </div>
+
         <h3 className="cs-h3" style={{ marginTop: 40 }}>The whole system, browseable</h3>
         <p className="cs-p">A living style guide inside the app — tokens, components, patterns, icons. Updated every session. This is the page engineers and designers open when they need a value.</p>
 
         <div className="cs-screenshots-single" style={{ marginTop: 20 }}>
           <img src="/cs/style-guide.png" alt="wsup.ai Style Guide — Colors tab with categorized swatches." className="cs-screenshot" />
-          <span className="cs-screen-label">Colors — categorized swatches across the system: accent, brand, gradient, credit, status, text, surface.</span>
+          <span className="cs-cap">Style guide — Colors</span>
         </div>
 
         <div className="cs-screenshots-single" style={{ marginTop: 24 }}>
           <img src="/cs/style-guide-typography.png" alt="wsup.ai Style Guide — Typography tab." className="cs-screenshot" />
-          <span className="cs-screen-label">Typography — font weights, size scale (10px → 48px), and text color tokens.</span>
+          <span className="cs-cap">Typography</span>
         </div>
 
         <div className="cs-screenshots-single" style={{ marginTop: 24 }}>
           <img src="/cs/style-guide-components.png" alt="wsup.ai Style Guide — Buttons component variants." className="cs-screenshot" />
-          <span className="cs-screen-label">Components — Buttons across 3 variants (Primary / Secondary / Dark) × 4 sizes × hover / disabled states. One reusable component, every size = same weight.</span>
+          <span className="cs-cap">Components</span>
         </div>
 
         <div className="cs-screenshots-single" style={{ marginTop: 24 }}>
           <img src="/cs/style-guide-icons.png" alt="wsup.ai Style Guide — Icons categorized by use." className="cs-screenshot" />
-          <span className="cs-screen-label">Icons — Navigation, Action, Social, and Status sets. Every icon sized from a fixed scale, recolored via Tailwind text tokens.</span>
+          <span className="cs-cap">Icons</span>
         </div>
 
       </section>

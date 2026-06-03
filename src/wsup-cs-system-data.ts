@@ -25,7 +25,7 @@ export const TOKENS = [
   { category: "Production components", count: "132", detail: "React components built on the named system." },
   { category: "Codified patterns", count: "27", detail: "Patterns documented in the style guide — every reusable design solution has a named home." },
   { category: "Design rules", count: "154", detail: "Codified rules about when to use what, written into the system's rulebook." },
-  { category: "Faster shipping after the cleanup", count: "2×", detail: "Features landed on the named system in half the time vs the patchwork mess." },
+  { category: "Shipping after the cleanup", count: "Faster", detail: "Features landed on the named system noticeably faster than on the patchwork mess." },
 ];
 
 export const TEXT_HIERARCHY = [

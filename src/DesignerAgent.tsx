@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { SESSION_DATA, CORRECTIONS, PHASES, TOKENS } from "./designer-agent-data";
+import AgentTerminal from "./AgentTerminal";
 
 /* ─── HOOKS ───────────────────────────────────────────────────────────── */
 function useR(d = 0) {
@@ -120,7 +121,7 @@ export default function DesignerAgent() {
         <h1 className="cs-h1">An AI agent that<br />designs from <em>my taste</em></h1>
         <p className="cs-sub">Not from screenshots. Not from prompts. From 250+ accumulated design decisions and 60+ codified taste rules — a living system that learns how I think about UI and applies it autonomously.</p>
         <div className="cs-role-row">
-          <div className="cs-role-item"><span className="cs-role-label">My role</span>Built, trained, and maintain the agent end to end — architecture, knowledge schema, prompt engineering, and ongoing corrections.</div>
+          <div className="cs-role-item"><span className="cs-role-label">My role</span>Built, trained, and maintain the agent end to end — the architecture, the knowledge files, the prompts, and the corrections that keep it improving.</div>
           <div className="cs-role-item"><span className="cs-role-label">Stack</span>Claude Code · Figma MCP · Next.js · Tailwind · Custom knowledge files (.md)</div>
           <div className="cs-role-item"><span className="cs-role-label">Timeline</span>Built Jan–Apr 2026 · 22+ sessions · Actively running in production</div>
           <div className="cs-role-item"><span className="cs-role-label">Product</span><a href="https://wsup.ai" target="_blank" rel="noopener noreferrer" style={{ color: "var(--blue)" }}>wsup.ai</a> — AI chat platform (like Character.ai), 1M+ monthly visits</div>
@@ -133,23 +134,17 @@ export default function DesignerAgent() {
         </div>
       </header>
 
+      <div className="agterm">
+        <AgentTerminal />
+        <span className="cs-screen-label" style={{ textAlign: 'center', display: 'block', marginTop: 10 }}>The agent at work — reads the wsup.ai design system, designs from tokens, audits itself, then writes what it learned back.</span>
+      </div>
+
       {/* THE PROBLEM */}
       <section className="cs-sec" ref={probR}>
         <div className="cs-sec-head"><span className="stag">01 / THE PROBLEM</span></div>
         <h2 className="cs-h2">Design systems scale components.<br />They don't scale <em>taste.</em></h2>
-        <div className="cs-two-col">
-          <div>
-            <p className="cs-p">You can tokenize colors, spacing, and radii. You can build a component library. But when a new screen needs to be designed, someone still has to make hundreds of micro-decisions.</p>
-            <p className="cs-p">How much padding here? Which text opacity? Should this be a primary or secondary button? Those decisions aren't in your Figma file. They're in your head.</p>
-          </div>
-          <div className="cs-problem-list">
-            <div className="cs-problem-item"><span className="cs-problem-x">✗</span> Manual: 4 hours per screen</div>
-            <div className="cs-problem-item"><span className="cs-problem-x">✗</span> Taste lives in one person's head</div>
-            <div className="cs-problem-item"><span className="cs-problem-x">✗</span> Every new designer relearns from scratch</div>
-            <div className="cs-problem-item"><span className="cs-problem-x">✗</span> Figma plugins don't encode reasoning</div>
-            <div className="cs-problem-item cs-problem-solved"><span className="cs-problem-check">✓</span> Solution: externalize taste into an agent</div>
-          </div>
-        </div>
+        <p className="cs-p">You can tokenize colors, spacing, and radii. You can build a component library. But when a new screen needs to be designed, someone still has to make hundreds of small decisions.</p>
+        <p className="cs-p">How much padding here? Which text opacity? Primary or secondary button? Those decisions aren't in your Figma file — they're in your head, and every new designer relearns them from scratch. The agent's job is to get them out of my head and into a system that can apply them on its own.</p>
       </section>
 
       {/* HOW IT WORKS */}
@@ -248,7 +243,7 @@ export default function DesignerAgent() {
       <section className="cs-sec" ref={timeR}>
         <div className="cs-sec-head"><span className="stag">06 / GROWTH</span></div>
         <h2 className="cs-h2">From pixel-matching to <em>autonomous design</em></h2>
-        <p className="cs-p">The agent evolves continuously through distinct capability phases. Corrections drop as the knowledge base grows.</p>
+        <p className="cs-p">The agent improves with every session. As the knowledge base grows, corrections drop.</p>
         <CorrectionChart />
         <div className="cs-timeline">
           {PHASES.map((p, i) => (
@@ -277,12 +272,10 @@ export default function DesignerAgent() {
         <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}>These are real production screens from <a href="https://wsup.ai" target="_blank" rel="noopener noreferrer" style={{ color: "var(--blue)" }}>wsup.ai</a> — designed with the agent, reviewed by me, and shipped.</p>
         <div className="cs-screen-gallery">
           <div className="cs-screen-item">
-            <img src="/cs/explore.png" alt="Explore page" className="cs-screenshot" />
-            <span className="cs-screen-label">Explore — agent built the card grid, spacing, and discovery layout from tokens alone</span>
+            <img src="/cs/explore.png" alt="Explore page — card grid and discovery layout" className="cs-screenshot" />
           </div>
           <div className="cs-screen-item">
-            <img src="/cs/chat.png" alt="Chat page" className="cs-screenshot" />
-            <span className="cs-screen-label">Chat — agent applied text hierarchy rules (100%/80%/70%/60% white) and message spacing</span>
+            <img src="/cs/chat.png" alt="Chat page — text hierarchy and message spacing" className="cs-screenshot" />
           </div>
           <div className="cs-screen-item">
             <img src="/cs/profile.png" alt="Profile page" className="cs-screenshot" />
@@ -301,7 +294,7 @@ export default function DesignerAgent() {
           <div className="cs-result"><div className="cs-result-n">0</div><div className="cs-result-l">Hardcoded hex values — token discipline enforced by agent</div></div>
           <div className="cs-result"><div className="cs-result-n">Self-improving</div><div className="cs-result-l">Detects its own knowledge gaps, researches fixes, tracks growth</div></div>
         </div>
-        <p className="cs-p" style={{ marginTop: 32 }}>I didn't just use AI — I architected an AI system that compounds my design judgment over time. The same architecture pattern powers the <Link to="/reddit-agent" style={{ color: "var(--blue)" }}>Reddit Growth Agent</Link> — proving this loop is domain-agnostic.</p>
+        <p className="cs-p" style={{ marginTop: 32 }}>I didn't just use AI — I built an AI system that compounds my design judgment over time. The same approach powers the <Link to="/reddit-agent" style={{ color: "var(--blue)" }}>Reddit Growth Agent</Link> — proof it works well beyond design.</p>
         <div className="cs-reflection">
           <h3 className="cs-reflection-h">What I'd do differently</h3>
           <p className="cs-p">I'd add a visual diff layer — automatically generating before/after comparisons for each correction so the knowledge base captures not just rules but visual context. I'd also explore multi-designer knowledge merging: can two designers' taste files produce a shared system that's better than either alone?</p>

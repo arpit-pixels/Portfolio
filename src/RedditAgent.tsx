@@ -40,7 +40,7 @@ function KarmaChart() {
 
   return (
     <div ref={ref} className="cs-chart">
-      <div className="cs-chart-label">Karma growth over 4 days</div>
+      <div className="cs-chart-label">Account karma — the launch sprint (first 4 days)</div>
       <div className="cs-chart-bars">
         {KARMA_DATA.map((d, i) => (
           <div key={i} className="cs-chart-col">
@@ -65,7 +65,7 @@ function LessonsSnippet() {
     <div className="cs-code">
       <div className="cs-code-header">
         <span className="cs-code-file">lessons-learned.md</span>
-        <span className="cs-code-tag">100+ lessons extracted from live posting</span>
+        <span className="cs-code-tag">200 lessons extracted from live posting</span>
       </div>
       <pre className="cs-code-body">{`## What works
 - Long-form specific replies > generic one-liners
@@ -90,20 +90,22 @@ function LessonsSnippet() {
 
 /* ─── DATA ────────────────────────────────────────────────────────────── */
 const STEPS = [
-  { n: "01", h: "Research", p: "Scans subreddits for high-value rising threads — posts with momentum but few comments. Targets threads where a genuine, specific answer adds real value." },
-  { n: "02", h: "Draft", p: "Generates context-aware comments. Long-form specific replies outperform generic one-liners. Cites details, shares experience, avoids bot signatures." },
-  { n: "03", h: "Safety check", p: "Every comment runs through compliance — slop detection, subreddit rules, cooldown timers, and a circuit breaker that pauses on any removal." },
-  { n: "04", h: "Post & learn", p: "Tracks performance after posting. Downvoted comments get analyzed. Patterns get extracted into lessons. The system improves every cycle." },
+  { n: "01", h: "Discover", p: "Semantic discovery: expands the goal into ~8 search angles, ranks subreddits by where the conversation actually is, then filters threads for genuine relevance. Targets rising threads where a specific answer adds real value." },
+  { n: "02", h: "Read the room", p: "For image, video, or link posts it screenshots the post and describes the media with Claude vision (or reads the article) before writing a word. It never comments blind." },
+  { n: "03", h: "Draft", p: "Claude (Opus) writes from the full knowledge base — 200 lessons, per-subreddit culture notes, banned patterns. Human-realistic length mix; auto-rewrites anything that trips the AI-slop detector." },
+  { n: "04", h: "Comply", p: "~18 safety gates before anything posts — subreddit rules (heuristic + LLM), banned topics, slop, promo voice — plus a circuit breaker that pauses the whole system on a single removal or bot accusation." },
+  { n: "05", h: "Post & learn", p: "Types through an Android accessibility keyboard and confirms the comment actually landed (editor dismissed + API check). Then it tracks karma and replies and writes new lessons back to its own files." },
 ];
 
 const SAFETY = [
+  "~18-gate compliance check — subreddit rules, banned topics, doxxing, slop, promo voice (heuristic + LLM)",
+  "Circuit breaker — 72-hour pause on a single removal or two bot accusations",
+  "Bot-accusation pipeline — detects it, analyzes it, writes a rule so it never repeats",
+  "Variable, human-like cooldowns (log-normal, not fixed intervals)",
+  "Comment-length mix drawn from real human comment data, not a template",
+  "Daily comment cap that scales with account age (warm-up schedule)",
   "4-layer shadowban detection",
-  "Circuit breaker — pauses on first removal",
-  "15-minute minimum cooldown between posts",
-  "Variable comment lengths (40% short, 40% medium, 20% long)",
-  "Log-normal cooldown distribution (not uniform random)",
-  "15 comments/day hard cap",
-  "90/10 rule — 90% value, 10% promotion",
+  "Audit journal — refuses to act until every knowledge file has been read",
 ];
 
 const TOP_COMMENTS = [
@@ -142,19 +144,19 @@ export default function RedditAgent() {
       {/* HERO */}
       <header className="cs-hero" ref={heroR}>
         <div className="cs-badge abg">LAB PROJECT · AGENT_02</div>
-        <p className="cs-lab-note">Lab projects apply agentic thinking outside of design — testing architecture patterns in real-world systems.</p>
-        <h1 className="cs-h1">An AI agent that grew<br /><em>1 → 1,100 karma</em> in 4 days</h1>
-        <p className="cs-sub">Not spam. Not bots. Genuinely useful comments on high-value threads — researched, context-aware, and safety-controlled. Agentic thinking applied beyond design.</p>
+        <p className="cs-lab-note">Lab projects take the same agent approach outside design — testing it in real systems.</p>
+        <h1 className="cs-h1">An AI agent that grew <em>1 → 1,100 karma</em><br />in 4 days — then kept getting smarter</h1>
+        <p className="cs-sub">Not spam. Not bots. What started as a 4-day sprint from 1 to 1,100 karma grew into a self-improving system — 95 genuinely useful comments across 14 subreddits, 200 lessons it wrote for itself, semantic thread discovery, and a multi-platform core with Reddit live and Discord scaffolded.</p>
         <div className="cs-role-row">
-          <div className="cs-role-item"><span className="cs-role-label">My role</span>Architected and shipped the agent — the agentic loop, safety system, and self-learning pipeline.</div>
-          <div className="cs-role-item"><span className="cs-role-label">Stack</span>Claude Code · Python · ADB (Android Debug Bridge) · PRAW research → discarded</div>
-          <div className="cs-role-item"><span className="cs-role-label">Timeline</span>Built Apr 2026 · 4-day active run · System paused, learnings documented</div>
-          <div className="cs-role-item"><span className="cs-role-label">Why Reddit</span>Tested whether agentic architecture (research → act → learn → improve) transfers beyond design into community engagement.</div>
+          <div className="cs-role-item"><span className="cs-role-label">My role</span>Built and shipped the agent end to end — the loop, the safety system, and the self-learning pipeline.</div>
+          <div className="cs-role-item"><span className="cs-role-label">Stack</span>Claude Code (Opus + Sonnet) · Python · ADB + Portal accessibility posting · Reddit JSON API · Claude vision for media · PRAW → discarded</div>
+          <div className="cs-role-item"><span className="cs-role-label">Timeline</span>Built Apr 2026, evolved through May 2026 · 95 comments across 14 subreddits · Reddit live, more platforms scaffolded</div>
+          <div className="cs-role-item"><span className="cs-role-label">Why Reddit</span>Tested whether the same loop (research → act → learn → improve) transfers beyond design into community growth.</div>
         </div>
         <div className="cs-meta-row">
-          <div className="cs-meta"><span className="cs-mn">1,100</span><span className="cs-ml">Karma earned</span></div>
-          <div className="cs-meta"><span className="cs-mn">45</span><span className="cs-ml">Comments posted</span></div>
-          <div className="cs-meta"><span className="cs-mn">100+</span><span className="cs-ml">Lessons learned</span></div>
+          <div className="cs-meta"><span className="cs-mn">1,245</span><span className="cs-ml">Account karma</span></div>
+          <div className="cs-meta"><span className="cs-mn">95</span><span className="cs-ml">Comments posted</span></div>
+          <div className="cs-meta"><span className="cs-mn">200</span><span className="cs-ml">Lessons learned</span></div>
           <div className="cs-meta"><span className="cs-mn">0</span><span className="cs-ml">Bans or removals</span></div>
         </div>
       </header>
@@ -162,32 +164,21 @@ export default function RedditAgent() {
       {/* PROFILE PROOF */}
       <div className="cs-screenshots-single" style={{ maxWidth: 800, margin: '0 auto', padding: '0 20px 40px' }}>
         <img src="/cs/reddit-profile.png" alt="Reddit profile showing karma growth" className="cs-screenshot" />
-        <span className="cs-screen-label" style={{ textAlign: 'center', display: 'block', marginTop: 8 }}>Live Reddit profile — 1,100+ karma from 45 organic comments</span>
+        <span className="cs-screen-label" style={{ textAlign: 'center', display: 'block', marginTop: 8 }}>Live Reddit profile — 1,100+ karma, every comment organic</span>
       </div>
 
       {/* THE PROBLEM */}
       <section className="cs-sec" ref={probR}>
         <div className="cs-sec-head"><span className="stag">01 / THE QUESTION</span></div>
-        <h2 className="cs-h2">Can agentic architecture work <em>outside</em> design?</h2>
-        <div className="cs-two-col">
-          <div>
-            <p className="cs-p">The <Link to="/designer-agent" style={{ color: "var(--blue)" }}>Designer Agent</Link> proved that a research → act → learn → improve loop could scale design judgment. Same architecture pattern — proving the loop is domain-agnostic, not just a design trick.</p>
-            <p className="cs-p">Reddit was the test. Building organic community presence requires research, context-awareness, and continuous learning — the same loop, different content.</p>
-          </div>
-          <div className="cs-problem-list">
-            <div className="cs-problem-item"><span className="cs-problem-x">✗</span> Manual commenting: hours for minimal reach</div>
-            <div className="cs-problem-item"><span className="cs-problem-x">✗</span> Bots and spam get banned instantly</div>
-            <div className="cs-problem-item"><span className="cs-problem-x">✗</span> Generic replies add no value</div>
-            <div className="cs-problem-item"><span className="cs-problem-x">✗</span> No feedback loop — same mistakes repeat</div>
-            <div className="cs-problem-item cs-problem-solved"><span className="cs-problem-check">✓</span> Hypothesis: agentic loop with safety controls</div>
-          </div>
-        </div>
+        <h2 className="cs-h2">Can the same agent loop work <em>outside</em> design?</h2>
+        <p className="cs-p">The <Link to="/designer-agent" style={{ color: "var(--blue)" }}>Designer Agent</Link> proved a research → act → learn → improve loop could scale design judgment. The question here: was that a design trick, or does the same loop work somewhere completely different?</p>
+        <p className="cs-p">Reddit was the test. Earning real community presence takes research, context, and constant learning — the same loop, different content. The bet was that an agent loop with genuine safety controls could earn karma the way a thoughtful person does, in a place where bots and generic replies get banned fast.</p>
       </section>
 
       {/* HOW IT WORKS */}
       <section className="cs-sec" ref={howR}>
         <div className="cs-sec-head"><span className="stag">02 / HOW IT WORKS</span></div>
-        <h2 className="cs-h2">Research, draft, check, <em>learn</em></h2>
+        <h2 className="cs-h2">Five steps, one <em>loop</em></h2>
         <div className="cs-steps">
           {STEPS.map((s, i) => (
             <div key={i} className="cs-step">
@@ -220,7 +211,7 @@ export default function RedditAgent() {
             </div>
           ))}
         </div>
-        <p className="cs-p" style={{ marginTop: 24 }}>The agent learned that long-form, specific replies citing real details consistently outperform short generic responses.</p>
+        <p className="cs-p" style={{ marginTop: 24 }}>Long-form, specific replies citing real details consistently outperform short generic ones — in r/pcgaming, the agent's comments average roughly +86 karma each.</p>
         <div className="cs-screen-gallery" style={{ marginTop: 32 }}>
           <div className="cs-screen-item">
             <img src="/cs/reddit-comment1.png" alt="Top comment — 473 karma on r/pcmasterrace" className="cs-screenshot" />
@@ -265,10 +256,10 @@ export default function RedditAgent() {
         <div className="cs-sec-head"><span className="stag">06 / TAKEAWAY</span></div>
         <h2 className="cs-h2">What this <em>proved</em></h2>
         <div className="cs-result-grid">
-          <div className="cs-result"><div className="cs-result-n">Transferable</div><div className="cs-result-l">The research → act → learn → improve loop works beyond design — same architecture, different domain</div></div>
-          <div className="cs-result"><div className="cs-result-n">Self-improving</div><div className="cs-result-l">100+ lessons extracted autonomously. The system gets better without manual tuning.</div></div>
-          <div className="cs-result"><div className="cs-result-n">Safety-first</div><div className="cs-result-l">Zero bans, zero removals. Guardrails aren't optional — they're the architecture.</div></div>
-          <div className="cs-result"><div className="cs-result-n">Systems thinking</div><div className="cs-result-l">A designer who can architect autonomous systems across domains — that's what AI-native means.</div></div>
+          <div className="cs-result"><div className="cs-result-n">Transferable</div><div className="cs-result-l">The research → act → learn → improve loop works beyond design — same loop, different domain</div></div>
+          <div className="cs-result"><div className="cs-result-n">200</div><div className="cs-result-l">Lessons the agent extracted from its own posting and wrote back to itself — no manual tuning</div></div>
+          <div className="cs-result"><div className="cs-result-n">0 bans</div><div className="cs-result-l">Zero removals across 95 comments — every one cleared the safety gates first</div></div>
+          <div className="cs-result"><div className="cs-result-n">Multi-platform</div><div className="cs-result-l">One shared safety + learning core; Reddit live, Discord scaffolded, more to follow</div></div>
         </div>
         <div className="cs-reflection">
           <h3 className="cs-reflection-h">What I'd do differently</h3>

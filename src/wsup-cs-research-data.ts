@@ -27,11 +27,11 @@ export const RESEARCH_METHODS = [
       {
         after: "rebuilt the credit popup around daily streaks",
         q: "How did you know streaks would work for the credit popup?",
-        a: "Two signals. First, every successful retention product in the consumer space (Duolingo, Snapchat, language apps) uses streak mechanics — well-established UX pattern with known pull. Second, a competitor analysis check on Character.ai's daily reward popup showed users in their Discord praising it. So we had a pattern + segment-specific evidence. We A/B tested two visual variants of the streak popup but didn't test streaks-vs-no-streaks because the answer was already clear from the literature.",
+        a: "Two signals. First, every successful retention product in the consumer space (Duolingo, Snapchat, language apps) uses streak mechanics — well-established UX pattern with known pull. Second, a competitor analysis check on Character.ai's daily reward popup showed users in their Discord praising it. So we had a pattern + segment-specific evidence. We compared two visual variants of the streak popup but didn't test streaks-vs-no-streaks because the answer was already clear from the literature.",
         followups: [
           {
             q: "Did the streak popup actually move the needle?",
-            a: "Yes. Daily-active claims went up significantly in the first two weeks (specific numbers I can share in person but not publicly). More importantly, the support channel volume on 'where are my credits' dropped by ~70% within a month — the popup answered the question users had been asking.",
+            a: "Yes. We watched daily-claim behavior, and the clearer variant won. More importantly, credit-related support questions — 'where are my credits' — dropped off after we shipped it; the popup answered the question users had been asking.",
           },
         ],
       },
@@ -138,7 +138,7 @@ export const DISCORD_FINDINGS = [
       {
         after: "They notice when the AI starts forgetting context",
         q: "How do you know power users are right about model quality and not just biased?",
-        a: "We cross-checked their qualitative reports against quantitative model evaluation — perplexity scores, context-retention benchmarks, response coherence checks. The patterns matched. When power users said 'this model forgets,' the benchmarks confirmed degraded long-context performance. They weren't biased; they were sensitive instruments. Power users are often the canary for model issues that show up in usage data weeks later.",
+        a: "We cross-checked their qualitative reports against how the models actually behaved on long conversations. The patterns matched. When power users said 'this model forgets,' we saw the same degraded long-context behavior. They weren't biased; they were sensitive instruments. Power users are often the canary for model issues that show up in usage data weeks later.",
       },
     ],
     decision: "Chat-LLM picker lives in the chat surface, not in settings. Each LLM shows its credit price upfront. Users always know which LLM they're talking to.",
@@ -146,11 +146,11 @@ export const DISCORD_FINDINGS = [
       {
         after: "We don't hide which AI you're chatting with",
         q: "How do you know users stay because of model quality and not other factors?",
-        a: "We can isolate it. Users who switched from a free LLM to a premium one show measurable jumps in session length and 30-day return rate after the switch. The before-vs-after comparison on the same user removes most confounding variables — same character, same history, only the LLM changed. The pattern is consistent: better LLM in, longer engagement out.",
+        a: "We can isolate it. Users who switched from a free LLM to a premium one tended to stay longer and return more often after the switch. Comparing the same user before and after removes most confounding variables — same character, same history, only the LLM changed. The pattern is consistent: better LLM in, longer engagement out.",
         followups: [
           {
             q: "Doesn't that just mean users who pay are more invested generally?",
-            a: "We controlled for that by looking at users who'd been using free models for 30+ days before switching. They were already invested at that point — engagement was at a steady state. After the switch, engagement rose. So the lift comes from the model change, not from a self-selection effect of 'paying users care more.'",
+            a: "We accounted for that by looking at users who'd been on free models for a long stretch before switching. They were already invested at that point — engagement was at a steady state. After the switch, engagement rose. So the lift comes from the model change, not from a self-selection effect of 'paying users care more.'",
           },
         ],
       },

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import EducationCerts from "./EducationCerts";
+import HeroShowcase from "./HeroShowcase";
 
 /* ─── GRAIN TEXTURE ───────────────────────────────────────────────────── */
 
@@ -89,7 +90,7 @@ const STACK = [
 ];
 const WORKS = [
   { n: "now.gg", a: "n", yr: "2019–24", role: "Lead Product Designer", p: "Cloud gaming platform — 100M+ users, ~10M monthly visits. Led UX across game discovery, detail pages, and instant browser play.", url: "https://now.gg", cs: "/nowgg", img: "/cs/nowgg-home.png" },
-  { n: "BlueStacks", a: "B", yr: "2019–24", role: "Lead Product Designer", p: "World's #1 Android emulator — 500M+ users, 1B+ downloads. Led UX across desktop app, web platform, and cloud gaming.", url: "https://bluestacks.com", cs: "/bluestacks", img: "/cs/bluestacks-home.png" },
+  { n: "BlueStacks", a: "B", yr: "2019–24", role: "Product Designer", p: "World's #1 Android emulator — 300M+ users. I owned the redesign of bluestacks.com, modernizing the homepage and the game landing-page template that runs across thousands of SEO pages.", url: "https://bluestacks.com", cs: "/bluestacks", img: "/cs/bluestacks-home.png" },
 ];
 
 /* ─── PORTFOLIO ───────────────────────────────────────────────────────── */
@@ -139,25 +140,14 @@ export default function Portfolio() {
         <div className="hero-terminal"><Terminal /></div>
       </div>
 
-      {/* VISUAL SHOWCASE — show the work immediately */}
-      <div className="hero-showcase">
-        <div className="showcase-label">Currently designing</div>
-        <div className="showcase-devices">
-          <div className="showcase-desktop">
-            <img src="/cs/wsup-d-explore.png" alt="wsup.ai desktop interface" />
-          </div>
-          <div className="showcase-mobile">
-            <img src="/cs/wsup-m-home-clean.png" alt="wsup.ai mobile interface" />
-          </div>
-        </div>
-        <Link to="/wsup-design" className="showcase-cta">wsup.ai — AI character platform · 1M+ monthly visits · <span style={{ color: 'var(--blue)' }}>View case study →</span></Link>
-      </div>
+      {/* VISUAL SHOWCASE — slider across all 5 projects */}
+      <HeroShowcase />
 
       <div className="content">
         <div className="srow">
           {[
             [s1, "9", "", "Years shipping\nat consumer scale"],
-            [s2, "500", "M+", "Users across\nBlueStacks products"],
+            [s2, "500", "M+", "Users at\nBlueStacks scale"],
             [s3, "3", "", "Products at scale —\nwsup, BlueStacks, now.gg"],
             [s4, "Live", "agent", "Ships production screens\nautonomously"],
           ].map(([r, n, u, l], i) => (
