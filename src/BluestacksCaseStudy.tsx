@@ -247,8 +247,8 @@ export default function BluestacksCaseStudy() {
       </section>
 
       <div className="cs-cta">
-        <Link to="/nowgg" className="bgh">← now.gg</Link>
-        <Link to="/" className="bdk">Back to portfolio →</Link>
+        <Link to="/reddit-agent" className="bgh">← Reddit Agent</Link>
+        <Link to="/nowgg" className="bdk">Next: now.gg →</Link>
       </div>
       <FOOTER />
     </div>

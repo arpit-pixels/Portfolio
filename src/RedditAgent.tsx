@@ -270,7 +270,7 @@ export default function RedditAgent() {
       {/* CTA */}
       <div className="cs-cta">
         <Link to="/designer-agent" className="bgh">← Designer Agent</Link>
-        <Link to="/nowgg" className="bdk">Next: now.gg →</Link>
+        <Link to="/bluestacks" className="bdk">Next: BlueStacks →</Link>
       </div>
 
       <footer>

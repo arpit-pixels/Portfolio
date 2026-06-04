@@ -158,7 +158,8 @@ nav { position:fixed; top:0; left:0; right:0; height:58px; padding:0 40px; displ
 .who:hover { box-shadow:0 4px 20px rgba(0,0,0,.05); }
 .whl  { padding:42px; }
 .whey { font-family:'DM Mono',monospace; font-size:var(--fs-xs); color:var(--muted); letter-spacing:.15em; margin-bottom:14px; display:flex; align-items:center; gap:10px; }
-.whey::before { content:''; width:16px; height:1px; background:var(--border); }
+.whtop { display:flex; justify-content:space-between; align-items:baseline; gap:12px; }
+.whvisit-m { display:none; } /* mobile-only Visit-site link — shown ≤768px */
 .whh3 { font-family:'Fraunces',serif; font-size:var(--fs-2xl); font-weight:600; letter-spacing:-.03em; color:var(--ink); margin-bottom:12px; }
 .whp  { font-size:var(--fs-base); line-height:var(--lh-body); color:var(--muted); margin-bottom:22px; }
 .whr  { background:var(--faint2); border-left:1px solid var(--border); display:flex; align-items:center; justify-content:center; min-height:280px; position:relative; overflow:hidden; }
@@ -207,7 +208,27 @@ nav { position:fixed; top:0; left:0; right:0; height:58px; padding:0 40px; displ
 .sk-tip::after { content:''; position:absolute; top:100%; left:50%; transform:translateX(-50%); border:6px solid transparent; border-top-color:var(--ink); }
 .sk:hover .sk-tip { opacity:1; transform:translateX(-50%) translateY(0); }
 
+/* OFF THE CLOCK — YouTube channel card */
+.yt-card { display:block; background:var(--white); border:1px solid var(--border); border-radius:12px; overflow:hidden; text-decoration:none; color:inherit; transition:box-shadow .2s, border-color .2s; }
+.yt-card:hover { box-shadow:0 6px 24px rgba(0,0,0,.06); border-color:#C9C9C2; }
+.yt-banner { height:170px; background:#0c0c0c; }
+.yt-banner img { width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
+.yt-body { display:flex; align-items:center; gap:18px; padding:22px 26px; }
+.yt-avatar { width:64px; height:64px; border-radius:50%; border:1px solid var(--border); flex-shrink:0; }
+.yt-info { flex:1; min-width:0; }
+.yt-name { font-family:'Fraunces',serif; font-size:var(--fs-lg); font-weight:600; color:var(--ink); letter-spacing:-.02em; }
+.yt-handle { font-family:'DM Mono',monospace; font-size:var(--fs-xs); font-weight:400; color:var(--muted); margin-left:6px; letter-spacing:0; }
+.yt-stats { font-family:'DM Mono',monospace; font-size:var(--fs-xs); color:var(--muted); margin:3px 0 8px; }
+.yt-p { font-size:var(--fs-sm); line-height:var(--lh-body); color:var(--muted); margin:0; max-width:560px; }
+.yt-cta { flex-shrink:0; align-self:center; }
+@media(max-width:768px){
+  .yt-banner { height:110px; }
+  .yt-body { flex-direction:column; align-items:flex-start; gap:14px; padding:20px; }
+  .yt-name { font-size:var(--fs-md); }
+}
+
 /* CONTACT */
+#contact { padding:0 40px; } /* desktop gutter — zeroed on mobile where .cbox margin takes over */
 .cbox { background:var(--ink); border-radius:16px; padding:48px 56px; max-width:1120px; margin:0 auto 64px; display:flex; flex-direction:column; gap:36px; opacity:0; transform:translateY(20px); transition:all .7s ease; }
 .cbox-top { display:flex; align-items:center; gap:32px; }
 .cbox-top-right { display:flex; flex-direction:column; gap:14px; flex:1; }
@@ -229,7 +250,7 @@ nav { position:fixed; top:0; left:0; right:0; height:58px; padding:0 40px; displ
 .ccopy { color:rgba(255,255,255,.4); background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); border-radius:5px; padding:6px; display:inline-flex; align-items:center; justify-content:center; transition:all .15s; line-height:0; }
 .ccopy:hover { color:white; background:rgba(255,255,255,.14); border-color:rgba(255,255,255,.25); }
 .clinks { display:flex; gap:8px; }
-.clnk { padding:8px 16px; border-radius:8px; border:1px solid rgba(255,255,255,.15); font-size:var(--fs-sm); font-weight:500; color:rgba(255,255,255,.6); background:transparent; font-family:'Plus Jakarta Sans',sans-serif; transition:all .15s; text-decoration:none; display:inline-flex; align-items:center; }
+.clnk { padding:8px 16px; border-radius:8px; border:1px solid rgba(255,255,255,.15); font-size:var(--fs-sm); font-weight:500; color:rgba(255,255,255,.6); background:transparent; font-family:'Plus Jakarta Sans',sans-serif; transition:all .15s; text-decoration:none; display:inline-flex; align-items:center; gap:6px; }
 .clnk:hover { border-color:rgba(255,255,255,.4); color:white; }
 
 /* ─── CASE STUDY PAGES ────────────────────────────────────────────────── */
@@ -336,9 +357,16 @@ nav { position:fixed; top:0; left:0; right:0; height:58px; padding:0 40px; displ
 /* HERO SHOWCASE MARQUEE */
 .hmq { width:100%; margin:0 auto; padding:4px 0 10px; }
 .hmq-label { font-family:'DM Mono',monospace; font-size:var(--fs-xs); letter-spacing:.12em; text-transform:uppercase; color:var(--muted); text-align:center; margin-bottom:20px; }
-.hmq-viewport { overflow:hidden; width:100%; -webkit-mask-image:linear-gradient(to right, transparent, #000 7%, #000 93%, transparent); mask-image:linear-gradient(to right, transparent, #000 7%, #000 93%, transparent); }
+.hmq-viewport { overflow:hidden; width:100%; -webkit-mask-image:linear-gradient(to right, transparent, #000 7%, #000 93%, transparent); mask-image:linear-gradient(to right, transparent, #000 7%, #000 93%, transparent); scrollbar-width:none; -ms-overflow-style:none; }
+.hmq-viewport::-webkit-scrollbar { display:none; }
 .hmq-track { display:flex; width:max-content; animation:hmq-scroll 42s linear infinite; }
 .hmq-viewport:hover .hmq-track { animation-play-state:paused; }
+/* touch devices: hand the motion to JS (HeroShowcase) — finger-swipe + auto-drift.
+   The CSS transform animation must be off or it fights native scrolling. */
+@media (hover:none) {
+  .hmq-track { animation:none; }
+  .hmq-viewport { overflow-x:auto; }
+}
 .hmq-card { flex:none; height:300px; margin-right:20px; border-radius:14px; overflow:hidden; border:1px solid var(--border); background:#0b0b0b; box-shadow:0 22px 50px -32px rgba(0,0,0,.4); }
 .hmq-card img { height:100%; width:auto; display:block; object-fit:cover; }
 @keyframes hmq-scroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
@@ -391,6 +419,8 @@ nav { position:fixed; top:0; left:0; right:0; height:58px; padding:0 40px; displ
 .wsup-screen-pair { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:16px; }
 .wsup-mobile-row { display:flex; justify-content:center; margin-top:16px; }
 .wsup-mobile-gallery { display:flex; justify-content:center; gap:16px; margin-top:16px; max-width:800px; margin-left:auto; margin-right:auto; }
+.wsup-mobile-grid { display:grid; grid-template-columns:repeat(var(--wsup-cols,4),1fr); gap:12px; max-width:760px; }
+@media(max-width:768px){ .wsup-mobile-grid { grid-template-columns:repeat(2,1fr); } }
 
 .wsup-comp-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:28px; }
 .wsup-comp-card { background:var(--white); border:1px solid var(--border); border-radius:12px; padding:0; overflow:hidden; display:flex; flex-direction:column; }
@@ -557,6 +587,11 @@ nav { position:fixed; top:0; left:0; right:0; height:58px; padding:0 40px; displ
   .ra-flow-icon { width:40px; height:40px; font-size:20px; }
   .ra-flow-label { font-size:11px; }
   .cs-chart-annotations { flex-direction:column; gap:4px; }
+  /* equalize x-axis label height so a wrapped label ("Day 3 eve") can't misalign bar baselines */
+  .cs-chart-s { min-height:2.6em; }
+  /* "Sessions 5-9" wraps as a unit below the phase title, never mid-text */
+  .cs-phase-top { flex-wrap:wrap; }
+  .cs-phase-ses { white-space:nowrap; }
   .cs-code-body { font-size:10px; padding:14px; }
   .cs-color-bar { flex-wrap:wrap; gap:6px; }
   .cs-swatch-wrap { min-width:40px; }
@@ -602,9 +637,9 @@ footer { max-width:1200px; margin:0 auto; padding:22px 40px; border-top:1px soli
   /* hero heading commands the viewport */
   .hh1 { font-size:clamp(36px,9.5vw,48px); line-height:1.05; margin-bottom:18px; }
   .hsub { max-width:100%; font-size:var(--fs-base); margin-bottom:28px; }
-  /* 2 buttons inline, not 3 stacked */
-  .hbtns { flex-direction:row; flex-wrap:wrap; gap:10px; margin-bottom:28px; }
-  .hbtns .bdk, .hbtns .bgh { width:auto; padding:10px 16px; font-size:var(--fs-sm); white-space:nowrap; }
+  /* all 3 CTAs on one row — sized to fit ≥360px screens; wrap stays as fallback for narrower */
+  .hbtns { flex-direction:row; flex-wrap:wrap; gap:8px; margin-bottom:28px; }
+  .hbtns .bdk, .hbtns .bgh { width:auto; padding:10px 12px; font-size:14px; white-space:nowrap; }
   .hbtns .hresume-btn { display:inline-flex; }
   .hresume-link { display:none; }
   .hero-showcase { padding:0 20px 40px; }
@@ -649,9 +684,16 @@ footer { max-width:1200px; margin:0 auto; padding:22px 40px; border-top:1px soli
   .alink { font-size:var(--fs-sm); padding:8px 18px; border:1.5px solid var(--blue); border-radius:100px; color:var(--blue); display:inline-flex; align-items:center; }
 
   .who { grid-template-columns:1fr; }
-  /* C2: hide dead-space wsup panel on mobile */
-  .whr { display:none; }
-  .whl { padding:24px; }
+  /* match the sibling work cards: preview image on top, text below.
+     (Replaces the old C2 display:none — hiding it made the featured card the only
+     one without a visual, and dropped its Visit-site link on mobile.) */
+  .whr { order:-1; min-height:0; height:140px; border-left:none; border-bottom:1px solid var(--border); }
+  /* full sibling parity: plain preview image, Visit-site as the mono link in the date row */
+  .whr-overlay, .whpill { display:none; }
+  .whvisit-m { display:inline-block; }
+  .whl { padding:26px; }            /* match .wk card padding */
+  .whtop { margin-bottom:18px; }    /* match .wktop rhythm */
+  .whtop .whey { margin-bottom:0; }
   .whh3 { font-size:var(--fs-xl); }
   .whp { font-size:var(--fs-sm); }
 
@@ -662,7 +704,8 @@ footer { max-width:1200px; margin:0 auto; padding:22px 40px; border-top:1px soli
   .sk { padding:16px; }
   .sk-tip { display:none; }
 
-  /* A3: contact box breathing */
+  /* A3: contact box breathing — #contact gutter zeroed so margins don't stack with it */
+  #contact { padding:0; }
   .cbox {
     padding:36px 24px;
     margin:0 20px 40px;
@@ -677,7 +720,8 @@ footer { max-width:1200px; margin:0 auto; padding:22px 40px; border-top:1px soli
   .cpic-status { width:12px; height:12px; bottom:4px; right:2px; }
   .cbox-bot { flex-direction:column; align-items:flex-start; gap:16px; margin-left:0; }
   .cemail-row { flex-wrap:wrap; }
-  .cemail { font-size:var(--fs-sm); }
+  /* monospace email must fit on one line incl. arrow — 16px wraps the → */
+  .cemail { font-size:14px; white-space:nowrap; }
   .clinks { flex-wrap:wrap; }
 
   footer {
@@ -872,7 +916,6 @@ footer { max-width:1200px; margin:0 auto; padding:22px 40px; border-top:1px soli
 .wsup-funnel-stage:last-child { border-bottom:none; }
 .wsup-funnel-head { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px; }
 .wsup-funnel-stage-name { font-family:'Fraunces',serif; font-size:var(--fs-md); font-weight:600; color:var(--ink); }
-.wsup-funnel-src { font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); }
 .wsup-funnel-what { font-size:var(--fs-sm); color:var(--ink); margin:0 0 6px; line-height:var(--lh-body); }
 .wsup-funnel-angle { font-size:var(--fs-xs); color:var(--muted); margin:0; line-height:1.6; font-style:italic; }
 .wsup-funnel-angle strong { color:var(--ink); font-style:normal; }
@@ -892,6 +935,8 @@ footer { max-width:1200px; margin:0 auto; padding:22px 40px; border-top:1px soli
   .wsup-findings { grid-template-columns:1fr; }
   .wsup-persona-meta { grid-template-columns:repeat(2,1fr); }
   .wsup-feature-row { grid-template-columns:1fr; }
+  /* stacked rows are self-labeling (bold domain / list / italic origin) — a stacked header row is noise */
+  .wsup-feature-head { display:none; }
   .wsup-feature-row > div { border-right:none; border-bottom:1px solid var(--border); }
   .wsup-feature-row > div:last-child { border-bottom:none; }
   /* Mobile: bump small text +1px for readability on smaller screens */
@@ -913,15 +958,14 @@ footer { max-width:1200px; margin:0 auto; padding:22px 40px; border-top:1px soli
   .ag { padding:22px; }
   .ah3 { font-size:var(--fs-lg); }
   .wk { padding:22px; }
+  .whl { padding:22px; }
   /* A3: contact box breathing */
   .cbox { padding:28px 18px; margin:0 16px 32px; }
   nav { padding:0 16px; }
   .ncta { padding:8px 14px; font-size:var(--fs-xs); }
   footer { padding:16px; }
-  .edu-grid { grid-template-columns:1fr; gap:12px; }
-  .cert-grid { grid-template-columns:1fr; gap:14px; }
-  .cert-card { grid-template-columns:1fr; }
-  .cert-thumb { aspect-ratio:4/3; }
+  /* edu/cert mobile rules live at the END of this file — they must come after
+     the base .edu-grid/.cert-grid definitions below to win the cascade */
 }
 
 /* ─── EDUCATION & CERTIFICATIONS ───────────────────────────────────── */
@@ -1088,4 +1132,18 @@ footer { max-width:1200px; margin:0 auto; padding:22px 40px; border-top:1px soli
 .cert-lightbox-nav:hover {
   background:rgba(0,0,0,0.7);
   border-color:rgba(255,255,255,0.5);
+}
+
+/* ─── EDUCATION & CERTS — MOBILE ──────────────────────────────────────
+   Must stay AFTER the base .edu-grid/.cert-grid definitions above —
+   equal specificity means source order decides the cascade. */
+@media(max-width:640px){
+  .edu-grid { grid-template-columns:1fr; gap:12px; }
+  .cert-grid { grid-template-columns:1fr; gap:14px; }
+  .cert-thumb { aspect-ratio:4/3; }
+  .cert-lightbox { padding:16px; }
+  .cert-lightbox-inner { max-width:100%; }
+  .cert-lightbox-close { top:14px; right:14px; }
+  .cert-lightbox-prev { left:10px; }
+  .cert-lightbox-next { right:10px; }
 }

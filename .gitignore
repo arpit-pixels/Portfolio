@@ -24,6 +24,8 @@ dist-ssr
 *.sw?
 
 # Personal / dev-time artifacts
+mobile-audit/
+_case-study-backups.md
 cv-update.md
 cv-build/
 audit/

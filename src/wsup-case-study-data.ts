@@ -36,13 +36,11 @@ export const FUNNEL_STAGES = [
     stage: "01 — Getting people here",
     what: "1.79M monthly visits. 71% type the URL directly. 34.5% of Google searches that lead here are people searching 'wsup ai' by name.",
     designAngle: "Most visitors return by typing the URL or searching for wsup by name. The design earns word-of-mouth — not paid ads, not viral tricks.",
-    source: "Semrush · Mar 2026",
   },
   {
     stage: "02 — Keeping them here",
     what: "17 minutes 8 seconds average session. 4.89 pages per visit. 58% leave after one page.",
     designAngle: "Sessions are in Character.ai range. 4.89 pages-per-visit means users browse across discovery, chat, stories, and creator tools — not bouncing after one click.",
-    source: "Semrush · Mar 2026",
   },
   {
     stage: "03 — Making money from visitors",
@@ -61,19 +59,16 @@ export const FUNNEL_STAGES = [
         ],
       },
     ],
-    source: "Design decision",
   },
   {
     stage: "04 — Getting them to sign up",
     what: "Signing up removes the ads — it's a benefit users get, not a wall they have to climb.",
     designAngle: "Most products say 'sign up to unlock this feature.' wsup says 'sign up to make the ads go away.' Same mechanism, more honest framing.",
-    source: "Design decision",
   },
   {
     stage: "05 — Getting them to come back",
     what: "Day 1, Day 7, and Day 30 return rates are comparable to the top apps in this category.",
     designAngle: "Daily streaks, multiple things to do (chat + stories + creator tools), and the Discord stack up. Users return for the relationships they've built with their characters — not for features.",
-    source: "First-party",
   },
   {
     stage: "06 — Making money from users",
@@ -92,7 +87,6 @@ export const FUNNEL_STAGES = [
         ],
       },
     ],
-    source: "First-party",
   },
 ];
 

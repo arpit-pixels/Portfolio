@@ -249,8 +249,8 @@ export default function NowggCaseStudy() {
       </section>
 
       <div className="cs-cta">
-        <Link to="/" className="bgh">← Back to portfolio</Link>
-        <Link to="/bluestacks" className="bdk">Next: BlueStacks →</Link>
+        <Link to="/bluestacks" className="bgh">← BlueStacks</Link>
+        <Link to="/" className="bdk">Back to portfolio →</Link>
       </div>
       <FOOTER />
     </div>

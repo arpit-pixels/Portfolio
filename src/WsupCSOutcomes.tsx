@@ -47,7 +47,6 @@ export default function WsupCSOutcomes() {
               <div key={i} className="wsup-funnel-stage">
                 <div className="wsup-funnel-head">
                   <span className="wsup-funnel-stage-name">{s.stage}</span>
-                  <span className="wsup-funnel-src">{s.source}</span>
                 </div>
                 <p className="wsup-funnel-what">{s.what}</p>
                 <p className="wsup-funnel-angle"><strong>Design angle:</strong> <TextWithPills text={s.designAngle} pills={sx.designAnglePills} /></p>

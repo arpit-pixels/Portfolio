@@ -1,64 +1,9 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import EducationCerts from "./EducationCerts";
 import HeroShowcase from "./HeroShowcase";
-
-/* ─── GRAIN TEXTURE ───────────────────────────────────────────────────── */
-
-/* ─── TERMINAL ────────────────────────────────────────────────────────── */
-const TLINES = [
-  { t: "p", a: "❯ ", b: "run designer-agent" },
-  { t: "cm", v: "// loading wsup design system" },
-  { t: "ok", v: "✓ tokens        142 loaded" },
-  { t: "ok", v: "✓ components     38 ready" },
-  { t: "ok", v: "✓ constraints    CLAUDE.md" },
-  { t: "_" },
-  { t: "o", v: "→ brief: 'onboarding flow'" },
-  { t: "hi", v: "  welcome.tsx        ✓" },
-  { t: "hi", v: "  profile.tsx        ✓" },
-  { t: "hi", v: "  dashboard.tsx      ✓" },
-  { t: "_" },
-  { t: "ok", v: "✓ 3 screens · on-brand · 2m 48s" },
-];
-
-function Terminal() {
-  const [n, setN] = useState(0);
-  const [fading, setFading] = useState(false);
-
-  useEffect(() => {
-    if (n < TLINES.length) {
-      const t = setTimeout(() => setN(s => s + 1), n === 0 ? 700 : 280);
-      return () => clearTimeout(t);
-    }
-    const t1 = setTimeout(() => setFading(true), 4000);
-    const t2 = setTimeout(() => { setN(0); setFading(false); }, 4600);
-    return () => { clearTimeout(t1); clearTimeout(t2); };
-  }, [n]);
-
-  return (
-    <div className="tcard">
-      <div className="tbar">
-        <div className="tdots">
-          {["#FFBDBE", "#FFE3A8", "#B4EAC8"].map(c => <div key={c} className="tdot" style={{ background: c }} />)}
-        </div>
-        <div className="ttitle">designer-agent · wsup.ai</div>
-      </div>
-      <div className="tbody" style={{ opacity: fading ? 0 : 1, transition: "opacity .5s ease" }}>
-        {TLINES.slice(0, n).map((l, i) => (
-          <span key={i} className="tl">
-            {l.t === "p" && <><span className="tp">{l.a}</span><span className="tc">{l.b}</span></>}
-            {l.t === "cm" && <span className="tcm">{l.v}</span>}
-            {l.t === "ok" && <span className="tok">{l.v}</span>}
-            {l.t === "o" && <span className="to">{l.v}</span>}
-            {l.t === "hi" && <span className="thi">{l.v}</span>}
-            {l.t === "_" && <span>&nbsp;</span>}
-          </span>
-        ))}
-        {n <= TLINES.length && <span className="tcur" />}
-      </div>
-    </div>
-  );
-}
+import Terminal from "./HeroTerminal";
+import HobbyChannel from "./HobbyChannel";
 
 /* ─── HOOKS ───────────────────────────────────────────────────────────── */
 function useR(d = 0) {
@@ -89,8 +34,8 @@ const STACK = [
   ["⬡", "Figma MCP", "Wired Claude Code to Figma — AI reads and writes design files"],
 ];
 const WORKS = [
-  { n: "now.gg", a: "n", yr: "2019–24", role: "Lead Product Designer", p: "Cloud gaming platform — 100M+ users, ~10M monthly visits. Led UX across game discovery, detail pages, and instant browser play.", url: "https://now.gg", cs: "/nowgg", img: "/cs/nowgg-home.png" },
   { n: "BlueStacks", a: "B", yr: "2019–24", role: "Product Designer", p: "World's #1 Android emulator — 300M+ users. I owned the redesign of bluestacks.com, modernizing the homepage and the game landing-page template that runs across thousands of SEO pages.", url: "https://bluestacks.com", cs: "/bluestacks", img: "/cs/bluestacks-home.png" },
+  { n: "now.gg", a: "n", yr: "2019–24", role: "Lead Product Designer", p: "Cloud gaming platform — 100M+ users, ~10M monthly visits. Led UX across game discovery, detail pages, and instant browser play.", url: "https://now.gg", cs: "/nowgg", img: "/cs/nowgg-home.png" },
 ];
 
 /* ─── PORTFOLIO ───────────────────────────────────────────────────────── */
@@ -127,7 +72,7 @@ export default function Portfolio() {
           <h1 className="hh1"><strong>Product designer</strong><br />who builds <em>agents,</em><br />not just screens</h1>
           <p className="hsub">9 years shipping consumer products at scale — BlueStacks, now.gg, wsup.ai. Today I design the system AND the AI agent that ships from it. The Designer Agent is live inside wsup.ai right now, built with Claude Code + Figma MCP.</p>
           <div className="hbtns">
-            <button className="bdk" onClick={() => go("agents")}>See the agents →</button>
+            <button className="bdk" onClick={() => go("agents")}>See the agents</button>
             <button className="bgh" onClick={() => go("work")}>View work</button>
             <a href="/arpit-yadav-resume.pdf" target="_blank" rel="noopener noreferrer" className="bgh hresume-btn">Resume ↓</a>
           </div>
@@ -149,7 +94,7 @@ export default function Portfolio() {
             [s1, "9", "", "Years shipping\nat consumer scale"],
             [s2, "500", "M+", "Users at\nBlueStacks scale"],
             [s3, "3", "", "Products at scale —\nwsup, BlueStacks, now.gg"],
-            [s4, "Live", "agent", "Ships production screens\nautonomously"],
+            [s4, "Live", " agent", "Ships production screens\nautonomously"],
           ].map(([r, n, u, l], i) => (
             <div key={i} ref={r as React.RefObject<HTMLDivElement>} className="sc" style={{ transitionDelay: `${i * 80}ms` }}>
               <div className="sn">{n as string}<span>{u as string}</span></div>
@@ -192,7 +137,11 @@ export default function Portfolio() {
           </div>
           <div className="who" ref={wh}>
             <div className="whl">
-              <div className="whey">CURRENT · 2024–PRESENT</div>
+              <div className="whtop">
+                <div className="whey">2024–26</div>
+                {/* mobile-only — mirrors the wktop "Visit site →" placement of the sibling cards */}
+                <a href="https://wsup.ai" target="_blank" rel="noopener noreferrer" className="wk-site whvisit-m">Visit site →</a>
+              </div>
               <h3 className="whh3">wsup.ai</h3>
               <p className="whp">AI character platform with 1M+ monthly visits. I codified the design language (80+ tokens, 90+ components), shipped every screen across mobile and desktop, and now ship faster through the Designer Agent that reads from this system.</p>
               <div className="chips"><span className="chip">Lead Designer</span><span className="chip">Design System</span><span className="chip">Dark Theme</span><span className="chip">AI Chat UX</span></div>
@@ -264,7 +213,9 @@ export default function Portfolio() {
           </div>
         </section>
 
-        <div id="contact" style={{ padding: "0 40px" }}>
+        <HobbyChannel />
+
+        <div id="contact">
           <div className="cbox" ref={ctR}>
             <div className="cbox-top">
               <div className="cpic-wrap">
@@ -284,7 +235,7 @@ export default function Portfolio() {
               <div className="clinks">
                 <a href="https://www.linkedin.com/in/arpit-yadav-1185ba135/" target="_blank" rel="noopener noreferrer" className="clnk">LinkedIn</a>
                 <a href="https://github.com/arpityadav-bst/wsup-screen-library" target="_blank" rel="noopener noreferrer" className="clnk">GitHub</a>
-                <a href="/arpit-yadav-resume.pdf" target="_blank" rel="noopener noreferrer" className="clnk">Resume</a>
+                <a href="/arpit-yadav-resume.pdf" target="_blank" rel="noopener noreferrer" className="clnk"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg> Resume</a>
               </div>
             </div>
           </div>

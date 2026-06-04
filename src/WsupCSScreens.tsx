@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { useR } from "./WsupCaseStudy";
 import { Pill } from "./InterviewMode";
 
@@ -21,7 +22,7 @@ const GIFT_FLOW = [
 function Row({ items, max, cols }: { items: { src: string; alt: string; cap?: string }[]; max: number; cols?: number }) {
   if (cols) {
     return (
-      <div className="wsup-mobile-gallery" style={{ display: "grid", gridTemplateColumns: `repeat(${cols}, 1fr)`, gap: 12, maxWidth: 760, marginTop: 16 }}>
+      <div className="wsup-mobile-gallery wsup-mobile-grid" style={{ "--wsup-cols": cols, marginTop: 16 } as CSSProperties}>
         {items.map((s, i) => (
           <div key={i} className="cs-screen-item">
             <img src={s.src} alt={s.alt} className="cs-screenshot" />
