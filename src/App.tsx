@@ -43,7 +43,7 @@ export default function Portfolio() {
   const go = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
   const s1 = useR(0), s2 = useR(120), s3 = useR(240), s4 = useR(360);
-  const sh2a = useR(), ag1 = useR(0), ag2 = useR(130);
+  const sh2a = useR(), ag1 = useR(0), ag2 = useR(130), ag3 = useR(260);
   const sh2w = useR(), wh = useR();
   const wk1 = useR(0), wk2 = useR(110);
   const sh2s = useR();
@@ -114,7 +114,6 @@ export default function Portfolio() {
               <div className="abadge abb">AGENT_01 · DESIGN</div>
               <h3 className="ah3">Designer Agent</h3>
               <p className="ap">Takes a product brief, reads the wsup.ai design system — 80+ tokens, 90+ components — and ships on-brand screens autonomously. Lives in the production codebase and writes corrections back to its own knowledge after every session.</p>
-              <div className="chips">{["Autonomous Design", "Design System", "Brand Consistency", "Production-Live", "Knowledge-Compounding"].map(c => <span key={c} className="chip">{c}</span>)}</div>
               <div className="amet"><div className="mn">4h → 20m</div><div className="ml">Screen design time — manual vs. agent</div></div>
               <Link to="/designer-agent" className="alink">View case study →</Link>
             </div>
@@ -123,9 +122,16 @@ export default function Portfolio() {
               <div className="abadge abg">AGENT_02 · GROWTH</div>
               <h3 className="ah3">Reddit Growth Agent</h3>
               <p className="ap">Finds high-value threads, researches context, and posts genuinely useful comments. Same agentic loop as the Designer Agent — proves the architecture is domain-agnostic, not a design trick.</p>
-              <div className="chips">{["Autonomous Posting", "Context Research", "Organic Growth", "Safety Controls"].map(c => <span key={c} className="chip">{c}</span>)}</div>
               <div className="amet"><div className="mn">1 → 1.1K</div><div className="ml">Organic karma — value-first commenting</div></div>
               <Link to="/reddit-agent" className="alink">View case study →</Link>
+            </div>
+            <div className="ag vlt" ref={ag3} style={{ transitionDelay: "260ms" }}>
+              <div className="ag-preview"><img src="/cs/studio/studio-1b.png" alt="A finished Black Box carousel cover" /></div>
+              <div className="abadge abv">AGENT_03 · CONTENT</div>
+              <h3 className="ah3">Content Studio</h3>
+              <p className="ap">Takes a topic and ships an on-brand carousel plus a narrated 9:16 video — fully local, $0 per post. Reads a written brand system (palette, type, an 18-cover layout library) and runs a QA gate before anything publishes. Same loop, third domain: creative production.</p>
+              <div className="amet"><div className="mn">1 topic → 2 formats</div><div className="ml">Carousel + narrated Short, on-brand</div></div>
+              <Link to="/content-studio" className="alink">View case study →</Link>
             </div>
           </div>
         </section>

@@ -27,6 +27,14 @@ dist-ssr
 mobile-audit/
 _case-study-backups.md
 cv-update.md
+# jhunt browser automation scripts (live here for Port/node_modules playwright access)
+gd-*.mjs
+gmail-*.mjs
+jd-*.mjs
+li-*.mjs
+make-cover*.mjs
+real-*.mjs
+open-mobile.mjs
 cv-build/
 audit/
 competitor-research/

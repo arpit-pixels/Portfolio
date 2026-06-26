@@ -5,6 +5,7 @@ import './index.css'
 import Portfolio from './App.tsx'
 import DesignerAgent from './DesignerAgent.tsx'
 import RedditAgent from './RedditAgent.tsx'
+import ContentStudio from './ContentStudio.tsx'
 import WsupCaseStudy from './WsupCaseStudy.tsx'
 import NowggCaseStudy from './NowggCaseStudy.tsx'
 import BluestacksCaseStudy from './BluestacksCaseStudy.tsx'
@@ -29,6 +30,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/" element={<Portfolio />} />
         <Route path="/designer-agent" element={<DesignerAgent />} />
         <Route path="/reddit-agent" element={<RedditAgent />} />
+        <Route path="/content-studio" element={<ContentStudio />} />
         <Route path="/wsup-design" element={<WsupCaseStudy />} />
         <Route path="/nowgg" element={<NowggCaseStudy />} />
         <Route path="/bluestacks" element={<BluestacksCaseStudy />} />

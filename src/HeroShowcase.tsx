@@ -11,6 +11,8 @@ const SHOTS = [
   { name: "now.gg", img: "/cs/nowgg-home.png" },
   { name: "Designer Agent", img: "/cs/wsup-d-anime.png" },
   { name: "Reddit Growth Agent", img: "/cs/reddit-top.png" },
+  { name: "Content Studio", img: "/cs/studio/studio-1b.png" },
+  { name: "Content Studio — anime", img: "/cs/studio/poster-anime.png" },
 ];
 
 const LOOP_MS = 42000; // one full loop — mirrors the CSS animation pace
