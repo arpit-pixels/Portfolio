@@ -747,7 +747,7 @@ footer { max-width:1200px; margin:0 auto; padding:22px 40px; border-top:1px soli
   .whh3 { font-size:var(--fs-xl); }
   .whp { font-size:var(--fs-sm); }
 
-  .wgrid { grid-template-columns:1fr; gap:10px; }
+  .wgrid { grid-template-columns:1fr; gap:24px; }  /* match the wsup-card spacing (.who mb 12 + 12 spacer) */
   .tgrid { grid-template-columns:1fr; gap:12px; }
   /* C1: stack grid — wider gap */
   .skgrid { grid-template-columns:repeat(2,1fr); gap:10px; }
