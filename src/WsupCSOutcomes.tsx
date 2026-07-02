@@ -1,6 +1,7 @@
 import { useR } from "./WsupCaseStudy";
 import { FUNNEL_STAGES, BUSINESS_OUTCOMES, WHAT_FAILED, LEARNINGS, REFLECTION, PROCESS } from "./wsup-case-study-data";
 import { TextWithPills, Pill, type PillSpec } from "./InterviewMode";
+import Reveal from "./Reveal";
 
 export default function WsupCSOutcomes() {
   const processR = useR(), funnelR = useR(), failR = useR(), outR = useR();
@@ -22,8 +23,11 @@ export default function WsupCSOutcomes() {
                 </div>
                 <div className="wsup-phase-right">
                   <h3 className="wsup-phase-name">{p.name}</h3>
-                  <p className="wsup-phase-desc"><TextWithPills text={p.desc} pills={px.descPills} /></p>
-                  <p className="wsup-phase-collab"><strong>Collaboration:</strong> <TextWithPills text={p.collab} pills={px.collabPills} /></p>
+                  <p className="wsup-phase-desc">{(p as { punch?: string }).punch}</p>
+                  <Reveal cue="what happened">
+                    <p className="wsup-phase-desc"><TextWithPills text={p.desc} pills={px.descPills} /></p>
+                    <p className="wsup-phase-collab"><strong>Collaboration:</strong> <TextWithPills text={p.collab} pills={px.collabPills} /></p>
+                  </Reveal>
                 </div>
               </div>
             );
@@ -35,7 +39,7 @@ export default function WsupCSOutcomes() {
       <section className="cs-sec" ref={funnelR}>
         <div className="cs-sec-head"><span className="stag">08 / HOW WSUP MAKES MONEY</span></div>
         <h2 className="cs-h2">Two ways of making money,<br />designed as <em>one system</em></h2>
-        <p className="cs-p">wsup makes money two ways at once. Banner ads on guests who haven't signed up; credits for premium AI work once they have. Signing up removes the ads — turning it into a benefit users want, not a wall to climb.<Pill
+        <p className="cs-p">Ads on guests. Credits on signed-up users. Signing up removes the ads — a benefit, not a wall.<Pill
           q="Why credits-plus-ads instead of a flat subscription, which is simpler and more predictable revenue?"
           a="A subscription forces every user to predict their own usage before they've felt the product — and most can't, so they don't subscribe. Credits-as-fuel means you only pay in proportion to the AI work you actually trigger; the casual user runs on the free daily pool and never sees a wall, while the heavy user pays for the compute they're genuinely consuming. Ads cover the logged-out majority who'll never pay anything. It's two engines for two populations: ads monetize attention, credits monetize intensity. A flat sub would over-charge the casual user and under-charge the whale at the same time."
         /></p>
@@ -49,7 +53,9 @@ export default function WsupCSOutcomes() {
                   <span className="wsup-funnel-stage-name">{s.stage}</span>
                 </div>
                 <p className="wsup-funnel-what">{s.what}</p>
-                <p className="wsup-funnel-angle"><strong>Design angle:</strong> <TextWithPills text={s.designAngle} pills={sx.designAnglePills} /></p>
+                <Reveal cue="design angle">
+                  <p className="wsup-funnel-angle"><strong>Design angle:</strong> <TextWithPills text={s.designAngle} pills={sx.designAnglePills} /></p>
+                </Reveal>
               </div>
             );
           })}
@@ -80,8 +86,11 @@ export default function WsupCSOutcomes() {
               <div key={i} className="wsup-failure">
                 <h3 className="wsup-failure-h">FAILURE 0{i + 1}</h3>
                 <h4 className="wsup-failure-title">{f.title}</h4>
-                <p className="cs-p"><TextWithPills text={f.story} pills={fx.storyPills} /></p>
-                <p className="cs-p" style={{ marginTop: 12 }}><strong style={{ color: 'var(--green)' }}>Resolution:</strong> <TextWithPills text={f.resolution} pills={fx.resolutionPills} /></p>
+                <p className="cs-p"><strong>Lesson:</strong> {(f as { lesson?: string }).lesson}</p>
+                <Reveal cue="the full story">
+                  <p className="cs-p"><TextWithPills text={f.story} pills={fx.storyPills} /></p>
+                  <p className="cs-p" style={{ marginTop: 12 }}><strong style={{ color: 'var(--green)' }}>Resolution:</strong> <TextWithPills text={f.resolution} pills={fx.resolutionPills} /></p>
+                </Reveal>
               </div>
             );
           })}
@@ -95,17 +104,24 @@ export default function WsupCSOutcomes() {
         <h3 className="cs-h3" style={{ marginTop: 32 }}>What I learned</h3>
         <div className="wsup-learnings">
           {LEARNINGS.map((l, i) => {
-            const lx = l as { text: string; pills?: PillSpec[] };
+            const lx = l as { punch: string; rest: string; punchPills?: PillSpec[]; restPills?: PillSpec[] };
             return (
               <div key={i} className="wsup-learning">
                 <span className="wsup-learning-n">{String(i + 1).padStart(2, '0')}</span>
-                <p className="wsup-learning-text"><TextWithPills text={lx.text} pills={lx.pills} /></p>
+                <div style={{ minWidth: 0 }}>
+                  <p className="wsup-learning-text"><TextWithPills text={lx.punch} pills={lx.punchPills} /></p>
+                  <Reveal cue="unpacked">
+                    <p className="wsup-learning-text"><TextWithPills text={lx.rest} pills={lx.restPills} /></p>
+                  </Reveal>
+                </div>
               </div>
             );
           })}
         </div>
         <div className="cs-reflection">
           <h3 className="cs-reflection-h">{REFLECTION.title}</h3>
+          <p className="cs-p">Six categories on first visit, not 20. And a credit popup that waits for the first AI reply.</p>
+          <Reveal cue="both, unpacked">
           <p className="cs-p">
             {REFLECTION.body}
             <Pill
@@ -116,6 +132,7 @@ export default function WsupCSOutcomes() {
               ]}
             />
           </p>
+          </Reveal>
         </div>
       </section>
     </>

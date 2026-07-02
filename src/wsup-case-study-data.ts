@@ -76,7 +76,7 @@ export const FUNNEL_STAGES = [
     designAngle: "Per-action pricing scales with how much AI work is happening. Casual users aren't punished; heavy users don't get an unfair subsidy. Credits work like fuel, not a paywall.",
     designAnglePills: [
       {
-        after: "Casual users don't get punished",
+        after: "Casual users aren't punished",
         q: "How do you keep casual users from feeling priced out as wsup grows?",
         a: "Three protections. (1) 50 free credits daily — enough to cover normal casual chat for almost any user; the typical casual user never hits the wall. (2) Streak rewards top up casual users every day they show up, making the free pool feel generous rather than rationed. (3) Per-action pricing means casual users only see a price when they reach for a premium feature — image generation, advanced models, the 4th regenerate. The wall isn't moved closer to them; it's just there if they reach for things that cost real money.",
         followups: [
@@ -90,11 +90,11 @@ export const FUNNEL_STAGES = [
   },
 ];
 
+/* V2: deduped — 1.79M and 71% already live in the hero stats row.
+   Kept: the engagement comparison + the two facts the hero doesn't show. */
 export const BUSINESS_OUTCOMES = [
-  { metric: "Scale", value: "1.79M", note: "Monthly visits as of March 2026 (Semrush)" },
   { metric: "How engaged users are", value: "17:08", note: "Average session — same as Character.ai (Semrush)" },
   { metric: "Brand awareness", value: "34.5%", note: "of search traffic comes from people searching 'wsup ai' by name (Semrush)" },
-  { metric: "Returning users", value: "71%", note: "of traffic is people typing the URL directly (Semrush)" },
   { metric: "US users", value: "76.6%", note: "of users are in the US — 1.37M monthly visits (Semrush)" },
 ];
 

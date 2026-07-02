@@ -17,7 +17,7 @@ export const IDEATION_BOARDS = [
     chosenWhy: "Every category stays visible without eating vertical space. Cards lead with community signals — '#1279 Rank · 2.0K Chats' — which work faster than staff picks. Confirmed live: niche categories like Fantasy and Sci-Fi held their usage.",
     chosenWhyPills: [
       {
-        after: "niche categories like Fantasy and Sci-Fi keep their usage instead of dropping off",
+        after: "niche categories like Fantasy and Sci-Fi held their usage",
         q: "How did you prove this in production?",
         a: "We had category-level usage data before and after the layout change. With the dropdown, the top few categories soaked up almost all the clicks; niche categories hovered near zero. Switched to horizontal scroll, and niche categories recovered once browsing them no longer took an extra click. The data was unambiguous; we kept horizontal scroll.",
         followups: [
@@ -46,7 +46,7 @@ export const IDEATION_BOARDS = [
     chosenWhy: "Discord behavior was the signal — users wanted a place to share what they made. Multiple formats because creators don't all express the same way. TikTok-style browse for low-commitment scrolling. Stories ships as a peer to Chat, not a sub-page.",
     chosenWhyPills: [
       {
-        after: "The Stories tab is now a peer to Chat, not a sub-page",
+        after: "Stories ships as a peer to Chat, not a sub-page",
         q: "Why peer to Chat instead of nested under it?",
         a: "Stories serves a fundamentally different use case from chat — passive scrolling vs active conversation. Nesting it under Chat would've hidden it from users who weren't already in chat mode (which is the exact moment they're least likely to want to passively consume). Making it a peer surface meant users could enter wsup specifically for stories — and many do. The peer placement also signals to creators that their stories matter independently of any one chat session, which lifts creator engagement.",
         followups: [
@@ -69,7 +69,7 @@ export const IDEATION_BOARDS = [
         rejected: "Hides stories from users who aren't chatting. Kills discovery for new visitors. Users wanted a destination, not a sub-mode.",
         rejectedPills: [
           {
-            after: "users wanted a destination, not a sub-mode",
+            after: "Users wanted a destination, not a sub-mode",
             q: "Why is hiding Stories from non-chat users such a big deal?",
             a: "Because Stories acts as a re-engagement surface for users who haven't opened a chat in a while. If Stories is nested under Chat, users have to enter chat mode to find it — defeating its purpose. The whole point of Stories is to give a low-commitment way to come back to wsup; locking it behind active chat behavior would prevent the use case it was designed for. Stories needed to be a standalone destination for the same reason TikTok isn't nested inside YouTube.",
           },
@@ -85,7 +85,7 @@ export const IDEATION_BOARDS = [
     chosenWhy: "Every field is a measurable drop in users. Pre-filling Male + 21–23 means tap-to-continue for most. Two fields is the minimum Explore needs to function.",
     chosenWhyPills: [
       {
-        after: "Two fields is the minimum that lets Explore work",
+        after: "Two fields is the minimum Explore needs to function",
         q: "How did you arrive at exactly 2 fields and not 1 or 3?",
         a: "Worked backward from the recommendation engine. Explore needed gender preference AND an age band to make a non-random first recommendation. One field (gender alone) wasn't enough — content appropriate for an 18-year-old differs sharply from a 30-year-old. Two was the minimum the recommendation could function on. Three would've been one too many — drop-off data from competitors and our own early testing showed engagement collapses at the third field.",
         followups: [
@@ -117,7 +117,7 @@ export const IDEATION_BOARDS = [
         rejected: "Gives up wsup's only real edge over Character.ai. The pitch is 'chat without signing up.' Email-required is the exact wall the rest of the product was built to avoid.",
         rejectedPills: [
           {
-            after: "Email-required signup is the exact wall the rest of the product was designed to avoid",
+            after: "Email-required is the exact wall the rest of the product was built to avoid",
             q: "Email-required signup is industry standard. Why is it not even an option?",
             a: "Because email-required signup is exactly what every competitor has, and 'we have email-required signup' isn't a differentiator — it's a wall users see at every other product. wsup's positioning is 'chat without signing up,' which is concrete and remarkable. Email-required would erase that. Yes, it would help with marketing list-building and re-engagement emails — those are real losses. But the loss of the positioning is bigger than the marketing gain. We chose positioning over CRM ammunition.",
             followups: [

@@ -1,6 +1,7 @@
 import { useR } from "./WsupCaseStudy";
 import { PRINCIPLES, RESEARCH_METHODS, DISCORD_FINDINGS, COMPETITORS, ALSO_TRACKED, WSUP_MOATS, PERSONAS } from "./wsup-case-study-data";
 import { TextWithPills, Pill, type PillSpec } from "./InterviewMode";
+import Reveal from "./Reveal";
 
 export default function WsupCSStory() {
   const briefR = useR(), researchR = useR(), personaR = useR();
@@ -11,6 +12,8 @@ export default function WsupCSStory() {
       <section className="cs-sec" ref={briefR}>
         <div className="cs-sec-head"><span className="stag">01 / THE BRIEF</span></div>
         <h2 className="cs-h2">Where we started —<br />and what we <em>listened to</em></h2>
+        <p className="cs-p">We launched with chat, characters, and a Discord listening post. No roadmap — every feature that shipped traced back to a Discord ask, a competitor pattern, or a behavior users invented on their own.</p>
+        <Reveal cue="the full story">
         <p className="cs-p">
           We launched with the simplest thing that could work — chat, characters, and a Discord server we'd use as our listening post.
           <Pill
@@ -52,6 +55,7 @@ export default function WsupCSStory() {
           />
           {' '}— features shipping as one-offs, no consistent language. What follows is the cleanup that came next.
         </p>
+        </Reveal>
 
         <h3 className="cs-h3" style={{ marginTop: 36 }}>The three principles I designed against</h3>
         <p className="cs-p">Before I drew a screen, I wrote down what wsup was trying to be. Every feature we ship still has to pass these three.</p>
@@ -60,8 +64,10 @@ export default function WsupCSStory() {
             <div key={i} className="wsup-principle-card">
               <div className="wsup-principle-n">{p.n}</div>
               <h4 className="wsup-principle-title">{p.title}</h4>
-              <p className="wsup-principle-body">{p.body}</p>
               <div className="wsup-principle-proof"><strong>Proof in product:</strong> {p.proof}</div>
+              <Reveal cue="the principle">
+                <p className="wsup-principle-body">{p.body}</p>
+              </Reveal>
             </div>
           ))}
         </div>
@@ -71,7 +77,10 @@ export default function WsupCSStory() {
       <section className="cs-sec" ref={researchR}>
         <div className="cs-sec-head"><span className="stag">02 / RESEARCH</span></div>
         <h2 className="cs-h2">How research drove<br />what got <em>built</em></h2>
-        <p className="cs-p">Four ways I kept learning from users: daily Discord check-ins, monthly competitor research, watching how shipped features got used, and user personas from a year of community data. All four ran every day for 18 months. What we learned went to Ashish (PM) for shipping decisions. My job: make sure users were heard.</p>
+        <p className="cs-p">Four research loops — Discord daily, competitor teardowns monthly, live usage, personas. For 18 months straight.</p>
+        <Reveal cue="how it ran">
+          <p className="cs-p">Four ways I kept learning from users: daily Discord check-ins, monthly competitor research, watching how shipped features got used, and user personas from a year of community data. All four ran every day for 18 months. What we learned went to Ashish (PM) for shipping decisions. My job: make sure users were heard.</p>
+        </Reveal>
 
         <div className="wsup-research-list">
           {RESEARCH_METHODS.map((m, i) => {
@@ -82,7 +91,9 @@ export default function WsupCSStory() {
                   <span className="wsup-research-n">{m.n}</span>
                   <h4 className="wsup-research-name">{m.name}</h4>
                 </div>
-                <p className="wsup-research-desc"><TextWithPills text={m.desc} pills={mx.descPills} /></p>
+                <Reveal cue="the method">
+                  <p className="wsup-research-desc"><TextWithPills text={m.desc} pills={mx.descPills} /></p>
+                </Reveal>
                 {mx.image && (
                   <div className="wsup-research-image">
                     <img src={mx.image} alt={m.name} />
@@ -109,8 +120,10 @@ export default function WsupCSStory() {
               <div key={i} className="wsup-finding-card">
                 <div className="wsup-finding-n">{f.n}</div>
                 <h4 className="wsup-finding-title">{f.finding}</h4>
-                <p className="wsup-finding-evidence"><strong>Evidence:</strong> <TextWithPills text={f.evidence} pills={fx.evidencePills} /></p>
                 <p className="wsup-finding-decision"><strong>Design decision:</strong> <TextWithPills text={f.decision} pills={fx.decisionPills} /></p>
+                <Reveal cue="the evidence">
+                  <p className="wsup-finding-evidence"><strong>Evidence:</strong> <TextWithPills text={f.evidence} pills={fx.evidencePills} /></p>
+                </Reveal>
               </div>
             );
           })}
@@ -130,8 +143,10 @@ export default function WsupCSStory() {
                   </div>
                 )}
                 <div className="wsup-comp-group">{c.name}</div>
-                <p className="wsup-comp-examples"><strong style={{ color: 'var(--ink)' }}>Strength:</strong> {c.strength}</p>
-                <p className="wsup-comp-examples" style={{ marginTop: 6 }}><strong style={{ color: 'var(--blue)' }}>Gap:</strong> <TextWithPills text={c.gap} pills={cx.gapPills} /></p>
+                <p className="wsup-comp-examples"><strong style={{ color: 'var(--blue)' }}>Gap:</strong> <TextWithPills text={c.gap} pills={cx.gapPills} /></p>
+                <Reveal cue="their strength">
+                  <p className="wsup-comp-examples"><strong style={{ color: 'var(--ink)' }}>Strength:</strong> {c.strength}</p>
+                </Reveal>
               </div>
             );
           })}
@@ -144,29 +159,38 @@ export default function WsupCSStory() {
               <img src={a.image} alt={`${a.name} homepage`} loading="lazy" />
               <div className="wsup-also-body">
                 <div className="wsup-also-name">{a.name}</div>
-                <p className="wsup-also-takeaway">{a.takeaway}</p>
+                <Reveal cue="takeaway">
+                  <p className="wsup-also-takeaway">{a.takeaway}</p>
+                </Reveal>
               </div>
             </div>
           ))}
         </div>
 
         <h3 className="cs-h3" style={{ marginTop: 40 }}>What wsup has that they don't</h3>
-        <p className="cs-p">A pattern across the teardowns: every competitor was missing at least one of these. wsup tries to hold all seven.</p>
-        <div className="wsup-moats">
-          {WSUP_MOATS.map((m, i) => (
-            <div key={i} className="wsup-moat">
-              <div className="wsup-moat-n">{String(i + 1).padStart(2, '0')}</div>
-              <div className="wsup-moat-name">{m.name}</div>
-              <p className="wsup-moat-what">{m.what}</p>
-            </div>
-          ))}
+        <p className="cs-p">Every competitor was missing at least one of these. wsup holds all seven.</p>
+        <div className="chips" style={{ marginTop: 14 }}>
+          {WSUP_MOATS.map((m, i) => <span key={i} className="chip">{m.name}</span>)}
         </div>
+        <Reveal cue="all seven, explained">
+          <div className="wsup-moats">
+            {WSUP_MOATS.map((m, i) => (
+              <div key={i} className="wsup-moat">
+                <div className="wsup-moat-n">{String(i + 1).padStart(2, '0')}</div>
+                <div className="wsup-moat-name">{m.name}</div>
+                <p className="wsup-moat-what">{m.what}</p>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </section>
 
       {/* 03 — PERSONAS */}
       <section className="cs-sec" ref={personaR}>
         <div className="cs-sec-head"><span className="stag">03 / WHO IT'S FOR</span></div>
         <h2 className="cs-h2">Five real users,<br />pulled from <em>1,812 real Discord messages</em></h2>
+        <p className="cs-p">78 active Discord users. A year of messages. Five behavioral patterns — every quote real. When a feature helps none of them, it's the wrong feature.</p>
+        <Reveal cue="how they were built">
         <p className="cs-p">
           After a year of community feedback, I grouped the 78 active Discord users by how they actually used wsup — not by age or location. Each persona is a made-up character, but every quote and behavior is real, taken from real Discord users. These five personas now drive what we build next.
           <Pill
@@ -179,6 +203,7 @@ export default function WsupCSStory() {
           />
           When deciding on a new feature, the question is "who does this help?" If the answer is "none of them," it's the wrong feature.
         </p>
+        </Reveal>
 
         <div className="wsup-personas">
           {PERSONAS.map((p, i) => (
@@ -195,8 +220,10 @@ export default function WsupCSStory() {
                 <div className="wsup-persona-stat"><span className="wsup-persona-stat-label">Location</span><span className="wsup-persona-stat-value">{p.location}</span></div>
                 <div className="wsup-persona-stat"><span className="wsup-persona-stat-label">Usage</span><span className="wsup-persona-stat-value">{p.usage}</span></div>
               </div>
-              <div className="wsup-persona-trait"><span className="wsup-persona-label">Behavior</span> {p.behavior}</div>
-              <div className="wsup-persona-impl"><span className="wsup-persona-label">Design for</span> <TextWithPills text={p.designsFor} pills={(p as { designsForPills?: PillSpec[] }).designsForPills} /></div>
+              <Reveal cue="design for them">
+                <div className="wsup-persona-trait"><span className="wsup-persona-label">Behavior</span> {p.behavior}</div>
+                <div className="wsup-persona-impl"><span className="wsup-persona-label">Design for</span> <TextWithPills text={p.designsFor} pills={(p as { designsForPills?: PillSpec[] }).designsForPills} /></div>
+              </Reveal>
             </div>
           ))}
         </div>

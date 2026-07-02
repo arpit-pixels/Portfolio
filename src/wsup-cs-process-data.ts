@@ -5,10 +5,11 @@ export const PROCESS = [
     phase: "01",
     name: "Launch — chat, characters, Discord",
     duration: "Nov 2024 – mid 2025",
+    punch: "Founding team, fast cycles, no roadmap — ship and listen.",
     desc: "Launched the first version with the founding team — chat page, character builder, signup flow, Discord. Small team, fast cycles, no roadmap beyond 'see what people use.' This became the chat surface every later feature had to respect.",
     descPills: [
       {
-        after: "the part of the product I'd be protecting in every phase that came later",
+        after: "This became the chat surface every later feature had to respect",
         q: "How did you keep the V1 chat surface stable while shipping all the V2 features on top?",
         a: "Treated it as protected infrastructure. Anything that touched the original chat surface required a higher review threshold (PM + designer + senior eng) — anything else could ship with normal review. We also had a written rule that every V2 feature should be additive — visible only when the user opted into it. Group chat? Only visible if you've started a group. Image gen? Only when you click the new icon. The original chat experience for a user who didn't engage with V2 features should still feel exactly like V1. That kept founding-era users grounded.",
         followups: [
@@ -25,10 +26,11 @@ export const PROCESS = [
     phase: "02",
     name: "Growth pressure — features faster than the system could keep up",
     duration: "Mid 2025 – late 2025",
+    punch: "Features shipped weekly; the visual system drifted.",
     desc: "Discord blew up with feature requests every day. Image gen and creator tools became table stakes. Stories got added because users were already posting characters in Discord. Then group chat. Then a chat-LLM picker. Then gifts. Credits became the payment system. Every feature shipped in weeks — each with its own visual style. By month 12 the Figma file had grown large and inconsistent, mostly undocumented. The product no longer felt unified.",
     descPills: [
       {
-        after: "The cost of moving fast was showing up as a product that no longer felt unified",
+        after: "The product no longer felt unified",
         q: "Why didn't you stop and clean up earlier instead of letting the system drift?",
         a: "I argued for it twice — at month 8 and month 10. Both times the PM weighed it against the cost of slowing feature shipping during a competitive moment, and both times we deferred. The right answer in hindsight was probably to stop at month 10, but we were watching competitors ship image generation and creator tools and we couldn't afford a visible pause. The trade was: more debt now, cleanup later. That trade can be defended; it can also be wrong. We got lucky that the cleanup window came before the debt became unbearable.",
         followups: [
@@ -42,7 +44,7 @@ export const PROCESS = [
     collab: "Ashish (PM) and Arastu (APM) ran what got built; I owned visuals but couldn't keep pace — each feature shipped with its own look.",
     collabPills: [
       {
-        after: "every new feature came in with its own look",
+        after: "each feature shipped with its own look",
         q: "How did you communicate to the team that 'I'm losing the system' without it sounding like an excuse?",
         a: "I shared the data, not the complaint. I'd open a sprint review with 'here's the visual inconsistency we shipped this sprint' — concrete examples: three different blue values across new features, four different button radii, two competing modal patterns. Engineering and PM saw the cost in their own terms (rework, debate time, slower future shipping). They proposed the cleanup before I had to formally pitch it. Lesson: when arguing for time investment, show the cost of NOT doing it in the team's language, not yours.",
       },
@@ -52,6 +54,7 @@ export const PROCESS = [
     phase: "03",
     name: "The cleanup — putting names on what we'd already shipped",
     duration: "Late 2025 – early 2026",
+    punch: "Named the system after the fact. Shipping sped up.",
     desc: "Stepped back to define what the product had actually become. Built the design system after the fact — colors, sizes, spacing, shadows named and applied to every screen. Settled the brightness fight (engineering wanted lighter, I wanted brighter for readability; a side-by-side with real chat messages won). Replaced the see-through 'glass' panels — beautiful in Figma, broken in production — with solid backgrounds.",
     collab: "The hardest sell. Engineering wanted to keep shipping on the mess; I made the case that a named system pays back fast. It did — we were soon shipping noticeably faster.",
     collabPills: [
@@ -77,10 +80,11 @@ export const PROCESS = [
     phase: "04",
     name: "Next version launch + AI design assistant",
     duration: "Jan 2026 – present",
+    punch: "Relaunched on the system — then built the agent that ships from it.",
     desc: "Launched the next version of wsup — the one this case study shows. Picture This (image gen), TikTok-style story browsing, sorting filters, leaderboard, deeper customization, plus newer image models like NanoBanana and SeedDream. All on the design system, all consistent. Then I built VDA — an AI design assistant. Learned my style across 22+ sessions. 250+ design decisions and 60+ aesthetic rules in memory. Now builds new screens that match my work without me reviewing every pixel.",
     descPills: [
       {
-        after: "Then I built VDA — a design assistant powered by AI",
+        after: "Then I built VDA — an AI design assistant",
         q: "Why build a designer agent instead of hiring more designers?",
         a: "Different ROIs. A new designer hire takes 3-6 months to ramp on the wsup design system, costs continuously, and serves one team. VDA codifies the system once, learns my taste, and produces components on demand with no ramp time. For routine work — variants, layout adjustments, predictable extensions — VDA is faster and cheaper. For strategic work — new surface conception, complex tradeoffs — humans are still the answer. So the agent didn't replace hiring; it absorbed the work that doesn't need a human, freeing future hires to focus on strategic work.",
         followups: [
@@ -102,6 +106,7 @@ export const PROCESS = [
 export const WHAT_FAILED = [
   {
     title: "The see-through glass mistake",
+    lesson: "On dark themes, effects that work alone fail in combination.",
     story: "Every popup, modal, and sheet used a see-through 'glass' background — iOS-style frosted blur with color tints. Beautiful in Figma. Broken in production. The tint mixed unpredictably with whatever was behind it — a chat, a character card, an ad — so the same modal looked like a different component on every page, and text that passed contrast on one surface failed on the next.",
     storyPills: [
       {
@@ -127,6 +132,7 @@ export const WHAT_FAILED = [
   },
   {
     title: "The category dropdown menu",
+    lesson: "Options you have to click to find are options nobody picks.",
     story: "The first Explore used a dropdown for the 20+ categories — the 'clean' choice. Tested with users. Niche categories like Fantasy, Sci-Fi, Slice of Life collapsed to almost zero usage. Users only opened the top 3 the dropdown showed.",
     storyPills: [
       {
@@ -152,6 +158,7 @@ export const WHAT_FAILED = [
   },
   {
     title: "The game-pass that fought the brand",
+    lesson: "Good in the wrong category is still wrong.",
     story: "wsup's credits needed a rewards surface, so I designed a full game-pass — daily streaks, tiers, 2× reward days, gems to claim. It was polished, and I was proud of it. The PM pushed back: it looked like a mobile game, not an AI companion. We shipped a lean credits sidebar instead.",
     storyPills: [
       {
@@ -171,6 +178,7 @@ export const WHAT_FAILED = [
   },
   {
     title: "Handing the agent too much",
+    lesson: "An agent's reliability is inverse to how much you give it at once.",
     story: "As I leaned on VDA — my design assistant — for more, I started handing it whole screens at once. It drifted: fed too much context, it pulled in the wrong details, stopped holding to the token system, and on new surfaces it broke down once it ran past the patterns it knew. Keeping a single screen on-system turned into a 20–30 minute babysitting loop. At that point the agent was costing me time, not saving it.",
     storyPills: [
       {
@@ -190,10 +198,12 @@ export const WHAT_FAILED = [
   },
 ];
 
+/* V2: split — punch stays visible, rest reveals. Pill anchors verified per half. */
 export const LEARNINGS = [
   {
-    text: "Moving fast has a cost. We shipped fast for 18 months and the design mess had to be paid back. The cleanup was fast — but only because we'd already seen what worked in front of real users.",
-    pills: [
+    punch: "Moving fast has a cost.",
+    rest: "We shipped fast for 18 months and the design mess had to be paid back. The cleanup was fast — but only because we'd already seen what worked in front of real users.",
+    restPills: [
       {
         after: "had to be paid back",
         q: "What's the right rhythm of cleanup vs shipping for a product still finding fit?",
@@ -202,8 +212,9 @@ export const LEARNINGS = [
     ],
   },
   {
-    text: "On dark themes, every visual effect that works alone will fail when combined with everything else. Glass, gradients, blur — test against three different things behind them before committing. Every time.",
-    pills: [
+    punch: "On dark themes, every visual effect that works alone will fail when combined with everything else.",
+    rest: "Glass, gradients, blur — test against three different things behind them before committing. Every time.",
+    restPills: [
       {
         after: "Glass, gradients, blur",
         q: "What other surface treatments fail in production beyond glass/blur?",
@@ -212,13 +223,16 @@ export const LEARNINGS = [
     ],
   },
   {
-    text: "An AI design assistant I trained over 22 sessions now builds new screens for me without me reviewing every pixel. Designers don't get replaced by AI — they get more done with it.",
-    pills: [
+    punch: "An AI design assistant I trained over 22 sessions now builds new screens for me without me reviewing every pixel.",
+    rest: "Designers don't get replaced by AI — they get more done with it.",
+    punchPills: [
       {
         after: "without me reviewing every pixel",
         q: "What's the actual limit of what an AI design assistant can do well?",
         a: "VDA does well on bounded extension — variants of established patterns, layout adjustments within tokens, color/spacing tweaks. It does poorly on novel surfaces (anything needing a new pattern), strategic tradeoffs (when and where the design actually breaks user trust), and anything requiring negotiation with engineering or product. The boundary is roughly: if I could explain the task to a brand-new junior designer using the design system docs alone, VDA can do it. If I'd need to explain context, history, or tradeoffs, VDA can't.",
       },
+    ],
+    restPills: [
       {
         after: "they get more done with it",
         q: "An interviewer's read: 'AI design assistant' is résumé inflation for a few good Figma plugins. What did VDA actually do that a plugin can't?",

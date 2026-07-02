@@ -46,7 +46,7 @@ export const RESEARCH_METHODS = [
     output: "Everyone built features. Nobody built a connected experience. That gap became wsup's pitch — not 'better chatbot' but 'one platform that holds chat, image gen, stories, and creators in one place.'",
     outputPills: [
       {
-        after: "what each competitor does well",
+        after: "Everyone built features.",
         q: "What did each one do well?",
         a: "Each had a clear strength: Character.ai's scale and moderation, Replika's emotional depth in single-character relationships, Janitor's deep customization, Talkie's onboarding polish, Joyland's structured storytelling, SeaArt's image generation tools, CrushOn's relaxed content positioning, Dippy's mobile-first polish.",
         followups: [
@@ -57,7 +57,7 @@ export const RESEARCH_METHODS = [
         ],
       },
       {
-        after: "where the gap was",
+        after: "Nobody built a connected experience.",
         q: "Where was the gap?",
         a: "No one had built a connected experience. Each app had strong individual features but kept them siloed — chat didn't talk to creator tools, emotional depth was locked to one character, customization was buried in settings panels. The gap: nobody had made chat + creators + stories + image gen + community feel like one product. That's where wsup positioned itself.",
         followups: [
@@ -103,7 +103,7 @@ export const RESEARCH_METHODS = [
     desc: "Pulled a year of #general-chat messages (April 2025 → April 2026). Grouped the 78 active users by how they used wsup, not by age or location. Five behavioral patterns emerged. Each persona is composite, but every quote and behavior is real.",
     descPills: [
       {
-        after: "by how they actually used wsup — not by age or location",
+        after: "not by age or location",
         q: "Why behavioral clustering instead of demographic personas?",
         a: "Demographic personas (e.g. '22, female, in college') tell you who's using the product. Behavioral personas ('invests deeply in characters, posts in Discord, notices model quality') tell you how they use it. For a roadmap question — 'should we ship this feature?' — you need to know how, not who. A 22-year-old casual user has nothing in common with a 22-year-old power creator; designing for the demographic would lump them together and serve neither well.",
         followups: [
@@ -114,7 +114,7 @@ export const RESEARCH_METHODS = [
         ],
       },
       {
-        after: "I built this as a tool for what we build next",
+        after: "every quote and behavior is real",
         q: "Why scrape Discord now (April 2026) and not earlier?",
         a: "For most of the 18 months, the team was small enough that I had every Discord user in my head. As the user base grew past a few dozen active people, I lost that direct memory — and we needed a way to make decisions that wasn't 'Arpit's gut feel.' Personas formalize what was previously implicit. They're a tool for the team to use, not just for me. They also become onboarding material for new hires.",
         followups: [
@@ -136,7 +136,7 @@ export const DISCORD_FINDINGS = [
     evidence: "Power users compare chat LLM tiers by reply quality. Better LLM = they stay. Forgetful or worse LLM = they post about it and disappear.",
     evidencePills: [
       {
-        after: "They notice when the AI starts forgetting context",
+        after: "they post about it and disappear",
         q: "How do you know power users are right about model quality and not just biased?",
         a: "We cross-checked their qualitative reports against how the models actually behaved on long conversations. The patterns matched. When power users said 'this model forgets,' we saw the same degraded long-context behavior. They weren't biased; they were sensitive instruments. Power users are often the canary for model issues that show up in usage data weeks later.",
       },
@@ -144,7 +144,7 @@ export const DISCORD_FINDINGS = [
     decision: "Chat-LLM picker lives in the chat surface, not in settings. Each LLM shows its credit price upfront. Users always know which LLM they're talking to.",
     decisionPills: [
       {
-        after: "We don't hide which AI you're chatting with",
+        after: "Users always know which LLM they're talking to",
         q: "How do you know users stay because of model quality and not other factors?",
         a: "We can isolate it. Users who switched from a free LLM to a premium one tended to stay longer and return more often after the switch. Comparing the same user before and after removes most confounding variables — same character, same history, only the LLM changed. The pattern is consistent: better LLM in, longer engagement out.",
         followups: [
@@ -182,7 +182,7 @@ export const DISCORD_FINDINGS = [
     decision: "Stories ships as a peer to Chat — its own filters, four formats (interactive / image / video / comic), TikTok-style browsing.",
     decisionPills: [
       {
-        after: "Treated as just as important as Chat, not a sub-page under it",
+        after: "TikTok-style browsing",
         q: "What if Stories is just early-stage novelty and engagement drops in 6 months?",
         a: "Real risk. We track time-on-Stories monthly. So far it's stable — not a launch spike that's decaying. If it had spiked then declined, we'd know it was novelty. The fact that it's holding suggests it's a real surface, not a fad. We'll re-evaluate at the 6-month mark with hard numbers; until then we treat it as load-bearing.",
         followups: [
@@ -204,7 +204,7 @@ export const COMPETITORS = [
     gap: "Hard to discover characters. No tags, no filters, and guests can't browse without signing up.",
     gapPills: [
       {
-        after: "Sign-up wall blocks zero-friction browsing",
+        after: "guests can't browse without signing up",
         q: "If Character.ai is the largest, why isn't your strategy 'do what they do but better'?",
         a: "Because their scale is also their constraint. Character.ai has to optimize for the median user — anyone outside the modal user gets generic experiences. wsup at smaller scale can specialize for users who don't fit that median. Creator economy, niche character types, less-restricted creative range — these are user segments Character.ai can't serve at their scale without disrupting their median user. We're not trying to be a smaller Character.ai; we're trying to be the platform Character.ai's edge users would prefer.",
         followups: [

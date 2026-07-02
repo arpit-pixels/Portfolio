@@ -7,6 +7,7 @@ import WsupCSScreens from "./WsupCSScreens";
 import WsupCSOutcomes from "./WsupCSOutcomes";
 import { InterviewModeProvider, Pill } from "./InterviewMode";
 import ProcessFlow, { type FlowData } from "./ProcessFlow";
+import Reveal from "./Reveal";
 
 const WSUP_FLOW: FlowData = {
   stages: [
@@ -55,13 +56,24 @@ export default function WsupCaseStudy() {
       <header className="cs-hero" ref={heroR}>
         <div className="cs-badge abb">CASE STUDY · PRODUCT DESIGN</div>
         <h1 className="cs-h1">Growing wsup.ai<br />into a <em>1.79M-visit AI platform</em></h1>
-        <p className="cs-sub">{BRIEF.context}</p>
-        <div className="cs-role-row">
-          <div className="cs-role-item"><span className="cs-role-label">My role</span>{ROLE.title} — {ROLE.responsibilities}</div>
-          <div className="cs-role-item"><span className="cs-role-label">Tools</span>{ROLE.tools}</div>
-          <div className="cs-role-item"><span className="cs-role-label">Timeline</span>{ROLE.timeline}</div>
-          <div className="cs-role-item"><span className="cs-role-label">Team</span>{ROLE.team}</div>
+        <p className="cs-sub">Launched November 2024 as a simple chat app. Eighteen months later — a full AI platform at 1.79M monthly visits.</p>
+        <Reveal cue="the full picture">
+          <p className="cs-sub">{BRIEF.context}</p>
+        </Reveal>
+        <div className="chips" style={{ margin: "18px 0 6px" }}>
+          <span className="chip">Lead Product Designer · Founding designer</span>
+          <span className="chip">Nov 2024 – present</span>
+          <span className="chip">Figma + Agentic AI</span>
+          <span className="chip">PM · APM · Engineering</span>
         </div>
+        <Reveal cue="role in full">
+          <div className="cs-role-row">
+            <div className="cs-role-item"><span className="cs-role-label">My role</span>{ROLE.title} — {ROLE.responsibilities}</div>
+            <div className="cs-role-item"><span className="cs-role-label">Tools</span>{ROLE.tools}</div>
+            <div className="cs-role-item"><span className="cs-role-label">Timeline</span>{ROLE.timeline}</div>
+            <div className="cs-role-item"><span className="cs-role-label">Team</span>{ROLE.team}</div>
+          </div>
+        </Reveal>
         <div className="cs-meta-row">
           {STATS.map((s, i) => <div key={i} className="cs-meta"><span className="cs-mn">{s.n}</span><span className="cs-ml">{s.label}</span><span className="cs-src">via {s.src}</span></div>)}
         </div>

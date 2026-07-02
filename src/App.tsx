@@ -4,6 +4,7 @@ import EducationCerts from "./EducationCerts";
 import HeroShowcase from "./HeroShowcase";
 import Terminal from "./HeroTerminal";
 import HobbyChannel from "./HobbyChannel";
+import Reveal from "./Reveal";
 
 /* ─── HOOKS ───────────────────────────────────────────────────────────── */
 function useR(d = 0) {
@@ -24,9 +25,9 @@ function useR(d = 0) {
 const STACK = [
   ["◈", "Figma", "Design systems, components, tokens — my primary design tool"],
   ["⬡", "Claude Code", "Build and ship autonomous AI agents for design and growth workflows"],
-  ["❋", "React", "Production UI for wsup.ai — 62 custom components"],
+  ["❋", "React", "Production UI for wsup.ai — 132 custom components"],
   ["⊞", "Next.js", "App Router, SSR, Vercel deployments for wsup.ai"],
-  ["⟐", "Tailwind", "Token-first config — 90+ semantic color tokens, custom spacing scale"],
+  ["⟐", "Tailwind", "Token-first config — 80+ semantic color tokens, custom spacing scale"],
   ["◉", "TypeScript", "Full type safety across all components and hooks"],
   ["▦", "Storybook", "Component documentation and isolated development"],
   ["⟁", "MagicPath", "AI-powered design exploration and rapid prototyping"],
@@ -34,8 +35,8 @@ const STACK = [
   ["⬡", "Figma MCP", "Wired Claude Code to Figma — AI reads and writes design files"],
 ];
 const WORKS = [
-  { n: "BlueStacks", a: "B", yr: "2019–24", role: "Product Designer", p: "World's #1 Android emulator — 300M+ users. I owned the redesign of bluestacks.com, modernizing the homepage and the game landing-page template that runs across thousands of SEO pages.", url: "https://bluestacks.com", cs: "/bluestacks", img: "/cs/bluestacks-home.png" },
-  { n: "now.gg", a: "n", yr: "2019–24", role: "Lead Product Designer", p: "Cloud gaming platform — 100M+ users, ~10M monthly visits. Led UX across game discovery, detail pages, and instant browser play.", url: "https://now.gg", cs: "/nowgg", img: "/cs/nowgg-home.png" },
+  { n: "BlueStacks", a: "B", yr: "2019–24", role: "Product Designer", p1: "World's #1 Android emulator — 300M+ users.", p2: "I owned the redesign of bluestacks.com, modernizing the homepage and the game landing-page template that runs across thousands of SEO pages.", url: "https://bluestacks.com", cs: "/bluestacks", img: "/cs/bluestacks-home.png" },
+  { n: "now.gg", a: "n", yr: "2019–24", role: "Lead Product Designer", p1: "Cloud gaming platform — 100M+ users, ~10M monthly visits.", p2: "Led UX across game discovery, detail pages, and instant browser play.", url: "https://now.gg", cs: "/nowgg", img: "/cs/nowgg-home.png" },
 ];
 
 /* ─── PORTFOLIO ───────────────────────────────────────────────────────── */
@@ -70,7 +71,10 @@ export default function Portfolio() {
         <div>
           <div className="hname">Arpit Yadav</div>
           <h1 className="hh1"><strong>Product designer</strong><br />who builds <em>agents,</em><br />not just screens</h1>
-          <p className="hsub">9 years shipping consumer products at scale — BlueStacks, now.gg, wsup.ai. Today I design the system AND the AI agent that ships from it. The Designer Agent is live inside wsup.ai right now, built with Claude Code + Figma MCP.</p>
+          <p className="hsub">9 years shipping consumer products at scale — BlueStacks, now.gg, wsup.ai.</p>
+          <Reveal cue="what I build today">
+            <p className="hsub">I design the system AND the AI agent that ships from it. The Designer Agent is live inside wsup.ai right now, built with Claude Code + Figma MCP.</p>
+          </Reveal>
           <div className="hbtns">
             <button className="bdk" onClick={() => go("agents")}>See the agents</button>
             <button className="bgh" onClick={() => go("work")}>View work</button>
@@ -113,7 +117,10 @@ export default function Portfolio() {
               <div className="ag-preview"><img src="/cs/wsup-d-anime.png" alt="Screen designed by the agent" /></div>
               <div className="abadge abb">AGENT_01 · DESIGN</div>
               <h3 className="ah3">Designer Agent</h3>
-              <p className="ap">Takes a product brief, reads the wsup.ai design system — 80+ tokens, 90+ components — and ships on-brand screens autonomously. Lives in the production codebase and writes corrections back to its own knowledge after every session.</p>
+              <p className="ap">A brief in — on-brand production screens out. Autonomously.</p>
+              <Reveal cue="how it works">
+                <p className="ap">Takes a product brief, reads the wsup.ai design system — 80+ tokens, 132 components — and ships on-brand screens autonomously. Lives in the production codebase and writes corrections back to its own knowledge after every session.</p>
+              </Reveal>
               <div className="amet"><div className="mn">4h → 20m</div><div className="ml">Screen design time — manual vs. agent</div></div>
               <Link to="/designer-agent" className="alink">View case study →</Link>
             </div>
@@ -121,7 +128,10 @@ export default function Portfolio() {
               <div className="ag-preview"><img src="/cs/reddit-top.png" alt="Reddit comments with high karma" /></div>
               <div className="abadge abg">AGENT_02 · GROWTH</div>
               <h3 className="ah3">Reddit Growth Agent</h3>
-              <p className="ap">Finds high-value threads, researches context, and posts genuinely useful comments. Same agentic loop as the Designer Agent — proves the architecture is domain-agnostic, not a design trick.</p>
+              <p className="ap">Earns real karma with genuinely useful comments — same loop, second domain.</p>
+              <Reveal cue="how it works">
+                <p className="ap">Finds high-value threads, researches context, and posts genuinely useful comments. Same agentic loop as the Designer Agent — proves the architecture is domain-agnostic, not a design trick.</p>
+              </Reveal>
               <div className="amet"><div className="mn">1 → 1.1K</div><div className="ml">Organic karma — value-first commenting</div></div>
               <Link to="/reddit-agent" className="alink">View case study →</Link>
             </div>
@@ -129,7 +139,10 @@ export default function Portfolio() {
               <div className="ag-preview"><img src="/cs/studio/studio-1b.png" alt="A finished Black Box carousel cover" /></div>
               <div className="abadge abv">AGENT_03 · CONTENT</div>
               <h3 className="ah3">Content Studio</h3>
-              <p className="ap">Takes a topic and ships an on-brand carousel plus a narrated 9:16 video — fully local, $0 per post. Reads a written brand system (palette, type, an 18-cover layout library) and runs a QA gate before anything publishes. Same loop, third domain: creative production.</p>
+              <p className="ap">One topic → carousel + narrated Short. On-brand, local, $0.</p>
+              <Reveal cue="how it works">
+                <p className="ap">Takes a topic and ships an on-brand carousel plus a narrated 9:16 video — fully local, $0 per post. Reads a written brand system (palette, type, an 18-cover layout library) and runs a QA gate before anything publishes. Same loop, third domain: creative production.</p>
+              </Reveal>
               <div className="amet"><div className="mn">1 topic → 2 formats</div><div className="ml">Carousel + narrated Short, on-brand</div></div>
               <Link to="/content-studio" className="alink">View case study →</Link>
             </div>
@@ -149,7 +162,10 @@ export default function Portfolio() {
                 <a href="https://wsup.ai" target="_blank" rel="noopener noreferrer" className="wk-site whvisit-m">Visit site →</a>
               </div>
               <h3 className="whh3">wsup.ai</h3>
-              <p className="whp">AI character platform with 1M+ monthly visits. I codified the design language (80+ tokens, 90+ components), shipped every screen across mobile and desktop, and now ship faster through the Designer Agent that reads from this system.</p>
+              <p className="whp">AI character platform with 1M+ monthly visits.</p>
+              <Reveal cue="my role">
+                <p className="whp">I codified the design language (80+ tokens, 132 components), shipped every screen across mobile and desktop, and now ship faster through the Designer Agent that reads from this system.</p>
+              </Reveal>
               <div className="chips"><span className="chip">Lead Designer</span><span className="chip">Design System</span><span className="chip">Dark Theme</span><span className="chip">AI Chat UX</span></div>
               <Link to="/wsup-design" className="wk-visit">View case study →</Link>
             </div>
@@ -167,7 +183,10 @@ export default function Portfolio() {
                 <div className="wktop"><div className="wkyr">{w.yr}</div><a href={w.url} target="_blank" rel="noopener noreferrer" className="wk-site" onClick={e => e.stopPropagation()}>Visit site →</a></div>
                 <div className="wkname">{w.n}</div>
                 <div className="wkrole">{w.role}</div>
-                <p className="wkp">{w.p}</p>
+                <p className="wkp">{w.p1}</p>
+                <Reveal cue="what I owned">
+                  <p className="wkp">{w.p2}</p>
+                </Reveal>
                 <div className="wk-actions">
                   <Link to={w.cs} className="wk-visit">View case study →</Link>
                 </div>
@@ -190,7 +209,10 @@ export default function Portfolio() {
               { highlight: "A rare mix of creativity and character.", q: "His unique ability to blend humor, energy, and deep thinking — whether in a brainstorming session or lifting team spirit during a tough sprint.", name: "Rohan Arneja", role: "AI x Product Design Leader", rel: "Senior colleague" },
             ].map((t, i) => (
               <div key={i} className="tcard-t">
-                <p className="tquote"><strong className="thighlight">{t.highlight}</strong> {t.q}</p>
+                <p className="tquote"><strong className="thighlight">{t.highlight}</strong></p>
+                <Reveal cue="full quote">
+                  <p className="tquote">{t.q}</p>
+                </Reveal>
                 <div className="tauthor">
                   <div className="trel">{t.rel}</div>
                   <div className="tname">{t.name}</div>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
+import Reveal from "./Reveal";
 
 const EDU = [
   {
@@ -58,7 +59,9 @@ export default function EducationCerts() {
           <div key={i} className="edu-card">
             <div className="edu-title">{e.title}</div>
             <div className="edu-inst">{e.inst}</div>
-            <p className="edu-note">{e.note}</p>
+            <Reveal cue="why it matters">
+              <p className="edu-note">{e.note}</p>
+            </Reveal>
           </div>
         ))}
       </div>

@@ -8,6 +8,13 @@ const InterviewModeContext = createContext(false);
 export function InterviewModeProvider({ children }: { children: ReactNode }) {
   const [enabled, setEnabled] = useState(false);
 
+  /* V2: interview mode force-opens every Reveal — pills must never hide
+     behind a collapsed P2 layer when someone is actively digging. */
+  useEffect(() => {
+    document.documentElement.classList.toggle("imode-on", enabled);
+    return () => document.documentElement.classList.remove("imode-on");
+  }, [enabled]);
+
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       const target = e.target as HTMLElement;
