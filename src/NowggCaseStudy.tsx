@@ -88,10 +88,10 @@ export default function NowggCaseStudy() {
 
         <h3 className="wsup-also-h">Who actually used now.gg</h3>
         <div className="wsup-moats">
-          <div className="wsup-moat"><div className="wsup-moat-n">01</div><div className="wsup-moat-name">Casual gamers on weak devices</div><Reveal cue="who"><p className="wsup-moat-what">Chromebook students, older phones, low-spec laptops. Cloud let them play AAA mobile games their hardware couldn't run.</p></Reveal></div>
-          <div className="wsup-moat"><div className="wsup-moat-n">02</div><div className="wsup-moat-name">"Try before install" gamers</div><Reveal cue="who"><p className="wsup-moat-what">Wanted to sample a game before committing 1–2GB of phone storage. The fastest conversion segment to repeat visits.</p></Reveal></div>
-          <div className="wsup-moat"><div className="wsup-moat-n">03</div><div className="wsup-moat-name">Game-intent searchers</div><Reveal cue="who"><p className="wsup-moat-what">Found now.gg via a specific game's "play online" search. Cared about that one title — discovery had to extend interest beyond it.</p></Reveal></div>
-          <div className="wsup-moat"><div className="wsup-moat-n">04</div><div className="wsup-moat-name">Publishers + game studios</div><Reveal cue="who"><p className="wsup-moat-what">Used the platform as a zero-friction demo channel for their own titles. Drove curated placements and exclusive launches.</p></Reveal></div>
+          <div className="wsup-moat"><div className="wsup-moat-n">01</div><div className="wsup-moat-name">Casual gamers on weak devices<Reveal mode="pop" cue="who">Chromebook students, older phones, low-spec laptops. Cloud let them play AAA mobile games their hardware couldn't run.</Reveal></div></div>
+          <div className="wsup-moat"><div className="wsup-moat-n">02</div><div className="wsup-moat-name">"Try before install" gamers<Reveal mode="pop" cue="who">Wanted to sample a game before committing 1–2GB of phone storage. The fastest conversion segment to repeat visits.</Reveal></div></div>
+          <div className="wsup-moat"><div className="wsup-moat-n">03</div><div className="wsup-moat-name">Game-intent searchers<Reveal mode="pop" cue="who">Found now.gg via a specific game's "play online" search. Cared about that one title — discovery had to extend interest beyond it.</Reveal></div></div>
+          <div className="wsup-moat"><div className="wsup-moat-n">04</div><div className="wsup-moat-name">Publishers + game studios<Reveal mode="pop" cue="who">Used the platform as a zero-friction demo channel for their own titles. Drove curated placements and exclusive launches.</Reveal></div></div>
         </div>
       </section>
 
@@ -99,44 +99,29 @@ export default function NowggCaseStudy() {
       <section className="cs-sec" ref={mktR} style={{ paddingTop: 32, paddingBottom: 32 }}>
         <div className="cs-sec-head"><span className="stag">MARKET CONTEXT</span></div>
         <h2 className="cs-h2" style={{ fontSize: 'clamp(28px, 4vw, 36px)' }}>Where now.gg <em>sits</em></h2>
-        <p className="cs-p" style={{ marginBottom: 20 }}>Everyone else streamed AAA titles to gamers who knew what they wanted. now.gg streamed mobile games to people who didn't.</p>
-        <Reveal cue="the market">
-          <p className="cs-p" style={{ marginBottom: 20 }}>Most "cloud gaming" products of the era targeted PC and console games — AAA titles streamed from data centers. now.gg was different: cloud Android games, instantly playable in any browser, no install or login. Its real competitors were narrower than "cloud gaming" makes it sound.</p>
-        </Reveal>
+        <p className="cs-p" style={{ marginBottom: 20 }}>Everyone else streamed AAA titles to gamers who knew what they wanted. now.gg streamed mobile games to people who didn't.<Reveal mode="pop" cue="the market">Most "cloud gaming" products of the era targeted PC and console games — AAA titles streamed from data centers. now.gg was different: cloud Android games, instantly playable in any browser, no install or login. Its real competitors were narrower than "cloud gaming" makes it sound.</Reveal></p>
         <div className="wsup-also-tracked">
           <div className="wsup-also-card">
             <div className="wsup-also-body">
-              <div className="wsup-also-name">NVIDIA GeForce NOW</div>
-              <Reveal cue="takeaway">
-                <p className="wsup-also-takeaway">Cloud PC gaming for AAA titles via Steam/Epic libraries. Adjacent category — performance-led, assumed users brought their own game library.</p>
-              </Reveal>
+              <div className="wsup-also-name">NVIDIA GeForce NOW<Reveal mode="pop" cue="takeaway">Cloud PC gaming for AAA titles via Steam/Epic libraries. Adjacent category — performance-led, assumed users brought their own game library.</Reveal></div>
             </div>
           </div>
           <div className="wsup-also-card">
             <div className="wsup-also-body">
-              <div className="wsup-also-name">Xbox Cloud Gaming</div>
-              <Reveal cue="takeaway">
-                <p className="wsup-also-takeaway">Console games via cloud, gated behind Game Pass. AAA-focused, Microsoft ecosystem. Strong on premium content, weak on instant casual play.</p>
-              </Reveal>
+              <div className="wsup-also-name">Xbox Cloud Gaming<Reveal mode="pop" cue="takeaway">Console games via cloud, gated behind Game Pass. AAA-focused, Microsoft ecosystem. Strong on premium content, weak on instant casual play.</Reveal></div>
             </div>
           </div>
           <div className="wsup-also-card">
             <div className="wsup-also-body">
-              <div className="wsup-also-name">Stadia (Google)</div>
-              <Reveal cue="takeaway">
-              <p className="wsup-also-takeaway">High-profile cloud PC gaming launch; shut down January 2023. Failed on discovery and library breadth — exactly the problems we were designing around.<Pill
+              <div className="wsup-also-name">Stadia (Google)<Reveal mode="pop" cue="takeaway">High-profile cloud PC gaming launch; shut down January 2023. Failed on discovery and library breadth — exactly the problems we were designing around.<Pill
                 q="You cite Stadia shutting down on discovery. now.gg's discovery is three curated rows — what makes that scale to 1,000+ games instead of failing the same way?"
                 a="Stadia's problem wasn't row count — it was that nothing told you what was worth your time, a thin catalog shown flat. Three rows is just the top of a funnel that also has categories, search, and a related-games loop on every detail page, so the 1,000th game is reachable by genre or by 'people who played X.' The rows give a cold visitor a confident first move; the layers beneath carry the long tail. The failure mode I designed against is the flat grid where every title has equal weight — the 'all games' infinite scroll I rejected."
-              /></p>
-              </Reveal>
+              /></Reveal></div>
             </div>
           </div>
           <div className="wsup-also-card">
             <div className="wsup-also-body">
-              <div className="wsup-also-name">BlueStacks X (sister product)</div>
-              <Reveal cue="takeaway">
-                <p className="wsup-also-takeaway">Cloud Android via desktop app + browser. Same parent company. Shared cloud infra and player UX — the products converged where the mental models overlapped.</p>
-              </Reveal>
+              <div className="wsup-also-name">BlueStacks X (sister product)<Reveal mode="pop" cue="takeaway">Cloud Android via desktop app + browser. Same parent company. Shared cloud infra and player UX — the products converged where the mental models overlapped.</Reveal></div>
             </div>
           </div>
         </div>
@@ -146,24 +131,21 @@ export default function NowggCaseStudy() {
       <section className="cs-sec" ref={resR}>
         <div className="cs-sec-head"><span className="stag">01 / APPROACH</span></div>
         <h2 className="cs-h2">Discovery built for<br /><em>instant</em> play</h2>
-        <p className="cs-p"><strong>Visitors arrive wanting one of three things: what's popular, a genre, or one exact game.</strong></p>
-        <Reveal cue="the approach">
-        <p className="cs-p">Some want what's popular right now. Some want to browse by genre. Some know the exact game. The home page has to serve all three without pushing anyone down the wrong path.<Pill
+        <p className="cs-p"><strong>Visitors arrive wanting one of three things: what's popular, a genre, or one exact game.</strong><Reveal mode="pop" cue="the approach">Some want what's popular right now. Some want to browse by genre. Some know the exact game. The home page has to serve all three without pushing anyone down the wrong path.<Pill
             q="Kids on tablets, hardcore PC gamers, game-intent searchers — one homepage. Isn't that how you get a page that serves no one well? Did a segment lose out?"
             a="I layered by intent instead of averaging across audiences. The same page reads differently depending on what you came for: trending avatars up top for the 'show me something' majority, the card grid for browsers, categories and search for the intent-driven minority. Nobody gets a watered-down compromise — each segment has an entry point and ignores the rest. The one I consciously under-served on the homepage is the spec-driven power user; they're served better on the game page, and forcing their needs onto the front door would've made it feel like a catalog."
-          /></p>
-        </Reveal>
+          /></Reveal></p>
         <div className="cs-steps">
-          <div className="cs-step"><div className="cs-step-n">01</div><h3 className="cs-step-h">Hot Games carousel</h3><p className="cs-step-p">Trending as avatar circles — tap and play in seconds.</p><Reveal cue="the call"><p className="cs-step-p">Trending games as avatar circles at the top — visual, immediate, no reading required. Users who know what's popular tap and play in seconds.</p><p className="cs-step-rej"><span className="cs-rej-label">Rejected:</span> a static "Editor's Picks" tile. It assumed users trusted us to choose — but new visitors don't yet. Real-time popularity earns the click.</p></Reveal></div>
-          <div className="cs-step"><div className="cs-step-n">02</div><h3 className="cs-step-h">Curated sections</h3><p className="cs-step-p">Top · Popular · More — solves the "same 10 games" problem.</p><Reveal cue="the call"><p className="cs-step-p">Top Games, Popular Games, More Games — each surfaces different titles. Solves the "same 10 games" problem.<Pill
+          <div className="cs-step"><div className="cs-step-n">01</div><h3 className="cs-step-h">Hot Games carousel</h3><p className="cs-step-p">Trending as avatar circles — tap and play in seconds.<Reveal mode="pop" cue="the call"><span className="rv2-p">Trending games as avatar circles at the top — visual, immediate, no reading required. Users who know what's popular tap and play in seconds.</span><span className="rv2-p"><strong>Rejected:</strong> a static "Editor's Picks" tile. It assumed users trusted us to choose — but new visitors don't yet. Real-time popularity earns the click.</span></Reveal></p></div>
+          <div className="cs-step"><div className="cs-step-n">02</div><h3 className="cs-step-h">Curated sections</h3><p className="cs-step-p">Top · Popular · More — solves the "same 10 games" problem.<Reveal mode="pop" cue="the call"><span className="rv2-p">Top Games, Popular Games, More Games — each surfaces different titles. Solves the "same 10 games" problem.<Pill
             q="Three hand-curated rows is editorial overhead. Why not let an algorithm rank one feed?"
             a="A single ranked feed collapses discovery to whatever's already popular — the long tail dies, the same failure mode I hit with wsup's category dropdown. Three sections with different intent (Top / Popular / More) force variety onto the page and give a new visitor more than one shape of game to react to. The curation cost is real, but it's the difference between a homepage that feels like a playground and one that feels like a leaderboard."
-          /></p><p className="cs-step-rej"><span className="cs-rej-label">Rejected:</span> a single "all games" infinite scroll. Looked clean but flattened every title to equal weight — discovery collapsed to whatever loaded first.</p></Reveal></div>
-          <div className="cs-step"><div className="cs-step-n">03</div><h3 className="cs-step-h">Category browsing</h3><p className="cs-step-p">Genre nav for the minority who arrive knowing what they want.</p><Reveal cue="the call"><p className="cs-step-p">Explore by Categories at the bottom. Simulation, RPG, Action, Strategy — for users who know what genre they want.<Pill
+          /></span><span className="rv2-p"><strong>Rejected:</strong> a single "all games" infinite scroll. Looked clean but flattened every title to equal weight — discovery collapsed to whatever loaded first.</span></Reveal></p></div>
+          <div className="cs-step"><div className="cs-step-n">03</div><h3 className="cs-step-h">Category browsing</h3><p className="cs-step-p">Genre nav for the minority who arrive knowing what they want.<Reveal mode="pop" cue="the call"><span className="rv2-p">Explore by Categories at the bottom. Simulation, RPG, Action, Strategy — for users who know what genre they want.<Pill
             q="Why bury categories at the bottom instead of a Steam-style left rail?"
             a="Because a left-rail nav says 'catalog,' and now.gg's first-visit job is 'instant playground.' Categories serve the minority who arrive knowing their genre; the majority arrive curious and want to be shown something. Putting genre nav at the bottom serves the intent-driven user without making the front door feel like a database query for everyone else."
-          /></p><p className="cs-step-rej"><span className="cs-rej-label">Rejected:</span> a left-rail category nav like a Steam-style store. Heavy on a homepage that needed to feel like an instant playground, not a catalog.</p></Reveal></div>
-          <div className="cs-step"><div className="cs-step-n">04</div><h3 className="cs-step-h">Search</h3><p className="cs-step-p">Keyboard-first, for users who know the exact game.</p><Reveal cue="the call"><p className="cs-step-p">Persistent search bar at the top. For users who know the exact game — instant, keyboard-first.</p><p className="cs-step-rej"><span className="cs-rej-label">Rejected:</span> making search the hero (an early iteration). For most visitors, an empty search bar is a question they can't answer yet.</p></Reveal></div>
+          /></span><span className="rv2-p"><strong>Rejected:</strong> a left-rail category nav like a Steam-style store. Heavy on a homepage that needed to feel like an instant playground, not a catalog.</span></Reveal></p></div>
+          <div className="cs-step"><div className="cs-step-n">04</div><h3 className="cs-step-h">Search</h3><p className="cs-step-p">Keyboard-first, for users who know the exact game.<Reveal mode="pop" cue="the call"><span className="rv2-p">Persistent search bar at the top. For users who know the exact game — instant, keyboard-first.</span><span className="rv2-p"><strong>Rejected:</strong> making search the hero (an early iteration). For most visitors, an empty search bar is a question they can't answer yet.</span></Reveal></p></div>
         </div>
       </section>
 
@@ -173,28 +155,19 @@ export default function NowggCaseStudy() {
         <h2 className="cs-h2" style={{ color: "white" }}>From discovery to <em>playing</em></h2>
 
         <h3 className="cs-h3" style={{ color: 'white', marginTop: 32 }}>Home — Three-layer discovery</h3>
-        <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}><strong style={{ color: 'rgba(255,255,255,.85)' }}>Problem: 1,000 games scrolled in a flat grid is paralysis.</strong></p>
-        <Reveal cue="the design" tone="dark">
-          <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}>Users either bounce or pick the first thing they see. The home page needed to give every kind of visitor a starting point — Hot Games avatars at top for trending, card grid for browsing, categories at the bottom for intent-driven navigation. The right sidebar runs a live wsup.ai character chat — engagement while you decide.</p>
-        </Reveal>
+        <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}><strong style={{ color: 'rgba(255,255,255,.85)' }}>Problem: 1,000 games scrolled in a flat grid is paralysis.</strong><Reveal mode="pop" cue="the design" tone="dark">Users either bounce or pick the first thing they see. The home page needed to give every kind of visitor a starting point — Hot Games avatars at top for trending, card grid for browsing, categories at the bottom for intent-driven navigation. The right sidebar runs a live wsup.ai character chat — engagement while you decide.</Reveal></p>
         <div className="cs-screenshots-single" style={{ marginTop: 16 }}>
           <img src="/cs/nowgg-scroll.png" alt="now.gg popular games and category browsing" className="cs-screenshot" />
         </div>
 
         <h3 className="cs-h3" style={{ color: 'white', marginTop: 40 }}>Game detail — One-click play</h3>
-        <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}><strong style={{ color: 'rgba(255,255,255,.85)' }}>Problem: traditional game detail pages assume install friction. Cloud removes it — so the page collapses to one CTA.</strong></p>
-        <Reveal cue="the design" tone="dark">
-          <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}>They sell the game first — screenshots, reviews, system specs — because the user has to commit before they can play. Cloud removes that constraint. The page collapses to one CTA: full-bleed game art, "Play in browser" in pink, rating + tags as light context. Below, a related-games strip keeps the discovery loop alive.</p>
-        </Reveal>
+        <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}><strong style={{ color: 'rgba(255,255,255,.85)' }}>Problem: traditional game detail pages assume install friction. Cloud removes it — so the page collapses to one CTA.</strong><Reveal mode="pop" cue="the design" tone="dark">They sell the game first — screenshots, reviews, system specs — because the user has to commit before they can play. Cloud removes that constraint. The page collapses to one CTA: full-bleed game art, "Play in browser" in pink, rating + tags as light context. Below, a related-games strip keeps the discovery loop alive.</Reveal></p>
         <div className="cs-screenshots-single" style={{ marginTop: 16 }}>
           <img src="/cs/nowgg-sub1.png" alt="Game detail with play button and art" className="cs-screenshot" />
         </div>
 
         <h3 className="cs-h3" style={{ color: 'white', marginTop: 40 }}>Mobile — Gaming on any device</h3>
-        <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}><strong style={{ color: 'rgba(255,255,255,.85)' }}>Problem: cloud gaming on phone is most users' first contact. Same library, less surface.</strong></p>
-        <Reveal cue="the design" tone="dark">
-          <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}>Mobile visitors don't expect a full discovery experience — they want to start playing fast. So the avatar carousel stays (still the fastest "popular now" signal), cards go full-width to feel native, and navigation collapses to the essentials. Same library, less surface.</p>
-        </Reveal>
+        <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}><strong style={{ color: 'rgba(255,255,255,.85)' }}>Problem: cloud gaming on phone is most users' first contact. Same library, less surface.</strong><Reveal mode="pop" cue="the design" tone="dark">Mobile visitors don't expect a full discovery experience — they want to start playing fast. So the avatar carousel stays (still the fastest "popular now" signal), cards go full-width to feel native, and navigation collapses to the essentials. Same library, less surface.</Reveal></p>
         <div className="wsup-mobile-row">
           <div className="cs-screen-item" style={{ maxWidth: 220 }}>
             <img src="/cs/nowgg-m-home.png" alt="now.gg mobile with trending and game grid" className="cs-screenshot" />
@@ -217,18 +190,12 @@ export default function NowggCaseStudy() {
         <div className="wsup-failure">
           <h3 className="wsup-failure-h">What didn't work</h3>
           <h4 className="wsup-failure-title">The search-first homepage</h4>
-          <p className="cs-p"><strong>Lesson:</strong> most visitors want to be shown, not asked.</p>
-          <Reveal cue="the full story">
-            <p className="cs-p">First iteration put search front and center — like a Google for games. Looked clean, tested poorly. Users who didn't know what to play (the majority) stared at an empty search bar. Switched to browsing-first with trending games up top. Game starts went up — users saw what was popular before they had to decide.</p>
-          </Reveal>
+          <p className="cs-p"><strong>Lesson:</strong> most visitors want to be shown, not asked.<Reveal mode="pop" cue="the full story">First iteration put search front and center — like a Google for games. Looked clean, tested poorly. Users who didn't know what to play (the majority) stared at an empty search bar. Switched to browsing-first with trending games up top. Game starts went up — users saw what was popular before they had to decide.</Reveal></p>
           <h4 className="wsup-failure-title" style={{ marginTop: 18 }}>Overloaded game detail pages</h4>
-          <p className="cs-p"><strong>Lesson:</strong> the fix wasn't redesign — it was deletion.</p>
-          <Reveal cue="the full story">
-          <p className="cs-p">Early game detail pages tried to do everything — sell the game, list system requirements, surface reviews, push related titles, run a chat panel. The "Play" CTA disappeared into the noise. The fix wasn't redesign — it was deletion. Stripped everything except game art + one pink CTA + light context. Conversion from detail page to play climbed once the page made one offer instead of seven.<Pill
+          <p className="cs-p"><strong>Lesson:</strong> the fix wasn't redesign — it was deletion.<Reveal mode="pop" cue="the full story">Early game detail pages tried to do everything — sell the game, list system requirements, surface reviews, push related titles, run a chat panel. The "Play" CTA disappeared into the noise. The fix wasn't redesign — it was deletion. Stripped everything except game art + one pink CTA + light context. Conversion from detail page to play climbed once the page made one offer instead of seven.<Pill
             q="You say conversion 'climbed' and game-starts 'went up.' From what to what — or do you not have the numbers?"
             a="Direction, not a clean controlled delta, and I'll say that rather than invent precision. Both moved the right way in the data we watched, but I can't hand you an isolated percentage — the product was changing around those edits at the same time, and a number I can't attribute cleanly is one I shouldn't quote. The honest part is the mechanism: one offer converts better than seven, and being shown beats being asked."
-          /></p>
-          </Reveal>
+          /></Reveal></p>
         </div>
       </section>
 
@@ -237,13 +204,13 @@ export default function NowggCaseStudy() {
         <div className="cs-sec-head"><span className="stag">04 / DECISIONS</span></div>
         <h2 className="cs-h2">Design choices that<br /><em>shaped</em> the product</h2>
         <div className="cs-corr-grid">
-          <div className="cs-corr"><div className="cs-corr-tag">Dark immersive UI</div><div className="cs-corr-row"><div className="cs-corr-before"><span className="cs-corr-label">Why not light</span>Gaming platforms feel native in dark</div><div className="cs-corr-arrow">→</div><div className="cs-corr-after"><span className="cs-corr-label">Decision</span>Full dark theme with vibrant game art as the color source</div></div><Reveal cue="why"><p className="cs-corr-why">Let the game art pop. The UI recedes. Gradient backgrounds (purple/pink) add warmth without competing with game visuals.</p></Reveal></div>
-          <div className="cs-corr"><div className="cs-corr-tag">Avatar circles for trending</div><div className="cs-corr-row"><div className="cs-corr-before"><span className="cs-corr-label">Alternative</span>List or card grid for trending</div><div className="cs-corr-arrow">→</div><div className="cs-corr-after"><span className="cs-corr-label">Decision</span>Circular avatars in a horizontal row</div></div><Reveal cue="why"><p className="cs-corr-why">Circles feel social (Instagram stories mental model). They scan faster than cards and take less vertical space. Hot/fire emoji adds urgency.</p></Reveal></div>
-          <div className="cs-corr"><div className="cs-corr-tag">Pink CTA for "Play"</div><div className="cs-corr-row"><div className="cs-corr-before"><span className="cs-corr-label">Alternative</span>Blue or white CTA</div><div className="cs-corr-arrow">→</div><div className="cs-corr-after"><span className="cs-corr-label">Decision</span>Hot pink "Play in browser" button</div></div><Reveal cue="why"><p className="cs-corr-why">Pink stands out against dark backgrounds without feeling corporate. It matches the brand gradient and creates a consistent "action" color across the platform.</p></Reveal></div>
-          <div className="cs-corr"><div className="cs-corr-tag">Cross-product sidebar</div><div className="cs-corr-row"><div className="cs-corr-before"><span className="cs-corr-label">Alternative</span>Separate apps, separate UX</div><div className="cs-corr-arrow">→</div><div className="cs-corr-after"><span className="cs-corr-label">Decision</span>wsup.ai character chat embedded in sidebar</div></div><Reveal cue="why"><p className="cs-corr-why">Users waiting for games to load engage with AI characters. Cross-product engagement increases session time and introduces wsup.ai organically.<Pill
+          <div className="cs-corr"><div className="cs-corr-tag">Dark immersive UI</div><div className="cs-corr-row"><div className="cs-corr-before"><span className="cs-corr-label">Why not light</span>Gaming platforms feel native in dark</div><div className="cs-corr-arrow">→</div><div className="cs-corr-after"><span className="cs-corr-label">Decision</span>Full dark theme with vibrant game art as the color source<Reveal mode="pop" cue="why">Let the game art pop. The UI recedes. Gradient backgrounds (purple/pink) add warmth without competing with game visuals.</Reveal></div></div></div>
+          <div className="cs-corr"><div className="cs-corr-tag">Avatar circles for trending</div><div className="cs-corr-row"><div className="cs-corr-before"><span className="cs-corr-label">Alternative</span>List or card grid for trending</div><div className="cs-corr-arrow">→</div><div className="cs-corr-after"><span className="cs-corr-label">Decision</span>Circular avatars in a horizontal row<Reveal mode="pop" cue="why">Circles feel social (Instagram stories mental model). They scan faster than cards and take less vertical space. Hot/fire emoji adds urgency.</Reveal></div></div></div>
+          <div className="cs-corr"><div className="cs-corr-tag">Pink CTA for "Play"</div><div className="cs-corr-row"><div className="cs-corr-before"><span className="cs-corr-label">Alternative</span>Blue or white CTA</div><div className="cs-corr-arrow">→</div><div className="cs-corr-after"><span className="cs-corr-label">Decision</span>Hot pink "Play in browser" button<Reveal mode="pop" cue="why">Pink stands out against dark backgrounds without feeling corporate. It matches the brand gradient and creates a consistent "action" color across the platform.</Reveal></div></div></div>
+          <div className="cs-corr"><div className="cs-corr-tag">Cross-product sidebar</div><div className="cs-corr-row"><div className="cs-corr-before"><span className="cs-corr-label">Alternative</span>Separate apps, separate UX</div><div className="cs-corr-arrow">→</div><div className="cs-corr-after"><span className="cs-corr-label">Decision</span>wsup.ai character chat embedded in sidebar<Reveal mode="pop" cue="why">Users waiting for games to load engage with AI characters. Cross-product engagement increases session time and introduces wsup.ai organically.<Pill
             q="Honestly — the wsup.ai chat in the sidebar. Real user value, or cross-promotion the org wanted that you designed around?"
             a="Both, and I'd rather be straight about it. The company wanted a path from now.gg into wsup.ai — that's real. My job was to make it earn its place instead of being an ad bolted onto the page. So it only lives in dead time — a game loading, or while you're deciding — never interrupting play, never stealing the primary CTA. The test I held it to was 'does this hurt time-to-first-game?' If it had, it was gone. It survived because it filled a wait, not because the org liked it."
-          /></p></Reveal></div>
+          /></Reveal></div></div></div>
         </div>
       </section>
 
@@ -259,18 +226,9 @@ export default function NowggCaseStudy() {
         </div>
         <div className="cs-reflection">
           <h3 className="cs-reflection-h">What I learned</h3>
-          <p className="cs-p"><strong>The best cloud gaming UX makes the cloud invisible.</strong></p>
-          <Reveal cue="unpacked">
-            <p className="cs-p">The moment users think about latency, servers, or streaming quality, the design has failed. Loading states, session start, and exit flows do most of that hiding work — long before the player ever opens.</p>
-          </Reveal>
-          <p className="cs-p" style={{ marginTop: 14 }}><strong>Discovery beats search for gaming platforms.</strong></p>
-          <Reveal cue="unpacked">
-            <p className="cs-p">Most visitors don't know what they want to play — they want to be shown. Lead with trending and curated cards. Search exists for the minority who arrived with a name in mind, not as the primary surface.</p>
-          </Reveal>
-          <p className="cs-p" style={{ marginTop: 14 }}><strong>One offer per surface, always.</strong></p>
-          <Reveal cue="unpacked">
-            <p className="cs-p">The biggest conversion lift came from deleting features, not adding them — a single pink "Play" CTA on the detail page beat a layout that tried to sell, inform, and cross-sell at once. Cloud removes friction; UX needs to honor that by not adding new friction back in.</p>
-          </Reveal>
+          <p className="cs-p"><strong>The best cloud gaming UX makes the cloud invisible.</strong><Reveal mode="pop" cue="unpacked">The moment users think about latency, servers, or streaming quality, the design has failed. Loading states, session start, and exit flows do most of that hiding work — long before the player ever opens.</Reveal></p>
+          <p className="cs-p" style={{ marginTop: 14 }}><strong>Discovery beats search for gaming platforms.</strong><Reveal mode="pop" cue="unpacked">Most visitors don't know what they want to play — they want to be shown. Lead with trending and curated cards. Search exists for the minority who arrived with a name in mind, not as the primary surface.</Reveal></p>
+          <p className="cs-p" style={{ marginTop: 14 }}><strong>One offer per surface, always.</strong><Reveal mode="pop" cue="unpacked">The biggest conversion lift came from deleting features, not adding them — a single pink "Play" CTA on the detail page beat a layout that tried to sell, inform, and cross-sell at once. Cloud removes friction; UX needs to honor that by not adding new friction back in.</Reveal></p>
         </div>
       </section>
 

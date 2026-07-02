@@ -56,10 +56,7 @@ export default function WsupCaseStudy() {
       <header className="cs-hero" ref={heroR}>
         <div className="cs-badge abb">CASE STUDY · PRODUCT DESIGN</div>
         <h1 className="cs-h1">Growing wsup.ai<br />into a <em>1.79M-visit AI platform</em></h1>
-        <p className="cs-sub">Launched November 2024 as a simple chat app. Eighteen months later — a full AI platform at 1.79M monthly visits.</p>
-        <Reveal cue="the full picture">
-          <p className="cs-sub">{BRIEF.context}</p>
-        </Reveal>
+        <p className="cs-sub">Launched November 2024 as a simple chat app. Eighteen months later — a full AI platform at 1.79M monthly visits.<Reveal mode="pop" cue="the full picture">{BRIEF.context}</Reveal></p>
         <div className="chips" style={{ margin: "18px 0 6px" }}>
           <span className="chip">Lead Product Designer · Founding designer</span>
           <span className="chip">Nov 2024 – present</span>

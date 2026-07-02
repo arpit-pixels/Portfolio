@@ -52,10 +52,7 @@ export default function WsupCSOutcomes() {
                 <div className="wsup-funnel-head">
                   <span className="wsup-funnel-stage-name">{s.stage}</span>
                 </div>
-                <p className="wsup-funnel-what">{s.what}</p>
-                <Reveal cue="design angle">
-                  <p className="wsup-funnel-angle"><strong>Design angle:</strong> <TextWithPills text={s.designAngle} pills={sx.designAnglePills} /></p>
-                </Reveal>
+                <p className="wsup-funnel-what">{s.what}<Reveal mode="pop" cue="design angle"><strong>Design angle:</strong> <TextWithPills text={s.designAngle} pills={sx.designAnglePills} /></Reveal></p>
               </div>
             );
           })}
@@ -108,21 +105,15 @@ export default function WsupCSOutcomes() {
             return (
               <div key={i} className="wsup-learning">
                 <span className="wsup-learning-n">{String(i + 1).padStart(2, '0')}</span>
-                <div style={{ minWidth: 0 }}>
-                  <p className="wsup-learning-text"><TextWithPills text={lx.punch} pills={lx.punchPills} /></p>
-                  <Reveal cue="unpacked">
-                    <p className="wsup-learning-text"><TextWithPills text={lx.rest} pills={lx.restPills} /></p>
-                  </Reveal>
-                </div>
+                <p className="wsup-learning-text"><TextWithPills text={lx.punch} pills={lx.punchPills} /><Reveal mode="pop" cue="unpacked"><TextWithPills text={lx.rest} pills={lx.restPills} /></Reveal></p>
               </div>
             );
           })}
         </div>
         <div className="cs-reflection">
           <h3 className="cs-reflection-h">{REFLECTION.title}</h3>
-          <p className="cs-p">Six categories on first visit, not 20. And a credit popup that waits for the first AI reply.</p>
-          <Reveal cue="both, unpacked">
-          <p className="cs-p">
+          <p className="cs-p">Six categories on first visit, not 20. And a credit popup that waits for the first AI reply.
+            <Reveal mode="pop" cue="both, unpacked">
             {REFLECTION.body}
             <Pill
               q="How would you measure if 6 categories is the right number for first-visit?"
@@ -131,8 +122,8 @@ export default function WsupCSOutcomes() {
                 { q: "Why not just ship 6 categories without testing?", a: "Because the cost of being wrong is asymmetric. If 6 turns out to be too few, niche-category users churn before they ever discover the depth — that's a permanent acquisition loss. If 6 turns out to be more than necessary, we left some onboarding speed on the table — recoverable. Test before shipping when the cost of being wrong is permanent." },
               ]}
             />
+            </Reveal>
           </p>
-          </Reveal>
         </div>
       </section>
     </>

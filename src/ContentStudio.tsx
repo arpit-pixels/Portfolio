@@ -110,10 +110,7 @@ export default function ContentStudio() {
         <div className="cs-badge abv">LAB PROJECT · AGENT_03</div>
         <p className="cs-lab-note">Lab projects take the same agent approach outside design — testing it in real systems.</p>
         <h1 className="cs-h1">A studio that turns one topic into a <em>carousel and a narrated video</em> — locally, for $0</h1>
-        <p className="cs-sub">Type a topic. Get an on-brand carousel and a narrated 9:16 Short — researched, drawn, voiced, scored, and QA-gated on one home GPU.</p>
-        <Reveal cue="the full picture">
-          <p className="cs-sub">Same agent loop as the Designer and Reddit agents, now pointed at creative production — where taste and brand consistency are the hard part. Type a topic; it researches, generates the hero art, writes and voices the script, animates it, scores it, and ships a branded carousel plus a 9:16 Short. Two product lines: a "Black Box" AI-news feed and cinematic anime micro-dramas.</p>
-        </Reveal>
+        <p className="cs-sub">Type a topic. Get an on-brand carousel and a narrated 9:16 Short — researched, drawn, voiced, scored, and QA-gated on one home GPU.<Reveal mode="pop" cue="the full picture">Same agent loop as the Designer and Reddit agents, now pointed at creative production — where taste and brand consistency are the hard part. Type a topic; it researches, generates the hero art, writes and voices the script, animates it, scores it, and ships a branded carousel plus a 9:16 Short. Two product lines: a "Black Box" AI-news feed and cinematic anime micro-dramas.</Reveal></p>
         <div className="chips" style={{ margin: "18px 0 6px" }}>
           <span className="chip">Black Box brand system</span>
           <span className="chip">ComfyUI · local TTS · Python</span>
@@ -148,10 +145,7 @@ export default function ContentStudio() {
       <section className="cs-sec" ref={probR}>
         <div className="cs-sec-head"><span className="stag">01 / THE QUESTION</span></div>
         <h2 className="cs-h2">Can the same loop handle <em>taste,</em> not just correctness?</h2>
-        <p className="cs-p">The <Link to="/designer-agent" style={{ color: "var(--blue)" }}>Designer Agent</Link> proved the loop scales design judgment; the <Link to="/reddit-agent" style={{ color: "var(--blue)" }}>Reddit Agent</Link> proved it transfers to growth. Content was the hardest test: a video can be technically perfect and still look cheap.</p>
-        <Reveal cue="the bet">
-          <p className="cs-p">So I gave the agent a real brand — "Black Box" — with rules for palette, typography, cover layouts, and tone, plus a self-audit that compares its own output to reference work. The bet: codified taste plus a strict QA gate can make a machine produce content that actually looks made by a person.</p>
-        </Reveal>
+        <p className="cs-p">The <Link to="/designer-agent" style={{ color: "var(--blue)" }}>Designer Agent</Link> proved the loop scales design judgment; the <Link to="/reddit-agent" style={{ color: "var(--blue)" }}>Reddit Agent</Link> proved it transfers to growth. Content was the hardest test: a video can be technically perfect and still look cheap.<Reveal mode="pop" cue="the bet">So I gave the agent a real brand — "Black Box" — with rules for palette, typography, cover layouts, and tone, plus a self-audit that compares its own output to reference work. The bet: codified taste plus a strict QA gate can make a machine produce content that actually looks made by a person.</Reveal></p>
       </section>
 
       {/* HOW IT WORKS */}
@@ -162,10 +156,7 @@ export default function ContentStudio() {
           {STEPS.map((s) => (
             <div key={s.n} className="cs-step">
               <div className="cs-step-n">{s.n}</div>
-              <h3 className="cs-step-h">{s.h}</h3>
-              <Reveal cue="how">
-                <p className="cs-step-p">{s.p}</p>
-              </Reveal>
+              <h3 className="cs-step-h">{s.h}<Reveal mode="pop" cue="how">{s.p}</Reveal></h3>
             </div>
           ))}
         </div>
@@ -238,10 +229,7 @@ export default function ContentStudio() {
         </div>
         <div className="cs-reflection">
           <h3 className="cs-reflection-h">What I'd do differently</h3>
-          <p className="cs-p">An engagement-feedback loop — taste sharpening on data, not just my eye.</p>
-          <Reveal cue="unpacked">
-            <p className="cs-p">Add an engagement-feedback loop — let real post performance feed back into which cover archetypes and hooks the agent reaches for, so taste keeps sharpening on data, not just my eye.</p>
-          </Reveal>
+          <p className="cs-p">An engagement-feedback loop — taste sharpening on data, not just my eye.<Reveal mode="pop" cue="unpacked">Add an engagement-feedback loop — let real post performance feed back into which cover archetypes and hooks the agent reaches for, so taste keeps sharpening on data, not just my eye.</Reveal></p>
         </div>
       </section>
 

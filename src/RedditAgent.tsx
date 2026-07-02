@@ -80,10 +80,7 @@ export default function RedditAgent() {
         <div className="cs-badge abg">LAB PROJECT · AGENT_02</div>
         <p className="cs-lab-note">Lab projects take the same agent approach outside design — testing it in real systems.</p>
         <h1 className="cs-h1">An AI agent that grew <em>1 → 1,100 karma</em><br />in 4 days — then kept getting smarter</h1>
-        <p className="cs-sub">Not spam. Not bots. 95 genuinely useful comments across 14 subreddits — and 200 lessons it wrote for itself.</p>
-        <Reveal cue="the full picture">
-          <p className="cs-sub">What started as a 4-day sprint from 1 to 1,100 karma grew into a self-improving system — semantic thread discovery, a ~18-gate safety layer, and a multi-platform core with Reddit live and Discord scaffolded.</p>
-        </Reveal>
+        <p className="cs-sub">Not spam. Not bots. 95 genuinely useful comments across 14 subreddits — and 200 lessons it wrote for itself.<Reveal mode="pop" cue="the full picture">What started as a 4-day sprint from 1 to 1,100 karma grew into a self-improving system — semantic thread discovery, a ~18-gate safety layer, and a multi-platform core with Reddit live and Discord scaffolded.</Reveal></p>
         <div className="chips" style={{ margin: "18px 0 6px" }}>
           <span className="chip">Built end to end</span>
           <span className="chip">Claude Code · Python · ADB</span>
@@ -116,10 +113,7 @@ export default function RedditAgent() {
       <section className="cs-sec" ref={probR}>
         <div className="cs-sec-head"><span className="stag">01 / THE QUESTION</span></div>
         <h2 className="cs-h2">Can the same agent loop work <em>outside</em> design?</h2>
-        <p className="cs-p">The <Link to="/designer-agent" style={{ color: "var(--blue)" }}>Designer Agent</Link> proved a research → act → learn → improve loop could scale design judgment. The question here: was that a design trick, or does the same loop work somewhere completely different?</p>
-        <Reveal cue="why Reddit">
-          <p className="cs-p">Reddit was the test. Earning real community presence takes research, context, and constant learning — the same loop, different content. The bet was that an agent loop with genuine safety controls could earn karma the way a thoughtful person does, in a place where bots and generic replies get banned fast.</p>
-        </Reveal>
+        <p className="cs-p">The <Link to="/designer-agent" style={{ color: "var(--blue)" }}>Designer Agent</Link> proved a research → act → learn → improve loop could scale design judgment. The question here: was that a design trick, or does the same loop work somewhere completely different?<Reveal mode="pop" cue="why Reddit">Reddit was the test. Earning real community presence takes research, context, and constant learning — the same loop, different content. The bet was that an agent loop with genuine safety controls could earn karma the way a thoughtful person does, in a place where bots and generic replies get banned fast.</Reveal></p>
       </section>
 
       {/* HOW IT WORKS */}
@@ -130,10 +124,7 @@ export default function RedditAgent() {
           {STEPS.map((s, i) => (
             <div key={i} className="cs-step">
               <div className="cs-step-n">{s.n}</div>
-              <h3 className="cs-step-h">{s.h}</h3>
-              <Reveal cue="how">
-                <p className="cs-step-p">{s.p}</p>
-              </Reveal>
+              <h3 className="cs-step-h">{s.h}<Reveal mode="pop" cue="how">{s.p}</Reveal></h3>
             </div>
           ))}
         </div>
@@ -218,10 +209,7 @@ export default function RedditAgent() {
         </div>
         <div className="cs-reflection">
           <h3 className="cs-reflection-h">What I'd do differently</h3>
-          <p className="cs-p">A/B test comment styles, and measure quality beyond karma.</p>
-          <Reveal cue="both, unpacked">
-            <p className="cs-p">Add A/B testing between comment styles before scaling — the agent learned what works through trial and error, but a structured experiment would have gotten there faster with less noise. I'd also build a sentiment analysis layer to measure comment quality beyond karma.</p>
-          </Reveal>
+          <p className="cs-p">A/B test comment styles, and measure quality beyond karma.<Reveal mode="pop" cue="both, unpacked">Add A/B testing between comment styles before scaling — the agent learned what works through trial and error, but a structured experiment would have gotten there faster with less noise. I'd also build a sentiment analysis layer to measure comment quality beyond karma.</Reveal></p>
         </div>
       </section>
 

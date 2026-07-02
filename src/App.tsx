@@ -71,10 +71,7 @@ export default function Portfolio() {
         <div>
           <div className="hname">Arpit Yadav</div>
           <h1 className="hh1"><strong>Product designer</strong><br />who builds <em>agents,</em><br />not just screens</h1>
-          <p className="hsub">9 years shipping consumer products at scale — BlueStacks, now.gg, wsup.ai.</p>
-          <Reveal cue="what I build today">
-            <p className="hsub">I design the system AND the AI agent that ships from it. The Designer Agent is live inside wsup.ai right now, built with Claude Code + Figma MCP.</p>
-          </Reveal>
+          <p className="hsub">9 years shipping consumer products at scale — BlueStacks, now.gg, wsup.ai.<Reveal mode="pop" cue="what I build today">I design the system AND the AI agent that ships from it. The Designer Agent is live inside wsup.ai right now, built with Claude Code + Figma MCP.</Reveal></p>
           <div className="hbtns">
             <button className="bdk" onClick={() => go("agents")}>See the agents</button>
             <button className="bgh" onClick={() => go("work")}>View work</button>
@@ -117,10 +114,7 @@ export default function Portfolio() {
               <div className="ag-preview"><img src="/cs/wsup-d-anime.png" alt="Screen designed by the agent" /></div>
               <div className="abadge abb">AGENT_01 · DESIGN</div>
               <h3 className="ah3">Designer Agent</h3>
-              <p className="ap">A brief in — on-brand production screens out. Autonomously.</p>
-              <Reveal cue="how it works">
-                <p className="ap">Takes a product brief, reads the wsup.ai design system — 80+ tokens, 132 components — and ships on-brand screens autonomously. Lives in the production codebase and writes corrections back to its own knowledge after every session.</p>
-              </Reveal>
+              <p className="ap">A brief in — on-brand production screens out. Autonomously.<Reveal mode="pop" cue="how it works">Takes a product brief, reads the wsup.ai design system — 80+ tokens, 132 components — and ships on-brand screens autonomously. Lives in the production codebase and writes corrections back to its own knowledge after every session.</Reveal></p>
               <div className="amet"><div className="mn">4h → 20m</div><div className="ml">Screen design time — manual vs. agent</div></div>
               <Link to="/designer-agent" className="alink">View case study →</Link>
             </div>
@@ -128,10 +122,7 @@ export default function Portfolio() {
               <div className="ag-preview"><img src="/cs/reddit-top.png" alt="Reddit comments with high karma" /></div>
               <div className="abadge abg">AGENT_02 · GROWTH</div>
               <h3 className="ah3">Reddit Growth Agent</h3>
-              <p className="ap">Earns real karma with genuinely useful comments — same loop, second domain.</p>
-              <Reveal cue="how it works">
-                <p className="ap">Finds high-value threads, researches context, and posts genuinely useful comments. Same agentic loop as the Designer Agent — proves the architecture is domain-agnostic, not a design trick.</p>
-              </Reveal>
+              <p className="ap">Earns real karma with genuinely useful comments — same loop, second domain.<Reveal mode="pop" cue="how it works">Finds high-value threads, researches context, and posts genuinely useful comments. Same agentic loop as the Designer Agent — proves the architecture is domain-agnostic, not a design trick.</Reveal></p>
               <div className="amet"><div className="mn">1 → 1.1K</div><div className="ml">Organic karma — value-first commenting</div></div>
               <Link to="/reddit-agent" className="alink">View case study →</Link>
             </div>
@@ -139,10 +130,7 @@ export default function Portfolio() {
               <div className="ag-preview"><img src="/cs/studio/studio-1b.png" alt="A finished Black Box carousel cover" /></div>
               <div className="abadge abv">AGENT_03 · CONTENT</div>
               <h3 className="ah3">Content Studio</h3>
-              <p className="ap">One topic → carousel + narrated Short. On-brand, local, $0.</p>
-              <Reveal cue="how it works">
-                <p className="ap">Takes a topic and ships an on-brand carousel plus a narrated 9:16 video — fully local, $0 per post. Reads a written brand system (palette, type, an 18-cover layout library) and runs a QA gate before anything publishes. Same loop, third domain: creative production.</p>
-              </Reveal>
+              <p className="ap">One topic → carousel + narrated Short. On-brand, local, $0.<Reveal mode="pop" cue="how it works">Takes a topic and ships an on-brand carousel plus a narrated 9:16 video — fully local, $0 per post. Reads a written brand system (palette, type, an 18-cover layout library) and runs a QA gate before anything publishes. Same loop, third domain: creative production.</Reveal></p>
               <div className="amet"><div className="mn">1 topic → 2 formats</div><div className="ml">Carousel + narrated Short, on-brand</div></div>
               <Link to="/content-studio" className="alink">View case study →</Link>
             </div>
@@ -162,10 +150,7 @@ export default function Portfolio() {
                 <a href="https://wsup.ai" target="_blank" rel="noopener noreferrer" className="wk-site whvisit-m">Visit site →</a>
               </div>
               <h3 className="whh3">wsup.ai</h3>
-              <p className="whp">AI character platform with 1M+ monthly visits.</p>
-              <Reveal cue="my role">
-                <p className="whp">I codified the design language (80+ tokens, 132 components), shipped every screen across mobile and desktop, and now ship faster through the Designer Agent that reads from this system.</p>
-              </Reveal>
+              <p className="whp">AI character platform with 1M+ monthly visits.<Reveal mode="pop" cue="my role">I codified the design language (80+ tokens, 132 components), shipped every screen across mobile and desktop, and now ship faster through the Designer Agent that reads from this system.</Reveal></p>
               <div className="chips"><span className="chip">Lead Designer</span><span className="chip">Design System</span><span className="chip">Dark Theme</span><span className="chip">AI Chat UX</span></div>
               <Link to="/wsup-design" className="wk-visit">View case study →</Link>
             </div>
@@ -183,10 +168,7 @@ export default function Portfolio() {
                 <div className="wktop"><div className="wkyr">{w.yr}</div><a href={w.url} target="_blank" rel="noopener noreferrer" className="wk-site" onClick={e => e.stopPropagation()}>Visit site →</a></div>
                 <div className="wkname">{w.n}</div>
                 <div className="wkrole">{w.role}</div>
-                <p className="wkp">{w.p1}</p>
-                <Reveal cue="what I owned">
-                  <p className="wkp">{w.p2}</p>
-                </Reveal>
+                <p className="wkp">{w.p1}<Reveal mode="pop" cue="what I owned">{w.p2}</Reveal></p>
                 <div className="wk-actions">
                   <Link to={w.cs} className="wk-visit">View case study →</Link>
                 </div>
@@ -209,10 +191,7 @@ export default function Portfolio() {
               { highlight: "A rare mix of creativity and character.", q: "His unique ability to blend humor, energy, and deep thinking — whether in a brainstorming session or lifting team spirit during a tough sprint.", name: "Rohan Arneja", role: "AI x Product Design Leader", rel: "Senior colleague" },
             ].map((t, i) => (
               <div key={i} className="tcard-t">
-                <p className="tquote"><strong className="thighlight">{t.highlight}</strong></p>
-                <Reveal cue="full quote">
-                  <p className="tquote">{t.q}</p>
-                </Reveal>
+                <p className="tquote"><strong className="thighlight">{t.highlight}</strong><Reveal mode="pop" cue="full quote">{t.q}</Reveal></p>
                 <div className="tauthor">
                   <div className="trel">{t.rel}</div>
                   <div className="tname">{t.name}</div>

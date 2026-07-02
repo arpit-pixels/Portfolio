@@ -64,10 +64,7 @@ export default function WsupCSStory() {
             <div key={i} className="wsup-principle-card">
               <div className="wsup-principle-n">{p.n}</div>
               <h4 className="wsup-principle-title">{p.title}</h4>
-              <div className="wsup-principle-proof"><strong>Proof in product:</strong> {p.proof}</div>
-              <Reveal cue="the principle">
-                <p className="wsup-principle-body">{p.body}</p>
-              </Reveal>
+              <div className="wsup-principle-proof"><strong>Proof in product:</strong> {p.proof}<Reveal mode="pop" cue="the principle">{p.body}</Reveal></div>
             </div>
           ))}
         </div>
@@ -77,10 +74,7 @@ export default function WsupCSStory() {
       <section className="cs-sec" ref={researchR}>
         <div className="cs-sec-head"><span className="stag">02 / RESEARCH</span></div>
         <h2 className="cs-h2">How research drove<br />what got <em>built</em></h2>
-        <p className="cs-p">Four research loops — Discord daily, competitor teardowns monthly, live usage, personas. For 18 months straight.</p>
-        <Reveal cue="how it ran">
-          <p className="cs-p">Four ways I kept learning from users: daily Discord check-ins, monthly competitor research, watching how shipped features got used, and user personas from a year of community data. All four ran every day for 18 months. What we learned went to Ashish (PM) for shipping decisions. My job: make sure users were heard.</p>
-        </Reveal>
+        <p className="cs-p">Four research loops — Discord daily, competitor teardowns monthly, live usage, personas. For 18 months straight.<Reveal mode="pop" cue="how it ran">Four ways I kept learning from users: daily Discord check-ins, monthly competitor research, watching how shipped features got used, and user personas from a year of community data. All four ran every day for 18 months. What we learned went to Ashish (PM) for shipping decisions. My job: make sure users were heard.</Reveal></p>
 
         <div className="wsup-research-list">
           {RESEARCH_METHODS.map((m, i) => {
@@ -91,16 +85,13 @@ export default function WsupCSStory() {
                   <span className="wsup-research-n">{m.n}</span>
                   <h4 className="wsup-research-name">{m.name}</h4>
                 </div>
-                <Reveal cue="the method">
-                  <p className="wsup-research-desc"><TextWithPills text={m.desc} pills={mx.descPills} /></p>
-                </Reveal>
                 {mx.image && (
                   <div className="wsup-research-image">
                     <img src={mx.image} alt={m.name} />
                     {mx.imageCaption && <span className="wsup-research-image-cap">{mx.imageCaption}</span>}
                   </div>
                 )}
-                <div className="wsup-research-output"><strong>Output:</strong> <TextWithPills text={m.output} pills={mx.outputPills} /></div>
+                <div className="wsup-research-output"><strong>Output:</strong> <TextWithPills text={m.output} pills={mx.outputPills} /><Reveal mode="pop" cue="the method"><TextWithPills text={m.desc} pills={mx.descPills} /></Reveal></div>
                 {mx.doc && (
                   <a className="wsup-research-doc" href={mx.doc.href} target="_blank" rel="noopener noreferrer">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
@@ -120,10 +111,7 @@ export default function WsupCSStory() {
               <div key={i} className="wsup-finding-card">
                 <div className="wsup-finding-n">{f.n}</div>
                 <h4 className="wsup-finding-title">{f.finding}</h4>
-                <p className="wsup-finding-decision"><strong>Design decision:</strong> <TextWithPills text={f.decision} pills={fx.decisionPills} /></p>
-                <Reveal cue="the evidence">
-                  <p className="wsup-finding-evidence"><strong>Evidence:</strong> <TextWithPills text={f.evidence} pills={fx.evidencePills} /></p>
-                </Reveal>
+                <p className="wsup-finding-decision"><strong>Design decision:</strong> <TextWithPills text={f.decision} pills={fx.decisionPills} /><Reveal mode="pop" cue="the evidence"><strong>Evidence:</strong> <TextWithPills text={f.evidence} pills={fx.evidencePills} /></Reveal></p>
               </div>
             );
           })}
@@ -143,10 +131,7 @@ export default function WsupCSStory() {
                   </div>
                 )}
                 <div className="wsup-comp-group">{c.name}</div>
-                <p className="wsup-comp-examples"><strong style={{ color: 'var(--blue)' }}>Gap:</strong> <TextWithPills text={c.gap} pills={cx.gapPills} /></p>
-                <Reveal cue="their strength">
-                  <p className="wsup-comp-examples"><strong style={{ color: 'var(--ink)' }}>Strength:</strong> {c.strength}</p>
-                </Reveal>
+                <p className="wsup-comp-examples"><strong style={{ color: 'var(--blue)' }}>Gap:</strong> <TextWithPills text={c.gap} pills={cx.gapPills} /><Reveal mode="pop" cue="their strength"><strong>Strength:</strong> {c.strength}</Reveal></p>
               </div>
             );
           })}
@@ -158,10 +143,7 @@ export default function WsupCSStory() {
             <div key={i} className="wsup-also-card">
               <img src={a.image} alt={`${a.name} homepage`} loading="lazy" />
               <div className="wsup-also-body">
-                <div className="wsup-also-name">{a.name}</div>
-                <Reveal cue="takeaway">
-                  <p className="wsup-also-takeaway">{a.takeaway}</p>
-                </Reveal>
+                <div className="wsup-also-name">{a.name}<Reveal mode="pop" cue="takeaway">{a.takeaway}</Reveal></div>
               </div>
             </div>
           ))}
@@ -190,7 +172,7 @@ export default function WsupCSStory() {
         <div className="cs-sec-head"><span className="stag">03 / WHO IT'S FOR</span></div>
         <h2 className="cs-h2">Five real users,<br />pulled from <em>1,812 real Discord messages</em></h2>
         <p className="cs-p">78 active Discord users. A year of messages. Five behavioral patterns — every quote real. When a feature helps none of them, it's the wrong feature.</p>
-        <Reveal cue="how they were built">
+        <Reveal cue="how they were built" mode="expand">
         <p className="cs-p">
           After a year of community feedback, I grouped the 78 active Discord users by how they actually used wsup — not by age or location. Each persona is a made-up character, but every quote and behavior is real, taken from real Discord users. These five personas now drive what we build next.
           <Pill
@@ -214,16 +196,12 @@ export default function WsupCSStory() {
               </div>
               <h4 className="wsup-persona-name">{p.name}</h4>
               <div className="wsup-persona-arch">{p.archetype}</div>
-              <blockquote className="wsup-persona-quote">"{p.quote}"</blockquote>
+              <blockquote className="wsup-persona-quote">"{p.quote}"<Reveal mode="pop" cue="design for them"><span className="rv2-p"><strong>Behavior</strong> — {p.behavior}</span><span className="rv2-p"><strong>Design for</strong> — <TextWithPills text={p.designsFor} pills={(p as { designsForPills?: PillSpec[] }).designsForPills} /></span></Reveal></blockquote>
               <div className="wsup-persona-stats">
                 <div className="wsup-persona-stat"><span className="wsup-persona-stat-label">Age</span><span className="wsup-persona-stat-value">{p.age}</span></div>
                 <div className="wsup-persona-stat"><span className="wsup-persona-stat-label">Location</span><span className="wsup-persona-stat-value">{p.location}</span></div>
                 <div className="wsup-persona-stat"><span className="wsup-persona-stat-label">Usage</span><span className="wsup-persona-stat-value">{p.usage}</span></div>
               </div>
-              <Reveal cue="design for them">
-                <div className="wsup-persona-trait"><span className="wsup-persona-label">Behavior</span> {p.behavior}</div>
-                <div className="wsup-persona-impl"><span className="wsup-persona-label">Design for</span> <TextWithPills text={p.designsFor} pills={(p as { designsForPills?: PillSpec[] }).designsForPills} /></div>
-              </Reveal>
             </div>
           ))}
         </div>

@@ -84,11 +84,7 @@ export default function DesignerAgent() {
       <section className="cs-sec" ref={probR}>
         <div className="cs-sec-head"><span className="stag">01 / THE PROBLEM</span></div>
         <h2 className="cs-h2">Design systems scale components.<br />They don't scale <em>taste.</em></h2>
-        <p className="cs-p">You can tokenize colors, spacing, and radii. But every new screen still needs hundreds of small decisions — and those live in a designer's head, not the Figma file.</p>
-        <Reveal cue="the problem">
-          <p className="cs-p">You can tokenize colors, spacing, and radii. You can build a component library. But when a new screen needs to be designed, someone still has to make hundreds of small decisions.</p>
-          <p className="cs-p">How much padding here? Which text opacity? Primary or secondary button? Those decisions aren't in your Figma file — they're in your head, and every new designer relearns them from scratch. The agent's job is to get them out of my head and into a system that can apply them on its own.</p>
-        </Reveal>
+        <p className="cs-p">You can tokenize colors, spacing, and radii. But every new screen still needs hundreds of small decisions — and those live in a designer's head, not the Figma file.<Reveal mode="pop" cue="the problem"><span className="rv2-p">You can tokenize colors, spacing, and radii. You can build a component library. But when a new screen needs to be designed, someone still has to make hundreds of small decisions.</span><span className="rv2-p">How much padding here? Which text opacity? Primary or secondary button? Those decisions aren't in your Figma file — they're in your head, and every new designer relearns them from scratch. The agent's job is to get them out of my head and into a system that can apply them on its own.</span></Reveal></p>
       </section>
 
       {/* HOW IT WORKS */}
@@ -98,10 +94,7 @@ export default function DesignerAgent() {
         <div className="cs-steps">
           <div className="cs-step">
             <div className="cs-step-n">01</div>
-            <h3 className="cs-step-h">Load knowledge</h3>
-            <Reveal cue="how">
-              <p className="cs-step-p">Agent reads 8 knowledge files — taste, decisions, project rules, its own growth timeline. 250+ decisions and 60+ taste rules inform every choice.</p>
-            </Reveal>
+            <h3 className="cs-step-h">Load knowledge<Reveal mode="pop" cue="how">Agent reads 8 knowledge files — taste, decisions, project rules, its own growth timeline. 250+ decisions and 60+ taste rules inform every choice.</Reveal></h3>
             <div className="cs-step-files">
               {["taste.md", "decisions.md", "reasonings.md", "knowledge-base.md", "project-insights.md", "evolution.md", "workflow.md", "session-logs.md"].map(f => (
                 <span key={f} className="cs-step-file">{f}</span>
@@ -111,17 +104,11 @@ export default function DesignerAgent() {
           <div className="cs-step">
             <div className="cs-step-n">02</div>
             <h3 className="cs-step-h">Design from brief</h3>
-            <p className="cs-step-p">No reference screenshots — only tokens, components, and learned taste.</p>
-            <Reveal cue="how">
-              <p className="cs-step-p">Given a product requirement, builds screens using only existing tokens and components. No reference screenshots. Knows body = 70% white, desktop padding = 64px, primary buttons never repeat.</p>
-            </Reveal>
+            <p className="cs-step-p">No reference screenshots — only tokens, components, and learned taste.<Reveal mode="pop" cue="how">Given a product requirement, builds screens using only existing tokens and components. No reference screenshots. Knows body = 70% white, desktop padding = 64px, primary buttons never repeat.</Reveal></p>
           </div>
           <div className="cs-step">
             <div className="cs-step-n">03</div>
-            <h3 className="cs-step-h">Self-audit</h3>
-            <Reveal cue="how">
-              <p className="cs-step-p">Before presenting, runs a full audit: zero hardcoded hex, icon consistency, button sizes, spacing tokens, and automatic style guide sync.</p>
-            </Reveal>
+            <h3 className="cs-step-h">Self-audit<Reveal mode="pop" cue="how">Before presenting, runs a full audit: zero hardcoded hex, icon consistency, button sizes, spacing tokens, and automatic style guide sync.</Reveal></h3>
             <div className="cs-step-checks">
               {["0 hardcoded hex", "Icon consistency", "Button size validation", "Token compliance", "Style guide sync"].map(c => (
                 <span key={c} className="cs-step-check"><span style={{ color: "var(--green)" }}>✓</span> {c}</span>
@@ -131,10 +118,7 @@ export default function DesignerAgent() {
           <div className="cs-step">
             <div className="cs-step-n">04</div>
             <h3 className="cs-step-h">Learn from corrections</h3>
-            <p className="cs-step-p">Every correction becomes a rule. The same mistake never ships twice.</p>
-            <Reveal cue="how">
-              <p className="cs-step-p">After my review, every correction gets written back to the knowledge files. Next session, the agent reads updated rules and never repeats the same mistake.</p>
-            </Reveal>
+            <p className="cs-step-p">Every correction becomes a rule. The same mistake never ships twice.<Reveal mode="pop" cue="how">After my review, every correction gets written back to the knowledge files. Next session, the agent reads updated rules and never repeats the same mistake.</Reveal></p>
           </div>
         </div>
       </section>
@@ -185,11 +169,8 @@ export default function DesignerAgent() {
               <div className="cs-corr-row">
                 <div className="cs-corr-before"><span className="cs-corr-label">Before</span>{c.before}</div>
                 <div className="cs-corr-arrow">→</div>
-                <div className="cs-corr-after"><span className="cs-corr-label">After</span>{c.after}</div>
+                <div className="cs-corr-after"><span className="cs-corr-label">After</span>{c.after}<Reveal mode="pop" cue="why">{c.why}</Reveal></div>
               </div>
-              <Reveal cue="why">
-                <p className="cs-corr-why">{c.why}</p>
-              </Reveal>
             </div>
           ))}
         </div>
@@ -207,12 +188,9 @@ export default function DesignerAgent() {
               <div className="cs-phase-n">{p.n}</div>
               <div className="cs-phase-body">
                 <div className="cs-phase-top">
-                  <h3 className="cs-phase-h">{p.name}</h3>
+                  <h3 className="cs-phase-h">{p.name}<Reveal mode="pop" cue="this phase">{p.desc}</Reveal></h3>
                   <span className="cs-phase-ses">Sessions {p.sessions}</span>
                 </div>
-                <Reveal cue="this phase">
-                  <p className="cs-phase-p">{p.desc}</p>
-                </Reveal>
                 <div className="cs-phase-bar-row">
                   <div className="cs-phase-bar"><div className="cs-phase-fill" style={{ width: `${[70, 85, 85, 40][i]}%` }} /></div>
                   <span className="cs-phase-corr">~{p.corrections} corrections/screen</span>
@@ -255,10 +233,7 @@ export default function DesignerAgent() {
         <p className="cs-p" style={{ marginTop: 32 }}>I didn't just use AI — I built an AI system that compounds my design judgment over time. The same approach powers the <Link to="/reddit-agent" style={{ color: "var(--blue)" }}>Reddit Growth Agent</Link> — proof it works well beyond design.</p>
         <div className="cs-reflection">
           <h3 className="cs-reflection-h">What I'd do differently</h3>
-          <p className="cs-p">A visual diff layer, and multi-designer taste merging.</p>
-          <Reveal cue="both, unpacked">
-            <p className="cs-p">I'd add a visual diff layer — automatically generating before/after comparisons for each correction so the knowledge base captures not just rules but visual context. I'd also explore multi-designer knowledge merging: can two designers' taste files produce a shared system that's better than either alone?</p>
-          </Reveal>
+          <p className="cs-p">A visual diff layer, and multi-designer taste merging.<Reveal mode="pop" cue="both, unpacked">I'd add a visual diff layer — automatically generating before/after comparisons for each correction so the knowledge base captures not just rules but visual context. I'd also explore multi-designer knowledge merging: can two designers' taste files produce a shared system that's better than either alone?</Reveal></p>
         </div>
       </section>
 

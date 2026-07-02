@@ -23,13 +23,7 @@ export default function HobbyChannel() {
           <div className="yt-info">
             <div className="yt-name">Gamer Appy <span className="yt-handle">@gamerappy</span></div>
             <div className="yt-stats">18.8K subscribers · 1.4K videos</div>
-            <p className="yt-p">PC gameplay, Hindi commentary, hand-made thumbnails.</p>
-            <Reveal cue="why it matters">
-              <p className="yt-p">
-                The same audience I design for at BlueStacks and now.gg — I just spend
-                evenings on their side of the screen.
-              </p>
-            </Reveal>
+            <p className="yt-p">PC gameplay, Hindi commentary, hand-made thumbnails.<Reveal mode="pop" cue="why it matters">The same audience I design for at BlueStacks and now.gg — I just spend evenings on their side of the screen.</Reveal></p>
           </div>
           <span className="yt-cta wk-visit">Visit channel →</span>
         </div>

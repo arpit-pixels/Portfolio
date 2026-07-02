@@ -58,10 +58,7 @@ export default function EducationCerts() {
         {EDU.map((e, i) => (
           <div key={i} className="edu-card">
             <div className="edu-title">{e.title}</div>
-            <div className="edu-inst">{e.inst}</div>
-            <Reveal cue="why it matters">
-              <p className="edu-note">{e.note}</p>
-            </Reveal>
+            <div className="edu-inst">{e.inst}<Reveal mode="pop" cue="why it matters">{e.note}</Reveal></div>
           </div>
         ))}
       </div>

@@ -12,10 +12,7 @@ export default function WsupCSDesign() {
       <section className="cs-sec" ref={ideationR}>
         <div className="cs-sec-head"><span className="stag">04 / IDEATION</span></div>
         <h2 className="cs-h2">Every shipped decision<br />had a <em>rejected path</em></h2>
-        <p className="cs-p">2–3 options per surface. A/B tested or pattern-picked. These boards show what shipped — and what didn't.</p>
-        <Reveal cue="how tasks arrived">
-          <p className="cs-p">Ashish (PM) handed me tasks — "design the credit popup," "redesign Explore," "figure out signup." I'd make 2–3 options each. We'd A/B test or pick based on established UX patterns. The boards below show what shipped, what got rejected, and why.</p>
-        </Reveal>
+        <p className="cs-p">2–3 options per surface. A/B tested or pattern-picked. These boards show what shipped — and what didn't.<Reveal mode="pop" cue="how tasks arrived">Ashish (PM) handed me tasks — "design the credit popup," "redesign Explore," "figure out signup." I'd make 2–3 options each. We'd A/B test or pick based on established UX patterns. The boards below show what shipped, what got rejected, and why.</Reveal></p>
 
         <div className="wsup-ideation-list">
           {IDEATION_BOARDS.map((b, i) => {
@@ -29,10 +26,7 @@ export default function WsupCSDesign() {
                 <p className="wsup-ideation-problem"><strong>Problem:</strong> {b.problem}</p>
                 <div className="wsup-ideation-chosen">
                   <span className="wsup-ideation-tag wsup-ideation-tag-chosen">SHIPPED</span>
-                  <p className="wsup-ideation-chosen-what">{b.chosen}</p>
-                  <Reveal cue="why this won">
-                    <p className="wsup-ideation-chosen-why"><TextWithPills text={b.chosenWhy} pills={bx.chosenWhyPills} /></p>
-                  </Reveal>
+                  <p className="wsup-ideation-chosen-what">{b.chosen}<Reveal mode="pop" cue="why this won"><TextWithPills text={b.chosenWhy} pills={bx.chosenWhyPills} /></Reveal></p>
                 </div>
                 {bx.img && (
                   <div className="cs-screen-item" style={{ maxWidth: 720, margin: "18px auto 22px" }}>
@@ -137,10 +131,8 @@ export default function WsupCSDesign() {
       <section className="cs-sec" ref={systemR}>
         <div className="cs-sec-head"><span className="stag">06 / DESIGN SYSTEM</span></div>
         <h2 className="cs-h2">The hidden layer<br />that keeps everything <em>consistent</em></h2>
-        <p className="cs-p">Dark themes amplify every inconsistency. I named every value and rebuilt every screen on the named system — engineers stopped relitigating which blue.</p>
-        <Reveal cue="the cleanup">
-        <p className="cs-p">
-          After a year of patchwork shipping, I named every value and rebuilt every screen on the named system. Features started landing on the system, not on the mess.
+        <p className="cs-p">Dark themes amplify every inconsistency. I named every value and rebuilt every screen on the named system — engineers stopped relitigating which blue.
+          <Reveal mode="pop" cue="the cleanup">After a year of patchwork shipping, I named every value and rebuilt every screen on the named system. Features started landing on the system, not on the mess.
           <Pill
             q="Why so many color tokens — couldn't you use fewer?"
             a="It looks like a lot until you list the categories. Text hierarchy alone needs several opacity steps. Surface tokens cover chat, popups, cards, modals, ads, errors, success — each a distinct value because they appear in different contexts. Status colors (credits, errors, warnings, success) for both fills and text are another set. Then accents: blue for actions, orange for premium AI, green for free actions, plus specifics like the SPICY toggle and streak counter. For a product this surface-rich, the set is lean, not bloated. Unused tokens get pruned at every quarterly review."
@@ -148,9 +140,8 @@ export default function WsupCSDesign() {
               { q: "How do you stop the token system from sprawling further?", a: "The rule is: a new token only gets added if it has a justification that an existing token doesn't already cover. Every PR that introduces a token gets a one-line answer to 'why not <existing-token>?' — and if no answer, the existing token wins. It's not a hard cap on count; it's a hard requirement on additions. Token sprawl happens when teams add without that gate." },
             ]}
           />
-          {' '}Every value named, every value used on purpose, every value documented.
+          {' '}Every value named, every value used on purpose, every value documented.</Reveal>
         </p>
-        </Reveal>
         <div className="cs-token-grid">
           {TOKENS.map((t, i) => <div key={i} className="cs-token-card"><div className="cs-token-n">{t.count}</div><div className="cs-token-l">{t.category}</div></div>)}
         </div>

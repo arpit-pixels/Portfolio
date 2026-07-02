@@ -1204,39 +1204,89 @@ footer { max-width:1200px; margin:0 auto; padding:22px 40px; border-top:1px soli
 /* ═══ V2 VARIANT — Reveal primitive (all P2 content rides this) ═════════ */
 .rv { display:block; position:relative; margin-top:10px; }
 .rv-cue {
-  display:inline-flex; align-items:center; gap:6px;
+  display:inline-flex; align-items:center; gap:5px;
   font-family:'DM Mono', ui-monospace, monospace;
-  font-size:11px; letter-spacing:.06em; text-transform:uppercase;
-  color:var(--blue); background:none;
-  border:1px dashed rgba(0,87,255,.4); border-radius:999px;
-  padding:3px 11px; cursor:pointer;
+  font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+  color:rgba(0,87,255,.5); background:none;
+  border:none; border-radius:4px;
+  padding:2px 0; cursor:pointer;
   position:relative;
-  transition:background .15s ease, border-color .15s ease;
+  transition:color .15s ease;
 }
 /* invisible hit-area extension — 44px effective touch target without layout shift */
-.rv-cue::after { content:""; position:absolute; inset:-8px; border-radius:inherit; }
-@media (hover:none) { .rv-cue { padding:6px 14px; } }
+.rv-cue::after { content:""; position:absolute; inset:-10px; border-radius:inherit; }
 .rv-ic { font-size:13px; line-height:1; transition:transform .2s ease; }
 .rv-body { display:grid; grid-template-rows:0fr; visibility:hidden; transition:grid-template-rows .3s ease, visibility 0s .3s; }
 .rv-in { min-height:0; overflow:hidden; display:block; }
 .rv-in > * { margin-top:10px; }
 .rv-pin > .rv-body { grid-template-rows:1fr; visibility:visible; transition:grid-template-rows .3s ease, visibility 0s 0s; }
-.rv-pin > .rv-cue { background:var(--blue-bg); border-style:solid; }
+.rv-pin > .rv-cue { color:var(--blue); }
 .rv-pin > .rv-cue .rv-ic { transform:rotate(45deg); }
 @media (hover:hover) {
   .rv:hover > .rv-body, .rv:focus-within > .rv-body { grid-template-rows:1fr; visibility:visible; transition:grid-template-rows .3s ease, visibility 0s 0s; }
-  .rv:hover > .rv-cue { background:var(--blue-bg); border-style:solid; }
+  .rv:hover > .rv-cue { color:var(--blue); }
   .rv:hover > .rv-cue .rv-ic { transform:rotate(45deg); }
 }
 @media (prefers-reduced-motion:reduce) {
   .rv-body, .rv-ic { transition:none; }
 }
-/* interview mode (V) force-opens every reveal — pills never hide behind P2 */
+/* interview mode (V) force-opens expand reveals — pills never hide behind P2 */
 .imode-on .rv-body { grid-template-rows:1fr; visibility:visible; }
 .imode-on .rv-cue { opacity:.45; pointer-events:none; }
 /* dark sections (cs-sec-dark) */
-.rv-dark .rv-cue { color:#9db9ff; border-color:rgba(157,185,255,.45); }
-.rv-pin.rv-dark > .rv-cue { background:rgba(157,185,255,.12); }
+.rv-dark .rv-cue { color:rgba(157,185,255,.55); }
+.rv-pin.rv-dark > .rv-cue { color:#9db9ff; }
 @media (hover:hover) {
-  .rv-dark:hover > .rv-cue { background:rgba(157,185,255,.12); }
+  .rv-dark:hover > .rv-cue { color:#9db9ff; }
+}
+
+/* ─── POP REVEAL — footnote marker + subtle popover (the quiet layer) ─── */
+.rv2 { position:relative; display:inline-block; vertical-align:baseline; }
+.rv2-mark {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:15px; height:15px; margin-left:6px; padding:0;
+  border:1px solid rgba(0,87,255,.3); border-radius:50%;
+  background:transparent; color:rgba(0,87,255,.5);
+  font-family:'DM Mono', ui-monospace, monospace;
+  font-size:11px; font-weight:600; line-height:1;
+  cursor:pointer; vertical-align:middle; position:relative;
+  transition:color .15s ease, border-color .15s ease, background .15s ease;
+}
+/* invisible hit-area extension for touch */
+.rv2-mark::after { content:""; position:absolute; inset:-10px; border-radius:50%; }
+.rv2:hover .rv2-mark, .rv2-open .rv2-mark, .rv2-mark:focus-visible {
+  background:var(--blue); border-color:var(--blue); color:var(--white);
+}
+.rv2-card {
+  visibility:hidden; opacity:0;
+  display:block; position:absolute; top:calc(100% + 8px); left:50%;
+  width:340px; max-width:88vw;
+  background:var(--white); border:1px solid var(--border); border-radius:10px;
+  padding:13px 15px; box-shadow:0 12px 32px rgba(0,0,0,.12);
+  z-index:60; text-align:left; font-style:normal; white-space:normal;
+  transform:translateX(-50%) translateY(-4px);
+  transition:opacity .18s ease, transform .18s ease, visibility 0s .18s;
+}
+/* hover bridge — covers the 8px gap so the card doesn't flicker shut */
+.rv2-card::before { content:""; position:absolute; top:-12px; left:0; right:0; height:12px; }
+.rv2:hover > .rv2-card, .rv2:focus-within > .rv2-card, .rv2-open > .rv2-card {
+  visibility:visible; opacity:1; transform:translateX(-50%) translateY(0);
+  transition:opacity .18s ease, transform .18s ease, visibility 0s 0s;
+}
+.rv2-body {
+  display:block; font-family:Inter, -apple-system, system-ui, sans-serif;
+  font-size:13px; line-height:1.6; color:var(--ink); font-weight:400;
+  letter-spacing:0; text-transform:none;
+}
+.rv2-p { display:block; }
+.rv2-p + .rv2-p { margin-top:8px; }
+/* dark sections: marker tinted for dark ground; card stays white (like pills) */
+.rv2-dark .rv2-mark { border-color:rgba(157,185,255,.4); color:rgba(157,185,255,.6); }
+.rv2-dark:hover .rv2-mark, .rv2-open.rv2-dark .rv2-mark { background:#9db9ff; border-color:#9db9ff; color:#0c0c0c; }
+/* interview mode lights the markers up (popovers still open on approach) */
+.imode-on .rv2-mark { background:var(--blue); border-color:var(--blue); color:var(--white); }
+@media (prefers-reduced-motion:reduce) { .rv2-card { transition:none; } }
+@media (max-width:780px) {
+  .rv2-card { left:auto; right:-10px; transform:translateY(-4px); }
+  .rv2:hover > .rv2-card, .rv2:focus-within > .rv2-card, .rv2-open > .rv2-card { transform:translateY(0); }
 }
