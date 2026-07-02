@@ -1,5 +1,7 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import Reveal from "./Reveal";
+import { KarmaChart, LessonsSnippet } from "./RedditAgentBits";
 
 /* ─── HOOKS ───────────────────────────────────────────────────────────── */
 function useR(d = 0) {
@@ -16,78 +18,6 @@ function useR(d = 0) {
 }
 
 
-/* ─── KARMA CHART ─────────────────────────────────────────────────────── */
-const KARMA_DATA = [
-  { day: "Day 1", v: 1 },
-  { day: "Day 2", v: 29 },
-  { day: "Day 3", v: 85 },
-  { day: "Day 3 eve", v: 515 },
-  { day: "Day 4", v: 1100 },
-];
-
-function KarmaChart() {
-  const [animated, setAnimated] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const el = ref.current; if (!el) return;
-    const ob = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) { setAnimated(true); ob.unobserve(el); }
-    }, { threshold: 0.3 });
-    ob.observe(el);
-    return () => ob.disconnect();
-  }, []);
-  const max = 1100;
-
-  return (
-    <div ref={ref} className="cs-chart">
-      <div className="cs-chart-label">Account karma — the launch sprint (first 4 days)</div>
-      <div className="cs-chart-bars">
-        {KARMA_DATA.map((d, i) => (
-          <div key={i} className="cs-chart-col">
-            <div className="cs-chart-val">{animated ? d.v.toLocaleString() : 0}</div>
-            <div className="cs-chart-bar-wrap">
-              <div
-                className={`cs-chart-bar ${i === KARMA_DATA.length - 1 ? "cs-chart-bar-low" : ""}`}
-                style={{ height: animated ? `${Math.max((d.v / max) * 100, 2)}%` : "0%", transitionDelay: `${i * 120}ms` }}
-              />
-            </div>
-            <div className="cs-chart-s">{d.day}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-/* ─── CODE SNIPPET ────────────────────────────────────────────────────── */
-function LessonsSnippet() {
-  return (
-    <div className="cs-code">
-      <div className="cs-code-header">
-        <span className="cs-code-file">lessons-learned.md</span>
-        <span className="cs-code-tag">200 lessons extracted from live posting</span>
-      </div>
-      <pre className="cs-code-body">{`## What works
-- Long-form specific replies > generic one-liners
-- Citing real details (expense numbers, benchmarks) = trust
-- Early posting on "Rising" threads = 10x karma potential
-- Reply to existing comments 60%, top-level 40%
-
-## What doesn't
-- r/ChatGPT rejects unsupported capability claims
-- r/LocalLLaMA demands benchmarks, not opinions
-- Short agreement comments ("this!") = downvotes
-- Posting on "Hot" threads = buried under 500 comments
-
-## Behavioral rules
-- Variable cooldowns: log-normal distribution, not uniform
-- Comment length mix: 40% short, 40% medium, 20% long
-- Return to threads 2–4 hours post for reply engagement
-- Upvote 2–3 posts per session (HARD REQUIREMENT)`}</pre>
-    </div>
-  );
-}
-
 /* ─── DATA ────────────────────────────────────────────────────────────── */
 const STEPS = [
   { n: "01", h: "Discover", p: "Semantic discovery: expands the goal into ~8 search angles, ranks subreddits by where the conversation actually is, then filters threads for genuine relevance. Targets rising threads where a specific answer adds real value." },
@@ -97,6 +27,10 @@ const STEPS = [
   { n: "05", h: "Post & learn", p: "Types through an Android accessibility keyboard and confirms the comment actually landed (editor dismissed + API check). Then it tracks karma and replies and writes new lessons back to its own files." },
 ];
 
+const SAFETY_SHORT = [
+  "~18-gate compliance", "Circuit breaker", "Bot-accusation pipeline", "Human-like cooldowns",
+  "Real length mix", "Warm-up caps", "Shadowban detection", "Audit journal",
+];
 const SAFETY = [
   "~18-gate compliance check — subreddit rules, banned topics, doxxing, slop, promo voice (heuristic + LLM)",
   "Circuit breaker — 72-hour pause on a single removal or two bot accusations",
@@ -146,13 +80,24 @@ export default function RedditAgent() {
         <div className="cs-badge abg">LAB PROJECT · AGENT_02</div>
         <p className="cs-lab-note">Lab projects take the same agent approach outside design — testing it in real systems.</p>
         <h1 className="cs-h1">An AI agent that grew <em>1 → 1,100 karma</em><br />in 4 days — then kept getting smarter</h1>
-        <p className="cs-sub">Not spam. Not bots. What started as a 4-day sprint from 1 to 1,100 karma grew into a self-improving system — 95 genuinely useful comments across 14 subreddits, 200 lessons it wrote for itself, semantic thread discovery, and a multi-platform core with Reddit live and Discord scaffolded.</p>
-        <div className="cs-role-row">
-          <div className="cs-role-item"><span className="cs-role-label">My role</span>Built and shipped the agent end to end — the loop, the safety system, and the self-learning pipeline.</div>
-          <div className="cs-role-item"><span className="cs-role-label">Stack</span>Claude Code (Opus + Sonnet) · Python · ADB + Portal accessibility posting · Reddit JSON API · Claude vision for media · PRAW → discarded</div>
-          <div className="cs-role-item"><span className="cs-role-label">Timeline</span>Built Apr 2026, evolved through May 2026 · 95 comments across 14 subreddits · Reddit live, more platforms scaffolded</div>
-          <div className="cs-role-item"><span className="cs-role-label">Why Reddit</span>Tested whether the same loop (research → act → learn → improve) transfers beyond design into community growth.</div>
+        <p className="cs-sub">Not spam. Not bots. 95 genuinely useful comments across 14 subreddits — and 200 lessons it wrote for itself.</p>
+        <Reveal cue="the full picture">
+          <p className="cs-sub">What started as a 4-day sprint from 1 to 1,100 karma grew into a self-improving system — semantic thread discovery, a ~18-gate safety layer, and a multi-platform core with Reddit live and Discord scaffolded.</p>
+        </Reveal>
+        <div className="chips" style={{ margin: "18px 0 6px" }}>
+          <span className="chip">Built end to end</span>
+          <span className="chip">Claude Code · Python · ADB</span>
+          <span className="chip">95 comments · 14 subreddits</span>
+          <span className="chip">0 bans</span>
         </div>
+        <Reveal cue="role in full">
+          <div className="cs-role-row">
+            <div className="cs-role-item"><span className="cs-role-label">My role</span>Built and shipped the agent end to end — the loop, the safety system, and the self-learning pipeline.</div>
+            <div className="cs-role-item"><span className="cs-role-label">Stack</span>Claude Code (Opus + Sonnet) · Python · ADB + Portal accessibility posting · Reddit JSON API · Claude vision for media · PRAW → discarded</div>
+            <div className="cs-role-item"><span className="cs-role-label">Timeline</span>Built Apr 2026, evolved through May 2026 · 95 comments across 14 subreddits · Reddit live, more platforms scaffolded</div>
+            <div className="cs-role-item"><span className="cs-role-label">Why Reddit</span>Tested whether the same loop (research → act → learn → improve) transfers beyond design into community growth.</div>
+          </div>
+        </Reveal>
         <div className="cs-meta-row">
           <div className="cs-meta"><span className="cs-mn">1,245</span><span className="cs-ml">Account karma</span></div>
           <div className="cs-meta"><span className="cs-mn">95</span><span className="cs-ml">Comments posted</span></div>
@@ -172,7 +117,9 @@ export default function RedditAgent() {
         <div className="cs-sec-head"><span className="stag">01 / THE QUESTION</span></div>
         <h2 className="cs-h2">Can the same agent loop work <em>outside</em> design?</h2>
         <p className="cs-p">The <Link to="/designer-agent" style={{ color: "var(--blue)" }}>Designer Agent</Link> proved a research → act → learn → improve loop could scale design judgment. The question here: was that a design trick, or does the same loop work somewhere completely different?</p>
-        <p className="cs-p">Reddit was the test. Earning real community presence takes research, context, and constant learning — the same loop, different content. The bet was that an agent loop with genuine safety controls could earn karma the way a thoughtful person does, in a place where bots and generic replies get banned fast.</p>
+        <Reveal cue="why Reddit">
+          <p className="cs-p">Reddit was the test. Earning real community presence takes research, context, and constant learning — the same loop, different content. The bet was that an agent loop with genuine safety controls could earn karma the way a thoughtful person does, in a place where bots and generic replies get banned fast.</p>
+        </Reveal>
       </section>
 
       {/* HOW IT WORKS */}
@@ -184,7 +131,9 @@ export default function RedditAgent() {
             <div key={i} className="cs-step">
               <div className="cs-step-n">{s.n}</div>
               <h3 className="cs-step-h">{s.h}</h3>
-              <p className="cs-step-p">{s.p}</p>
+              <Reveal cue="how">
+                <p className="cs-step-p">{s.p}</p>
+              </Reveal>
             </div>
           ))}
         </div>
@@ -240,15 +189,21 @@ export default function RedditAgent() {
       <section className="cs-sec cs-sec-dark" ref={safeR}>
         <div className="cs-sec-head"><span className="stag" style={{ color: "rgba(255,255,255,.4)" }}>05 / SAFETY FIRST</span></div>
         <h2 className="cs-h2" style={{ color: "white" }}>Built to be <em>safe,</em> not just fast</h2>
-        <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}>Automated posting is ethically charged. My stance: if the output isn't genuinely useful to the community, it shouldn't exist. Every guardrail enforces value-first behavior — not evasion, but contribution.</p>
-        <div className="cs-safety-list">
-          {SAFETY.map((s, i) => (
-            <div key={i} className="cs-safety-item">
-              <span className="cs-safety-check">✓</span>
-              <span>{s}</span>
-            </div>
-          ))}
+        <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}>If the output isn't genuinely useful to the community, it shouldn't exist. Eight guardrails enforce that.</p>
+        <div className="chips" style={{ marginTop: 14 }}>
+          {SAFETY_SHORT.map((s, i) => <span key={i} className="chip">{s}</span>)}
         </div>
+        <Reveal cue="all eight, in full" tone="dark">
+          <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}>Automated posting is ethically charged. My stance: if the output isn't genuinely useful to the community, it shouldn't exist. Every guardrail enforces value-first behavior — not evasion, but contribution.</p>
+          <div className="cs-safety-list">
+            {SAFETY.map((s, i) => (
+              <div key={i} className="cs-safety-item">
+                <span className="cs-safety-check">✓</span>
+                <span>{s}</span>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </section>
 
       {/* TAKEAWAY */}
@@ -263,7 +218,10 @@ export default function RedditAgent() {
         </div>
         <div className="cs-reflection">
           <h3 className="cs-reflection-h">What I'd do differently</h3>
-          <p className="cs-p">Add A/B testing between comment styles before scaling — the agent learned what works through trial and error, but a structured experiment would have gotten there faster with less noise. I'd also build a sentiment analysis layer to measure comment quality beyond karma.</p>
+          <p className="cs-p">A/B test comment styles, and measure quality beyond karma.</p>
+          <Reveal cue="both, unpacked">
+            <p className="cs-p">Add A/B testing between comment styles before scaling — the agent learned what works through trial and error, but a structured experiment would have gotten there faster with less noise. I'd also build a sentiment analysis layer to measure comment quality beyond karma.</p>
+          </Reveal>
         </div>
       </section>
 

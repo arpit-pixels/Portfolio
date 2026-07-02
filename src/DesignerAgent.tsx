@@ -1,7 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { SESSION_DATA, CORRECTIONS, PHASES, TOKENS } from "./designer-agent-data";
+import { CORRECTIONS, PHASES, TOKENS } from "./designer-agent-data";
 import AgentTerminal from "./AgentTerminal";
+import Reveal from "./Reveal";
+import { CorrectionChart, CodeSnippet } from "./DesignerAgentBits";
 
 /* ─── HOOKS ───────────────────────────────────────────────────────────── */
 function useR(d = 0) {
@@ -17,75 +19,6 @@ function useR(d = 0) {
   return r;
 }
 
-
-/* ─── CORRECTION CHART ────────────────────────────────────────────────── */
-function CorrectionChart() {
-  const [animated, setAnimated] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const el = ref.current; if (!el) return;
-    const ob = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) { setAnimated(true); ob.unobserve(el); }
-    }, { threshold: 0.3 });
-    ob.observe(el);
-    return () => ob.disconnect();
-  }, []);
-  const max = Math.max(...SESSION_DATA.map(d => d.v));
-
-  return (
-    <div ref={ref} className="cs-chart">
-      <div className="cs-chart-label">Corrections per session</div>
-      <div className="cs-chart-bars">
-        {SESSION_DATA.map((d, i) => (
-          <div key={i} className="cs-chart-col">
-            <div className="cs-chart-val">{animated ? d.v : 0}</div>
-            <div className="cs-chart-bar-wrap">
-              <div
-                className={`cs-chart-bar ${d.s === "6" ? "cs-chart-bar-spike" : d.v <= 8 ? "cs-chart-bar-low" : ""}`}
-                style={{ height: animated ? `${(d.v / max) * 100}%` : "0%", transitionDelay: `${i * 80}ms` }}
-              />
-            </div>
-            <div className="cs-chart-s">S{d.s}</div>
-          </div>
-        ))}
-      </div>
-      <div className="cs-chart-annotations">
-        <span className="cs-chart-ann">← Session 6: desktop build — hardest session, 22 corrections</span>
-        <span className="cs-chart-ann cs-chart-ann-good">Sessions 8–9: 6–8 corrections →</span>
-      </div>
-    </div>
-  );
-}
-
-/* ─── CODE SNIPPET ────────────────────────────────────────────────────── */
-function CodeSnippet() {
-  return (
-    <div className="cs-code">
-      <div className="cs-code-header">
-        <span className="cs-code-file">taste.md</span>
-        <span className="cs-code-tag">From the agent's actual knowledge base</span>
-      </div>
-      <pre className="cs-code-body">{`## Text Color Hierarchy (tested rule)
-- title:   100% white  — headings only
-- subtitle: 80% white  — data values, active states
-- body:     70% white  — copy users actually read
-- small:    60% white  — secondary labels ONLY
-- xsmall:   50% white  — metadata, stat labels
-- dim:      40% white  — de-emphasized metadata
-- xxsmall:  30% white  — legal, copyright
-
-## Spacing Philosophy
-- Mobile: push SLIMMER (negative margins > taller containers)
-- Desktop: push WIDER (opposite direction — corrected 5x)
-- 64px (4xl token) = standard center padding. Non-negotiable.
-
-## Component Reuse
-- Extract after 2 usages, not 3
-- "Does this exist?" must be automatic BEFORE any markup
-- Right sidebar reuses mobile components directly — never rebuild`}</pre>
-    </div>
-  );
-}
 
 /* ─── PAGE ────────────────────────────────────────────────────────────── */
 export default function DesignerAgent() {
@@ -120,12 +53,20 @@ export default function DesignerAgent() {
         <div className="cs-badge abb">CASE STUDY · AGENT_01</div>
         <h1 className="cs-h1">An AI agent that<br />designs from <em>my taste</em></h1>
         <p className="cs-sub">Not from screenshots. Not from prompts. From 250+ accumulated design decisions and 60+ codified taste rules — a living system that learns how I think about UI and applies it autonomously.</p>
-        <div className="cs-role-row">
-          <div className="cs-role-item"><span className="cs-role-label">My role</span>Built, trained, and maintain the agent end to end — the architecture, the knowledge files, the prompts, and the corrections that keep it improving.</div>
-          <div className="cs-role-item"><span className="cs-role-label">Stack</span>Claude Code · Figma MCP · Next.js · Tailwind · Custom knowledge files (.md)</div>
-          <div className="cs-role-item"><span className="cs-role-label">Timeline</span>Built Jan–Apr 2026 · 22+ sessions · Actively running in production</div>
-          <div className="cs-role-item"><span className="cs-role-label">Product</span><a href="https://wsup.ai" target="_blank" rel="noopener noreferrer" style={{ color: "var(--blue)" }}>wsup.ai</a> — AI chat platform (like Character.ai), 1M+ monthly visits</div>
+        <div className="chips" style={{ margin: "18px 0 6px" }}>
+          <span className="chip">Built & trained end to end</span>
+          <span className="chip">Claude Code · Figma MCP</span>
+          <span className="chip">22+ sessions · in production</span>
+          <span className="chip">wsup.ai</span>
         </div>
+        <Reveal cue="role in full">
+          <div className="cs-role-row">
+            <div className="cs-role-item"><span className="cs-role-label">My role</span>Built, trained, and maintain the agent end to end — the architecture, the knowledge files, the prompts, and the corrections that keep it improving.</div>
+            <div className="cs-role-item"><span className="cs-role-label">Stack</span>Claude Code · Figma MCP · Next.js · Tailwind · Custom knowledge files (.md)</div>
+            <div className="cs-role-item"><span className="cs-role-label">Timeline</span>Built Jan–Apr 2026 · 22+ sessions · Actively running in production</div>
+            <div className="cs-role-item"><span className="cs-role-label">Product</span><a href="https://wsup.ai" target="_blank" rel="noopener noreferrer" style={{ color: "var(--blue)" }}>wsup.ai</a> — AI chat platform (like Character.ai), 1M+ monthly visits</div>
+          </div>
+        </Reveal>
         <div className="cs-meta-row">
           <div className="cs-meta"><span className="cs-mn">90+</span><span className="cs-ml">Components</span></div>
           <div className="cs-meta"><span className="cs-mn">80+</span><span className="cs-ml">Tokens</span></div>
@@ -143,8 +84,11 @@ export default function DesignerAgent() {
       <section className="cs-sec" ref={probR}>
         <div className="cs-sec-head"><span className="stag">01 / THE PROBLEM</span></div>
         <h2 className="cs-h2">Design systems scale components.<br />They don't scale <em>taste.</em></h2>
-        <p className="cs-p">You can tokenize colors, spacing, and radii. You can build a component library. But when a new screen needs to be designed, someone still has to make hundreds of small decisions.</p>
-        <p className="cs-p">How much padding here? Which text opacity? Primary or secondary button? Those decisions aren't in your Figma file — they're in your head, and every new designer relearns them from scratch. The agent's job is to get them out of my head and into a system that can apply them on its own.</p>
+        <p className="cs-p">You can tokenize colors, spacing, and radii. But every new screen still needs hundreds of small decisions — and those live in a designer's head, not the Figma file.</p>
+        <Reveal cue="the problem">
+          <p className="cs-p">You can tokenize colors, spacing, and radii. You can build a component library. But when a new screen needs to be designed, someone still has to make hundreds of small decisions.</p>
+          <p className="cs-p">How much padding here? Which text opacity? Primary or secondary button? Those decisions aren't in your Figma file — they're in your head, and every new designer relearns them from scratch. The agent's job is to get them out of my head and into a system that can apply them on its own.</p>
+        </Reveal>
       </section>
 
       {/* HOW IT WORKS */}
@@ -155,7 +99,9 @@ export default function DesignerAgent() {
           <div className="cs-step">
             <div className="cs-step-n">01</div>
             <h3 className="cs-step-h">Load knowledge</h3>
-            <p className="cs-step-p">Agent reads 8 knowledge files — taste, decisions, project rules, its own growth timeline. 250+ decisions and 60+ taste rules inform every choice.</p>
+            <Reveal cue="how">
+              <p className="cs-step-p">Agent reads 8 knowledge files — taste, decisions, project rules, its own growth timeline. 250+ decisions and 60+ taste rules inform every choice.</p>
+            </Reveal>
             <div className="cs-step-files">
               {["taste.md", "decisions.md", "reasonings.md", "knowledge-base.md", "project-insights.md", "evolution.md", "workflow.md", "session-logs.md"].map(f => (
                 <span key={f} className="cs-step-file">{f}</span>
@@ -165,12 +111,17 @@ export default function DesignerAgent() {
           <div className="cs-step">
             <div className="cs-step-n">02</div>
             <h3 className="cs-step-h">Design from brief</h3>
-            <p className="cs-step-p">Given a product requirement, builds screens using only existing tokens and components. No reference screenshots. Knows body = 70% white, desktop padding = 64px, primary buttons never repeat.</p>
+            <p className="cs-step-p">No reference screenshots — only tokens, components, and learned taste.</p>
+            <Reveal cue="how">
+              <p className="cs-step-p">Given a product requirement, builds screens using only existing tokens and components. No reference screenshots. Knows body = 70% white, desktop padding = 64px, primary buttons never repeat.</p>
+            </Reveal>
           </div>
           <div className="cs-step">
             <div className="cs-step-n">03</div>
             <h3 className="cs-step-h">Self-audit</h3>
-            <p className="cs-step-p">Before presenting, runs a full audit: zero hardcoded hex, icon consistency, button sizes, spacing tokens, and automatic style guide sync.</p>
+            <Reveal cue="how">
+              <p className="cs-step-p">Before presenting, runs a full audit: zero hardcoded hex, icon consistency, button sizes, spacing tokens, and automatic style guide sync.</p>
+            </Reveal>
             <div className="cs-step-checks">
               {["0 hardcoded hex", "Icon consistency", "Button size validation", "Token compliance", "Style guide sync"].map(c => (
                 <span key={c} className="cs-step-check"><span style={{ color: "var(--green)" }}>✓</span> {c}</span>
@@ -180,7 +131,10 @@ export default function DesignerAgent() {
           <div className="cs-step">
             <div className="cs-step-n">04</div>
             <h3 className="cs-step-h">Learn from corrections</h3>
-            <p className="cs-step-p">After my review, every correction gets written back to the knowledge files. Next session, the agent reads updated rules and never repeats the same mistake.</p>
+            <p className="cs-step-p">Every correction becomes a rule. The same mistake never ships twice.</p>
+            <Reveal cue="how">
+              <p className="cs-step-p">After my review, every correction gets written back to the knowledge files. Next session, the agent reads updated rules and never repeats the same mistake.</p>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -233,7 +187,9 @@ export default function DesignerAgent() {
                 <div className="cs-corr-arrow">→</div>
                 <div className="cs-corr-after"><span className="cs-corr-label">After</span>{c.after}</div>
               </div>
-              <p className="cs-corr-why">{c.why}</p>
+              <Reveal cue="why">
+                <p className="cs-corr-why">{c.why}</p>
+              </Reveal>
             </div>
           ))}
         </div>
@@ -254,7 +210,9 @@ export default function DesignerAgent() {
                   <h3 className="cs-phase-h">{p.name}</h3>
                   <span className="cs-phase-ses">Sessions {p.sessions}</span>
                 </div>
-                <p className="cs-phase-p">{p.desc}</p>
+                <Reveal cue="this phase">
+                  <p className="cs-phase-p">{p.desc}</p>
+                </Reveal>
                 <div className="cs-phase-bar-row">
                   <div className="cs-phase-bar"><div className="cs-phase-fill" style={{ width: `${[70, 85, 85, 40][i]}%` }} /></div>
                   <span className="cs-phase-corr">~{p.corrections} corrections/screen</span>
@@ -297,7 +255,10 @@ export default function DesignerAgent() {
         <p className="cs-p" style={{ marginTop: 32 }}>I didn't just use AI — I built an AI system that compounds my design judgment over time. The same approach powers the <Link to="/reddit-agent" style={{ color: "var(--blue)" }}>Reddit Growth Agent</Link> — proof it works well beyond design.</p>
         <div className="cs-reflection">
           <h3 className="cs-reflection-h">What I'd do differently</h3>
-          <p className="cs-p">I'd add a visual diff layer — automatically generating before/after comparisons for each correction so the knowledge base captures not just rules but visual context. I'd also explore multi-designer knowledge merging: can two designers' taste files produce a shared system that's better than either alone?</p>
+          <p className="cs-p">A visual diff layer, and multi-designer taste merging.</p>
+          <Reveal cue="both, unpacked">
+            <p className="cs-p">I'd add a visual diff layer — automatically generating before/after comparisons for each correction so the knowledge base captures not just rules but visual context. I'd also explore multi-designer knowledge merging: can two designers' taste files produce a shared system that's better than either alone?</p>
+          </Reveal>
         </div>
       </section>
 

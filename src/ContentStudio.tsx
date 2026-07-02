@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import CarouselDecks from "./CarouselDecks";
 import HoverVideo from "./HoverVideo";
+import Reveal from "./Reveal";
 
 /* ─── HOOKS ───────────────────────────────────────────────────────────── */
 function useR(d = 0) {
@@ -63,6 +64,10 @@ const ANIME = [
   { f: "studio-anime2", poster: "poster-anime2", line: "Anime micro-drama", cap: "Cinematic Ken Burns + synced VO" },
 ];
 
+const ENFORCED_SHORT = [
+  "Per-scene timing", "Authored captions", "Mouths closed", "No caption bleed",
+  "On-brand palette", "Real type only", "Self-audit", "One assembler",
+];
 const ENFORCED = [
   "Per-scene timing so voice, captions, and motion stay frame-accurate",
   "Authored captions — written, never auto-transcribed (no transcription errors)",
@@ -105,13 +110,24 @@ export default function ContentStudio() {
         <div className="cs-badge abv">LAB PROJECT · AGENT_03</div>
         <p className="cs-lab-note">Lab projects take the same agent approach outside design — testing it in real systems.</p>
         <h1 className="cs-h1">A studio that turns one topic into a <em>carousel and a narrated video</em> — locally, for $0</h1>
-        <p className="cs-sub">Same agent loop as the Designer and Reddit agents, now pointed at creative production — where taste and brand consistency are the hard part. Type a topic; it researches, generates the hero art, writes and voices the script, animates it, scores it, and ships a branded carousel plus a 9:16 Short. Two product lines: a "Black Box" AI-news feed and cinematic anime micro-dramas.</p>
-        <div className="cs-role-row">
-          <div className="cs-role-item"><span className="cs-role-label">My role</span>Designed the "Black Box" brand system and built the whole pipeline end to end.</div>
-          <div className="cs-role-item"><span className="cs-role-label">Stack</span>Claude Code · ComfyUI (Z-Image, Qwen-Image-Edit, Wan 2.2 I2V) · local TTS + music · Python assembler — all on one home GPU</div>
-          <div className="cs-role-item"><span className="cs-role-label">Timeline</span>Built 2026 · published to YouTube + Instagram (@blackbox.aifeed)</div>
-          <div className="cs-role-item"><span className="cs-role-label">Why content</span>Tests whether the same research → make → check → learn loop works where the bar is taste, not just correctness.</div>
+        <p className="cs-sub">Type a topic. Get an on-brand carousel and a narrated 9:16 Short — researched, drawn, voiced, scored, and QA-gated on one home GPU.</p>
+        <Reveal cue="the full picture">
+          <p className="cs-sub">Same agent loop as the Designer and Reddit agents, now pointed at creative production — where taste and brand consistency are the hard part. Type a topic; it researches, generates the hero art, writes and voices the script, animates it, scores it, and ships a branded carousel plus a 9:16 Short. Two product lines: a "Black Box" AI-news feed and cinematic anime micro-dramas.</p>
+        </Reveal>
+        <div className="chips" style={{ margin: "18px 0 6px" }}>
+          <span className="chip">Black Box brand system</span>
+          <span className="chip">ComfyUI · local TTS · Python</span>
+          <span className="chip">YouTube + Instagram</span>
+          <span className="chip">$0 per post</span>
         </div>
+        <Reveal cue="role in full">
+          <div className="cs-role-row">
+            <div className="cs-role-item"><span className="cs-role-label">My role</span>Designed the "Black Box" brand system and built the whole pipeline end to end.</div>
+            <div className="cs-role-item"><span className="cs-role-label">Stack</span>Claude Code · ComfyUI (Z-Image, Qwen-Image-Edit, Wan 2.2 I2V) · local TTS + music · Python assembler — all on one home GPU</div>
+            <div className="cs-role-item"><span className="cs-role-label">Timeline</span>Built 2026 · published to YouTube + Instagram (@blackbox.aifeed)</div>
+            <div className="cs-role-item"><span className="cs-role-label">Why content</span>Tests whether the same research → make → check → learn loop works where the bar is taste, not just correctness.</div>
+          </div>
+        </Reveal>
         <div className="cs-meta-row">
           <div className="cs-meta"><span className="cs-mn">$0</span><span className="cs-ml">Cost per post — fully local</span></div>
           <div className="cs-meta"><span className="cs-mn">2</span><span className="cs-ml">Formats from one topic</span></div>
@@ -133,7 +149,9 @@ export default function ContentStudio() {
         <div className="cs-sec-head"><span className="stag">01 / THE QUESTION</span></div>
         <h2 className="cs-h2">Can the same loop handle <em>taste,</em> not just correctness?</h2>
         <p className="cs-p">The <Link to="/designer-agent" style={{ color: "var(--blue)" }}>Designer Agent</Link> proved the loop scales design judgment; the <Link to="/reddit-agent" style={{ color: "var(--blue)" }}>Reddit Agent</Link> proved it transfers to growth. Content was the hardest test: a video can be technically perfect and still look cheap.</p>
-        <p className="cs-p">So I gave the agent a real brand — "Black Box" — with rules for palette, typography, cover layouts, and tone, plus a self-audit that compares its own output to reference work. The bet: codified taste plus a strict QA gate can make a machine produce content that actually looks made by a person.</p>
+        <Reveal cue="the bet">
+          <p className="cs-p">So I gave the agent a real brand — "Black Box" — with rules for palette, typography, cover layouts, and tone, plus a self-audit that compares its own output to reference work. The bet: codified taste plus a strict QA gate can make a machine produce content that actually looks made by a person.</p>
+        </Reveal>
       </section>
 
       {/* HOW IT WORKS */}
@@ -145,7 +163,9 @@ export default function ContentStudio() {
             <div key={s.n} className="cs-step">
               <div className="cs-step-n">{s.n}</div>
               <h3 className="cs-step-h">{s.h}</h3>
-              <p className="cs-step-p">{s.p}</p>
+              <Reveal cue="how">
+                <p className="cs-step-p">{s.p}</p>
+              </Reveal>
             </div>
           ))}
         </div>
@@ -189,15 +209,21 @@ export default function ContentStudio() {
       <section className="cs-sec cs-sec-dark" ref={enfR}>
         <div className="cs-sec-head"><span className="stag" style={{ color: "rgba(255,255,255,.4)" }}>05 / QUALITY, ENFORCED IN CODE</span></div>
         <h2 className="cs-h2" style={{ color: "white" }}>Every bug I hit became a <em>rule the code enforces</em></h2>
-        <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}>AI video breaks in the same ways every time — bad lip-sync, garbled captions, mouths flapping on silent shots. Instead of fixing those by hand each run, I baked the fixes into a single assembler so they can't come back.</p>
-        <div className="cs-safety-list">
-          {ENFORCED.map((s, i) => (
-            <div key={i} className="cs-safety-item">
-              <span className="cs-safety-check">✓</span>
-              <span>{s}</span>
-            </div>
-          ))}
+        <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}>AI video breaks the same ways every time. The fixes live in one assembler — so they can't come back.</p>
+        <div className="chips" style={{ marginTop: 14 }}>
+          {ENFORCED_SHORT.map((s, i) => <span key={i} className="chip">{s}</span>)}
         </div>
+        <Reveal cue="all eight, in full" tone="dark">
+          <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}>AI video breaks in the same ways every time — bad lip-sync, garbled captions, mouths flapping on silent shots. Instead of fixing those by hand each run, I baked the fixes into a single assembler so they can't come back.</p>
+          <div className="cs-safety-list">
+            {ENFORCED.map((s, i) => (
+              <div key={i} className="cs-safety-item">
+                <span className="cs-safety-check">✓</span>
+                <span>{s}</span>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </section>
 
       {/* TAKEAWAY */}
@@ -212,7 +238,10 @@ export default function ContentStudio() {
         </div>
         <div className="cs-reflection">
           <h3 className="cs-reflection-h">What I'd do differently</h3>
-          <p className="cs-p">Add an engagement-feedback loop — let real post performance feed back into which cover archetypes and hooks the agent reaches for, so taste keeps sharpening on data, not just my eye.</p>
+          <p className="cs-p">An engagement-feedback loop — taste sharpening on data, not just my eye.</p>
+          <Reveal cue="unpacked">
+            <p className="cs-p">Add an engagement-feedback loop — let real post performance feed back into which cover archetypes and hooks the agent reaches for, so taste keeps sharpening on data, not just my eye.</p>
+          </Reveal>
         </div>
       </section>
 

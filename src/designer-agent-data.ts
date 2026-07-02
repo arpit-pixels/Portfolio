@@ -24,8 +24,8 @@ export const PHASES = [
 
 export const TOKENS = [
   { label: "Spacing values", count: 14 },
-  { label: "Color tokens", count: 90 },
-  { label: "Components", count: 62 },
+  { label: "Color tokens", count: 80 },
+  { label: "Components", count: 130 },
   { label: "Radius tokens", count: 4 },
   { label: "Shadow definitions", count: 6 },
   { label: "Style guide sections", count: 25 },
