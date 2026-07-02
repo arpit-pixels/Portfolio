@@ -285,7 +285,7 @@ nav { position:fixed; top:0; left:0; right:0; height:58px; padding:0 40px; displ
 .cs-sec-dark .wsup-screen-pair,.cs-sec-dark .wsup-mobile-row,.cs-sec-dark .wsup-platform-compare,
 .cs-sec-dark .cs-token-grid,.cs-sec-dark .cs-color-bar,
 .cs-sec-dark .cs-steps,.cs-sec-dark .cs-safety-list,
-.cs-sec-dark .chips,
+.cs-sec-dark .chips,.cs-sec-dark .rv,
 .cs-sec-dark .cs-code { max-width:800px; margin-left:auto; margin-right:auto; }
 
 .cs-sec-head { margin-bottom:24px; }
