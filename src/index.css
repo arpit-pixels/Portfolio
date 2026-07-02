@@ -151,7 +151,7 @@ nav { position:fixed; top:0; left:0; right:0; height:58px; padding:0 40px; displ
 .chip  { font-family:'DM Mono',monospace; font-size:var(--fs-xs); letter-spacing:.05em; padding:3px 9px; border-radius:4px; background:var(--faint); color:var(--muted); border:1px solid var(--border); }
 .amet { padding-top:20px; border-top:1px solid var(--faint); display:flex; align-items:baseline; gap:10px; }
 .mn   { font-family:'Fraunces',serif; font-size:var(--fs-xl); font-weight:700; color:var(--ink); letter-spacing:-.02em; }
-.alink { font-family:'DM Mono',monospace; font-size:var(--fs-xs); color:var(--blue); text-decoration:none; margin-top:16px; display:inline-flex; align-items:center; padding:8px 18px; border:1.5px solid var(--blue); border-radius:100px; transition:background .15s,color .15s; }
+.alink { font-family:'DM Mono',monospace; font-size:var(--fs-xs); color:var(--blue); text-decoration:none; margin-top:16px; display:inline-flex; align-items:center; justify-content:center; padding:8px 18px; border:1.5px solid var(--blue); border-radius:100px; transition:background .15s,color .15s; }
 .alink:hover { background:var(--blue); color:white; }
 .ml   { font-size:var(--fs-sm); color:var(--muted); line-height:var(--lh-body); }
 
