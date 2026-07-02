@@ -77,8 +77,6 @@ export default function RedditAgent() {
 
       {/* HERO */}
       <header className="cs-hero" ref={heroR}>
-        <div className="cs-badge abg">LAB PROJECT · AGENT_02</div>
-        <p className="cs-lab-note">Lab projects take the same agent approach outside design — testing it in real systems.</p>
         <h1 className="cs-h1">An AI agent that grew <em>1 → 1,100 karma</em><br />in 4 days — then kept getting smarter</h1>
         <p className="cs-sub">Not spam. Not bots. 95 genuinely useful comments across 14 subreddits — and 200 lessons it wrote for itself.<Reveal mode="pop" cue="the full picture">What started as a 4-day sprint from 1 to 1,100 karma grew into a self-improving system — semantic thread discovery, a ~18-gate safety layer, and a multi-platform core with Reddit live and Discord scaffolded.</Reveal></p>
         <div className="chips" style={{ margin: "18px 0 6px" }}>

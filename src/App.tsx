@@ -112,7 +112,6 @@ export default function Portfolio() {
           <div className="agrid">
             <div className="ag" ref={ag1}>
               <div className="ag-preview"><img src="/cs/wsup-d-anime.png" alt="Screen designed by the agent" /></div>
-              <div className="abadge abb">AGENT_01 · DESIGN</div>
               <h3 className="ah3">Designer Agent</h3>
               <p className="ap">A brief in — on-brand production screens out. Autonomously.<Reveal mode="pop" cue="how it works">Takes a product brief, reads the wsup.ai design system — 80+ tokens, 132 components — and ships on-brand screens autonomously. Lives in the production codebase and writes corrections back to its own knowledge after every session.</Reveal></p>
               <div className="amet"><div className="mn">4h → 20m</div><div className="ml">Screen design time — manual vs. agent</div></div>
@@ -120,7 +119,6 @@ export default function Portfolio() {
             </div>
             <div className="ag grn" ref={ag2} style={{ transitionDelay: "130ms" }}>
               <div className="ag-preview"><img src="/cs/reddit-top.png" alt="Reddit comments with high karma" /></div>
-              <div className="abadge abg">AGENT_02 · GROWTH</div>
               <h3 className="ah3">Reddit Growth Agent</h3>
               <p className="ap">Earns real karma with genuinely useful comments — same loop, second domain.<Reveal mode="pop" cue="how it works">Finds high-value threads, researches context, and posts genuinely useful comments. Same agentic loop as the Designer Agent — proves the architecture is domain-agnostic, not a design trick.</Reveal></p>
               <div className="amet"><div className="mn">1 → 1.1K</div><div className="ml">Organic karma — value-first commenting</div></div>
@@ -128,7 +126,6 @@ export default function Portfolio() {
             </div>
             <div className="ag vlt" ref={ag3} style={{ transitionDelay: "260ms" }}>
               <div className="ag-preview"><img src="/cs/studio/studio-1b.png" alt="A finished Black Box carousel cover" /></div>
-              <div className="abadge abv">AGENT_03 · CONTENT</div>
               <h3 className="ah3">Content Studio</h3>
               <p className="ap">One topic → carousel + narrated Short. On-brand, local, $0.<Reveal mode="pop" cue="how it works">Takes a topic and ships an on-brand carousel plus a narrated 9:16 video — fully local, $0 per post. Reads a written brand system (palette, type, an 18-cover layout library) and runs a QA gate before anything publishes. Same loop, third domain: creative production.</Reveal></p>
               <div className="amet"><div className="mn">1 topic → 2 formats</div><div className="ml">Carousel + narrated Short, on-brand</div></div>

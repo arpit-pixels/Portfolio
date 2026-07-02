@@ -50,7 +50,6 @@ export default function DesignerAgent() {
 
       {/* HERO */}
       <header className="cs-hero" ref={heroR}>
-        <div className="cs-badge abb">CASE STUDY · AGENT_01</div>
         <h1 className="cs-h1">An AI agent that<br />designs from <em>my taste</em></h1>
         <p className="cs-sub">Not from screenshots. Not from prompts. From 250+ accumulated design decisions and 60+ codified taste rules — a living system that learns how I think about UI and applies it autonomously.</p>
         <div className="chips" style={{ margin: "18px 0 6px" }}>

@@ -107,8 +107,6 @@ export default function ContentStudio() {
 
       {/* HERO */}
       <header className="cs-hero" ref={heroR}>
-        <div className="cs-badge abv">LAB PROJECT · AGENT_03</div>
-        <p className="cs-lab-note">Lab projects take the same agent approach outside design — testing it in real systems.</p>
         <h1 className="cs-h1">A studio that turns one topic into a <em>carousel and a narrated video</em> — locally, for $0</h1>
         <p className="cs-sub">Type a topic. Get an on-brand carousel and a narrated 9:16 Short — researched, drawn, voiced, scored, and QA-gated on one home GPU.<Reveal mode="pop" cue="the full picture">Same agent loop as the Designer and Reddit agents, now pointed at creative production — where taste and brand consistency are the hard part. Type a topic; it researches, generates the hero art, writes and voices the script, animates it, scores it, and ships a branded carousel plus a 9:16 Short. Two product lines: a "Black Box" AI-news feed and cinematic anime micro-dramas.</Reveal></p>
         <div className="chips" style={{ margin: "18px 0 6px" }}>
