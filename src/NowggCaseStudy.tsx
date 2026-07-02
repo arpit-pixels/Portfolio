@@ -160,17 +160,38 @@ export default function NowggCaseStudy() {
           <img src="/cs/nowgg-scroll.png" alt="now.gg popular games and category browsing" className="cs-screenshot" />
         </div>
 
+        <h3 className="cs-h3" style={{ color: 'white', marginTop: 40 }}>Browse by category — the intent layer</h3>
+        <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}><strong style={{ color: 'rgba(255,255,255,.85)' }}>For the visitor who arrives knowing their genre.</strong><Reveal mode="pop" cue="the design" tone="dark">Each category is its own landing page — a single clear headline over a grid of that genre's games. It serves the intent-driven minority without making the homepage feel like a database, and it doubles as a search-friendly surface across the 1,000+ title library.</Reveal></p>
+        <div className="cs-screenshots-single" style={{ marginTop: 16 }}>
+          <img src="/cs/nowgg/category.png" alt="now.gg category landing page — Play Simulation Games Online, grid of genre titles" className="cs-screenshot" />
+        </div>
+
         <h3 className="cs-h3" style={{ color: 'white', marginTop: 40 }}>Game detail — One-click play</h3>
         <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}><strong style={{ color: 'rgba(255,255,255,.85)' }}>Problem: traditional game detail pages assume install friction. Cloud removes it — so the page collapses to one CTA.</strong><Reveal mode="pop" cue="the design" tone="dark">They sell the game first — screenshots, reviews, system specs — because the user has to commit before they can play. Cloud removes that constraint. The page collapses to one CTA: full-bleed game art, "Play in browser" in pink, rating + tags as light context. Below, a related-games strip keeps the discovery loop alive.</Reveal></p>
         <div className="cs-screenshots-single" style={{ marginTop: 16 }}>
           <img src="/cs/nowgg-sub1.png" alt="Game detail with play button and art" className="cs-screenshot" />
         </div>
 
+        <h3 className="cs-h3" style={{ color: 'white', marginTop: 40 }}>In-browser play — the cloud player</h3>
+        <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}><strong style={{ color: 'rgba(255,255,255,.85)' }}>The payoff: a full mobile game running in a browser tab, no install.</strong><Reveal mode="pop" cue="the design" tone="dark">The player wraps the streamed game in the lightest possible chrome — a recents rail, fullscreen, and a "Remove Ads" upsell. Ads sit only in the player's margins for free users ("Ads help keep now.gg Free!"), never over the game itself — the interface stays out of the way of play.</Reveal></p>
+        <div className="cs-screenshots-single" style={{ marginTop: 16 }}>
+          <img src="/cs/nowgg/player.png" alt="now.gg cloud player — a mobile soccer game running in-browser with recents rail and ad margins" className="cs-screenshot" />
+        </div>
+
         <h3 className="cs-h3" style={{ color: 'white', marginTop: 40 }}>Mobile — Gaming on any device</h3>
         <p className="cs-p" style={{ color: "rgba(255,255,255,.55)" }}><strong style={{ color: 'rgba(255,255,255,.85)' }}>Problem: cloud gaming on phone is most users' first contact. Same library, less surface.</strong><Reveal mode="pop" cue="the design" tone="dark">Mobile visitors don't expect a full discovery experience — they want to start playing fast. So the avatar carousel stays (still the fastest "popular now" signal), cards go full-width to feel native, and navigation collapses to the essentials. Same library, less surface.</Reveal></p>
-        <div className="wsup-mobile-row">
-          <div className="cs-screen-item" style={{ maxWidth: 220 }}>
-            <img src="/cs/nowgg-m-home.png" alt="now.gg mobile with trending and game grid" className="cs-screenshot" />
+        <div className="wsup-mobile-gallery" style={{ flexWrap: "wrap", marginTop: 16 }}>
+          <div className="cs-screen-item" style={{ maxWidth: 200 }}>
+            <img src="/cs/nowgg/m-home.png" alt="now.gg mobile home — trending avatars and game grid" className="cs-screenshot" />
+            <span className="cs-cap">Home — discovery</span>
+          </div>
+          <div className="cs-screen-item" style={{ maxWidth: 200 }}>
+            <img src="/cs/nowgg/m-detail.png" alt="now.gg mobile game detail — Ludo Hero with Play in browser CTA" className="cs-screenshot" />
+            <span className="cs-cap">Game detail — one CTA</span>
+          </div>
+          <div className="cs-screen-item" style={{ maxWidth: 200 }}>
+            <img src="/cs/nowgg/m-profile.png" alt="now.gg mobile account — games played, playtime, subscriptions" className="cs-screenshot" />
+            <span className="cs-cap">Account</span>
           </div>
         </div>
       </section>
