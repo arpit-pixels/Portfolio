@@ -191,7 +191,7 @@ export default function Portfolio() {
               { highlight: "A rare mix of creativity and character.", q: "His unique ability to blend humor, energy, and deep thinking — whether in a brainstorming session or lifting team spirit during a tough sprint.", name: "Rohan Arneja", role: "AI x Product Design Leader", rel: "Senior colleague" },
             ].map((t, i) => (
               <div key={i} className="tcard-t">
-                <p className="tquote"><strong className="thighlight">{t.highlight}</strong><Reveal mode="pop" cue="full quote">{t.q}</Reveal></p>
+                <p className="tquote"><strong className="thighlight">{t.highlight}<Reveal mode="pop" cue="full quote">{t.q}</Reveal></strong></p>
                 <div className="tauthor">
                   <div className="trel">{t.rel}</div>
                   <div className="tname">{t.name}</div>

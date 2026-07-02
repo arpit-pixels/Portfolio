@@ -285,6 +285,7 @@ nav { position:fixed; top:0; left:0; right:0; height:58px; padding:0 40px; displ
 .cs-sec-dark .wsup-screen-pair,.cs-sec-dark .wsup-mobile-row,.cs-sec-dark .wsup-platform-compare,
 .cs-sec-dark .cs-token-grid,.cs-sec-dark .cs-color-bar,
 .cs-sec-dark .cs-steps,.cs-sec-dark .cs-safety-list,
+.cs-sec-dark .chips,
 .cs-sec-dark .cs-code { max-width:800px; margin-left:auto; margin-right:auto; }
 
 .cs-sec-head { margin-bottom:24px; }
@@ -1254,25 +1255,20 @@ footer { max-width:1200px; margin:0 auto; padding:22px 40px; border-top:1px soli
 }
 /* invisible hit-area extension for touch */
 .rv2-mark::after { content:""; position:absolute; inset:-10px; border-radius:50%; }
-.rv2:hover .rv2-mark, .rv2-open .rv2-mark, .rv2-mark:focus-visible {
+.rv2:hover .rv2-mark, .rv2-mark:focus-visible {
   background:var(--blue); border-color:var(--blue); color:var(--white);
 }
-.rv2-card {
-  visibility:hidden; opacity:0;
-  display:block; position:absolute; top:calc(100% + 8px); left:50%;
-  width:340px; max-width:88vw;
+.rv2-mark-on { background:var(--blue); border-color:var(--blue); color:var(--white); }
+/* the popover — PORTALED to <body>, fixed-positioned by JS (never clipped) */
+.rv2-pop {
+  position:fixed; z-index:200; width:340px; max-width:calc(100vw - 24px);
   background:var(--white); border:1px solid var(--border); border-radius:10px;
-  padding:13px 15px; box-shadow:0 12px 32px rgba(0,0,0,.12);
-  z-index:60; text-align:left; font-style:normal; white-space:normal;
-  transform:translateX(-50%) translateY(-4px);
-  transition:opacity .18s ease, transform .18s ease, visibility 0s .18s;
+  padding:13px 15px; box-shadow:0 14px 36px rgba(0,0,0,.16);
+  text-align:left; font-style:normal; white-space:normal;
+  animation:rv2in .16s ease-out;
 }
-/* hover bridge — covers the 8px gap so the card doesn't flicker shut */
-.rv2-card::before { content:""; position:absolute; top:-12px; left:0; right:0; height:12px; }
-.rv2:hover > .rv2-card, .rv2:focus-within > .rv2-card, .rv2-open > .rv2-card {
-  visibility:visible; opacity:1; transform:translateX(-50%) translateY(0);
-  transition:opacity .18s ease, transform .18s ease, visibility 0s 0s;
-}
+@keyframes rv2in { from { opacity:0; transform:translateY(-4px); } to { opacity:1; transform:none; } }
+@media (prefers-reduced-motion:reduce) { .rv2-pop { animation:none; } }
 .rv2-body {
   display:block; font-family:Inter, -apple-system, system-ui, sans-serif;
   font-size:13px; line-height:1.6; color:var(--ink); font-weight:400;
@@ -1280,13 +1276,11 @@ footer { max-width:1200px; margin:0 auto; padding:22px 40px; border-top:1px soli
 }
 .rv2-p { display:block; }
 .rv2-p + .rv2-p { margin-top:8px; }
-/* dark sections: marker tinted for dark ground; card stays white (like pills) */
+/* interview mode (V): pop content shown inline, subtly tinted as the P2 layer */
+.rv2-imode { background:var(--blue-bg); border-radius:3px; padding:0 5px; -webkit-box-decoration-break:clone; box-decoration-break:clone; }
+/* dark sections: marker tinted for dark ground (card is body-portaled, always white) */
 .rv2-dark .rv2-mark { border-color:rgba(157,185,255,.4); color:rgba(157,185,255,.6); }
-.rv2-dark:hover .rv2-mark, .rv2-open.rv2-dark .rv2-mark { background:#9db9ff; border-color:#9db9ff; color:#0c0c0c; }
-/* interview mode lights the markers up (popovers still open on approach) */
+.rv2-dark:hover .rv2-mark, .rv2-dark .rv2-mark-on { background:#9db9ff; border-color:#9db9ff; color:#0c0c0c; }
+/* interview mode lights the markers up */
 .imode-on .rv2-mark { background:var(--blue); border-color:var(--blue); color:var(--white); }
-@media (prefers-reduced-motion:reduce) { .rv2-card { transition:none; } }
-@media (max-width:780px) {
-  .rv2-card { left:auto; right:-10px; transform:translateY(-4px); }
-  .rv2:hover > .rv2-card, .rv2:focus-within > .rv2-card, .rv2-open > .rv2-card { transform:translateY(0); }
-}
+.imode-on .rv2-dark .rv2-mark { background:#9db9ff; border-color:#9db9ff; color:#0c0c0c; }
