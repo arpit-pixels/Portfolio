@@ -1262,6 +1262,7 @@ footer { max-width:1200px; margin:0 auto; padding:22px 40px; border-top:1px soli
 /* the popover — PORTALED to <body>, fixed-positioned by JS (never clipped) */
 .rv2-pop {
   position:fixed; z-index:200; width:340px; max-width:calc(100vw - 24px);
+  max-height:calc(100vh - 24px); overflow-y:auto;
   background:var(--white); border:1px solid var(--border); border-radius:10px;
   padding:13px 15px; box-shadow:0 14px 36px rgba(0,0,0,.16);
   text-align:left; font-style:normal; white-space:normal;

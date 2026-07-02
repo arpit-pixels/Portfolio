@@ -29,16 +29,27 @@ export default function Reveal({ cue = "more", children, tone, mode = "expand" }
     const m = markRef.current, c = cardRef.current;
     if (!m || !c) return;
     const r = m.getBoundingClientRect();
-    const cw = c.offsetWidth, ch = c.offsetHeight, pad = 12;
+    const vw = window.innerWidth, vh = window.innerHeight, pad = 12;
+    const cw = c.offsetWidth, ch = c.offsetHeight;
     let left = r.left + r.width / 2 - cw / 2;
-    left = Math.min(Math.max(left, pad), window.innerWidth - cw - pad);
-    let top = r.bottom + 8;
-    if (top + ch > window.innerHeight - pad) top = Math.max(pad, r.top - ch - 8); // flip above
+    left = Math.min(Math.max(left, pad), vw - cw - pad);
+    let top = r.bottom + 8;                              // prefer below the marker
+    if (top + ch > vh - pad) {                           // doesn't fit below
+      const above = r.top - ch - 8;
+      top = above >= pad ? above : vh - ch - pad;        // flip above, else pin to bottom edge
+    }
+    top = Math.min(Math.max(top, pad), Math.max(pad, vh - ch - pad)); // final on-screen clamp
     c.style.left = `${left}px`;
     c.style.top = `${top}px`;
   };
 
-  useLayoutEffect(() => { if (open && mode === "pop") position(); });
+  // position now (pre-paint) AND after paint via rAF, so card height is accurate
+  useLayoutEffect(() => {
+    if (!open || mode !== "pop") return;
+    position();
+    const id = requestAnimationFrame(position);
+    return () => cancelAnimationFrame(id);
+  });
 
   useEffect(() => {
     if (!open || mode !== "pop") return;
