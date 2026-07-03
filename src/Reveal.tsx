@@ -90,7 +90,7 @@ export default function Reveal({ cue = "more", children, tone, mode = "expand" }
       <span className={`rv2${tone === "dark" ? " rv2-dark" : ""}`}>
         <button
           ref={markRef} type="button" className={`rv2-mark${open ? " rv2-mark-on" : ""}`}
-          aria-label={cue} title={cue} aria-expanded={open}
+          aria-label={cue} aria-expanded={open}
           onClick={onClick} onMouseEnter={openNow} onMouseLeave={closeSoon}
           onFocus={openNow} onBlur={closeSoon}
         >+</button>
