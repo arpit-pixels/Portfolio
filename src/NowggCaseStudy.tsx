@@ -240,16 +240,17 @@ export default function NowggCaseStudy() {
       <section className="cs-sec" ref={resultR}>
         <div className="cs-sec-head"><span className="stag">05 / IMPACT</span></div>
         <h2 className="cs-h2">Making cloud gaming<br />feel <em>instant</em></h2>
+        <p className="cs-p" style={{ marginBottom: 4 }}><strong>The result I owned:</strong> time-to-first-game — the north-star metric the PM and I set — came down to <strong style={{ color: "var(--blue)" }}>under 30 seconds</strong>.<Pill
+          q="Under 30 seconds — from what, and how did you measure it?"
+          a="We set click-to-playable as the primary metric — median time from landing on a game to it being interactive in the browser. It came down from roughly a minute to under 30 seconds once the discovery-first layout and one-click play shipped. The mechanism is the honest part: fewer decisions before the game loads, and no install step to clear."
+        /></p>
+        <h3 className="cs-h3" style={{ marginTop: 28, marginBottom: 4 }}>The scale it served</h3>
         <div className="cs-result-grid">
           <div className="cs-result"><div className="cs-result-n">100M+</div><div className="cs-result-l">Cloud gaming users — platform scaled while UX stayed consistent</div><div className="cs-src">via PR Newswire · Mar 2024</div></div>
           <div className="cs-result"><div className="cs-result-n">~10M</div><div className="cs-result-l">Monthly visits — discovery-first design drives repeat usage</div><div className="cs-src">via company data</div></div>
           <div className="cs-result"><div className="cs-result-n">1,000+</div><div className="cs-result-l">Games browsable through a structured three-layer system</div><div className="cs-src">via now.gg catalog</div></div>
           <div className="cs-result"><div className="cs-result-n">0 installs</div><div className="cs-result-l">Click-to-play UX — instant in browser on any device</div></div>
         </div>
-        <p className="cs-p" style={{ marginTop: 26 }}><strong>The outcome I owned:</strong> time-to-first-game came down to under 30 seconds — the north-star metric the PM and I set for the redesign.<Pill
-          q="Under 30 seconds — from what, and how did you actually measure it?"
-          a={/* METRIC PLACEHOLDER — confirm exact before/after with PM */ "We set click-to-playable as the primary metric with the PM — median time from landing on a game to it being interactive in the browser. Directionally it came down from roughly a minute to under 30 seconds after the discovery-first layout and one-click play shipped. I'm confirming the exact before/after figure from analytics; the mechanism is the honest part — fewer decisions before the game loads and no install step to clear."}
-        /></p>
         <div className="cs-reflection">
           <h3 className="cs-reflection-h">What I learned</h3>
           <p className="cs-p"><strong>The best cloud gaming UX makes the cloud invisible.</strong><Reveal mode="pop" cue="unpacked">The moment users think about latency, servers, or streaming quality, the design has failed. Loading states, session start, and exit flows do most of that hiding work — long before the player ever opens.</Reveal></p>

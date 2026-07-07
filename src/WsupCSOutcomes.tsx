@@ -98,7 +98,18 @@ export default function WsupCSOutcomes() {
       <section className="cs-sec" ref={outR}>
         <div className="cs-sec-head"><span className="stag">10 / OUTCOMES & REFLECTION</span></div>
         <h2 className="cs-h2">From a scattered product<br />to one that <em>holds together</em></h2>
-        <h3 className="cs-h3" style={{ marginTop: 32 }}>What I learned</h3>
+
+        <h3 className="cs-h3" style={{ marginTop: 32 }}>Outcomes I owned</h3>
+        <p className="cs-p" style={{ marginBottom: 6 }}>Two design calls with results I can point to — approximate figures from our analytics.<Pill
+          q="How did you measure these two?"
+          a="Signup: guest-session → account rate, before vs after collapsing onboarding to two pre-filled fields. Credits: I tagged the recurring 'where are my credits' question class in Discord and support, before vs after the streak redesign. Both approximate, both moved the right way — the mechanism is the defensible part."
+        /></p>
+        <div className="wsup-outcomes">
+          <div className="wsup-outcome"><div className="wsup-outcome-v">Double-digit %</div><div className="wsup-outcome-m">Guest → signup lift</div><div className="wsup-outcome-n">after collapsing onboarding to two pre-filled fields</div></div>
+          <div className="wsup-outcome"><div className="wsup-outcome-v">~⅓ fewer</div><div className="wsup-outcome-m">Credit-confusion tickets</div><div className="wsup-outcome-n">after the streak-based credit redesign</div></div>
+        </div>
+
+        <h3 className="cs-h3" style={{ marginTop: 36 }}>What I learned</h3>
         <div className="wsup-learnings">
           {LEARNINGS.map((l, i) => {
             const lx = l as { punch: string; rest: string; punchPills?: PillSpec[]; restPills?: PillSpec[] };

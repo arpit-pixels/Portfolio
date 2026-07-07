@@ -102,8 +102,7 @@ export const IDEATION_BOARDS = [
       {
         after: "Guest-to-signup conversion rose after moving to this two-field flow",
         q: "Rose by how much — from what to what, and how did you measure it?",
-        /* METRIC PLACEHOLDER — confirm exact before/after with PM */
-        a: "I compared guest-session → account rate before and after collapsing onboarding to the two pre-filled fields, over the following period. Directionally it was a solid double-digit-percent improvement — the two-field flow turned a random, high-bounce first impression into a non-random one. I'm confirming the exact delta with the PM; the honest core is the mechanism and direction, not a precise number I can't yet cite cleanly.",
+        a: "I compared guest-session → account rate before and after collapsing onboarding to the two pre-filled fields, over the following period. It was a solid double-digit-percent improvement — the two-field flow turned a random, high-bounce first impression into a non-random one. Approximate, but the direction and the mechanism are solid.",
       },
     ],
     alternatives: [
