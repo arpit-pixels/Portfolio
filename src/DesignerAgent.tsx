@@ -4,6 +4,7 @@ import { CORRECTIONS, PHASES, TOKENS } from "./designer-agent-data";
 import AgentTerminal from "./AgentTerminal";
 import Reveal from "./Reveal";
 import { CorrectionChart, CodeSnippet } from "./DesignerAgentBits";
+import SectionNav from "./SectionNav";
 
 /* ─── HOOKS ───────────────────────────────────────────────────────────── */
 function useR(d = 0) {
@@ -36,6 +37,7 @@ export default function DesignerAgent() {
 
   return (
     <div className="cs">
+      <SectionNav />
       <nav>
         <Link to="/" className="nlogo">← Back</Link>
         <span className="nlogo" style={{ gap: 6 }}>Designer Agent</span>

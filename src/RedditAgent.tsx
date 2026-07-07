@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Reveal from "./Reveal";
 import { KarmaChart, LessonsSnippet } from "./RedditAgentBits";
+import SectionNav from "./SectionNav";
 
 /* ─── HOOKS ───────────────────────────────────────────────────────────── */
 function useR(d = 0) {
@@ -63,6 +64,7 @@ export default function RedditAgent() {
 
   return (
     <div className="cs">
+      <SectionNav />
       <nav>
         <Link to="/" className="nlogo">← Back</Link>
         <span className="nlogo" style={{ gap: 6 }}>Reddit Agent</span>

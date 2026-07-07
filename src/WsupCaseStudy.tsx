@@ -8,6 +8,7 @@ import WsupCSOutcomes from "./WsupCSOutcomes";
 import { InterviewModeProvider, Pill } from "./InterviewMode";
 import ProcessFlow, { type FlowData } from "./ProcessFlow";
 import Reveal from "./Reveal";
+import SectionNav from "./SectionNav";
 
 const WSUP_FLOW: FlowData = {
   stages: [
@@ -41,6 +42,7 @@ export default function WsupCaseStudy() {
   return (
     <InterviewModeProvider>
     <div className="cs">
+      <SectionNav />
       <nav>
         <Link to="/" className="nlogo">← Back</Link>
         <span className="nlogo" style={{ gap: 6 }}>wsup.ai</span>

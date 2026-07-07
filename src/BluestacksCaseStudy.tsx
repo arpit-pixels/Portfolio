@@ -5,6 +5,7 @@ import ProcessFlow, { type FlowData } from "./ProcessFlow";
 import { InterviewModeProvider, Pill } from "./InterviewMode";
 import Reveal from "./Reveal";
 import { CsNav, CsFooter } from "./CsChrome";
+import SectionNav from "./SectionNav";
 
 const BS_FLOW: FlowData = {
   stages: [
@@ -37,6 +38,7 @@ export default function BluestacksCaseStudy() {
   return (
     <InterviewModeProvider>
     <div className="cs">
+      <SectionNav />
       <CsNav title="BlueStacks" />
 
       <header className="cs-hero" ref={heroR}>
