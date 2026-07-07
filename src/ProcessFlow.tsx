@@ -1,7 +1,9 @@
 import { type ReactNode } from "react";
 
 export interface Stage { icon: string; label: string; sub?: string; }
-export interface FlowData { stages: Stage[] }
+/* loop: which stages the iteration cycle spans — the arc runs from stages[from]
+   back to stages[to] (from > to). Omit for a purely linear process. */
+export interface FlowData { stages: Stage[]; loop?: { from: number; to: number; label?: string } }
 
 const INK = "#0C0C0C";
 const BLUE = "#0057FF";
@@ -44,8 +46,10 @@ export default function ProcessFlow({ data }: { data: FlowData }) {
           return <path key={i} d={`M ${xa + 24},104 C ${xa + (xb - xa) * 0.3},52 ${xb - (xb - xa) * 0.3},52 ${xb - 24},104`} fill="none" stroke={BLUE} strokeWidth="1.7" strokeDasharray="4 5" markerEnd="url(#pf-arr)" />;
         })}
 
-        {/* iteration loop underneath */}
-        <path d={`M ${xs[n - 1]},306 C ${xs[n - 1]},348 ${xs[0]},348 ${xs[0]},306`} fill="none" stroke={BLUE} strokeWidth="1.7" strokeDasharray="4 5" opacity="0.5" markerEnd="url(#pf-arr)" />
+        {/* iteration loop — spans only the stages that actually iterate */}
+        {data.loop && (
+          <path d={`M ${xs[data.loop.from]},306 C ${xs[data.loop.from]},348 ${xs[data.loop.to]},348 ${xs[data.loop.to]},306`} fill="none" stroke={BLUE} strokeWidth="1.7" strokeDasharray="4 5" opacity="0.5" markerEnd="url(#pf-arr)" />
+        )}
 
         {/* stages: icon + label + sub */}
         {data.stages.map((s, i) => (
@@ -69,7 +73,7 @@ export default function ProcessFlow({ data }: { data: FlowData }) {
             </div>
           </div>
         ))}
-        <div className="pflow-m-loop">↻ then it loops back</div>
+        {data.loop && <div className="pflow-m-loop">{data.loop.label ?? "↻ iterate"}</div>}
       </div>
     </div>
   );

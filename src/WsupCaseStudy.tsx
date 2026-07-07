@@ -18,6 +18,7 @@ const WSUP_FLOW: FlowData = {
     { icon: "layout", label: "Systematize", sub: "name the design system" },
     { icon: "bolt", label: "Automate", sub: "the agent ships from it" },
   ],
+  loop: { from: 5, to: 0, label: "↻ continuous — listen, design, ship, repeat" },
 };
 
 export function useR(d = 0) {

@@ -14,6 +14,7 @@ const BS_FLOW: FlowData = {
     { icon: "layout", label: "Systematize", sub: "one system, every surface" },
     { icon: "ship", label: "Ship", sub: "at scale, rankings intact" },
   ],
+  loop: { from: 2, to: 1, label: "↻ define ⇄ design — test, refine" },
 };
 
 function useR(d = 0) {

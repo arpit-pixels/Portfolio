@@ -13,6 +13,7 @@ const NG_FLOW: FlowData = {
     { icon: "bolt", label: "Build", sub: "one-click play, lean page" },
     { icon: "loop", label: "Iterate", sub: "browsing beat search" },
   ],
+  loop: { from: 4, to: 2, label: "↻ iterate → back to design" },
 };
 
 function useR(d = 0) {
