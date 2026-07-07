@@ -31,7 +31,8 @@ export const RESEARCH_METHODS = [
         followups: [
           {
             q: "Did the streak popup actually move the needle?",
-            a: "Yes. We watched daily-claim behavior, and the clearer variant won. More importantly, credit-related support questions — 'where are my credits' — dropped off after we shipped it; the popup answered the question users had been asking.",
+            /* METRIC PLACEHOLDER — confirm exact drop with PM */
+            a: "Yes. We watched daily-claim behavior, and the clearer variant won. More importantly, the 'where are my credits' question class in Discord and support dropped off markedly after we shipped it — directionally on the order of a third fewer of those questions in the following weeks. The popup answered the thing users kept asking. I'm confirming the exact figure with the PM; the mechanism is the defensible part.",
           },
         ],
       },

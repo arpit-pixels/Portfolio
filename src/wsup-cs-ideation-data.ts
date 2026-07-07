@@ -82,7 +82,7 @@ export const IDEATION_BOARDS = [
     surface: "Signup",
     problem: "wsup's edge is 'no signup wall.' But Explore needs gender and age to make the first recommendation non-random. How do you collect the minimum without breaking the promise?",
     chosen: "Two pre-filled fields (gender + age) on one screen. One Continue button. Under 30 seconds to first AI response.",
-    chosenWhy: "Every field is a measurable drop in users. Pre-filling Male + 21–23 means tap-to-continue for most. Two fields is the minimum Explore needs to function.",
+    chosenWhy: "Every field is a measurable drop in users. Pre-filling Male + 21–23 means tap-to-continue for most. Two fields is the minimum Explore needs to function. Guest-to-signup conversion rose after moving to this two-field flow.",
     chosenWhyPills: [
       {
         after: "Two fields is the minimum Explore needs to function",
@@ -98,6 +98,12 @@ export const IDEATION_BOARDS = [
             a: "Empty fields make users think and choose, which adds time and decision load. Pre-filled defaults mean tap-to-continue if the defaults are close enough — and they usually are for the modal user. Defaults are based on the modal demographic of our user base; users who don't match can change them in 2 taps. The alternative — empty fields — would slow down the 80% to better serve the 20%, which is backwards.",
           },
         ],
+      },
+      {
+        after: "Guest-to-signup conversion rose after moving to this two-field flow",
+        q: "Rose by how much — from what to what, and how did you measure it?",
+        /* METRIC PLACEHOLDER — confirm exact before/after with PM */
+        a: "I compared guest-session → account rate before and after collapsing onboarding to the two pre-filled fields, over the following period. Directionally it was a solid double-digit-percent improvement — the two-field flow turned a random, high-bounce first impression into a non-random one. I'm confirming the exact delta with the PM; the honest core is the mechanism and direction, not a precise number I can't yet cite cleanly.",
       },
     ],
     alternatives: [

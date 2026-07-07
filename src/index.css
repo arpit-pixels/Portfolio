@@ -146,6 +146,8 @@ nav { position:fixed; top:0; left:0; right:0; height:58px; padding:0 40px; displ
 .ap   { font-size:var(--fs-base); line-height:var(--lh-body); color:var(--muted); margin-bottom:20px; flex:1; }
 .chips { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:22px; }
 .chip  { font-family:'DM Mono',monospace; font-size:var(--fs-xs); letter-spacing:.05em; padding:3px 9px; border-radius:4px; background:var(--faint); color:var(--muted); border:1px solid var(--border); }
+.ag-kind { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+.ag-kind-live { color:var(--green); }
 .amet { padding-top:20px; border-top:1px solid var(--faint); display:flex; align-items:baseline; gap:10px; }
 .mn   { font-family:'Fraunces',serif; font-size:var(--fs-xl); font-weight:700; color:var(--ink); letter-spacing:-.02em; }
 .alink { font-family:'DM Mono',monospace; font-size:var(--fs-xs); color:var(--blue); text-decoration:none; margin-top:16px; display:inline-flex; align-items:center; justify-content:center; padding:8px 18px; border:1.5px solid var(--blue); border-radius:100px; transition:background .15s,color .15s; }
