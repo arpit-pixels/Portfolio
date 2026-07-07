@@ -817,13 +817,14 @@ footer { max-width:1200px; margin:0 auto; padding:22px 40px; border-top:1px soli
 .ipill:focus-visible { outline:2px solid var(--blue); outline-offset:3px; }
 
 .ipill-card {
-  display:block; position:absolute; top:28px; left:50%; transform:translateX(-50%);
-  width:340px; max-width:88vw;
+  display:block; position:fixed; z-index:200;
+  width:340px; max-width:calc(100vw - 24px);
+  max-height:calc(100vh - 24px); overflow-y:auto;
   background:var(--white); border:1px solid var(--border); border-radius:10px;
   padding:14px 16px;
-  box-shadow:0 12px 32px rgba(0,0,0,.12);
-  z-index:50; font-style:normal;
-  animation:up .2s ease-out forwards; opacity:0; transform:translateX(-50%) translateY(-4px);
+  box-shadow:0 14px 36px rgba(0,0,0,.16);
+  font-style:normal; text-align:left; white-space:normal;
+  animation:rv2in .18s ease-out;
 }
 .ipill-card .ipill-q {
   display:block; font-family:'DM Mono',monospace; font-size:11px; color:var(--blue);
@@ -845,7 +846,6 @@ footer { max-width:1200px; margin:0 auto; padding:22px 40px; border-top:1px soli
 @media(max-width:780px){
   .imode-banner { left:16px; right:16px; bottom:16px; flex-wrap:wrap; }
   .imode-hint { padding-left:0; border-left:none; flex-basis:100%; padding-top:6px; }
-  .ipill-card { left:auto; right:0; transform:none; }
 }
 
 /* ─── WSUP CASE STUDY — CHALLENGE BLOCK (hero-level highlight) ──── */

@@ -1,4 +1,5 @@
-import { createContext, useContext, useState, useEffect, useRef, Fragment, type ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, useLayoutEffect, useRef, Fragment, type ReactNode } from "react";
+import { createPortal } from "react-dom";
 
 export type PillFollowup = { q: string; a: string };
 export type PillSpec = { after: string; q: string; a: string; followups?: PillFollowup[] };
@@ -78,34 +79,73 @@ export function TextWithPills({ text, pills }: { text: string; pills?: PillSpec[
 export function Pill({ q, a, followups }: { q: string; a: string; followups?: PillFollowup[] }) {
   const enabled = useInterviewMode();
   const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLSpanElement>(null);
+  const btnRef = useRef<HTMLButtonElement>(null);
+  const cardRef = useRef<HTMLSpanElement>(null);
+
+  // Portal-positioned like the Reveal popovers, so the card is never clipped by
+  // a case-study container's overflow and never runs off the viewport edge.
+  const position = () => {
+    const b = btnRef.current, c = cardRef.current;
+    if (!b || !c) return;
+    const r = b.getBoundingClientRect();
+    const vw = window.innerWidth, vh = window.innerHeight, pad = 12;
+    const cw = c.offsetWidth, ch = c.offsetHeight;
+    let left = r.left + r.width / 2 - cw / 2;
+    left = Math.min(Math.max(left, pad), vw - cw - pad);
+    let top = r.bottom + 8;
+    if (top + ch > vh - pad) {
+      const above = r.top - ch - 8;
+      top = above >= pad ? above : vh - ch - pad;
+    }
+    top = Math.min(Math.max(top, pad), Math.max(pad, vh - ch - pad));
+    c.style.left = `${left}px`;
+    c.style.top = `${top}px`;
+  };
+
+  useLayoutEffect(() => {
+    if (!open) return;
+    position();
+    const id = requestAnimationFrame(position);
+    return () => cancelAnimationFrame(id);
+  });
 
   useEffect(() => {
     if (!open) return;
-    const handler = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) {
-        setOpen(false);
-      }
+    const reposition = () => position();
+    const onDown = (e: globalThis.MouseEvent) => {
+      const t = e.target as Node;
+      if (btnRef.current?.contains(t) || cardRef.current?.contains(t)) return;
+      setOpen(false);
     };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    window.addEventListener("scroll", reposition, true);
+    window.addEventListener("resize", reposition);
+    document.addEventListener("mousedown", onDown);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("scroll", reposition, true);
+      window.removeEventListener("resize", reposition);
+      document.removeEventListener("mousedown", onDown);
+      document.removeEventListener("keydown", onKey);
+    };
   }, [open]);
 
   if (!enabled) return null;
 
   return (
-    <span className="ipill-wrap" ref={ref}>
+    <span className="ipill-wrap">
       <button
+        ref={btnRef}
         type="button"
         className="ipill"
-        onClick={(e) => { e.preventDefault(); setOpen(prev => !prev); }}
-        title={q}
+        onClick={(e) => { e.preventDefault(); e.stopPropagation(); setOpen(prev => !prev); }}
         aria-label={`Likely question: ${q}`}
+        aria-expanded={open}
       >
         ?
       </button>
-      {open && (
-        <span className="ipill-card" role="dialog">
+      {open && createPortal(
+        <span ref={cardRef} className="ipill-card" role="dialog" style={{ top: -9999, left: -9999 }}>
           <span className="ipill-q">Q: {q}</span>
           <span className="ipill-a">{a}</span>
           {followups && followups.map((f, i) => (
@@ -114,7 +154,8 @@ export function Pill({ q, a, followups }: { q: string; a: string; followups?: Pi
               <span className="ipill-fa">{f.a}</span>
             </Fragment>
           ))}
-        </span>
+        </span>,
+        document.body,
       )}
     </span>
   );
